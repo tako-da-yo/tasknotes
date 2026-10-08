@@ -1266,3 +1266,39 @@ body.is-mobile .tasknotes-plugin .tasknotes-settings__card-action-btn {
         transition: none;
     }
 }
+
+/* Context groups: one row per context (color, name, enabled, delete) */
+.tasknotes-plugin .tn-context-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-4-2);
+    margin-bottom: var(--size-4-2);
+}
+
+.tasknotes-plugin .tn-context-row {
+    display: flex;
+    align-items: center;
+    gap: var(--size-4-2);
+}
+
+
+.tasknotes-plugin .tn-context-row__name {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.tasknotes-plugin .tn-context-row__color {
+    width: 2.5rem;
+    height: 2rem;
+    padding: 0 2px;
+    cursor: pointer;
+}
+
+.tasknotes-plugin .tn-context-row .tn-context-row__emoji {
+    flex: 0 0 3rem;
+    width: 3rem;
+    min-width: 0;
+    max-width: 3rem;
+    padding: 4px;
+    text-align: center;
+}

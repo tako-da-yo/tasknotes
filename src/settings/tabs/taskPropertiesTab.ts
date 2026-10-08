@@ -16,6 +16,7 @@ import {
 	renderTagsPropertyCard,
 	renderRemindersPropertyCard,
 	renderUserFieldsSection,
+	renderContextGroupsCard,
 	renderSimplePropertyCard,
 	renderMetadataPropertyCard,
 } from "./taskProperties";
@@ -144,6 +145,9 @@ export function renderTaskPropertiesTab(
 		hasNLPTrigger: true,
 		nlpDefaultTrigger: "@",
 	});
+
+	// Context groups and colors
+	renderContextGroupsCard(container, plugin, save, translate);
 
 	// Projects Property Card
 	renderProjectsPropertyCard(container, plugin, save, translate);

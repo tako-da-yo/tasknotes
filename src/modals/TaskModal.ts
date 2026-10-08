@@ -44,6 +44,7 @@ import {
 	createTaskModalContextsField,
 	createTaskModalTagsField,
 	createTaskModalTimeEstimateField,
+	type TaskModalContextsControl,
 	type TaskModalMetadataFieldContext,
 } from "./taskModalMetadataFields";
 import {
@@ -356,7 +357,7 @@ export abstract class TaskModal extends Modal {
 	protected detailsInput: HTMLTextAreaElement =
 		undefined as unknown as HTMLTextAreaElement; // Legacy - kept for compatibility
 	protected detailsMarkdownEditor: EmbeddableMarkdownEditor | null = null;
-	protected contextsInput: HTMLInputElement = undefined as unknown as HTMLInputElement;
+	protected contextsInput: TaskModalContextsControl = undefined as unknown as TaskModalContextsControl;
 	protected projectsInput: HTMLInputElement = undefined as unknown as HTMLInputElement;
 	protected tagsInput: HTMLInputElement = undefined as unknown as HTMLInputElement;
 	protected timeEstimateInput: HTMLInputElement = undefined as unknown as HTMLInputElement;

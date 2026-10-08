@@ -47,6 +47,7 @@ const PROPERTY_EXTRACTORS: Record<string, (task: TaskInfo) => unknown> = {
 	scheduled: (task) => task.scheduled,
 	projects: (task) => task.projects,
 	contexts: (task) => task.contexts,
+	contextGroup: (task) => task.contexts,
 	tags: (task) => task.tags,
 	blocked: (task) => task.isBlocked,
 	blocking: (task) => task.isBlocking,

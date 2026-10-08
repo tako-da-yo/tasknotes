@@ -1,4 +1,5 @@
 import { Notice, setTooltip, TFile, type CachedMetadata } from "obsidian";
+import { findContext, findContextGroup, formatContextLabel } from "../utils/contextColors";
 import TaskNotesPlugin from "../main";
 import { ICSEvent, TaskInfo } from "../types";
 import { DateContextMenu } from "../components/DateContextMenu";
@@ -288,8 +289,41 @@ const PROPERTY_RENDERERS: Record<string, PropertyRenderer> = {
 					sourcePath: task.path,
 				},
 			};
-			renderContextsValue(element, value, tagServices);
+			// Configured contexts show as pills with their emoji, tinted with their color.
+			value.forEach((entry, index) => {
+				const context =
+					typeof entry === "string" ? findContext(plugin.settings, entry) : undefined;
+				if (!context) {
+					if (index > 0) element.appendText(" ");
+					renderContextsValue(element, [entry], tagServices);
+					return;
+				}
+				const pill = element.createSpan({
+					cls: "task-card__context-pill",
+					text: formatContextLabel(context),
+					attr: { "data-tn-click-exclude": "true" },
+				});
+				pill.style.setProperty("--tn-context-color", context.color);
+				pill.addEventListener("click", (event) => {
+					event.stopPropagation();
+					void tagServices.onTagClick?.(context.name, event);
+				});
+			});
 		}
+	},
+	contextGroup: (element, value, _task, plugin) => {
+		const match = findContextGroup(
+			plugin.settings,
+			Array.isArray(value) ? (value as string[]) : undefined
+		);
+		if (!match) return;
+		// The group's name, tinted with the task's context color
+		const pill = element.createSpan({
+			cls: "task-card__context-group",
+			text: match.group.name || match.context.name,
+		});
+		pill.style.setProperty("--tn-context-color", match.context.color);
+		pill.setAttribute("aria-label", formatContextLabel(match.context));
 	},
 	tags: (element, value, _, plugin) => {
 		if (Array.isArray(value)) {

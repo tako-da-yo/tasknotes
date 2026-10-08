@@ -81,17 +81,6 @@ export interface NLPTriggersConfig {
 
 export type HideIdentifyingTagsMode = "all" | "exact-only";
 
-/** Google Calendar event kinds other than regular events. */
-export type GoogleCalendarEventType =
-	| "workingLocation"
-	| "outOfOffice"
-	| "focusTime"
-	| "birthday"
-	| "fromGmail";
-
-/** How calendar views present an external event kind. */
-export type CalendarEventDisplayMode = "show" | "ghost" | "hide";
-
 export interface ProjectAutosuggestSettings {
 	enableFuzzy: boolean;
 	rows: string[]; // up to 3 rows; each uses {property|flags} format
@@ -100,6 +89,22 @@ export interface ProjectAutosuggestSettings {
 	includeFolders?: string[]; // Only show notes in these folders (empty = all folders)
 	propertyKey?: string; // Frontmatter property name to match
 	propertyValue?: string; // Expected value for the property (empty = property must exist)
+}
+
+/** A named context with the color used for everything assigned to it. */
+export interface ContextDefinition {
+	id: string;
+	name: string; // Value stored in a task's contexts property
+	color: string;
+	emoji?: string; // Shown before the name in pickers and on calendar events
+	enabled: boolean; // Disabled contexts are not offered and do not color items
+}
+
+/** A group of related contexts, such as "Work" or "Self". */
+export interface ContextGroup {
+	id: string;
+	name: string;
+	contexts: ContextDefinition[];
 }
 
 export interface TaskNotesSettings {
@@ -263,13 +268,18 @@ export interface TaskNotesSettings {
 	// Google Calendar sync tokens (for incremental sync)
 	googleCalendarSyncTokens: Record<string, string>; // Maps calendar ID to sync token
 	// How each special Google event kind (working location, focus time, ...) is displayed
-	googleCalendarEventTypeDisplay: Record<GoogleCalendarEventType, CalendarEventDisplayMode>;
 	// Microsoft Calendar selection
 	enabledMicrosoftCalendars: string[]; // Array of calendar IDs that should be displayed
 	// Microsoft Calendar sync tokens (delta links for incremental sync)
 	microsoftCalendarSyncTokens: Record<string, string>; // Maps calendar ID to delta link
 	// Providers synced before calendars were opt-in; all their calendars are selected on the next sync
 	pendingSelectAllCalendarProviders: ("google" | "microsoft")[];
+	// Context groups and their colors
+	contextGroups: ContextGroup[];
+	// Context whose color is used for items without a context ("" = none)
+	fallbackContext: string;
+	// Contexts applied to external calendar events, keyed by event (or recurring series)
+	externalEventContexts: Record<string, string>;
 	// Google Calendar task export settings
 	googleCalendarExport: GoogleCalendarExportSettings;
 	// Debug logging

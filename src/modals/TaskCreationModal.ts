@@ -62,6 +62,7 @@ export interface TaskCreationOptions {
 	prePopulatedValues?: TaskCreationPrepopulatedValues;
 	onTaskCreated?: (task: TaskInfo) => void;
 	creationContext?: "manual-creation" | "modal-inline-creation"; // Folder behavior context
+	startExpanded?: boolean; // Open with detailed options shown and the title field focused
 }
 
 type OpenTaskAfterCreationMode = TaskNotesPlugin["settings"]["openTaskAfterCreation"];
@@ -159,6 +160,10 @@ export class TaskCreationModal extends TaskModal {
 	protected createPrimaryInput(container: HTMLElement): void {
 		if (this.plugin.settings.enableNaturalLanguageInput) {
 			this.createNaturalLanguageInput(container);
+			if (this.options.startExpanded) {
+				this.isExpanded = true;
+				this.containerEl.addClass("expanded");
+			}
 		} else {
 			// Fall back to regular title input
 			this.createTitleInput(container);
@@ -333,7 +338,7 @@ export class TaskCreationModal extends TaskModal {
 	}
 
 	protected focusTitleInput(): void {
-		if (!this.plugin.settings.enableNaturalLanguageInput) {
+		if (!this.plugin.settings.enableNaturalLanguageInput || this.options.startExpanded) {
 			super.focusTitleInput();
 			return;
 		}

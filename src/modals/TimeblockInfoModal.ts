@@ -21,6 +21,8 @@ import {
 import { formatDateForStorage } from "../utils/dateUtils";
 import { colorValueToInputValue, normalizeThemeColor } from "../utils/themeColors";
 import { configureThemeColorInput } from "../settings/components/CardComponent";
+import { getContextChoices } from "../utils/contextColors";
+import { ContextPicker } from "../components/ContextPicker";
 import type { InterpolationValues, TranslationKey } from "../i18n";
 import { modifyVaultFile } from "../services/VaultMutationService";
 import { TaskInfo } from "../types";
@@ -51,6 +53,7 @@ export interface TimeBlock {
 	description?: string;
 	attachments?: string[];
 	color?: string;
+	context?: string;
 	id?: string;
 }
 
@@ -69,6 +72,7 @@ export class TimeblockInfoModal extends Modal {
 	private titleInput: HTMLInputElement;
 	private descriptionInput: HTMLTextAreaElement;
 	private colorInput: HTMLInputElement;
+	private contextValue = "";
 
 	// Attachment management
 	private selectedAttachments: TAbstractFile[] = [];
@@ -161,6 +165,22 @@ export class TimeblockInfoModal extends Modal {
 				);
 				configureThemeColorInput(this.colorInput);
 			});
+
+		// Context (only when contexts are configured)
+		if (getContextChoices(this.plugin.settings).length > 0) {
+			const setting = new Setting(contentEl)
+				.setName(this.translate("contextGroups.timeblock.label"))
+				.setDesc(this.translate("contextGroups.timeblock.description"));
+			this.contextValue = this.timeblock.context ?? "";
+			new ContextPicker(setting.controlEl, {
+				groups: this.plugin.settings.contextGroups,
+				value: this.contextValue,
+				noneLabel: this.translate("contextGroups.menu.none"),
+				onChange: (name) => {
+					this.contextValue = name ?? "";
+				},
+			});
+		}
 
 		// Attachments (editable)
 		new Setting(contentEl)
@@ -461,6 +481,9 @@ export class TimeblockInfoModal extends Modal {
 			this.timeblock.description = this.descriptionInput.value.trim() || undefined;
 			this.timeblock.color =
 				normalizeThemeColor(this.colorInput.value || undefined) || undefined;
+			if (getContextChoices(this.plugin.settings).length > 0) {
+				this.timeblock.context = this.contextValue || undefined;
+			}
 
 			// Convert selected attachments to wikilinks
 			const attachments: string[] = this.selectedAttachments.map(

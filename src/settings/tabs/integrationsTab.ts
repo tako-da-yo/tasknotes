@@ -1,11 +1,7 @@
 import { Notice, Platform, Modal, Setting, setIcon, App } from "obsidian";
 import TaskNotesPlugin from "../../main";
 import type { OAuthProvider, WebhookConfig, WebhookEvent } from "../../types";
-import type {
-	CalendarEventDisplayMode,
-	GoogleCalendarEventType,
-	ICSIntegrationSettings,
-} from "../../types/settings";
+import type { ICSIntegrationSettings } from "../../types/settings";
 import { TranslationKey } from "../../i18n";
 import { loadAPIEndpoints } from "../../api/loadAPIEndpoints";
 import { GOOGLE_CALENDAR_CONSTANTS } from "../../services/constants";
@@ -28,7 +24,6 @@ import {
 	createStatusBadge,
 	createCardInput,
 	createCardToggle,
-	createCardSelect,
 	createDeleteHeaderButton,
 	createCardUrlInput,
 	createCardNumberInput,
@@ -280,50 +275,6 @@ function createCalendarSelectionSection(
 	};
 }
 
-const GOOGLE_EVENT_TYPE_LABELS: Record<GoogleCalendarEventType, string> = {
-	workingLocation: "Working location",
-	outOfOffice: "Out of office",
-	focusTime: "Focus time",
-	birthday: "Birthdays",
-	fromGmail: "Events from Gmail",
-};
-
-const EVENT_DISPLAY_MODE_OPTIONS: Array<{ value: CalendarEventDisplayMode; label: string }> = [
-	{ value: "show", label: "Show as event" },
-	{ value: "ghost", label: "Show as ghost" },
-	{ value: "hide", label: "Hide" },
-];
-
-function isCalendarEventDisplayMode(value: string): value is CalendarEventDisplayMode {
-	return EVENT_DISPLAY_MODE_OPTIONS.some((option) => option.value === value);
-}
-
-/**
- * Builds the card section choosing how each special Google event type is displayed.
- */
-function createGoogleEventTypeSection(service: GoogleCalendarService): CardSection {
-	const helpInfo = activeWindow.createDiv();
-	helpInfo.className = "tasknotes-calendar-help";
-	helpInfo.textContent =
-		"Choose how special Google event types appear in calendar views. Ghosts are shown faded.";
-
-	const rows: CardSection["rows"] = [{ label: "Event types:", input: helpInfo, fullWidth: true }];
-	for (const type of Object.keys(GOOGLE_EVENT_TYPE_LABELS) as GoogleCalendarEventType[]) {
-		const select = createCardSelect(
-			EVENT_DISPLAY_MODE_OPTIONS,
-			service.getEventDisplayMode({ providerEventType: type })
-		);
-		select.addEventListener("change", () => {
-			const mode = select.value;
-			if (isCalendarEventDisplayMode(mode)) {
-				runAsyncSettingCallback(() => service.setEventTypeDisplayMode(type, mode));
-			}
-		});
-		rows.push({ label: GOOGLE_EVENT_TYPE_LABELS[type], input: select });
-	}
-	return { rows };
-}
-
 /**
  * Renders the Integrations tab - external connections and API settings
  */
@@ -485,7 +436,6 @@ export function renderIntegrationsTab(
 										googleCalendarContainer,
 										() => void renderGoogleCalendarCard()
 									),
-									createGoogleEventTypeSection(plugin.googleCalendarService),
 								]
 							: []),
 					],

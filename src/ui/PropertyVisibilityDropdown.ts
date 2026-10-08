@@ -242,6 +242,11 @@ export class PropertyVisibilityDropdown {
 					category: "organization" as const,
 				},
 				{
+					id: "contextGroup",
+					name: this.plugin.i18n.translate("contextGroups.field.label"),
+					category: "organization" as const,
+				},
+				{
 					id: "tags",
 					name: this.plugin.i18n.translate(
 						"components.propertyVisibilityDropdown.properties.tags"

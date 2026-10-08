@@ -6,6 +6,7 @@ export { renderProjectsPropertyCard } from "./projectsPropertyCard";
 export { renderTagsPropertyCard } from "./tagsPropertyCard";
 export { renderRemindersPropertyCard } from "./remindersPropertyCard";
 export { renderUserFieldsSection } from "./userFieldsCard";
+export { renderContextGroupsCard } from "./contextGroupsCard";
 
 // Re-export helper functions and types
 export {

@@ -40,6 +40,7 @@ export function getAvailableProperties(
 		{ id: "dateModified", label: makeLabel("Modified Date", "dateModified") },
 		{ id: "projects", label: makeLabel("Projects", "projects") },
 		{ id: "contexts", label: makeLabel("Contexts", "contexts") },
+		{ id: "contextGroup", label: "Context Group" }, // Computed from context group settings
 		{ id: "tags", label: "Tags" }, // Special property, not in FieldMapping
 	];
 

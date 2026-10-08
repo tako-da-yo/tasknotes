@@ -127,6 +127,20 @@ Where or how the task can be done. Configuration options:
 - **Default**: Comma-separated list of default contexts (e.g., @home, @work)
 - **NLP trigger**: Character that triggers context parsing (default: `@`)
 
+### Context Groups
+
+Context groups organize contexts into categories, such as **Work** and **Self**, and give each context a color and an optional emoji. Click a context's color swatch to pick its color. Wherever you choose a context, it is shown with its emoji in front and its name in its color, and calendar events show the emoji in their top-right corner in place of the calendar icon. In the calendar view, the context's color replaces the item's own color, such as its priority color, timeblock color, or calendar color:
+
+- **Tasks** use the context in their `contexts` property. Contexts are matched by name, ignoring case and a leading `@`. Once a context group exists, the task window's **Contexts** field becomes a picker, and choosing a context there or from a task's context menu replaces its current one. If a task lists several contexts, the first one that is in a context group sets the color.
+- **Timeblocks** have a **Context** field in the timeblock create and edit windows. You can also right-click a timeblock in the calendar to choose one. The context is saved with the timeblock in the daily note.
+- **Calendar events** from Google Calendar, Microsoft Outlook, or ICS subscriptions get a **Context** submenu when you right-click them. TaskNotes stores the choice in its own settings, because the calendar provider has no field for it, so it survives resyncs. For a recurring event, the context applies to every occurrence.
+
+Each context can be turned off with its toggle. Turned-off contexts are not offered in menus and do not color anything.
+
+On task cards, the **Contexts** property shows configured contexts with their emoji, tinted with their color. To see each task's context group in a task list or Kanban view, add the `contextGroup` formula to the view's properties. It shows the group's name, tinted with the task's context color. Views created by TaskNotes after this change include the formula. For an existing view, open the `.base` file's **Properties** menu, choose **Add formula**, name it `contextGroup`, use `contexts` as the formula, then turn it on.
+
+**Default context** sets the color for items that have no context. It only affects colors and is not written to any file. Leave it set to **None** to keep each item's own color.
+
 ### Projects
 
 Projects the task belongs to. Configuration options:

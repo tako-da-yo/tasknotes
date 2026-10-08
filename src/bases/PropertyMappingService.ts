@@ -107,6 +107,7 @@ export class PropertyMappingService {
 		// Step 3: Keep formula properties unchanged
 		if (basesPropertyId.startsWith("formula.")) {
 			if (basesPropertyId === "formula.checklistProgress") return "checklistProgress";
+			if (basesPropertyId === "formula.contextGroup") return "contextGroup";
 			return basesPropertyId;
 		}
 
@@ -166,6 +167,7 @@ export class PropertyMappingService {
 		// "Tasks" (file.tasks) is selectable in Bases UI.
 		if (propId === "file.tasks") return "checklistProgress";
 		if (propId === "formula.checklistProgress") return "checklistProgress";
+		if (propId === "formula.contextGroup") return "contextGroup";
 
 		// Keep everything else unchanged
 		return propId;

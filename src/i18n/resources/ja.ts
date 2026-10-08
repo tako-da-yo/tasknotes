@@ -3416,5 +3416,36 @@ export const ja: TranslationTree = {
 				save: "保存"
 			}
 		}
-	}
+	},
+	contextGroups: {
+		field: {
+			label: "コンテキストグループ",
+		},
+		menu: {
+			title: "コンテキスト",
+			none: "コンテキストなし",
+			updateFailed: "コンテキストを更新できませんでした",
+		},
+		timeblock: {
+			label: "コンテキスト",
+			description: "タイムブロックの色の代わりにコンテキストの色を使用します",
+		},
+		settings: {
+			name: "コンテキストグループ",
+			description: "コンテキストをグループにまとめ、それぞれに色を設定します。コンテキストが設定されたタスク、タイムブロック、カレンダーの予定は、自身の色の代わりにその色を使用します。コンテキストは名前でタスクのコンテキストと照合されます。",
+			fallback: "デフォルトのコンテキスト",
+			fallbackNone: "なし",
+			addGroup: "グループを追加",
+			addContext: "コンテキストを追加",
+			groupName: "グループ名",
+			groupNamePlaceholder: "無題のグループ",
+			contextNamePlaceholder: "コンテキスト名",
+			emptyState: "コンテキストグループはまだありません。",
+			deleteGroup: "グループを削除",
+			deleteContext: "コンテキストを削除",
+			enabled: "有効",
+			color: "色",
+			emoji: "絵文字",
+		},
+	},
 };

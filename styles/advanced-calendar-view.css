@@ -73,20 +73,82 @@
     height: 10px;
 }
 
+/* A context's emoji takes the provider icon's place */
+.fc-daygrid-event .fc-event-provider-icon.fc-event-context-emoji,
+.fc-timegrid-event .fc-event-provider-icon.fc-event-context-emoji {
+    width: auto;
+    height: auto;
+    font-size: 11px;
+    line-height: 1;
+    opacity: 1;
+}
+
 .fc-event[data-ics-event="true"]:hover {
     opacity: 1;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Ghost events: de-emphasized external events, such as Google working location */
-.fc-event.fc-event--ghost {
-    border-style: dashed;
-    opacity: 0.55;
-    box-shadow: none;
+/* Google Calendar special event types (classes from calendarExternalEvents.ts) */
+
+/* Working location: context only, so it never takes clicks, drags, or selection */
+.advanced-calendar-view .fc-event.fc-google-event--working-location {
+    pointer-events: none;
 }
 
-.fc-event.fc-event--ghost:hover {
-    opacity: 0.85;
+/* All-day: a faint marker in the all-day row */
+.advanced-calendar-view .fc-daygrid-event.fc-google-event--working-location {
+    border-width: 0 0 0 2px;
+    border-style: solid;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 0.55;
+    display:none;
+}
+
+/* Timed: a background event, drawn behind the day's other events */
+.advanced-calendar-view .fc-bg-event.fc-google-event--working-location {
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    display:none;
+}
+
+.advanced-calendar-view .fc-bg-event.fc-google-event--working-location .fc-event-title {
+    color: var(--text-muted);
+}
+
+.advanced-calendar-view .fc-bg-event.fc-google-event--working-location .fc-event-provider-icon {
+    display: none;
+}
+
+.advanced-calendar-view .fc-google-event--working-location .fc-event-title::before {
+    content: "\2302\00a0";
+}
+
+/* Out of office: the calendar color hatched, so the time reads as blocked */
+.advanced-calendar-view .fc-timegrid-event.fc-google-event--out-of-office,
+.advanced-calendar-view .fc-daygrid-block-event.fc-google-event--out-of-office {
+    background-image: repeating-linear-gradient(
+        135deg,
+        transparent 0 6px,
+        rgba(255, 255, 255, 0.28) 6px 12px
+    );
+}
+
+/* Focus time: a dim tint with a double bar, distinct from task bars */
+.advanced-calendar-view .fc-timegrid-event.fc-google-event--focus-time,
+.advanced-calendar-view .fc-daygrid-block-event.fc-google-event--focus-time {
+    border-width: 0 0 0 6px;
+    border-style: double;
+    border-radius: 2px;
+}
+
+.advanced-calendar-view .fc-google-event--birthday .fc-event-title::before {
+    content: "\1F382\00a0";
+}
+
+.advanced-calendar-view .fc-google-event--from-gmail .fc-event-title::before {
+    content: "\2709\FE0E\00a0";
 }
 
 .fc-event[data-ics-event="true"].has-related-note {
@@ -155,20 +217,20 @@
 
 /* Event Type Specific Styles */
 
-/* Timeblock Events */
-.fc-timeblock-event,
-.fc-event[data-event-type="timeblock"] {
-    opacity: 0.65;
-    border-radius: 4px;
-    border-width: 1px;
-    border-style: solid;
-    transition: opacity 0.2s ease, box-shadow 0.2s ease;
+/* Timeblock Events - styled like tasks, with dashed bars on both sides.
+   The dim fill is set on the event data (calendarEventTints.ts). */
+.advanced-calendar-view .fc-event.fc-timeblock-event,
+.advanced-calendar-view .fc-event[data-event-type="timeblock"] {
+    border-radius: 2px;
+    border-width: 0 0 0 3px;
+    border-style: dashed;
+    box-shadow: none;
+    transition: box-shadow 0.2s ease;
 }
 
-.fc-timeblock-event:hover,
-.fc-event[data-event-type="timeblock"]:hover {
-    opacity: 0.90;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+.advanced-calendar-view .fc-event.fc-timeblock-event:hover,
+.advanced-calendar-view .fc-event[data-event-type="timeblock"]:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Time Entry Events - recorded time, intentionally quieter than actionable tasks */
@@ -208,6 +270,15 @@
 .fc-task-event {
     border-radius: 4px;
     border-width: 1px;
+}
+
+/* Tasks in the grid: a bar on the leading side over a dim fill in the task color,
+   like completion markers but at full strength. The fill is set on the event data. */
+.advanced-calendar-view .fc-timegrid-event.fc-task-event:not(.fc-completion-marker, [data-event-type="timeEntry"]),
+.advanced-calendar-view .fc-daygrid-block-event.fc-task-event:not(.fc-completion-marker, [data-event-type="timeEntry"]) {
+    border-width: 0 0 0 3px;
+    border-radius: 2px;
+    box-shadow: none;
 }
 
 .fc-task-event:hover {
@@ -1043,8 +1114,8 @@ body.is-mobile .advanced-calendar-view.advanced-calendar-view--list .fc-scroller
 
 /* Clean today styling */
 .advanced-calendar-view .fc-daygrid-day.fc-day-today {
-    background: color-mix(in srgb, var(--interactive-accent) 8%, var(--background-primary));
-    border: 2px solid var(--interactive-accent);
+    background: linear-gradient(90deg, color-mix(in srgb, var(--interactive-accent) 3%, var(--background-primary)) 0%, color-mix(in srgb, var(--interactive-accent) 0%, var(--background-primary)) 30%, color-mix(in srgb, var(--interactive-accent) 0%, var(--background-primary)) 70%, color-mix(in srgb, var(--interactive-accent) 3%, var(--background-primary)) 100%);
+    border: 2px solid color-mix(in srgb, var(--interactive-accent) 40%, transparent);
     position: relative;
 }
 
@@ -1055,8 +1126,8 @@ body.is-mobile .advanced-calendar-view.advanced-calendar-view--list .fc-scroller
 
 /* Fix today styling specifically for multi-month (year) view */
 .advanced-calendar-view .fc-multimonth-daygrid .fc-daygrid-day.fc-day-today {
-    background: color-mix(in srgb, var(--interactive-accent) 8%, var(--background-primary));
-    border: 2px solid var(--interactive-accent);
+    background: linear-gradient(90deg, color-mix(in srgb, var(--interactive-accent) 3%, var(--background-primary)) 0%, color-mix(in srgb, var(--interactive-accent) 0%, var(--background-primary)) 30%, color-mix(in srgb, var(--interactive-accent) 0%, var(--background-primary)) 70%, color-mix(in srgb, var(--interactive-accent) 3%, var(--background-primary)) 100%);
+    border: 2px solid color-mix(in srgb, var(--interactive-accent) 40%, transparent);
 }
 
 .advanced-calendar-view .fc-multimonth-daygrid .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
@@ -1079,7 +1150,8 @@ body.is-mobile .advanced-calendar-view.advanced-calendar-view--list .fc-scroller
 /* Timegrid (week/day view) today column - use subtle accent instead of FullCalendar default yellow */
 /* Must match FullCalendar's specificity: .fc .fc-timegrid-col.fc-day-today */
 .advanced-calendar-view .fc .fc-timegrid-col.fc-day-today {
-    background-color: color-mix(in srgb, var(--interactive-accent) 8%, var(--background-primary));
+    background: linear-gradient(90deg, color-mix(in srgb, var(--interactive-accent) 3%, var(--background-primary)) 0%, color-mix(in srgb, var(--interactive-accent) 0%, var(--background-primary)) 30%, color-mix(in srgb, var(--interactive-accent) 0%, var(--background-primary)) 70%, color-mix(in srgb, var(--interactive-accent) 3%, var(--background-primary)) 100%);
+    border: 2px solid color-mix(in srgb, var(--interactive-accent) 40%, transparent);
 }
 
 /* Multi-month (year view) styling - minimalist */

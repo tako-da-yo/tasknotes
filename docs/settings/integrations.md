@@ -76,7 +76,17 @@ After connecting, turn on the calendars you want in the connected Google or Micr
 
 ### Google event types
 
-Google Calendar marks some entries as special event types: working location, out of office, focus time, birthdays, and events created from Gmail. In the connected Google card, choose for each type whether calendar views show it as a normal event, show it as a ghost, or hide it. Ghosts are drawn as faded outlines in the calendar color so they stay visible without competing with regular events; restyle them with the `fc-event--ghost` CSS class. Working location is hidden by default; the other types are shown as events. Changes apply immediately without a resync.
+Google Calendar marks some entries as special event types. The calendar view gives each type its own look, in the calendar's color:
+
+| Event type | Appearance | CSS class |
+| --- | --- | --- |
+| Working location | Faded marker with a house symbol in the all-day row; timed working locations are a light tint behind the day's other events. Working locations can't be clicked, dragged, or edited. | `fc-google-event--working-location` |
+| Out of office | Hatched block | `fc-google-event--out-of-office` |
+| Focus time | Dim tint with a double bar on the left | `fc-google-event--focus-time` |
+| Birthday | Cake marker before the title | `fc-google-event--birthday` |
+| Events from Gmail | Envelope marker before the title | `fc-google-event--from-gmail` |
+
+To change a type's appearance or hide it, target its class in a CSS snippet. For example, `.fc-google-event--working-location { display: none; }` hides working location events.
 
 ### Security
 

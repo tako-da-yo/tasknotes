@@ -851,6 +851,45 @@ export async function updateTimeblockInDailyNote(
 }
 
 /**
+ * Sets or clears (with undefined) a timeblock's context in its daily note.
+ */
+export async function updateTimeblockContextInDailyNote(
+	app: App,
+	date: string,
+	timeblockId: string,
+	context: string | undefined
+): Promise<TFile> {
+	const { getDailyNote, getAllDailyNotes, appHasDailyNotesPluginLoaded } = await import(
+		"obsidian-daily-notes-interface"
+	);
+	if (!appHasDailyNotesPluginLoaded()) {
+		throw new Error("Daily Notes plugin is not enabled");
+	}
+
+	const dailyNote = getDailyNote(getWindowMoment(date), getAllDailyNotes());
+	if (!dailyNote) {
+		throw new Error(`Daily note for ${date} not found`);
+	}
+
+	const content = await app.vault.read(dailyNote);
+	const frontmatter =
+		(extractFrontmatter(content) as DailyNoteFrontmatterWithTimeblocks | null) || {};
+	const timeblock = frontmatter.timeblocks?.find((tb) => tb.id === timeblockId);
+	if (!frontmatter.timeblocks || !timeblock) {
+		throw new Error(`Timeblock ${timeblockId} not found`);
+	}
+
+	if (context) {
+		timeblock.context = context;
+	} else {
+		delete timeblock.context;
+	}
+
+	await updateDailyNoteFrontmatter(app, dailyNote, frontmatter, content);
+	return dailyNote;
+}
+
+/**
  * Copies a timeblock into a daily note with a new ID and time range.
  */
 export async function copyTimeblockToDailyNote(

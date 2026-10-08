@@ -3400,5 +3400,36 @@ export const ko: TranslationTree = {
 				save: "저장"
 			}
 		}
-	}
+	},
+	contextGroups: {
+		field: {
+			label: "컨텍스트 그룹",
+		},
+		menu: {
+			title: "컨텍스트",
+			none: "컨텍스트 없음",
+			updateFailed: "컨텍스트를 업데이트하지 못했습니다",
+		},
+		timeblock: {
+			label: "컨텍스트",
+			description: "타임블록 색상 대신 컨텍스트 색상을 사용합니다",
+		},
+		settings: {
+			name: "컨텍스트 그룹",
+			description: "컨텍스트를 그룹으로 묶고 각각에 색상을 지정합니다. 컨텍스트가 있는 작업, 타임블록, 캘린더 일정은 자체 색상 대신 해당 색상을 사용합니다. 컨텍스트는 이름으로 작업 컨텍스트와 연결됩니다.",
+			fallback: "기본 컨텍스트",
+			fallbackNone: "없음",
+			addGroup: "그룹 추가",
+			addContext: "컨텍스트 추가",
+			groupName: "그룹 이름",
+			groupNamePlaceholder: "이름 없는 그룹",
+			contextNamePlaceholder: "컨텍스트 이름",
+			emptyState: "아직 컨텍스트 그룹이 없습니다.",
+			deleteGroup: "그룹 삭제",
+			deleteContext: "컨텍스트 삭제",
+			enabled: "사용",
+			color: "색상",
+			emoji: "이모지",
+		},
+	},
 };

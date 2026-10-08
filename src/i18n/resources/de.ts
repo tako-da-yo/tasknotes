@@ -3416,5 +3416,36 @@ export const de: TranslationTree = {
 				save: "Speichern"
 			}
 		}
-	}
+	},
+	contextGroups: {
+		field: {
+			label: "Kontextgruppe",
+		},
+		menu: {
+			title: "Kontext",
+			none: "Kein Kontext",
+			updateFailed: "Kontext konnte nicht aktualisiert werden",
+		},
+		timeblock: {
+			label: "Kontext",
+			description: "Die Farbe des Kontexts wird statt der Zeitblockfarbe verwendet",
+		},
+		settings: {
+			name: "Kontextgruppen",
+			description: "Kontexte gruppieren und jedem eine Farbe geben. Aufgaben, Zeitblöcke und Kalendertermine mit einem Kontext verwenden dessen Farbe statt ihrer eigenen. Kontexte werden über den Namen den Aufgabenkontexten zugeordnet.",
+			fallback: "Standardkontext",
+			fallbackNone: "Keiner",
+			addGroup: "Gruppe hinzufügen",
+			addContext: "Kontext hinzufügen",
+			groupName: "Gruppenname",
+			groupNamePlaceholder: "Unbenannte Gruppe",
+			contextNamePlaceholder: "Kontextname",
+			emptyState: "Noch keine Kontextgruppen.",
+			deleteGroup: "Gruppe löschen",
+			deleteContext: "Kontext löschen",
+			enabled: "Aktiviert",
+			color: "Farbe",
+			emoji: "Emoji",
+		},
+	},
 };

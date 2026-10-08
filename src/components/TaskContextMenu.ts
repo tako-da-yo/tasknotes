@@ -36,6 +36,8 @@ import {
 } from "../utils/dependencyUtils";
 import { generateLink } from "../utils/linkUtils";
 import { ContextMenu } from "./ContextMenu";
+import { addContextChoiceItems } from "./contextChoiceMenu";
+import { findContext } from "../utils/contextColors";
 import { showCoordinatedMenu, showCoordinatedMenuAtElement } from "./ContextMenuCoordinator";
 import { buildTimeblockPrefillForTask } from "../utils/timeblockPrefillUtils";
 import { TimeblockCreationModal } from "../modals/TimeblockCreationModal";
@@ -1545,9 +1547,36 @@ export class TaskContextMenu {
 	}
 
 	private addContextMenuItems(menu: Menu, task: TaskInfo, plugin: TaskNotesPlugin): void {
-		const currentContexts = normalizeContextList(task.contexts);
-		const contextOptions = this.getContextOptions(task, plugin);
+		// A task has one context; choosing another replaces it.
+		const current = normalizeContextList(task.contexts)[0];
+		const setContext = (context: string | undefined) =>
+			void this.updateTaskContexts(task, plugin, context ? [context] : undefined);
 
+		const hasConfiguredContexts = addContextChoiceItems(menu, {
+			groups: plugin.settings.contextGroups,
+			current,
+			noneLabel: this.t("contextGroups.menu.none"),
+			onSelect: setContext,
+		});
+
+		// Contexts used on tasks but not configured in a context group
+		const otherContexts = this.getContextOptions(task, plugin).filter(
+			(context) => !findContext(plugin.settings, context)
+		);
+		if (otherContexts.length > 0) {
+			if (hasConfiguredContexts) menu.addSeparator();
+			for (const context of otherContexts) {
+				menu.addItem((item) => {
+					const selected = current === context;
+					item.setTitle(context)
+						.setIcon("at-sign")
+						.setChecked(selected)
+						.onClick(() => setContext(selected ? undefined : context));
+				});
+			}
+		}
+
+		menu.addSeparator();
 		menu.addItem((item) => {
 			item.setTitle(this.t("contextMenus.task.organization.addContext"));
 			item.setIcon("plus");
@@ -1557,38 +1586,11 @@ export class TaskContextMenu {
 			});
 		});
 
-		if (contextOptions.length > 0) {
-			menu.addSeparator();
-			for (const context of contextOptions) {
-				menu.addItem((item) => {
-					const selected = currentContexts.includes(context);
-					item.setTitle(
-						selected
-							? this.t("contextMenus.task.organization.contextSelected", {
-									context,
-								})
-							: context
-					);
-					item.setIcon(selected ? "check" : "at-sign");
-					item.onClick(async () => {
-						await this.updateTaskContexts(
-							task,
-							plugin,
-							toggleContextInList(task.contexts, context)
-						);
-					});
-				});
-			}
-		}
-
-		if (currentContexts.length > 0) {
-			menu.addSeparator();
+		if (!hasConfiguredContexts && current) {
 			menu.addItem((item) => {
 				item.setTitle(this.t("contextMenus.task.organization.clearContexts"));
 				item.setIcon("x");
-				item.onClick(async () => {
-					await this.updateTaskContexts(task, plugin, undefined);
-				});
+				item.onClick(() => setContext(undefined));
 			});
 		}
 	}
@@ -1607,8 +1609,8 @@ export class TaskContextMenu {
 			cancelText: this.t("common.cancel"),
 		});
 
-		if (!context) return;
-		await this.updateTaskContexts(task, plugin, addContextToList(task.contexts, context));
+		if (!context?.trim()) return;
+		await this.updateTaskContexts(task, plugin, [context.trim()]);
 	}
 
 	private async updateTaskContexts(

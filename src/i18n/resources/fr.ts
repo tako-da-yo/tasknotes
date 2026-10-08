@@ -3416,5 +3416,36 @@ export const fr: TranslationTree = {
 				save: "Enregistrer"
 			}
 		}
-	}
+	},
+	contextGroups: {
+		field: {
+			label: "Groupe de contexte",
+		},
+		menu: {
+			title: "Contexte",
+			none: "Aucun contexte",
+			updateFailed: "Impossible de mettre à jour le contexte",
+		},
+		timeblock: {
+			label: "Contexte",
+			description: "La couleur du contexte remplace celle du bloc de temps",
+		},
+		settings: {
+			name: "Groupes de contextes",
+			description: "Regroupez les contextes et attribuez une couleur à chacun. Les tâches, blocs de temps et événements d'agenda ayant un contexte utilisent sa couleur au lieu de la leur. Les contextes sont associés aux contextes des tâches par leur nom.",
+			fallback: "Contexte par défaut",
+			fallbackNone: "Aucun",
+			addGroup: "Ajouter un groupe",
+			addContext: "Ajouter un contexte",
+			groupName: "Nom du groupe",
+			groupNamePlaceholder: "Groupe sans nom",
+			contextNamePlaceholder: "Nom du contexte",
+			emptyState: "Aucun groupe de contextes pour l'instant.",
+			deleteGroup: "Supprimer le groupe",
+			deleteContext: "Supprimer le contexte",
+			enabled: "Activé",
+			color: "Couleur",
+			emoji: "Émoji",
+		},
+	},
 };

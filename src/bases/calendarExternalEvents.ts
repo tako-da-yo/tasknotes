@@ -2,6 +2,8 @@ import type { EventInput } from "@fullcalendar/core";
 import type TaskNotesPlugin from "../main";
 import type { ICSEvent } from "../types";
 import { createICSEvent } from "./calendar-core";
+import { colorWithAlpha } from "../utils/themeColors";
+import { getExternalEventContext, resolveContext } from "../utils/contextColors";
 import { PRIMARY_CALENDAR_ALIAS, ProviderCalendar } from "../services/CalendarProvider";
 
 export type ExternalCalendarProvider = "ics" | "google" | "microsoft";
@@ -14,8 +16,40 @@ export type ExternalCalendarEventFactory = (
 
 type Nullable<T> = T | null;
 
-/** Class for external events shown de-emphasized, such as Google working location. */
-export const GHOST_EVENT_CLASS = "fc-event--ghost";
+/**
+ * Classes for Google Calendar's special event types, keyed by the API's eventType.
+ * Each type has its own look in advanced-calendar-view.css.
+ */
+export const GOOGLE_EVENT_TYPE_CLASSES: Readonly<Record<string, string>> = {
+	workingLocation: "fc-google-event--working-location",
+	outOfOffice: "fc-google-event--out-of-office",
+	focusTime: "fc-google-event--focus-time",
+	birthday: "fc-google-event--birthday",
+	fromGmail: "fc-google-event--from-gmail",
+};
+
+/** Display for types drawn differently from a solid block. */
+function applyGoogleEventTypeColors(event: EventInput, type: string): void {
+	const color = event.borderColor ?? event.backgroundColor;
+	if (typeof color !== "string" || !color) return;
+	if (type === "workingLocation") {
+		// Context only: never editable or interactive (CSS also lets clicks pass through).
+		event.editable = false;
+		event.interactive = false;
+		if (event.allDay) {
+			// A faint marker in the all-day row; a background event would shade the whole day.
+			event.backgroundColor = "transparent";
+			event.textColor = color;
+		} else {
+			// Timed: drawn behind the day's other events instead of beside them.
+			event.display = "background";
+			event.backgroundColor = colorWithAlpha(color, 0.12);
+		}
+	} else if (type === "focusTime") {
+		event.backgroundColor = colorWithAlpha(color, 0.15);
+		event.textColor = color;
+	}
+}
 
 function normalizeClassNames(classNames: EventInput["classNames"]): string[] {
 	if (!classNames) return [];
@@ -85,28 +119,33 @@ export function buildExternalCalendarEvents({
 			continue;
 		}
 
-		const displayMode =
-			provider === "google"
-				? plugin.googleCalendarService?.getEventDisplayMode(event)
-				: "show";
-		if (displayMode === "hide") {
-			continue;
-		}
-
 		const calendarEvent = createEvent(event, plugin, {
 			relatedNoteCount: relatedNoteCountsByEventId?.get(event.id),
 		});
 		if (calendarEvent) {
-			if (displayMode === "ghost") {
-				// Outline in the calendar color instead of filling with it.
-				calendarEvent.textColor =
-					calendarEvent.borderColor ??
-					calendarEvent.backgroundColor ??
-					calendarEvent.textColor;
-				calendarEvent.backgroundColor = "transparent";
+			// A context's color takes precedence over the provider's calendar color.
+			const context = resolveContext(
+				plugin.settings,
+				getExternalEventContext(plugin.settings, event)
+			);
+			if (context) {
+				calendarEvent.borderColor = context.color;
+				calendarEvent.backgroundColor = colorWithAlpha(context.color, 0.2);
+				if (context.emoji) {
+					calendarEvent.extendedProps = {
+						...calendarEvent.extendedProps,
+						contextEmoji: context.emoji,
+					};
+				}
+			}
+
+			const type = provider === "google" ? event.providerEventType : undefined;
+			const typeClass = type ? GOOGLE_EVENT_TYPE_CLASSES[type] : undefined;
+			if (type && typeClass) {
+				applyGoogleEventTypeColors(calendarEvent, type);
 				calendarEvent.classNames = [
 					...normalizeClassNames(calendarEvent.classNames),
-					GHOST_EVENT_CLASS,
+					typeClass,
 				];
 			}
 			calendarEvents.push(calendarEvent);

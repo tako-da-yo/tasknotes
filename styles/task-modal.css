@@ -247,6 +247,12 @@
     font-style: italic;
 }
 
+/* Make.md decorates every empty editor line with its own "Type '/' for commands"
+   hint, which renders on top of the TaskNotes placeholder in embedded editors. */
+.tn-embedded-markdown-editor .cm-editor .cm-line.mk-placeholder::before {
+    content: none;
+}
+
 
 /* =====================================================================
    CODEMIRROR AUTOCOMPLETE STYLING (for NLP triggers)
@@ -1626,4 +1632,25 @@ body.is-mobile .tasknotes-plugin .task-project-item--task-card .task-project-rem
     font-size: var(--font-ui-smaller);
     color: var(--text-muted);
     margin-top: 2px;
+}
+
+/* Context picker: a select-style button showing the context's emoji and colored name */
+.tn-context-picker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 10rem;
+    text-align: start;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.tn-context-picker__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tn-context-picker__label--empty {
+    color: var(--text-muted);
 }

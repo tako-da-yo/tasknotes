@@ -2027,3 +2027,25 @@ body.is-mobile .tasknotes-plugin .task-card--layout-inline .task-card__context-m
 .tasknotes-plugin .kanban-view__card-wrapper--selected-primary {
     box-shadow: inset 0 0 0 2px var(--interactive-accent);
 }
+
+/* Context group property: the group's name tinted with the task's context color */
+.tasknotes-plugin .task-card__context-group,
+.tasknotes-plugin .task-card__context-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 6px;
+    border-radius: var(--radius-s);
+    color: var(--tn-context-color, var(--text-muted));
+    background: color-mix(in srgb, var(--tn-context-color, var(--text-muted)) 14%, transparent);
+    font-size: var(--font-ui-smaller);
+    line-height: 1.6;
+    white-space: nowrap;
+}
+
+.tasknotes-plugin .task-card__context-pill {
+    cursor: pointer;
+}
+
+.tasknotes-plugin .task-card__context-pill + .task-card__context-pill {
+    margin-inline-start: 4px;
+}

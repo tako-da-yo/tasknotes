@@ -121,6 +121,27 @@ export function decorateCalendarIcsEventElement({
 	}
 }
 
+/**
+ * Shows a context's emoji in the event's top-right corner, in place of the
+ * provider icon. List view cards have no corner icon, so they are left alone.
+ */
+export function applyCalendarContextEmojiBadge(
+	element: HTMLElement,
+	emoji: string,
+	viewType: string
+): void {
+	if (viewType === "listWeek") {
+		return;
+	}
+
+	element.querySelector(".fc-event-provider-icon")?.remove();
+	const badgeEl = createElementInDocument(element.ownerDocument, "span");
+	badgeEl.classList.add("fc-event-provider-icon", "fc-event-context-emoji");
+	badgeEl.setAttribute("aria-hidden", "true");
+	badgeEl.textContent = emoji;
+	element.appendChild(badgeEl);
+}
+
 export function enrichCalendarListTaskInfo({
 	taskInfo,
 	basesEntry,

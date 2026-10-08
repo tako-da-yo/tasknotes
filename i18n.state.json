@@ -9023,6 +9023,90 @@
     "components.recurrenceContextMenu.customRecurrenceModal.save": {
       "source": "efc007a393f66cdb14d57d385822a3d9e36ef873",
       "translation": "70b73bbc118d6d620f99c59b63abd90c84e500b3"
+    },
+    "contextGroups.field.label": {
+      "source": "eb819dacc5e6fae9de1c7736eb95091b17e4e683",
+      "translation": "d0558bc91595abf8370f88c2607eae092057a668"
+    },
+    "contextGroups.menu.title": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "98bd5cd47690a2830fd840c8dc63cac103adac16"
+    },
+    "contextGroups.menu.none": {
+      "source": "6f74983b4a5fbb16953c858be89725470e3174ad",
+      "translation": "d8f02d3cc24a0cc3e8d61048fe09551cf990ecbe"
+    },
+    "contextGroups.menu.updateFailed": {
+      "source": "4937e5ba2c3cad5a939b0940089d0f2b46e099f4",
+      "translation": "4939e83c05c6035f7526097967d78855ed4e27d8"
+    },
+    "contextGroups.timeblock.label": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "98bd5cd47690a2830fd840c8dc63cac103adac16"
+    },
+    "contextGroups.timeblock.description": {
+      "source": "049ae80eb4f7d4175dd2e72b478f6c50463f68f9",
+      "translation": "e27bd90ffaa87ab8d7347226109b73cb428e1b4c"
+    },
+    "contextGroups.settings.name": {
+      "source": "943fc127b408cedf0eeeaf7c7284d14e3ee324f0",
+      "translation": "603ab9498d1712fa59960896d8c6c8e8857e307c"
+    },
+    "contextGroups.settings.description": {
+      "source": "415ec1a0baf02782ddc33d4ae449a5d8389b50bf",
+      "translation": "5680103ef33312439f75deaf39da59b265159fc4"
+    },
+    "contextGroups.settings.fallback": {
+      "source": "10bcddc88094aba0ba322f472a6e6b7872dd8e99",
+      "translation": "ad0e92a4348ba2894caaad33f3a2434d029ac1f0"
+    },
+    "contextGroups.settings.fallbackNone": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "155f7a975ef562a629b07046c7fb0134a2210e8f"
+    },
+    "contextGroups.settings.addGroup": {
+      "source": "2fca464f9c8925cc89e35205360e2f82ff3ec122",
+      "translation": "ca184600f1133b3352919a043ef58768cc695f57"
+    },
+    "contextGroups.settings.addContext": {
+      "source": "08dae0bb10f5fe62e0690120e879d382a19d7aab",
+      "translation": "4605bc66c873939b62844667cb54d16fcd0de850"
+    },
+    "contextGroups.settings.groupName": {
+      "source": "ebb7e14b1c9c2d7e6b2ff73a5662881e10c6a8b6",
+      "translation": "473fe80d06d97f979a199b19cbbae9349bd2cdbd"
+    },
+    "contextGroups.settings.groupNamePlaceholder": {
+      "source": "4991c23d4632a64b59008a6873451ffde956a230",
+      "translation": "e3c0f6f0c5d0efb0eeb1abcf2dc086996ca2c96f"
+    },
+    "contextGroups.settings.contextNamePlaceholder": {
+      "source": "a6fa745a82eb6745453b32aa5839fee88fcc78fe",
+      "translation": "6ba4e71aeeb055d261fa28be38c066330480912b"
+    },
+    "contextGroups.settings.emptyState": {
+      "source": "8d383b77abdef6a88973d40b22a499c1a44f5952",
+      "translation": "029712da89773478103d37ffe4e1aabd513fb149"
+    },
+    "contextGroups.settings.deleteGroup": {
+      "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
+      "translation": "2fcba4f2ee7c161a165ca4ca5549aa69c389743a"
+    },
+    "contextGroups.settings.deleteContext": {
+      "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
+      "translation": "42297ba0630f42af18b46689dac0d89f45347d69"
+    },
+    "contextGroups.settings.enabled": {
+      "source": "df174a3f2faa31814e06540acda7af8825403fac",
+      "translation": "0601550089332636fc88739b2e97c0ba43c74e89"
+    },
+    "contextGroups.settings.color": {
+      "source": "1d0c8304baedcf8e3a78982c2e7c0b04622bf2a0",
+      "translation": "89b7957dae43b5c264cf9a6889b67259dadcda25"
+    },
+    "contextGroups.settings.emoji": {
+      "source": "5090a9e78c899272a10648b39e7689bc40072825",
+      "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     }
   },
   "es": {
@@ -18049,6 +18133,90 @@
     "components.recurrenceContextMenu.customRecurrenceModal.save": {
       "source": "efc007a393f66cdb14d57d385822a3d9e36ef873",
       "translation": "a0b626d6e9f028dfb8f5b2dad4cff9bcec7cb7aa"
+    },
+    "contextGroups.field.label": {
+      "source": "eb819dacc5e6fae9de1c7736eb95091b17e4e683",
+      "translation": "479233ce5488779d87ca0ec1d04220cbf8675bdd"
+    },
+    "contextGroups.menu.title": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "0078616a8727617e0180622340fc2f4a8455d2e3"
+    },
+    "contextGroups.menu.none": {
+      "source": "6f74983b4a5fbb16953c858be89725470e3174ad",
+      "translation": "4250e7a9ece144054661f1f96171303862a410c6"
+    },
+    "contextGroups.menu.updateFailed": {
+      "source": "4937e5ba2c3cad5a939b0940089d0f2b46e099f4",
+      "translation": "3b1610c34b502cbe0679eeb61f71fe79138e64d0"
+    },
+    "contextGroups.timeblock.label": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "0078616a8727617e0180622340fc2f4a8455d2e3"
+    },
+    "contextGroups.timeblock.description": {
+      "source": "049ae80eb4f7d4175dd2e72b478f6c50463f68f9",
+      "translation": "3a32ac59ca95595fc41d395fd33e298888c01090"
+    },
+    "contextGroups.settings.name": {
+      "source": "943fc127b408cedf0eeeaf7c7284d14e3ee324f0",
+      "translation": "bc47834332814b140c1ac4810f2dbd13283217f6"
+    },
+    "contextGroups.settings.description": {
+      "source": "415ec1a0baf02782ddc33d4ae449a5d8389b50bf",
+      "translation": "684ad135d65c5be9313728c5dae7192e8c675f7d"
+    },
+    "contextGroups.settings.fallback": {
+      "source": "10bcddc88094aba0ba322f472a6e6b7872dd8e99",
+      "translation": "0b39c70087658b13b9739f38e7727ec761c86e3b"
+    },
+    "contextGroups.settings.fallbackNone": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "f3c24118253ba4c6d9714a1b7072af06a8990a67"
+    },
+    "contextGroups.settings.addGroup": {
+      "source": "2fca464f9c8925cc89e35205360e2f82ff3ec122",
+      "translation": "16c195db4a649c97dd5c7f424c72058432ff0b86"
+    },
+    "contextGroups.settings.addContext": {
+      "source": "08dae0bb10f5fe62e0690120e879d382a19d7aab",
+      "translation": "d9f4c39541d10089a0470720e494f41b3bf8d2dc"
+    },
+    "contextGroups.settings.groupName": {
+      "source": "ebb7e14b1c9c2d7e6b2ff73a5662881e10c6a8b6",
+      "translation": "92ac3bf71a943d0fd1d1eb3eb65f84b194b94e20"
+    },
+    "contextGroups.settings.groupNamePlaceholder": {
+      "source": "4991c23d4632a64b59008a6873451ffde956a230",
+      "translation": "6f03012a627cc34dda978ec479700c14aeb0801b"
+    },
+    "contextGroups.settings.contextNamePlaceholder": {
+      "source": "a6fa745a82eb6745453b32aa5839fee88fcc78fe",
+      "translation": "4119725dea2a5987178880d397ec8528dfc139fe"
+    },
+    "contextGroups.settings.emptyState": {
+      "source": "8d383b77abdef6a88973d40b22a499c1a44f5952",
+      "translation": "7f9ecab64643d4ac54f6ef706212449ae6b4f73b"
+    },
+    "contextGroups.settings.deleteGroup": {
+      "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
+      "translation": "88363196686124bd014373d65a73cf3916fcf4f7"
+    },
+    "contextGroups.settings.deleteContext": {
+      "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
+      "translation": "e36a585d1516e28c97c72aa230d6ce7a2271f42c"
+    },
+    "contextGroups.settings.enabled": {
+      "source": "df174a3f2faa31814e06540acda7af8825403fac",
+      "translation": "c7d29f3ab104dd43a35741728c937ef0196843b9"
+    },
+    "contextGroups.settings.color": {
+      "source": "1d0c8304baedcf8e3a78982c2e7c0b04622bf2a0",
+      "translation": "1d0c8304baedcf8e3a78982c2e7c0b04622bf2a0"
+    },
+    "contextGroups.settings.emoji": {
+      "source": "5090a9e78c899272a10648b39e7689bc40072825",
+      "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     }
   },
   "fr": {
@@ -27075,6 +27243,90 @@
     "components.recurrenceContextMenu.customRecurrenceModal.save": {
       "source": "efc007a393f66cdb14d57d385822a3d9e36ef873",
       "translation": "f7c8bcd8b213a6cc4a0cfd3462bd1379e4ef9689"
+    },
+    "contextGroups.field.label": {
+      "source": "eb819dacc5e6fae9de1c7736eb95091b17e4e683",
+      "translation": "d1f56c2f81cb3a29c8515a3083ada57aa0efc40e"
+    },
+    "contextGroups.menu.title": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "8112e9eb98ed86cf2af7c43d9c0976a2036aceae"
+    },
+    "contextGroups.menu.none": {
+      "source": "6f74983b4a5fbb16953c858be89725470e3174ad",
+      "translation": "230eb8721d00754df3364a6edb1564e1e01c77f8"
+    },
+    "contextGroups.menu.updateFailed": {
+      "source": "4937e5ba2c3cad5a939b0940089d0f2b46e099f4",
+      "translation": "0a42dc82cef87cae1ca856d2c629ba6717adcfeb"
+    },
+    "contextGroups.timeblock.label": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "8112e9eb98ed86cf2af7c43d9c0976a2036aceae"
+    },
+    "contextGroups.timeblock.description": {
+      "source": "049ae80eb4f7d4175dd2e72b478f6c50463f68f9",
+      "translation": "5472fb1cbf2c094b890fe8b98957bbc8906ef361"
+    },
+    "contextGroups.settings.name": {
+      "source": "943fc127b408cedf0eeeaf7c7284d14e3ee324f0",
+      "translation": "92ba61d7ff04b6a0b8e8cb7720c8d983fa0073e9"
+    },
+    "contextGroups.settings.description": {
+      "source": "415ec1a0baf02782ddc33d4ae449a5d8389b50bf",
+      "translation": "ea64d97fd8f0f3b406c0275f2d62b2d4558157e7"
+    },
+    "contextGroups.settings.fallback": {
+      "source": "10bcddc88094aba0ba322f472a6e6b7872dd8e99",
+      "translation": "be0bef531edf26b286a578979704d85be8e2c31f"
+    },
+    "contextGroups.settings.fallbackNone": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "b2ed82f1bf1c30916cde300ded82176c2ff0300a"
+    },
+    "contextGroups.settings.addGroup": {
+      "source": "2fca464f9c8925cc89e35205360e2f82ff3ec122",
+      "translation": "3f13cea3ada4f3b4d973e868dab8374332a520b1"
+    },
+    "contextGroups.settings.addContext": {
+      "source": "08dae0bb10f5fe62e0690120e879d382a19d7aab",
+      "translation": "7ec00ce5d0af2306e5b75399f7a4df21bb32cc49"
+    },
+    "contextGroups.settings.groupName": {
+      "source": "ebb7e14b1c9c2d7e6b2ff73a5662881e10c6a8b6",
+      "translation": "d71030e92b4a1c41bec1903329f2fd108329f329"
+    },
+    "contextGroups.settings.groupNamePlaceholder": {
+      "source": "4991c23d4632a64b59008a6873451ffde956a230",
+      "translation": "cd9938fe811bf55d0e1bf9d9967c57df0950249e"
+    },
+    "contextGroups.settings.contextNamePlaceholder": {
+      "source": "a6fa745a82eb6745453b32aa5839fee88fcc78fe",
+      "translation": "7811feb61be2dc9801768f6020f42b7bd5cd3b55"
+    },
+    "contextGroups.settings.emptyState": {
+      "source": "8d383b77abdef6a88973d40b22a499c1a44f5952",
+      "translation": "fb9a75a062741a70df143448bdd32672336e4935"
+    },
+    "contextGroups.settings.deleteGroup": {
+      "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
+      "translation": "64ba04798494b141ccb2971451811c1da77f53e1"
+    },
+    "contextGroups.settings.deleteContext": {
+      "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
+      "translation": "a495d387ef169bd98c40eab45111cd9a96540b92"
+    },
+    "contextGroups.settings.enabled": {
+      "source": "df174a3f2faa31814e06540acda7af8825403fac",
+      "translation": "42ce0b247f6ec9825b21c30b0fed56891f14db06"
+    },
+    "contextGroups.settings.color": {
+      "source": "1d0c8304baedcf8e3a78982c2e7c0b04622bf2a0",
+      "translation": "145c4326e92bd951de43c1c9af9158c7b49a0d76"
+    },
+    "contextGroups.settings.emoji": {
+      "source": "5090a9e78c899272a10648b39e7689bc40072825",
+      "translation": "e582e53cb5f667d8b1755431b37ede223e92c9f0"
     }
   },
   "ja": {
@@ -36101,6 +36353,90 @@
     "components.recurrenceContextMenu.customRecurrenceModal.save": {
       "source": "efc007a393f66cdb14d57d385822a3d9e36ef873",
       "translation": "fadf24dbc5a9e0bb05b83081423a8be08476103a"
+    },
+    "contextGroups.field.label": {
+      "source": "eb819dacc5e6fae9de1c7736eb95091b17e4e683",
+      "translation": "4d3ab9597bd1d1b553ac61baa8d7d7bb2020cc0a"
+    },
+    "contextGroups.menu.title": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "23bbf207a5664ecbee35e5a146105c9cabe18bec"
+    },
+    "contextGroups.menu.none": {
+      "source": "6f74983b4a5fbb16953c858be89725470e3174ad",
+      "translation": "1393f884948b9388402aad87f64adcdbae4153da"
+    },
+    "contextGroups.menu.updateFailed": {
+      "source": "4937e5ba2c3cad5a939b0940089d0f2b46e099f4",
+      "translation": "35c72da1a891acd05eb6388b00ddb2aa19e54755"
+    },
+    "contextGroups.timeblock.label": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "23bbf207a5664ecbee35e5a146105c9cabe18bec"
+    },
+    "contextGroups.timeblock.description": {
+      "source": "049ae80eb4f7d4175dd2e72b478f6c50463f68f9",
+      "translation": "4fe5c50f9764fc6007cc62c64639b9f53a279289"
+    },
+    "contextGroups.settings.name": {
+      "source": "943fc127b408cedf0eeeaf7c7284d14e3ee324f0",
+      "translation": "4d3ab9597bd1d1b553ac61baa8d7d7bb2020cc0a"
+    },
+    "contextGroups.settings.description": {
+      "source": "415ec1a0baf02782ddc33d4ae449a5d8389b50bf",
+      "translation": "af4c7132680db513bed4578fd74a6c67cce47256"
+    },
+    "contextGroups.settings.fallback": {
+      "source": "10bcddc88094aba0ba322f472a6e6b7872dd8e99",
+      "translation": "5b3c7721ac54dc7928718309888f08a859c280db"
+    },
+    "contextGroups.settings.fallbackNone": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "1a2e920ba7c651e24be9fb2c70c396440509317e"
+    },
+    "contextGroups.settings.addGroup": {
+      "source": "2fca464f9c8925cc89e35205360e2f82ff3ec122",
+      "translation": "ccf90ff864c8dc655116fa44a029125db6f1ceaf"
+    },
+    "contextGroups.settings.addContext": {
+      "source": "08dae0bb10f5fe62e0690120e879d382a19d7aab",
+      "translation": "ffee365dba6818706e5d28ceea4a77d0367ad2a7"
+    },
+    "contextGroups.settings.groupName": {
+      "source": "ebb7e14b1c9c2d7e6b2ff73a5662881e10c6a8b6",
+      "translation": "3a7be9e011829d7a9c85d2f27c5a98c4c211f2ea"
+    },
+    "contextGroups.settings.groupNamePlaceholder": {
+      "source": "4991c23d4632a64b59008a6873451ffde956a230",
+      "translation": "0f752a59a88cd6254a6cb72e6b9a66eb9899a367"
+    },
+    "contextGroups.settings.contextNamePlaceholder": {
+      "source": "a6fa745a82eb6745453b32aa5839fee88fcc78fe",
+      "translation": "99614345097bb3d6a696c93a68a7b0fdf3a5db36"
+    },
+    "contextGroups.settings.emptyState": {
+      "source": "8d383b77abdef6a88973d40b22a499c1a44f5952",
+      "translation": "5b8baa1f8600f357bd248be2730fcb93f357f009"
+    },
+    "contextGroups.settings.deleteGroup": {
+      "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
+      "translation": "aa414a7991ff7e84f21832eafa76966daea787bd"
+    },
+    "contextGroups.settings.deleteContext": {
+      "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
+      "translation": "7b74aa06303acefa7250dceff4e6fb259a8f2192"
+    },
+    "contextGroups.settings.enabled": {
+      "source": "df174a3f2faa31814e06540acda7af8825403fac",
+      "translation": "8dd88b62ef9a2491f8d3f67ce79115bdb589d6e0"
+    },
+    "contextGroups.settings.color": {
+      "source": "1d0c8304baedcf8e3a78982c2e7c0b04622bf2a0",
+      "translation": "1391f4a4c627d7b473e4ce3b4da340c1f7fba13d"
+    },
+    "contextGroups.settings.emoji": {
+      "source": "5090a9e78c899272a10648b39e7689bc40072825",
+      "translation": "b46b7646a3de5c7fa376305d8f0e7b42d9c17514"
     }
   },
   "ko": {
@@ -45127,6 +45463,90 @@
     "components.recurrenceContextMenu.customRecurrenceModal.save": {
       "source": "efc007a393f66cdb14d57d385822a3d9e36ef873",
       "translation": "1f1712acff27e6664981811ecfa169540904a33b"
+    },
+    "contextGroups.field.label": {
+      "source": "eb819dacc5e6fae9de1c7736eb95091b17e4e683",
+      "translation": "3d73cb7a2e87dbe921bb9515a15e5aef11ad7fba"
+    },
+    "contextGroups.menu.title": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "06d8f5e5941732b6338e082f298d388cc4c65ad8"
+    },
+    "contextGroups.menu.none": {
+      "source": "6f74983b4a5fbb16953c858be89725470e3174ad",
+      "translation": "79b1a8ba69504298400433d5c134141f62e88a64"
+    },
+    "contextGroups.menu.updateFailed": {
+      "source": "4937e5ba2c3cad5a939b0940089d0f2b46e099f4",
+      "translation": "ac9136388e0ba5e81b5529d1b59afa86f32a2872"
+    },
+    "contextGroups.timeblock.label": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "06d8f5e5941732b6338e082f298d388cc4c65ad8"
+    },
+    "contextGroups.timeblock.description": {
+      "source": "049ae80eb4f7d4175dd2e72b478f6c50463f68f9",
+      "translation": "4d9034f0ff9285188b3d04318cf62f1f76770aad"
+    },
+    "contextGroups.settings.name": {
+      "source": "943fc127b408cedf0eeeaf7c7284d14e3ee324f0",
+      "translation": "3d73cb7a2e87dbe921bb9515a15e5aef11ad7fba"
+    },
+    "contextGroups.settings.description": {
+      "source": "415ec1a0baf02782ddc33d4ae449a5d8389b50bf",
+      "translation": "8b37a9f7b96ccc66c1c4538828aba16480a9482d"
+    },
+    "contextGroups.settings.fallback": {
+      "source": "10bcddc88094aba0ba322f472a6e6b7872dd8e99",
+      "translation": "2d05cc9f67226cdefb939ca43ece90c643a48b21"
+    },
+    "contextGroups.settings.fallbackNone": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "d58fa73adc42668ca7193bb4975c944411c6775e"
+    },
+    "contextGroups.settings.addGroup": {
+      "source": "2fca464f9c8925cc89e35205360e2f82ff3ec122",
+      "translation": "bc71356fa2623784c4d7fcbf9da6159e39c416e6"
+    },
+    "contextGroups.settings.addContext": {
+      "source": "08dae0bb10f5fe62e0690120e879d382a19d7aab",
+      "translation": "08c074bbeed0e0e6ce5b34d63710c75c63bbc8de"
+    },
+    "contextGroups.settings.groupName": {
+      "source": "ebb7e14b1c9c2d7e6b2ff73a5662881e10c6a8b6",
+      "translation": "ec5476de844b5a5a5a2751d0bf2fe9744f54181c"
+    },
+    "contextGroups.settings.groupNamePlaceholder": {
+      "source": "4991c23d4632a64b59008a6873451ffde956a230",
+      "translation": "e1b3bb491779a0c719fc944c671cddf054f1dbf9"
+    },
+    "contextGroups.settings.contextNamePlaceholder": {
+      "source": "a6fa745a82eb6745453b32aa5839fee88fcc78fe",
+      "translation": "d1972e1f5e79c15e65a3f9de250e62ea2bc9d730"
+    },
+    "contextGroups.settings.emptyState": {
+      "source": "8d383b77abdef6a88973d40b22a499c1a44f5952",
+      "translation": "e0942cce2ee94295a91a411867f6727cc61a193e"
+    },
+    "contextGroups.settings.deleteGroup": {
+      "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
+      "translation": "a3900e2c942f79855d6e67bfb4b5722d80160e5d"
+    },
+    "contextGroups.settings.deleteContext": {
+      "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
+      "translation": "09926f62ff735be80aec3951a3f9abafd58027fc"
+    },
+    "contextGroups.settings.enabled": {
+      "source": "df174a3f2faa31814e06540acda7af8825403fac",
+      "translation": "7f3ba385e9db6e5250818faf80807207b4e616e8"
+    },
+    "contextGroups.settings.color": {
+      "source": "1d0c8304baedcf8e3a78982c2e7c0b04622bf2a0",
+      "translation": "9f8b556bc85538d82964b8440cb87d3675499a5a"
+    },
+    "contextGroups.settings.emoji": {
+      "source": "5090a9e78c899272a10648b39e7689bc40072825",
+      "translation": "3cf0a67476a9def32ffaa4b76dc45b80b730fce1"
     }
   },
   "pt": {
@@ -54153,6 +54573,90 @@
     "components.recurrenceContextMenu.customRecurrenceModal.save": {
       "source": "efc007a393f66cdb14d57d385822a3d9e36ef873",
       "translation": "93bf2d32ec3312e6872c77b71a210d7b82cb559e"
+    },
+    "contextGroups.field.label": {
+      "source": "eb819dacc5e6fae9de1c7736eb95091b17e4e683",
+      "translation": "479233ce5488779d87ca0ec1d04220cbf8675bdd"
+    },
+    "contextGroups.menu.title": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "0078616a8727617e0180622340fc2f4a8455d2e3"
+    },
+    "contextGroups.menu.none": {
+      "source": "6f74983b4a5fbb16953c858be89725470e3174ad",
+      "translation": "c7c1031335630c115b8b211783c65e5bc14f965a"
+    },
+    "contextGroups.menu.updateFailed": {
+      "source": "4937e5ba2c3cad5a939b0940089d0f2b46e099f4",
+      "translation": "be64247fe025a4ddf79e13bf742660ecc0a5852d"
+    },
+    "contextGroups.timeblock.label": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "0078616a8727617e0180622340fc2f4a8455d2e3"
+    },
+    "contextGroups.timeblock.description": {
+      "source": "049ae80eb4f7d4175dd2e72b478f6c50463f68f9",
+      "translation": "1814a3a60c15cbcbd5b8de66a36ff8cf21243fae"
+    },
+    "contextGroups.settings.name": {
+      "source": "943fc127b408cedf0eeeaf7c7284d14e3ee324f0",
+      "translation": "bc47834332814b140c1ac4810f2dbd13283217f6"
+    },
+    "contextGroups.settings.description": {
+      "source": "415ec1a0baf02782ddc33d4ae449a5d8389b50bf",
+      "translation": "d8bfb750b56bd2796c5f13bcf840dad7c3417843"
+    },
+    "contextGroups.settings.fallback": {
+      "source": "10bcddc88094aba0ba322f472a6e6b7872dd8e99",
+      "translation": "ecd492d19630ddd1fbff4d4a9323d070e1f38b11"
+    },
+    "contextGroups.settings.fallbackNone": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "997c23481b65acedf66f096e33e6d933a35fff78"
+    },
+    "contextGroups.settings.addGroup": {
+      "source": "2fca464f9c8925cc89e35205360e2f82ff3ec122",
+      "translation": "d313ac2bd64566af382aa7767d917a4a01cf6639"
+    },
+    "contextGroups.settings.addContext": {
+      "source": "08dae0bb10f5fe62e0690120e879d382a19d7aab",
+      "translation": "d2aa793085e74a3dd505011c7264400389017b67"
+    },
+    "contextGroups.settings.groupName": {
+      "source": "ebb7e14b1c9c2d7e6b2ff73a5662881e10c6a8b6",
+      "translation": "3cd5f8e28f234a6534e3ede2956f8f5365ce4161"
+    },
+    "contextGroups.settings.groupNamePlaceholder": {
+      "source": "4991c23d4632a64b59008a6873451ffde956a230",
+      "translation": "136efd633310cde00aab3859dac40b8f4e5f8348"
+    },
+    "contextGroups.settings.contextNamePlaceholder": {
+      "source": "a6fa745a82eb6745453b32aa5839fee88fcc78fe",
+      "translation": "83a6fd173cefa4b3af3220250429fc558e46e184"
+    },
+    "contextGroups.settings.emptyState": {
+      "source": "8d383b77abdef6a88973d40b22a499c1a44f5952",
+      "translation": "2806b156f94c9088d476e6bb5fd02875656d68c1"
+    },
+    "contextGroups.settings.deleteGroup": {
+      "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
+      "translation": "1b53e1b79cf2a4210cb830432754337eb3a4ff08"
+    },
+    "contextGroups.settings.deleteContext": {
+      "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
+      "translation": "cd28e5f0d8f8da8ccc096f8ff65b1ad6933f6f6a"
+    },
+    "contextGroups.settings.enabled": {
+      "source": "df174a3f2faa31814e06540acda7af8825403fac",
+      "translation": "947f8cb4b655cb5f4ef36f4091345dfb44645245"
+    },
+    "contextGroups.settings.color": {
+      "source": "1d0c8304baedcf8e3a78982c2e7c0b04622bf2a0",
+      "translation": "62037d43904a0a11e1f2de8da8ae8f1d08e8c829"
+    },
+    "contextGroups.settings.emoji": {
+      "source": "5090a9e78c899272a10648b39e7689bc40072825",
+      "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     }
   },
   "ru": {
@@ -63179,6 +63683,90 @@
     "components.recurrenceContextMenu.customRecurrenceModal.save": {
       "source": "efc007a393f66cdb14d57d385822a3d9e36ef873",
       "translation": "4864057d626a868fa60f999bed3191d61d045ddc"
+    },
+    "contextGroups.field.label": {
+      "source": "eb819dacc5e6fae9de1c7736eb95091b17e4e683",
+      "translation": "754f124e3dfc1662324d1e6b4731d710d73b4361"
+    },
+    "contextGroups.menu.title": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "136a56eacc36c36a98ec5ca2090d77c296387472"
+    },
+    "contextGroups.menu.none": {
+      "source": "6f74983b4a5fbb16953c858be89725470e3174ad",
+      "translation": "83ac40da2539621fc0aa659df8db723edf14d5b7"
+    },
+    "contextGroups.menu.updateFailed": {
+      "source": "4937e5ba2c3cad5a939b0940089d0f2b46e099f4",
+      "translation": "1851fd3060a84c27a57a460404cdf9ad5512c8bc"
+    },
+    "contextGroups.timeblock.label": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "136a56eacc36c36a98ec5ca2090d77c296387472"
+    },
+    "contextGroups.timeblock.description": {
+      "source": "049ae80eb4f7d4175dd2e72b478f6c50463f68f9",
+      "translation": "c308fc4d76630ed27ca3e4018de00229cb3c2eb9"
+    },
+    "contextGroups.settings.name": {
+      "source": "943fc127b408cedf0eeeaf7c7284d14e3ee324f0",
+      "translation": "043f962a8ba40d62c845d7cac791d4c2d68dd715"
+    },
+    "contextGroups.settings.description": {
+      "source": "415ec1a0baf02782ddc33d4ae449a5d8389b50bf",
+      "translation": "4599f6841b47e1994d71083fccfa791cce7c99e7"
+    },
+    "contextGroups.settings.fallback": {
+      "source": "10bcddc88094aba0ba322f472a6e6b7872dd8e99",
+      "translation": "1e04df884a1f44184d23194c541bc94b01183ffb"
+    },
+    "contextGroups.settings.fallbackNone": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "f82a8219414c7c8e9aaf95e1702a58e584f7f4a0"
+    },
+    "contextGroups.settings.addGroup": {
+      "source": "2fca464f9c8925cc89e35205360e2f82ff3ec122",
+      "translation": "a83b4b4a0c1e1c8d70ac10c5ce8a858aa2b68f77"
+    },
+    "contextGroups.settings.addContext": {
+      "source": "08dae0bb10f5fe62e0690120e879d382a19d7aab",
+      "translation": "d2b2cb62bf02b088b19844bf8d281a6a1cf57250"
+    },
+    "contextGroups.settings.groupName": {
+      "source": "ebb7e14b1c9c2d7e6b2ff73a5662881e10c6a8b6",
+      "translation": "22d67742ad939207e369595296a4b9fc7d4040b5"
+    },
+    "contextGroups.settings.groupNamePlaceholder": {
+      "source": "4991c23d4632a64b59008a6873451ffde956a230",
+      "translation": "fff5a9412c2402232d3b463ea67b26a73bdbddbf"
+    },
+    "contextGroups.settings.contextNamePlaceholder": {
+      "source": "a6fa745a82eb6745453b32aa5839fee88fcc78fe",
+      "translation": "fdd1d43a1da27704aabcff436661d46e10904280"
+    },
+    "contextGroups.settings.emptyState": {
+      "source": "8d383b77abdef6a88973d40b22a499c1a44f5952",
+      "translation": "7e60c94ad70e63c2c728c6bf9a548d0ab0066761"
+    },
+    "contextGroups.settings.deleteGroup": {
+      "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
+      "translation": "05b970e68bb424dbc78e035610e84b9bba7eaec1"
+    },
+    "contextGroups.settings.deleteContext": {
+      "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
+      "translation": "636c5d820d4160af09748d4da813efb759acc134"
+    },
+    "contextGroups.settings.enabled": {
+      "source": "df174a3f2faa31814e06540acda7af8825403fac",
+      "translation": "2e304ad8671e5f349dd4e3ec153838268e669983"
+    },
+    "contextGroups.settings.color": {
+      "source": "1d0c8304baedcf8e3a78982c2e7c0b04622bf2a0",
+      "translation": "84b22ed2aa3351bebda0b0d2723f4dbad131f73f"
+    },
+    "contextGroups.settings.emoji": {
+      "source": "5090a9e78c899272a10648b39e7689bc40072825",
+      "translation": "8f9eec5d25d2633da4dd1d0c1a82a3310455a6e2"
     }
   },
   "zh": {
@@ -72205,6 +72793,90 @@
     "components.recurrenceContextMenu.customRecurrenceModal.save": {
       "source": "efc007a393f66cdb14d57d385822a3d9e36ef873",
       "translation": "fadf24dbc5a9e0bb05b83081423a8be08476103a"
+    },
+    "contextGroups.field.label": {
+      "source": "eb819dacc5e6fae9de1c7736eb95091b17e4e683",
+      "translation": "37a82231ce02e90985c9f6ea055d625569028edc"
+    },
+    "contextGroups.menu.title": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "f23ebb7cc2d81d660a3294f4ee800d85472ae2c6"
+    },
+    "contextGroups.menu.none": {
+      "source": "6f74983b4a5fbb16953c858be89725470e3174ad",
+      "translation": "cdaaec61ab1cc07912523795a05eba0fb703a0d8"
+    },
+    "contextGroups.menu.updateFailed": {
+      "source": "4937e5ba2c3cad5a939b0940089d0f2b46e099f4",
+      "translation": "9cbb1c9c96b16c6860caa97777322dc8aa4ea1f5"
+    },
+    "contextGroups.timeblock.label": {
+      "source": "cc11b3a28fa30ae6d3d3ad1438824cbd5224ba5c",
+      "translation": "f23ebb7cc2d81d660a3294f4ee800d85472ae2c6"
+    },
+    "contextGroups.timeblock.description": {
+      "source": "049ae80eb4f7d4175dd2e72b478f6c50463f68f9",
+      "translation": "e6db0a188bcf43f42d6908466abafd40d16f8c5c"
+    },
+    "contextGroups.settings.name": {
+      "source": "943fc127b408cedf0eeeaf7c7284d14e3ee324f0",
+      "translation": "37a82231ce02e90985c9f6ea055d625569028edc"
+    },
+    "contextGroups.settings.description": {
+      "source": "415ec1a0baf02782ddc33d4ae449a5d8389b50bf",
+      "translation": "a20defc4a91b9bfd2407ca75d276bd1b3aeb0468"
+    },
+    "contextGroups.settings.fallback": {
+      "source": "10bcddc88094aba0ba322f472a6e6b7872dd8e99",
+      "translation": "4ec2b00c7b3c634c0d28978aea8327746c338f55"
+    },
+    "contextGroups.settings.fallbackNone": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "72077749f794f21a6478e5677f0603a6daad5158"
+    },
+    "contextGroups.settings.addGroup": {
+      "source": "2fca464f9c8925cc89e35205360e2f82ff3ec122",
+      "translation": "cf911c2d5e935e7f6e0f306502eea6452858d1ae"
+    },
+    "contextGroups.settings.addContext": {
+      "source": "08dae0bb10f5fe62e0690120e879d382a19d7aab",
+      "translation": "d920e210c2772e6c9c87c81356bba13f4af2bd48"
+    },
+    "contextGroups.settings.groupName": {
+      "source": "ebb7e14b1c9c2d7e6b2ff73a5662881e10c6a8b6",
+      "translation": "65731c12ae52a6fd85cb23e778125167f2e97b7a"
+    },
+    "contextGroups.settings.groupNamePlaceholder": {
+      "source": "4991c23d4632a64b59008a6873451ffde956a230",
+      "translation": "c4a274264a20ef09e626bba923a3f128d29ac91b"
+    },
+    "contextGroups.settings.contextNamePlaceholder": {
+      "source": "a6fa745a82eb6745453b32aa5839fee88fcc78fe",
+      "translation": "9f5fd10bec1407e5df2962050b51f74d2f0aa7bf"
+    },
+    "contextGroups.settings.emptyState": {
+      "source": "8d383b77abdef6a88973d40b22a499c1a44f5952",
+      "translation": "a3527feb33ae009eff6807e117661b7a419554b8"
+    },
+    "contextGroups.settings.deleteGroup": {
+      "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
+      "translation": "777f53cc71b15608e1f8e41ad3f4da434a713da2"
+    },
+    "contextGroups.settings.deleteContext": {
+      "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
+      "translation": "d0e85dffb1721df31e6742a358983e9b368fea9f"
+    },
+    "contextGroups.settings.enabled": {
+      "source": "df174a3f2faa31814e06540acda7af8825403fac",
+      "translation": "25d2843150633f3275c5d4fed659597c0e2edb2a"
+    },
+    "contextGroups.settings.color": {
+      "source": "1d0c8304baedcf8e3a78982c2e7c0b04622bf2a0",
+      "translation": "8ef4886033563ed64e136bb380e5179d05dc0af1"
+    },
+    "contextGroups.settings.emoji": {
+      "source": "5090a9e78c899272a10648b39e7689bc40072825",
+      "translation": "978b0408a02d3ed12151c714327f16eee7b72e8c"
     }
   }
 }

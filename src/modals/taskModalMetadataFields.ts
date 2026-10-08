@@ -2,6 +2,14 @@ import { App, Setting } from "obsidian";
 import TaskNotesPlugin from "../main";
 import { sanitizeTags } from "../utils/helpers";
 import { ContextSuggest, TagSuggest } from "./taskModalSuggests";
+import { ContextPicker } from "../components/ContextPicker";
+import { splitListPreservingLinksAndQuotes } from "../utils/stringSplit";
+
+/** The contexts control: a text input, or a context picker when contexts are configured. */
+export interface TaskModalContextsControl {
+	value: string;
+	focus(): void;
+}
 
 export interface TaskModalMetadataFieldContext {
 	app: App;
@@ -29,7 +37,20 @@ export function parseTaskModalTimeEstimate(value: string): number {
 export function createTaskModalContextsField(
 	context: TaskModalMetadataFieldContext,
 	options: CreateTaskModalTextFieldOptions
-): HTMLInputElement {
+): TaskModalContextsControl {
+	const groups = context.plugin.settings?.contextGroups ?? [];
+	if (groups.some((group) => group.contexts.some((entry) => entry.enabled))) {
+		// Configured contexts: choose one from a picker instead of typing.
+		const setting = new Setting(options.container);
+		setting.setName(context.translate("modals.task.contextsLabel"));
+		return new ContextPicker(setting.controlEl, {
+			groups,
+			value: splitListPreservingLinksAndQuotes(options.value)[0],
+			noneLabel: context.translate("contextGroups.menu.none"),
+			onChange: (name) => options.onChange(name ?? ""),
+		});
+	}
+
 	let inputEl: HTMLInputElement | null = null;
 	const setting = new Setting(options.container);
 	setting.settingEl.addClass("tn-task-modal__wide-text-setting");

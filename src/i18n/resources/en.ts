@@ -3596,6 +3596,37 @@ export const en: TranslationTree = {
 			},
 		},
 	},
+	contextGroups: {
+		field: {
+			label: "Context group",
+		},
+		menu: {
+			title: "Context",
+			none: "No context",
+			updateFailed: "Failed to update context",
+		},
+		timeblock: {
+			label: "Context",
+			description: "The context's color is used instead of the timeblock color",
+		},
+		settings: {
+			name: "Context groups",
+			description: "Group contexts and give each one a color. Tasks, timeblocks, and calendar events with a context use its color instead of their own. Contexts are matched to task contexts by name.",
+			fallback: "Default context",
+			fallbackNone: "None",
+			addGroup: "Add group",
+			addContext: "Add context",
+			groupName: "Group name",
+			groupNamePlaceholder: "Untitled group",
+			contextNamePlaceholder: "Context name",
+			emptyState: "No context groups yet.",
+			deleteGroup: "Delete group",
+			deleteContext: "Delete context",
+			enabled: "Enabled",
+			color: "Color",
+			emoji: "Emoji",
+		},
+	},
 };
 
 export type EnTranslationSchema = typeof en;

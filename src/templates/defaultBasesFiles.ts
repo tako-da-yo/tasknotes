@@ -158,6 +158,9 @@ function mapPropertyToBasesProperty(property: string, plugin: TaskNotesPlugin): 
 			// checklistProgress is computed from markdown checklist items.
 			// Use file.tasks as the selectable Bases source property.
 			return "file.tasks";
+		case "contextGroup":
+			// The group is looked up from context group settings when task cards render.
+			return "formula.contextGroup";
 	}
 
 	// Try to map using FieldMapper
@@ -468,6 +471,9 @@ function generateAllFormulas(plugin: TaskNotesPlugin): Record<string, string> {
 		urgencyScore: `if(${dueIsEmpty} && ${scheduledIsEmpty}, formula.priorityWeight, formula.priorityWeight + max(0, 10 - ${safeDaysUntilNext}) + (1 - ((number(date(formula.nextDate)) - number(${nextDateStartOfDay})) / 86400000)))`,
 
 		// === DISPLAY FORMULAS ===
+
+		// Context group: task cards show the group of the task's context (from settings)
+		contextGroup: contextsProperty,
 
 		// Time tracked formatted as "Xh Ym"
 		timeTrackedFormatted: `if(${timeEntriesProperty}, if(list(${timeEntriesProperty}).filter(value.endTime).map((number(date(value.endTime)) - number(date(value.startTime))) / 60000).reduce(acc + value, 0) >= 60, (list(${timeEntriesProperty}).filter(value.endTime).map((number(date(value.endTime)) - number(date(value.startTime))) / 60000).reduce(acc + value, 0) / 60).floor() + "h " + (list(${timeEntriesProperty}).filter(value.endTime).map((number(date(value.endTime)) - number(date(value.startTime))) / 60000).reduce(acc + value, 0) % 60).round() + "m", list(${timeEntriesProperty}).filter(value.endTime).map((number(date(value.endTime)) - number(date(value.startTime))) / 60000).reduce(acc + value, 0).round() + "m"), "0m")`,

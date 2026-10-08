@@ -4,6 +4,10 @@ import type { BasesEntry, BasesView, BasesViewFactory } from "obsidian";
 import { BasesViewBase } from "./BasesViewBase";
 import { installCanvasTimeGridScaleCorrection } from "./calendarCanvasScale";
 import { COMPLETION_MARKER_CLASS } from "./calendarCompletionMarkers";
+import { applyCalendarEventTints } from "./calendarEventTints";
+import { applyContextColors } from "./calendarContextColors";
+import { addContextChoiceItems } from "../components/contextChoiceMenu";
+import { updateTimeblockContextInDailyNote } from "../utils/helpers";
 import type { TaskInfo } from "../types";
 import { identifyTaskNotesFromBasesData } from "./helpers";
 import type { TimeblockCreationResult } from "../modals/TimeblockCreationModal";
@@ -33,6 +37,7 @@ import {
 	getTargetDateForEvent,
 	getOccurrenceDateForEvent,
 	calculateTaskCreationValues,
+	getEventTextColor,
 	generateTaskTooltip,
 	applyRecurringTaskStyling,
 	applyTimeblockStyling,
@@ -56,7 +61,7 @@ import { handleCalendarTaskClick } from "../utils/clickHandlers";
 import { TaskCreationModal } from "../modals/TaskCreationModal";
 import { CalendarEventCreationModal } from "../modals/CalendarEventCreationModal";
 import { ICSEventInfoModal } from "../modals/ICSEventInfoModal";
-import { Menu, Platform, TFile, setIcon, setTooltip } from "obsidian";
+import { Menu, Notice, Platform, TFile, setIcon, setTooltip } from "obsidian";
 import type { EventRef } from "obsidian";
 import { format } from "date-fns";
 import { TaskContextMenu } from "../components/TaskContextMenu";
@@ -84,6 +89,7 @@ import { buildCalendarPropertyEvent } from "./calendarPropertyEvents";
 import { buildExternalCalendarEvents, setProviderCalendarToggle } from "./calendarExternalEvents";
 import {
 	decorateCalendarIcsEventElement,
+	applyCalendarContextEmojiBadge,
 	getCalendarRelatedNoteTooltip,
 	mountCalendarListEventCard,
 	normalizeCalendarRelatedNoteCount,
@@ -617,6 +623,10 @@ export class CalendarView extends BasesViewBase {
 			this.readEventToggles();
 			this.calendar?.refetchEvents();
 		});
+		// Context colors live in settings; recolor events when they change.
+		this.registerEvent(
+			this.plugin.emitter.on("settings-changed", () => this.calendar?.refetchEvents())
+		);
 	}
 
 	/**
@@ -1304,7 +1314,11 @@ export class CalendarView extends BasesViewBase {
 			views: {
 				timeGridCustom: {
 					type: "timeGrid",
-					duration: { days: this.viewOptions.customDayCount },
+					// dayCount counts only visible days, so hidden weekends are skipped
+					// instead of shrinking the view (Thursday shows Thu, Fri, Mon).
+					dayCount: this.viewOptions.customDayCount,
+					// Keep paging by the day count; dayCount alone steps one day at a time.
+					dateIncrement: { days: this.viewOptions.customDayCount },
 					buttonText: this.plugin.i18n.translate(
 						"views.basesCalendar.buttonText.customDays",
 						{
@@ -1875,6 +1889,8 @@ export class CalendarView extends BasesViewBase {
 			eventConfig
 		);
 		applyBasesSortIndexesToCalendarEvents(taskEvents, this.basesSortIndexByPath);
+		applyContextColors(taskEvents, this.plugin.settings, () => getEventTextColor(true));
+		applyCalendarEventTints(taskEvents, () => getEventTextColor(true));
 		allEvents.push(...taskEvents);
 
 		// Add property-based events from non-TaskNotes items
@@ -2142,6 +2158,35 @@ export class CalendarView extends BasesViewBase {
 			void handleCalendarTaskClick(taskInfo, this.plugin, jsEvent, info.event.id, () =>
 				this.expectImmediateUpdate()
 			);
+		}
+	}
+
+	private async setTimeblockContext(
+		date: string,
+		timeblockId: string,
+		context: string | undefined
+	): Promise<void> {
+		try {
+			const dailyNote = await updateTimeblockContextInDailyNote(
+				this.plugin.app,
+				date,
+				timeblockId,
+				context
+			);
+			// Timeblocks are read from the metadata cache, so wait for it to index the change.
+			const changedRef = this.plugin.app.metadataCache.on("changed", (file) => {
+				if (file.path !== dailyNote.path) return;
+				this.plugin.app.metadataCache.offref(changedRef);
+				this.calendar?.refetchEvents();
+			});
+			this.registerEvent(changedRef);
+		} catch (error) {
+			tasknotesLogger.error("[TaskNotes][CalendarView] Failed to set timeblock context:", {
+				category: "provider",
+				operation: "set-timeblock-context",
+				error: error,
+			});
+			new Notice(this.plugin.i18n.translate("contextGroups.menu.updateFailed"));
 		}
 	}
 
@@ -2601,11 +2646,13 @@ export class CalendarView extends BasesViewBase {
 						info.start,
 						info.end,
 						info.allDay,
-						slotDurationMinutes
+						slotDurationMinutes,
+						this.plugin.settings.taskCreationDefaults.defaultTimeEstimate
 					);
 
 					const modal = new TaskCreationModal(this.plugin.app, this.plugin, {
 						prePopulatedValues: values,
+						startExpanded: true,
 						onTaskCreated: (task) => {
 							void this.refreshAfterDirectCalendarTaskWrite(task);
 						},
@@ -2745,6 +2792,12 @@ export class CalendarView extends BasesViewBase {
 		// Set event type attribute
 		arg.el.setAttribute("data-event-type", eventType || "unknown");
 
+		// The context's emoji replaces the provider icon in the top-right corner
+		const contextEmoji: unknown = extendedProps.contextEmoji;
+		if (typeof contextEmoji === "string" && contextEmoji) {
+			applyCalendarContextEmojiBadge(arg.el, contextEmoji, arg.view.type);
+		}
+
 		// Handle timeblock events
 		if (eventType === "timeblock" && timeblock) {
 			// Apply timeblock styling
@@ -2753,6 +2806,23 @@ export class CalendarView extends BasesViewBase {
 			// Add tooltip
 			const tooltipText = generateTimeblockTooltip(timeblock);
 			setTooltip(arg.el, tooltipText, { placement: "top" });
+
+			// Right-click to choose the timeblock's context
+			arg.el.addEventListener("contextmenu", (e: MouseEvent) => {
+				const date = extendedProps.originalDate ?? (arg.event.start && format(arg.event.start, "yyyy-MM-dd"));
+				if (!date || !timeblock.id) return;
+				const menu = new Menu();
+				const hasContexts = addContextChoiceItems(menu, {
+					groups: this.plugin.settings.contextGroups,
+					current: timeblock.context,
+					noneLabel: this.plugin.i18n.translate("contextGroups.menu.none"),
+					onSelect: (context) => void this.setTimeblockContext(date, timeblock.id, context),
+				});
+				if (!hasContexts) return;
+				e.preventDefault();
+				e.stopPropagation();
+				menu.showAtMouseEvent(e);
+			});
 
 			return;
 		}

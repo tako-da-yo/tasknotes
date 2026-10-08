@@ -4,7 +4,6 @@ import { format } from "date-fns";
 import TaskNotesPlugin from "../main";
 import { OAuthService } from "./OAuthService";
 import { GoogleCalendarEvent, ICSEvent } from "../types";
-import type { CalendarEventDisplayMode, GoogleCalendarEventType } from "../types/settings";
 import { GOOGLE_CALENDAR_CONSTANTS } from "./constants";
 import { CALENDAR_SELECTION_REFRESH_DELAY_MS, updateCalendarSelection } from "./calendarSelection";
 import {
@@ -729,8 +728,7 @@ export class GoogleCalendarService extends CalendarProvider {
 	}
 
 	/**
-	 * Gets cached events from enabled calendars, including hidden event types,
-	 * so refreshes keep them and they reappear when their type is shown again.
+	 * Gets cached events from enabled calendars
 	 */
 	private getCachedEventsForEnabledCalendars(): ICSEvent[] {
 		const events = this.cache.get("all") || [];
@@ -739,32 +737,10 @@ export class GoogleCalendarService extends CalendarProvider {
 	}
 
 	/**
-	 * Gets all cached events, without event types the user chose to hide
+	 * Gets all cached events from enabled calendars
 	 */
 	getAllEvents(): ICSEvent[] {
-		return this.getCachedEventsForEnabledCalendars().filter(
-			(event) => this.getEventDisplayMode(event) !== "hide"
-		);
-	}
-
-	/**
-	 * How calendar views should present an event, based on its Google event type
-	 */
-	getEventDisplayMode(event: Pick<ICSEvent, "providerEventType">): CalendarEventDisplayMode {
-		const type = event.providerEventType as GoogleCalendarEventType | undefined;
-		return (type && this.plugin.settings.googleCalendarEventTypeDisplay?.[type]) || "show";
-	}
-
-	async setEventTypeDisplayMode(
-		type: GoogleCalendarEventType,
-		mode: CalendarEventDisplayMode
-	): Promise<void> {
-		this.plugin.settings.googleCalendarEventTypeDisplay = {
-			...this.plugin.settings.googleCalendarEventTypeDisplay,
-			[type]: mode,
-		};
-		await this.persistSettingsDataOnly();
-		this.emit("data-changed");
+		return this.getCachedEventsForEnabledCalendars();
 	}
 
 	/**

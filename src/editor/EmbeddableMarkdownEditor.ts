@@ -499,6 +499,9 @@ export class EmbeddableMarkdownEditor extends getEditorBase() {
 			getMode: () => "source",
 		});
 
+		// Stable hook for styles that must apply to every TaskNotes embedded editor
+		container.classList.add("tn-embedded-markdown-editor");
+
 		this.options = { ...defaultProperties, ...options };
 		this.initial_value = this.options.value;
 		this.scope = new Scope(this.app.scope);

@@ -3415,5 +3415,36 @@ export const zh: TranslationTree = {
 				save: "保存"
 			}
 		}
-	}
+	},
+	contextGroups: {
+		field: {
+			label: "情境分组",
+		},
+		menu: {
+			title: "情境",
+			none: "无情境",
+			updateFailed: "无法更新情境",
+		},
+		timeblock: {
+			label: "情境",
+			description: "使用情境的颜色代替时间块颜色",
+		},
+		settings: {
+			name: "情境分组",
+			description: "将情境分组并为每个情境设置颜色。带有情境的任务、时间块和日历事件会使用该情境的颜色，而不是自身的颜色。情境按名称与任务的情境匹配。",
+			fallback: "默认情境",
+			fallbackNone: "无",
+			addGroup: "添加分组",
+			addContext: "添加情境",
+			groupName: "分组名称",
+			groupNamePlaceholder: "未命名分组",
+			contextNamePlaceholder: "情境名称",
+			emptyState: "还没有情境分组。",
+			deleteGroup: "删除分组",
+			deleteContext: "删除情境",
+			enabled: "已启用",
+			color: "颜色",
+			emoji: "表情符号",
+		},
+	},
 };

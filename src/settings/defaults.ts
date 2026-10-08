@@ -410,18 +410,14 @@ export const DEFAULT_SETTINGS: TaskNotesSettings = {
 	enabledGoogleCalendars: [],
 	// Google Calendar sync tokens (for incremental sync)
 	googleCalendarSyncTokens: {},
-	googleCalendarEventTypeDisplay: {
-		workingLocation: "hide",
-		outOfOffice: "show",
-		focusTime: "show",
-		birthday: "show",
-		fromGmail: "show",
-	},
 	// Microsoft Calendar selection (calendars are off until selected)
 	enabledMicrosoftCalendars: [],
 	// Microsoft Calendar sync tokens (delta links for incremental sync)
 	microsoftCalendarSyncTokens: {},
 	pendingSelectAllCalendarProviders: [],
+	contextGroups: [],
+	fallbackContext: "",
+	externalEventContexts: {},
 	// Google Calendar task export settings
 	googleCalendarExport: DEFAULT_GOOGLE_CALENDAR_EXPORT,
 	// Debug logging

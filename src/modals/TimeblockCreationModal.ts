@@ -18,6 +18,8 @@ import { openTaskSelector } from "./TaskSelectorWithCreateModal";
 import { parseDateAsLocal } from "../utils/dateUtils";
 import { colorValueToInputValue, normalizeThemeColor } from "../utils/themeColors";
 import { configureThemeColorInput } from "../settings/components/CardComponent";
+import { getContextChoices } from "../utils/contextColors";
+import { ContextPicker } from "../components/ContextPicker";
 import { modifyVaultFile } from "../services/VaultMutationService";
 import {
 	createDailyNote,
@@ -99,6 +101,7 @@ export class TimeblockCreationModal extends Modal {
 	private endTimeInput: HTMLInputElement;
 	private descriptionInput: HTMLTextAreaElement;
 	private colorInput: HTMLInputElement;
+	private contextValue = "";
 
 	// Attachment management
 	private selectedAttachments: TAbstractFile[] = [];
@@ -204,6 +207,22 @@ export class TimeblockCreationModal extends Modal {
 				);
 				configureThemeColorInput(this.colorInput);
 			});
+
+		// Context (only when contexts are configured)
+		if (getContextChoices(this.plugin.settings).length > 0) {
+			const setting = new Setting(contentEl)
+				.setName(this.translate("contextGroups.timeblock.label"))
+				.setDesc(this.translate("contextGroups.timeblock.description"));
+			this.contextValue = "";
+			new ContextPicker(setting.controlEl, {
+				groups: this.plugin.settings.contextGroups,
+				value: this.contextValue,
+				noneLabel: this.translate("contextGroups.menu.none"),
+				onChange: (name) => {
+					this.contextValue = name ?? "";
+				},
+			});
+		}
 
 		// Attachments (optional)
 		new Setting(contentEl)
@@ -349,6 +368,9 @@ export class TimeblockCreationModal extends Modal {
 			}
 			if (color) {
 				timeblock.color = color;
+			}
+			if (this.contextValue) {
+				timeblock.context = this.contextValue;
 			}
 			if (attachments.length > 0) {
 				timeblock.attachments = attachments;

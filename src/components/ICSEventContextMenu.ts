@@ -1,4 +1,4 @@
-import { Notice, TAbstractFile, TFile } from "obsidian";
+import { Menu, Notice, TAbstractFile, TFile } from "obsidian";
 import TaskNotesPlugin from "../main";
 import { ICSEvent } from "../types";
 import { ICSEventInfoModal } from "../modals/ICSEventInfoModal";
@@ -9,6 +9,8 @@ import { ContextMenu } from "./ContextMenu";
 import { showCoordinatedMenu, showCoordinatedMenuAtElement } from "./ContextMenuCoordinator";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { showNotice } from "../ui/notifications";
+import { addContextChoiceItems } from "./contextChoiceMenu";
+import { getExternalEventContext, setExternalEventContext } from "../utils/contextColors";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Components/ICSEventContextMenu" });
 
@@ -37,6 +39,38 @@ export class ICSEventContextMenu {
 		return this.options.plugin.i18n.getCurrentLocale() || "en";
 	}
 
+	/** Context choice for the event, stored locally since the provider has no such field. */
+	private addContextSubmenu(): void {
+		const { icsEvent, plugin } = this.options;
+		if (!plugin.settings.contextGroups?.some((group) => group.contexts.length > 0)) return;
+
+		this.menu.addItem((item) => {
+			item.setTitle(this.t("contextGroups.menu.title")).setIcon("at-sign");
+			const submenu = (item as unknown as { setSubmenu(): Menu }).setSubmenu();
+			addContextChoiceItems(submenu, {
+				groups: plugin.settings.contextGroups,
+				current: getExternalEventContext(plugin.settings, icsEvent),
+				noneLabel: this.t("contextGroups.menu.none"),
+				onSelect: (name) => {
+					void (async () => {
+						try {
+							setExternalEventContext(plugin.settings, icsEvent, name);
+							await plugin.saveSettings();
+							this.options.onUpdate?.();
+						} catch (error) {
+							tasknotesLogger.error("Failed to update event context:", {
+								category: "provider",
+								operation: "update-external-event-context",
+								error: error,
+							});
+							new Notice(this.t("contextGroups.menu.updateFailed"));
+						}
+					})();
+				},
+			});
+		});
+	}
+
 	private buildMenu(): void {
 		const { icsEvent, plugin, subscriptionName } = this.options;
 
@@ -55,6 +89,8 @@ export class ICSEventContextMenu {
 					modal.open();
 				})
 		);
+
+		this.addContextSubmenu();
 
 		this.menu.addSeparator();
 

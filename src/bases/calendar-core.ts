@@ -2103,10 +2103,7 @@ export function applyTimeblockStyling(element: HTMLElement, timeblock: TimeBlock
 	// Add data attributes for timeblocks
 	element.setAttribute("data-timeblock-id", timeblock.id || "");
 
-	// Add visual styling for timeblocks
-	element.classList.remove("tn-static-border-style-dashed-12296c91");
-	element.classList.add("tn-static-border-style-solid-11080b69");
-	element.classList.add("tn-static-border-width-2px-a1222254");
+	// Borders and tint come from the .fc-timeblock-event styles
 	element.classList.add("fc-timeblock-event");
 }
 
@@ -2257,6 +2254,9 @@ export function attachDailyNoteHeaderLink(
 	});
 }
 
+/** Time estimate for tasks created by clicking a timed calendar slot when no default is set */
+export const CALENDAR_CLICK_DEFAULT_TIME_ESTIMATE_MINUTES = 15;
+
 /**
  * Calculate pre-populated values for task creation from calendar date selection
  *
@@ -2267,13 +2267,15 @@ export function attachDailyNoteHeaderLink(
  * @param end - Selection end date
  * @param allDay - Whether this is an all-day selection
  * @param slotDurationMinutes - Calendar slot duration in minutes (for detecting drags vs clicks)
+ * @param configuredDefaultTimeEstimate - Default time estimate from settings (0 = none)
  * @returns Pre-populated values object with scheduled date and optional timeEstimate
  */
 export function calculateTaskCreationValues(
 	start: Date,
 	end: Date,
 	allDay: boolean,
-	slotDurationMinutes: number
+	slotDurationMinutes: number,
+	configuredDefaultTimeEstimate = 0
 ): { scheduled: string; timeEstimate?: number } {
 	// Pre-populate with selected date/time
 	const scheduledDate = allDay
@@ -2305,8 +2307,11 @@ export function calculateTaskCreationValues(
 	} else if (isDragOperation) {
 		// User dragged to select a specific duration, use that
 		prePopulatedValues.timeEstimate = durationMinutes;
+	} else if (!(configuredDefaultTimeEstimate > 0)) {
+		// Timed click with no configured default: give the task a visible block
+		prePopulatedValues.timeEstimate = CALENDAR_CLICK_DEFAULT_TIME_ESTIMATE_MINUTES;
 	}
-	// For clicks (not drags), don't set timeEstimate to let default setting apply
+	// Otherwise leave timeEstimate unset so the configured default applies
 
 	return prePopulatedValues;
 }

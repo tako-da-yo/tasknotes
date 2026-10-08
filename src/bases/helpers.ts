@@ -160,6 +160,7 @@ function applySpecialTransformations(propId: string): string {
 	if (propId === "blockedBy") return "blocked";
 	if (propId === "file.tasks") return "checklistProgress";
 	if (propId === "formula.checklistProgress") return "checklistProgress";
+	if (propId === "formula.contextGroup") return "contextGroup";
 	return propId;
 }
 

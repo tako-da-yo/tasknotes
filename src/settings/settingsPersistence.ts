@@ -11,6 +11,7 @@ export type LoadedSettingsData = Partial<TaskNotesSettings> &
 	Record<string, unknown> & {
 		statusSuggestionTrigger?: string;
 		useNativeMetadataCache?: unknown;
+		googleCalendarEventTypeDisplay?: unknown;
 	};
 
 export type SettingsDataHost = {
@@ -111,6 +112,8 @@ function migrateLoadedSettingsData(data: LoadedSettingsData | null): LoadedSetti
 
 	// Migration: Remove old useNativeMetadataCache setting if it exists.
 	delete migratedData.useNativeMetadataCache;
+	// Migration: Google event types are styled by type now instead of a per-type setting.
+	delete migratedData.googleCalendarEventTypeDisplay;
 
 	// Migration: Add API settings defaults if they don't exist.
 	if (typeof migratedData.enableAPI === "undefined") {
@@ -248,10 +251,6 @@ export function buildSettingsFromLoadedData(data: LoadedSettingsData | null): Se
 		icsIntegration: {
 			...DEFAULT_SETTINGS.icsIntegration,
 			...(loadedData?.icsIntegration || {}),
-		},
-		googleCalendarEventTypeDisplay: {
-			...DEFAULT_SETTINGS.googleCalendarEventTypeDisplay,
-			...(loadedData?.googleCalendarEventTypeDisplay || {}),
 		},
 		nlpTriggers: {
 			...DEFAULT_SETTINGS.nlpTriggers,
