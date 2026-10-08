@@ -1,10 +1,16 @@
 import { Notice, Platform, Modal, Setting, setIcon, App } from "obsidian";
 import TaskNotesPlugin from "../../main";
 import type { OAuthProvider, WebhookConfig, WebhookEvent } from "../../types";
-import type { ICSIntegrationSettings } from "../../types/settings";
+import type {
+	CalendarEventDisplayMode,
+	GoogleCalendarEventType,
+	ICSIntegrationSettings,
+} from "../../types/settings";
 import { TranslationKey } from "../../i18n";
 import { loadAPIEndpoints } from "../../api/loadAPIEndpoints";
 import { GOOGLE_CALENDAR_CONSTANTS } from "../../services/constants";
+import type { GoogleCalendarService } from "../../services/GoogleCalendarService";
+import type { MicrosoftCalendarService } from "../../services/MicrosoftCalendarService";
 import {
 	createSettingGroup,
 	configureTextSetting,
@@ -22,6 +28,7 @@ import {
 	createStatusBadge,
 	createCardInput,
 	createCardToggle,
+	createCardSelect,
 	createDeleteHeaderButton,
 	createCardUrlInput,
 	createCardNumberInput,
@@ -229,6 +236,95 @@ const WEBHOOK_EVENT_OPTIONS: ReadonlyArray<{
 ];
 
 /**
+ * Builds the card section listing provider calendars with a toggle for each,
+ * so only the selected calendars are fetched.
+ */
+function createCalendarSelectionSection(
+	service: GoogleCalendarService | MicrosoftCalendarService,
+	container: HTMLElement,
+	rerender: () => void
+): CardSection {
+	const calendars = service.getAvailableCalendars();
+
+	if (calendars.length === 0) {
+		// Calendars are listed during the first sync, which may still be running.
+		const unsubscribe = service.on("data-changed", () => {
+			unsubscribe();
+			if (container.isConnected) {
+				rerender();
+			}
+		});
+		const pendingInfo = activeWindow.createDiv();
+		pendingInfo.className = "tasknotes-calendar-info";
+		pendingInfo.textContent = "Calendars will appear here after the first sync.";
+		return { rows: [{ label: "Calendars:", input: pendingInfo, fullWidth: true }] };
+	}
+
+	const helpInfo = activeWindow.createDiv();
+	helpInfo.className = "tasknotes-calendar-help";
+	helpInfo.textContent =
+		"Choose which calendars to sync. Calendars are off until you turn them on, and only selected calendars are fetched.";
+
+	return {
+		rows: [
+			{ label: "Calendars:", input: helpInfo, fullWidth: true },
+			...calendars.map((calendar) => ({
+				label: calendar.primary
+					? `${calendar.summary || calendar.id} (primary)`
+					: calendar.summary || calendar.id,
+				input: createCardToggle(service.isCalendarEnabled(calendar.id), (value) =>
+					service.setCalendarEnabled(calendar.id, value)
+				),
+			})),
+		],
+	};
+}
+
+const GOOGLE_EVENT_TYPE_LABELS: Record<GoogleCalendarEventType, string> = {
+	workingLocation: "Working location",
+	outOfOffice: "Out of office",
+	focusTime: "Focus time",
+	birthday: "Birthdays",
+	fromGmail: "Events from Gmail",
+};
+
+const EVENT_DISPLAY_MODE_OPTIONS: Array<{ value: CalendarEventDisplayMode; label: string }> = [
+	{ value: "show", label: "Show as event" },
+	{ value: "ghost", label: "Show as ghost" },
+	{ value: "hide", label: "Hide" },
+];
+
+function isCalendarEventDisplayMode(value: string): value is CalendarEventDisplayMode {
+	return EVENT_DISPLAY_MODE_OPTIONS.some((option) => option.value === value);
+}
+
+/**
+ * Builds the card section choosing how each special Google event type is displayed.
+ */
+function createGoogleEventTypeSection(service: GoogleCalendarService): CardSection {
+	const helpInfo = activeWindow.createDiv();
+	helpInfo.className = "tasknotes-calendar-help";
+	helpInfo.textContent =
+		"Choose how special Google event types appear in calendar views. Ghosts are shown faded.";
+
+	const rows: CardSection["rows"] = [{ label: "Event types:", input: helpInfo, fullWidth: true }];
+	for (const type of Object.keys(GOOGLE_EVENT_TYPE_LABELS) as GoogleCalendarEventType[]) {
+		const select = createCardSelect(
+			EVENT_DISPLAY_MODE_OPTIONS,
+			service.getEventDisplayMode({ providerEventType: type })
+		);
+		select.addEventListener("change", () => {
+			const mode = select.value;
+			if (isCalendarEventDisplayMode(mode)) {
+				runAsyncSettingCallback(() => service.setEventTypeDisplayMode(type, mode));
+			}
+		});
+		rows.push({ label: GOOGLE_EVENT_TYPE_LABELS[type], input: select });
+	}
+	return { rows };
+}
+
+/**
  * Renders the Integrations tab - external connections and API settings
  */
 export function renderIntegrationsTab(
@@ -382,6 +478,16 @@ export function renderIntegrationsTab(
 								{ label: "Sync:", input: lastRefreshInfo },
 							],
 						},
+						...(plugin.googleCalendarService
+							? [
+									createCalendarSelectionSection(
+										plugin.googleCalendarService,
+										googleCalendarContainer,
+										() => void renderGoogleCalendarCard()
+									),
+									createGoogleEventTypeSection(plugin.googleCalendarService),
+								]
+							: []),
 					],
 				},
 				actions: {
@@ -491,6 +597,7 @@ export function renderIntegrationsTab(
 									if (!oauthService) return;
 									credentialControls.persistPendingValues();
 									await oauthService.authenticate("google");
+									await plugin.googleCalendarService?.initialize();
 									new Notice("Google calendar connected successfully!");
 									void renderGoogleCalendarCard(); // Re-render to show connected state
 								} catch (error) {
@@ -641,6 +748,15 @@ export function renderIntegrationsTab(
 						{
 							rows: microsoftRows,
 						},
+						...(plugin.microsoftCalendarService
+							? [
+									createCalendarSelectionSection(
+										plugin.microsoftCalendarService,
+										microsoftCalendarContainer,
+										() => void renderMicrosoftCalendarCard()
+									),
+								]
+							: []),
 					],
 				},
 				actions: {

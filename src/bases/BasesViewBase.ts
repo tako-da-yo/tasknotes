@@ -70,6 +70,9 @@ import { filterTopLevelSubtasks } from "./topLevelSubtasks";
 import type { BasesTaskUpdateSource } from "./basesUpdateEvents";
 import { createTaskNotesLogger, type TaskNotesLogger } from "../utils/tasknotesLogger";
 
+/** Collapses bursts of calendar updates (one per provider at startup) into one refresh. */
+const EXTERNAL_CALENDAR_UPDATE_DEBOUNCE_MS = 250;
+
 type BasesEphemeralState = {
 	scrollTop?: unknown;
 	containerScrollTop?: unknown;
@@ -436,6 +439,41 @@ export abstract class BasesViewBase extends Component {
 			if (this.taskUpdateListener) {
 				cleanupBasesTaskUpdateListeners(this.plugin.emitter, this.taskUpdateListener);
 				this.taskUpdateListener = null;
+			}
+		});
+	}
+
+	/**
+	 * Calls onChange (debounced) when ICS, Google, or Microsoft calendar events change.
+	 * Bases only notifies views about vault changes, so views that show external
+	 * calendar events must listen to the calendar services directly.
+	 */
+	protected registerExternalCalendarListener(onChange: () => void): void {
+		let timer: number | null = null;
+		const schedule = () => {
+			if (timer !== null) {
+				window.clearTimeout(timer);
+			}
+			timer = window.setTimeout(() => {
+				timer = null;
+				if (this.rootElement?.isConnected) {
+					onChange();
+				}
+			}, EXTERNAL_CALENDAR_UPDATE_DEBOUNCE_MS);
+		};
+
+		for (const source of [
+			this.plugin.icsSubscriptionService,
+			this.plugin.googleCalendarService,
+			this.plugin.microsoftCalendarService,
+		]) {
+			if (source) {
+				this.register(source.on("data-changed", schedule));
+			}
+		}
+		this.register(() => {
+			if (timer !== null) {
+				window.clearTimeout(timer);
 			}
 		});
 	}

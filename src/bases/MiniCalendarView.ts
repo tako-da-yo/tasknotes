@@ -162,6 +162,11 @@ export class MiniCalendarView extends BasesViewBase {
 		this.readViewOptions();
 		// Call parent onload which sets up container and listeners
 		super.onload();
+		this.registerExternalCalendarListener(() => {
+			// Calendar lists load after the view at startup, so re-read per-calendar toggles.
+			this.readCalendarToggles();
+			void this.render();
+		});
 	}
 
 	/**

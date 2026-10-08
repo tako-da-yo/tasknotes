@@ -2660,6 +2660,14 @@
       "source": "73d1b0db7dc181c5c4a44ad779426e033241b030",
       "translation": "969b8ede182916e56f76d1785b341d21d2e04844"
     },
+    "settings.taskProperties.properties.completedAt.name": {
+      "source": "3cabb391aef79c4a14c5d6f2b8ab3c31828968ce",
+      "translation": "1b70b771ebc8aaad4b4ac9bf9aa5183f490020f4"
+    },
+    "settings.taskProperties.properties.completedAt.description": {
+      "source": "ebf782d3557c43945e94660527357eb361c4f065",
+      "translation": "967bef426cb010a76343457ec08440451df7c6dc"
+    },
     "settings.taskProperties.properties.archiveTag.name": {
       "source": "23099c737e2521413d92f43c913953645c5f3558",
       "translation": "59ab9a13601c4d706037b9df5835da7c1a58942a"
@@ -2683,6 +2691,14 @@
     "settings.taskProperties.properties.completeInstances.description": {
       "source": "8c522560a5286d5323de742618fc62e2f0340313",
       "translation": "7d62878ca83632ae7587fc0dbd7ff467bca86ca8"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.name": {
+      "source": "9c08c15774740aec8a4ec7d853b31fb9b913863c",
+      "translation": "a37f8dae40afb36e0234f75091445e82ed6525ad"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.description": {
+      "source": "a9dc5db78f36cc6965b45a97c5b46b5654b06fed",
+      "translation": "027e8e11ec39880af6c4fda5f80e384a76261bc6"
     },
     "settings.taskProperties.properties.skippedInstances.name": {
       "source": "cdde522009e2688d87eb449a163ff16799d79378",
@@ -11670,6 +11686,14 @@
       "source": "73d1b0db7dc181c5c4a44ad779426e033241b030",
       "translation": "2cc1aa98966624c09530713d8d9937c0e0d06078"
     },
+    "settings.taskProperties.properties.completedAt.name": {
+      "source": "3cabb391aef79c4a14c5d6f2b8ab3c31828968ce",
+      "translation": "efdc009f7a945494111a4011bfe279e066624228"
+    },
+    "settings.taskProperties.properties.completedAt.description": {
+      "source": "ebf782d3557c43945e94660527357eb361c4f065",
+      "translation": "a11e9dbfcda2da12af07379a3fdee2e4c6ca91e8"
+    },
     "settings.taskProperties.properties.archiveTag.name": {
       "source": "23099c737e2521413d92f43c913953645c5f3558",
       "translation": "74e871ef8faa32c998bf8c2a055f774e208d290a"
@@ -11693,6 +11717,14 @@
     "settings.taskProperties.properties.completeInstances.description": {
       "source": "8c522560a5286d5323de742618fc62e2f0340313",
       "translation": "43209e7f4a538ad27ba82a9b90cf2111d7ee6dbd"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.name": {
+      "source": "9c08c15774740aec8a4ec7d853b31fb9b913863c",
+      "translation": "fe69547300529944841a0891eb4c25ff2a0ea6d4"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.description": {
+      "source": "a9dc5db78f36cc6965b45a97c5b46b5654b06fed",
+      "translation": "dc6cea4f224ce3b4c64ea2b973c25e382428eecd"
     },
     "settings.taskProperties.properties.skippedInstances.name": {
       "source": "cdde522009e2688d87eb449a163ff16799d79378",
@@ -20680,6 +20712,14 @@
       "source": "73d1b0db7dc181c5c4a44ad779426e033241b030",
       "translation": "93855d9e279b484c24f19e81dd110b2b5772df93"
     },
+    "settings.taskProperties.properties.completedAt.name": {
+      "source": "3cabb391aef79c4a14c5d6f2b8ab3c31828968ce",
+      "translation": "f3e256689bc9e8aaf7d65c2d6d9f492bf345dbaf"
+    },
+    "settings.taskProperties.properties.completedAt.description": {
+      "source": "ebf782d3557c43945e94660527357eb361c4f065",
+      "translation": "5c1102606d2cd6670b955a490c0b4363ba93678e"
+    },
     "settings.taskProperties.properties.archiveTag.name": {
       "source": "23099c737e2521413d92f43c913953645c5f3558",
       "translation": "d6cac5e1146cfaea8b8fa6ce5169eae1f2fa3162"
@@ -20703,6 +20743,14 @@
     "settings.taskProperties.properties.completeInstances.description": {
       "source": "8c522560a5286d5323de742618fc62e2f0340313",
       "translation": "cd2495ccfa0c4ee027019ad274b32e57b4336810"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.name": {
+      "source": "9c08c15774740aec8a4ec7d853b31fb9b913863c",
+      "translation": "dbf76bcbe623b7b8e8f6ecfd74d5494131aed101"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.description": {
+      "source": "a9dc5db78f36cc6965b45a97c5b46b5654b06fed",
+      "translation": "312e8d17f30529e503c275f54c86bff412038046"
     },
     "settings.taskProperties.properties.skippedInstances.name": {
       "source": "cdde522009e2688d87eb449a163ff16799d79378",
@@ -29690,6 +29738,14 @@
       "source": "73d1b0db7dc181c5c4a44ad779426e033241b030",
       "translation": "34231226df9aab98ac7abca7e6006bc09125a20b"
     },
+    "settings.taskProperties.properties.completedAt.name": {
+      "source": "3cabb391aef79c4a14c5d6f2b8ab3c31828968ce",
+      "translation": "54704441ba6b10f4dae3e8ec41c910c21f2d4bca"
+    },
+    "settings.taskProperties.properties.completedAt.description": {
+      "source": "ebf782d3557c43945e94660527357eb361c4f065",
+      "translation": "9e3eca83746853bdc726b482b8489cf1e63da62e"
+    },
     "settings.taskProperties.properties.archiveTag.name": {
       "source": "23099c737e2521413d92f43c913953645c5f3558",
       "translation": "38be96ee3ef01a7d83682e519c0a21b7fd7041d4"
@@ -29713,6 +29769,14 @@
     "settings.taskProperties.properties.completeInstances.description": {
       "source": "8c522560a5286d5323de742618fc62e2f0340313",
       "translation": "645d37bc52cf67b67779a8867c2ab43cdfd16b68"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.name": {
+      "source": "9c08c15774740aec8a4ec7d853b31fb9b913863c",
+      "translation": "aa45ae5ae5c0f44acb793f127dd30e347cf8614f"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.description": {
+      "source": "a9dc5db78f36cc6965b45a97c5b46b5654b06fed",
+      "translation": "8bc6433b578ee18e1077cd162eb5e7672f5f38d2"
     },
     "settings.taskProperties.properties.skippedInstances.name": {
       "source": "cdde522009e2688d87eb449a163ff16799d79378",
@@ -38700,6 +38764,14 @@
       "source": "73d1b0db7dc181c5c4a44ad779426e033241b030",
       "translation": "64ef1475b97345c2d3a2f383c85da553a73e1412"
     },
+    "settings.taskProperties.properties.completedAt.name": {
+      "source": "3cabb391aef79c4a14c5d6f2b8ab3c31828968ce",
+      "translation": "bf6eba6711ab5ed8c46f1200b476fa79723219f2"
+    },
+    "settings.taskProperties.properties.completedAt.description": {
+      "source": "ebf782d3557c43945e94660527357eb361c4f065",
+      "translation": "5e2e0b05575ed4475c62b8aca40a8c8611d23a88"
+    },
     "settings.taskProperties.properties.archiveTag.name": {
       "source": "23099c737e2521413d92f43c913953645c5f3558",
       "translation": "d7378361cc1444847dc2ac432a7d47d7b4b6ba2e"
@@ -38723,6 +38795,14 @@
     "settings.taskProperties.properties.completeInstances.description": {
       "source": "8c522560a5286d5323de742618fc62e2f0340313",
       "translation": "817cf6cc2ab73b0d9b95adfdbeec5b3da7f79c66"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.name": {
+      "source": "9c08c15774740aec8a4ec7d853b31fb9b913863c",
+      "translation": "05ffcb0bad7f1ed982b6e44ee1e7226b396d9157"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.description": {
+      "source": "a9dc5db78f36cc6965b45a97c5b46b5654b06fed",
+      "translation": "b36e47edeac8328a334b4636b6f41bae3a13e124"
     },
     "settings.taskProperties.properties.skippedInstances.name": {
       "source": "cdde522009e2688d87eb449a163ff16799d79378",
@@ -47710,6 +47790,14 @@
       "source": "73d1b0db7dc181c5c4a44ad779426e033241b030",
       "translation": "d9e1291c6bebbf096ede5703f9ca0aab413609a2"
     },
+    "settings.taskProperties.properties.completedAt.name": {
+      "source": "3cabb391aef79c4a14c5d6f2b8ab3c31828968ce",
+      "translation": "f33a7b4e17d36f2fbfbe08b6af614fbac40f3a4f"
+    },
+    "settings.taskProperties.properties.completedAt.description": {
+      "source": "ebf782d3557c43945e94660527357eb361c4f065",
+      "translation": "d11c525b6b2656d68e4868194b6c684731f1091b"
+    },
     "settings.taskProperties.properties.archiveTag.name": {
       "source": "23099c737e2521413d92f43c913953645c5f3558",
       "translation": "c4607952c3357df3abc49e2713e716cade93b024"
@@ -47733,6 +47821,14 @@
     "settings.taskProperties.properties.completeInstances.description": {
       "source": "8c522560a5286d5323de742618fc62e2f0340313",
       "translation": "d1a8e1613eb95f49f1cd83e54076b163642a7eea"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.name": {
+      "source": "9c08c15774740aec8a4ec7d853b31fb9b913863c",
+      "translation": "7d9c1911a3afa8f3c514d83fb87f5bd804828aab"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.description": {
+      "source": "a9dc5db78f36cc6965b45a97c5b46b5654b06fed",
+      "translation": "a7dcd9415898d7ffee1534e5d3cdbf56c7ebfff2"
     },
     "settings.taskProperties.properties.skippedInstances.name": {
       "source": "cdde522009e2688d87eb449a163ff16799d79378",
@@ -56720,6 +56816,14 @@
       "source": "73d1b0db7dc181c5c4a44ad779426e033241b030",
       "translation": "f989626ad3bdd1d374d0a8813ca10c6d8a0ec890"
     },
+    "settings.taskProperties.properties.completedAt.name": {
+      "source": "3cabb391aef79c4a14c5d6f2b8ab3c31828968ce",
+      "translation": "600641b1c7c7152d3483e6813fb63b6c2cc4fd40"
+    },
+    "settings.taskProperties.properties.completedAt.description": {
+      "source": "ebf782d3557c43945e94660527357eb361c4f065",
+      "translation": "dfe3c557681b42e7bb31d138e06deb9f12197dfe"
+    },
     "settings.taskProperties.properties.archiveTag.name": {
       "source": "23099c737e2521413d92f43c913953645c5f3558",
       "translation": "d22f03a8d804b12d5c1a237d048f2da4586a5143"
@@ -56743,6 +56847,14 @@
     "settings.taskProperties.properties.completeInstances.description": {
       "source": "8c522560a5286d5323de742618fc62e2f0340313",
       "translation": "7bffc7f8fd357597f3409baeba889f3ddd88190b"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.name": {
+      "source": "9c08c15774740aec8a4ec7d853b31fb9b913863c",
+      "translation": "c8557d38a70024e61524405b418d85963938d36a"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.description": {
+      "source": "a9dc5db78f36cc6965b45a97c5b46b5654b06fed",
+      "translation": "89ad6581f328cb9a88fb2bde079d9219293795f6"
     },
     "settings.taskProperties.properties.skippedInstances.name": {
       "source": "cdde522009e2688d87eb449a163ff16799d79378",
@@ -65730,6 +65842,14 @@
       "source": "73d1b0db7dc181c5c4a44ad779426e033241b030",
       "translation": "6160aca232d2c7e7ecd5dccc18dc1d84acd7f48a"
     },
+    "settings.taskProperties.properties.completedAt.name": {
+      "source": "3cabb391aef79c4a14c5d6f2b8ab3c31828968ce",
+      "translation": "754a8a2e2dba5cb0f5cc2ed9ebd02702a4dc488e"
+    },
+    "settings.taskProperties.properties.completedAt.description": {
+      "source": "ebf782d3557c43945e94660527357eb361c4f065",
+      "translation": "c7f4c7501d00b53886b3a632288e1ac8e1672fbd"
+    },
     "settings.taskProperties.properties.archiveTag.name": {
       "source": "23099c737e2521413d92f43c913953645c5f3558",
       "translation": "4893695e8c33db8e5695455dcb08ec966f5435ad"
@@ -65753,6 +65873,14 @@
     "settings.taskProperties.properties.completeInstances.description": {
       "source": "8c522560a5286d5323de742618fc62e2f0340313",
       "translation": "b486c4f2efb43ee9b85f32edaffedd3d36e6d6d7"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.name": {
+      "source": "9c08c15774740aec8a4ec7d853b31fb9b913863c",
+      "translation": "29b545ac5080eebec19282ecaeb5d5c1a335644d"
+    },
+    "settings.taskProperties.properties.completeInstanceTimes.description": {
+      "source": "a9dc5db78f36cc6965b45a97c5b46b5654b06fed",
+      "translation": "ba0714e38ca3fe1ad5f8b5ee19bae0c047781ab2"
     },
     "settings.taskProperties.properties.skippedInstances.name": {
       "source": "cdde522009e2688d87eb449a163ff16799d79378",

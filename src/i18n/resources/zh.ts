@@ -1056,6 +1056,11 @@ export const zh: TranslationTree = {
 					name: "完成日期",
 					description: "任务标记为完成的时间戳。当状态更改为已完成状态时自动设置。"
 				},
+				completedAt: {
+					name: "完成时间",
+					description:
+						"任务被标记为完成的日期和时间。自动设置，用于在日历中放置已完成的任务。",
+				},
 				archiveTag: {
 					name: "归档标签",
 					description: "归档时添加到任务的标签。用于识别已归档的任务，可触发文件移动到归档文件夹。"
@@ -1067,6 +1072,11 @@ export const zh: TranslationTree = {
 				completeInstances: {
 					name: "完成实例",
 					description: "重复任务的完成历史。存储每个实例完成的日期，以防止重复完成。"
+				},
+				completeInstanceTimes: {
+					name: "实例完成时间",
+					description:
+						"每个重复实例完成的日期和时间，按实例日期记录。用于在日历中放置已完成的实例。",
 				},
 				skippedInstances: {
 					name: "跳过实例",

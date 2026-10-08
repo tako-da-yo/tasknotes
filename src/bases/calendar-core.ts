@@ -53,6 +53,7 @@ import {
 	type CalendarTaskEventContext,
 } from "./calendarTaskEvents";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
+import { collapseCompletedTaskEvents } from "./calendarCompletionMarkers";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Bases/CalendarCore" });
 
@@ -98,6 +99,7 @@ export interface CalendarEvent {
 		isNextScheduledOccurrence?: boolean;
 		isPatternInstance?: boolean;
 		isMaterializedOccurrence?: boolean;
+		isCompletionMarker?: boolean; // Completed task collapsed to a marker at its completion time
 		instanceDate?: string;
 		occurrenceDate?: string;
 		occurrenceParent?: string;
@@ -1718,6 +1720,7 @@ export async function generateCalendarEvents(
 	};
 
 	for (const task of tasks) {
+		const firstTaskEventIndex = events.length;
 		try {
 			// Handle recurring tasks
 			if (task.recurrence) {
@@ -1799,6 +1802,24 @@ export async function generateCalendarEvents(
 					}
 				}
 			}
+
+			const isCompleted = plugin.statusManager.isCompletedStatus(task.status);
+			const taskEvents = events.splice(firstTaskEventIndex);
+			events.push(
+				...collapseCompletedTaskEvents({
+					task,
+					events: taskEvents,
+					isCompleted,
+					isShownByDate: Boolean(
+						(showScheduled && task.scheduled) || (showDue && task.due)
+					),
+					createMarkerEvent: (start) => {
+						const markerEvent = createScheduledEvent({ ...task, scheduled: start }, plugin);
+						return markerEvent ? addMaterializedOccurrenceMetadata(markerEvent, task) : null;
+					},
+					isInVisibleRange: (start) => isDateInVisibleRange(start, visibleStart, visibleEnd),
+				})
+			);
 		} catch (error) {
 			// Log error but continue processing other tasks
 			// This prevents a single task with invalid dates from breaking the entire calendar

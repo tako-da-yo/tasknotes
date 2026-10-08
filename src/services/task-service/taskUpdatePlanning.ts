@@ -1,4 +1,5 @@
 import type { FieldMappingKey, TaskInfo, TimeEntry } from "../../types";
+import { resolveCompletedAt } from "./completionTime";
 import { addDTSTARTToRecurrenceRule, updateToNextScheduledOccurrence } from "../../core/recurrence";
 import {
 	applyGoogleCalendarRecurringExceptionCleanup,
@@ -423,6 +424,7 @@ function removeUnsetMappedFields(
 		updates.completedDate === undefined
 	) {
 		delete frontmatter[fieldMapper.toUserField("completedDate")];
+		delete frontmatter[fieldMapper.toUserField("completedAt")];
 	}
 	if (
 		Object.prototype.hasOwnProperty.call(updates, "recurrence") &&
@@ -492,8 +494,15 @@ export function buildUpdatedTaskFromPlan({
 			if (!originalTask.completedDate) {
 				updatedTask.completedDate = currentDateString;
 			}
+			if (updatedTask.completedDate) {
+				updatedTask.completedAt = resolveCompletedAt(
+					updatedTask.completedDate,
+					originalTask.completedAt
+				);
+			}
 		} else {
 			updatedTask.completedDate = undefined;
+			updatedTask.completedAt = undefined;
 		}
 	}
 

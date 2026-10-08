@@ -16,7 +16,7 @@
     margin-bottom: 1px;
 
     /* Visual Styling - Subtle depth with minimal shadow */
-    background-color: transparent;
+    
     border: none;
     border-radius: var(--tn-radius-xs);
     box-shadow: none;

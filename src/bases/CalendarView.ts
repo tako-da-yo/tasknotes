@@ -3,6 +3,7 @@ import { createElementInDocument } from "../utils/documentDom";
 import type { BasesEntry, BasesView, BasesViewFactory } from "obsidian";
 import { BasesViewBase } from "./BasesViewBase";
 import { installCanvasTimeGridScaleCorrection } from "./calendarCanvasScale";
+import { COMPLETION_MARKER_CLASS } from "./calendarCompletionMarkers";
 import type { TaskInfo } from "../types";
 import { identifyTaskNotesFromBasesData } from "./helpers";
 import type { TimeblockCreationResult } from "../modals/TimeblockCreationModal";
@@ -611,6 +612,11 @@ export class CalendarView extends BasesViewBase {
 		this.releaseCanvasTimeGridScaleCorrection = installCanvasTimeGridScaleCorrection();
 		// Call parent onload which sets up container and listeners
 		super.onload();
+		this.registerExternalCalendarListener(() => {
+			// Calendar lists load after the view at startup, so re-read per-calendar toggles.
+			this.readEventToggles();
+			this.calendar?.refetchEvents();
+		});
 	}
 
 	/**
@@ -2776,6 +2782,17 @@ export class CalendarView extends BasesViewBase {
 
 			// Apply recurring task styling (handles completion styling as well)
 			applyRecurringTaskStyling(arg.el, extendedProps);
+			if (extendedProps.isCompletionMarker) {
+				arg.el.classList.add(COMPLETION_MARKER_CLASS);
+				// Show only the completion time; markers end a minute later for layout.
+				const timeEl = arg.el.querySelector(".fc-event-time");
+				if (timeEl && arg.event.start && !arg.event.allDay) {
+					timeEl.textContent = format(
+						arg.event.start,
+						this.viewOptions.timeFormat === "12" ? "h:mm a" : "HH:mm"
+					);
+				}
+			}
 		}
 
 		// Add hover tooltip for tasks and ICS events

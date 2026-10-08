@@ -6,6 +6,7 @@ import {
 	updateToNextScheduledOccurrence,
 } from "../../core/recurrence";
 import type { TaskInfo } from "../../types";
+import { updateCompleteInstanceTimes } from "./completionTime";
 import {
 	createUTCDateFromLocalCalendarDate,
 	formatDateForStorage,
@@ -53,6 +54,7 @@ export interface RecurringTaskSkippedPlan {
 export interface ApplyRecurringTaskCompleteFrontmatterInput {
 	frontmatter: Record<string, unknown>;
 	completeInstancesField: string;
+	completeInstanceTimesField?: string;
 	skippedInstancesField: string;
 	dateModifiedField: string;
 	scheduledField: string;
@@ -67,6 +69,7 @@ export interface ApplyRecurringTaskSkippedFrontmatterInput {
 	frontmatter: Record<string, unknown>;
 	skippedField: string;
 	completeField: string;
+	completeInstanceTimesField?: string;
 	dateModifiedField: string;
 	scheduledField: string;
 	dueField: string;
@@ -233,6 +236,13 @@ export function buildRecurringTaskCompletePlan({
 		dateModified: currentTimestamp,
 	};
 
+	updatedTask.complete_instance_times = updateCompleteInstanceTimes(
+		freshTask.complete_instance_times,
+		dateStr,
+		newComplete,
+		currentTimestamp
+	);
+
 	if (newComplete) {
 		if (!completeInstances.includes(dateStr)) {
 			updatedTask.complete_instances = [...completeInstances, dateStr];
@@ -321,6 +331,7 @@ export function buildRecurringTaskCompletePlan({
 export function applyRecurringTaskCompleteFrontmatterChange({
 	frontmatter,
 	completeInstancesField,
+	completeInstanceTimesField,
 	skippedInstancesField,
 	dateModifiedField,
 	scheduledField,
@@ -348,6 +359,13 @@ export function applyRecurringTaskCompleteFrontmatterChange({
 	}
 
 	frontmatter[skippedInstancesField] = plan.updatedTask.skipped_instances || [];
+	if (completeInstanceTimesField) {
+		writeOptionalFrontmatterField(
+			frontmatter,
+			completeInstanceTimesField,
+			plan.updatedTask.complete_instance_times
+		);
+	}
 
 	if (plan.updatedTask.recurrence !== plan.originalRecurrence) {
 		frontmatter[recurrenceField] = plan.updatedTask.recurrence;
@@ -403,6 +421,11 @@ export function buildRecurringTaskSkippedPlan({
 
 		const completeInstances = getStringArray(freshTask.complete_instances);
 		updatedTask.complete_instances = completeInstances.filter((d) => d !== dateStr);
+		updatedTask.complete_instance_times = updateCompleteInstanceTimes(
+			freshTask.complete_instance_times,
+			dateStr,
+			false
+		);
 	} else {
 		updatedTask.skipped_instances = skippedInstances.filter((d) => d !== dateStr);
 	}
@@ -454,6 +477,7 @@ export function applyRecurringTaskSkippedFrontmatterChange({
 	frontmatter,
 	skippedField,
 	completeField,
+	completeInstanceTimesField,
 	dateModifiedField,
 	scheduledField,
 	dueField,
@@ -470,6 +494,13 @@ export function applyRecurringTaskSkippedFrontmatterChange({
 		frontmatter[completeField] = [];
 	}
 	frontmatter[completeField] = plan.updatedTask.complete_instances || [];
+	if (completeInstanceTimesField) {
+		writeOptionalFrontmatterField(
+			frontmatter,
+			completeInstanceTimesField,
+			plan.updatedTask.complete_instance_times
+		);
+	}
 
 	if (plan.updatedTask.scheduled) {
 		frontmatter[scheduledField] = plan.updatedTask.scheduled;

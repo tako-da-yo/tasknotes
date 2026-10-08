@@ -1056,6 +1056,11 @@ export const ja: TranslationTree = {
 					name: "完了日",
 					description: "タスクが完了としてマークされたタイムスタンプ。ステータスが完了状態に変わると自動的に設定されます。"
 				},
+				completedAt: {
+					name: "完了日時",
+					description:
+						"タスクが完了としてマークされた日時。自動的に設定され、完了したタスクをカレンダー上に配置するために使用されます。",
+				},
 				archiveTag: {
 					name: "アーカイブタグ",
 					description: "アーカイブ時にタスクに追加されるタグ。アーカイブされたタスクを識別するために使用され、アーカイブフォルダへのファイル移動をトリガーできます。"
@@ -1067,6 +1072,11 @@ export const ja: TranslationTree = {
 				completeInstances: {
 					name: "完了インスタンス",
 					description: "繰り返しタスクの完了履歴。各インスタンスが完了した日付を保存して、重複完了を防ぎます。"
+				},
+				completeInstanceTimes: {
+					name: "インスタンス完了日時",
+					description:
+						"繰り返しタスクの各インスタンスが完了した日時（インスタンスの日付ごと）。完了したインスタンスをカレンダー上に配置するために使用されます。",
 				},
 				skippedInstances: {
 					name: "スキップインスタンス",

@@ -1058,6 +1058,11 @@ export const pt: TranslationTree = {
 					name: "Data de Conclusão",
 					description: "Carimbo de data/hora de quando a tarefa foi marcada como concluída. Definido automaticamente quando o status muda para um estado concluído."
 				},
+				completedAt: {
+					name: "Concluída às",
+					description:
+						"Data e hora em que a tarefa foi marcada como concluída. Definida automaticamente e usada para posicionar tarefas concluídas no calendário.",
+				},
 				archiveTag: {
 					name: "Tag de Arquivo",
 					description: "Tag adicionada às tarefas quando arquivadas. Usada para identificar tarefas arquivadas e pode acionar a movimentação de arquivos para a pasta de arquivo."
@@ -1069,6 +1074,11 @@ export const pt: TranslationTree = {
 				completeInstances: {
 					name: "Instâncias Concluídas",
 					description: "Histórico de conclusão para tarefas recorrentes. Armazena as datas em que cada instância foi concluída para evitar conclusões duplicadas."
+				},
+				completeInstanceTimes: {
+					name: "Horários das instâncias concluídas",
+					description:
+						"Data e hora em que cada instância recorrente foi concluída, indexadas pela data da instância. Usadas para posicionar instâncias concluídas no calendário.",
 				},
 				skippedInstances: {
 					name: "Instâncias Puladas",

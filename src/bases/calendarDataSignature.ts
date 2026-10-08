@@ -10,10 +10,12 @@ const CALENDAR_DATA_SIGNATURE_FIELDS: FieldMappingKey[] = [
 	"projects",
 	"timeEstimate",
 	"completedDate",
+	"completedAt",
 	"recurrence",
 	"recurrenceAnchor",
 	"timeEntries",
 	"completeInstances",
+	"completeInstanceTimes",
 	"skippedInstances",
 	"blockedBy",
 	"icsEventId",
@@ -26,6 +28,7 @@ const CALENDAR_DATA_SIGNATURE_FIELDS: FieldMappingKey[] = [
 
 const CALENDAR_DATA_SIGNATURE_DEFAULT_FIELDS: Partial<Record<FieldMappingKey, string>> = {
 	completeInstances: "complete_instances",
+	completeInstanceTimes: "complete_instance_times",
 	recurrenceAnchor: "recurrence_anchor",
 	skippedInstances: "skipped_instances",
 };

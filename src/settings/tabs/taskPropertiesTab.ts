@@ -218,6 +218,11 @@ export function renderTaskPropertiesTab(
 		translate("settings.taskProperties.properties.completedDate.name"),
 		translate("settings.taskProperties.properties.completedDate.description"));
 
+	// Completed At Property Card
+	renderMetadataPropertyCard(container, plugin, save, translate, "completedAt",
+		translate("settings.taskProperties.properties.completedAt.name"),
+		translate("settings.taskProperties.properties.completedAt.description"));
+
 	// Archive Tag Property Card
 	renderMetadataPropertyCard(container, plugin, save, translate, "archiveTag",
 		translate("settings.taskProperties.properties.archiveTag.name"),
@@ -232,6 +237,11 @@ export function renderTaskPropertiesTab(
 	renderMetadataPropertyCard(container, plugin, save, translate, "completeInstances",
 		translate("settings.taskProperties.properties.completeInstances.name"),
 		translate("settings.taskProperties.properties.completeInstances.description"));
+
+	// Complete Instance Times Property Card
+	renderMetadataPropertyCard(container, plugin, save, translate, "completeInstanceTimes",
+		translate("settings.taskProperties.properties.completeInstanceTimes.name"),
+		translate("settings.taskProperties.properties.completeInstanceTimes.description"));
 
 	// Skipped Instances Property Card
 	renderMetadataPropertyCard(container, plugin, save, translate, "skippedInstances",

@@ -4,7 +4,9 @@ import { format } from "date-fns";
 import TaskNotesPlugin from "../main";
 import { OAuthService } from "./OAuthService";
 import { GoogleCalendarEvent, ICSEvent } from "../types";
+import type { CalendarEventDisplayMode, GoogleCalendarEventType } from "../types/settings";
 import { GOOGLE_CALENDAR_CONSTANTS } from "./constants";
+import { CALENDAR_SELECTION_REFRESH_DELAY_MS, updateCalendarSelection } from "./calendarSelection";
 import {
 	GoogleCalendarError,
 	EventNotFoundError,
@@ -70,7 +72,11 @@ export class GoogleCalendarService extends CalendarProvider {
 	private oauthService: OAuthService;
 	private baseUrl = "https://www.googleapis.com/calendar/v3";
 	private cache: Map<string, ICSEvent[]> = new Map();
+	// Sync tokens are persisted but the event cache is not, so a token is only usable
+	// for calendars whose full event list was fetched into the cache this session.
+	private fullySyncedCalendarIds = new Set<string>();
 	private refreshTimer: number | null = null;
+	private selectionRefreshTimer: number | null = null;
 	private availableCalendars: ProviderCalendar[] = [];
 	private calendarColors: Map<string, string> = new Map(); // Map calendar ID to color
 	private lastManualRefresh = 0; // Timestamp of last manual refresh for rate limiting
@@ -183,11 +189,65 @@ export class GoogleCalendarService extends CalendarProvider {
 	 * Gets the list of enabled calendar IDs from settings
 	 */
 	private getEnabledCalendarIds(): string[] {
-		// If empty, show all calendars
-		if (this.plugin.settings.enabledGoogleCalendars.length === 0) {
-			return this.availableCalendars.map((cal) => cal.id);
-		}
 		return this.plugin.settings.enabledGoogleCalendars;
+	}
+
+	/**
+	 * Selects every calendar for accounts that synced before calendars were opt-in,
+	 * so upgrading does not hide calendars that were previously shown.
+	 */
+	private async applyPendingSelectAll(): Promise<void> {
+		if (!this.plugin.settings.pendingSelectAllCalendarProviders?.includes("google")) {
+			return;
+		}
+		this.plugin.settings.enabledGoogleCalendars = this.availableCalendars.map(
+			(calendar) => calendar.id
+		);
+		await this.discardPendingSelectAll();
+	}
+
+	/** Accounts connected after upgrading start with no calendars selected. */
+	private async discardPendingSelectAll(): Promise<void> {
+		const pending = this.plugin.settings.pendingSelectAllCalendarProviders;
+		if (!pending?.includes("google")) {
+			return;
+		}
+		this.plugin.settings.pendingSelectAllCalendarProviders = pending.filter(
+			(provider) => provider !== "google"
+		);
+		await this.persistSettingsDataOnly();
+	}
+
+	isCalendarEnabled(calendarId: string): boolean {
+		return this.getEnabledCalendarIds().includes(calendarId);
+	}
+
+	/**
+	 * Enables or disables fetching a calendar.
+	 */
+	async setCalendarEnabled(calendarId: string, enabled: boolean): Promise<void> {
+		const next = updateCalendarSelection(
+			this.plugin.settings.enabledGoogleCalendars,
+			this.availableCalendars.map((calendar) => calendar.id),
+			calendarId,
+			enabled
+		);
+		this.plugin.settings.enabledGoogleCalendars = next;
+		await this.persistSettingsDataOnly();
+		this.emit("data-changed");
+		if (enabled) {
+			this.scheduleSelectionRefresh();
+		}
+	}
+
+	private scheduleSelectionRefresh(): void {
+		if (this.selectionRefreshTimer) {
+			window.clearTimeout(this.selectionRefreshTimer);
+		}
+		this.selectionRefreshTimer = window.setTimeout(() => {
+			this.selectionRefreshTimer = null;
+			void this.refreshAllCalendars();
+		}, CALENDAR_SELECTION_REFRESH_DELAY_MS);
 	}
 
 	/**
@@ -237,6 +297,8 @@ export class GoogleCalendarService extends CalendarProvider {
 
 			// Set up periodic refresh (every 15 minutes)
 			this.startRefreshTimer();
+		} else {
+			await this.discardPendingSelectAll();
 		}
 	}
 
@@ -343,7 +405,9 @@ export class GoogleCalendarService extends CalendarProvider {
 	}> {
 		try {
 			const token = await this.oauthService.getValidToken("google");
-			const syncToken = this.getSyncToken(calendarId);
+			const syncToken = this.fullySyncedCalendarIds.has(calendarId)
+				? this.getSyncToken(calendarId)
+				: undefined;
 
 			let allEvents: GoogleCalendarEvent[] = [];
 			let nextPageToken: string | undefined;
@@ -537,6 +601,10 @@ export class GoogleCalendarService extends CalendarProvider {
 			url: googleEvent.htmlLink,
 			recurringEventId,
 			color: color,
+			providerEventType:
+				googleEvent.eventType && googleEvent.eventType !== "default"
+					? googleEvent.eventType
+					: undefined,
 		};
 	}
 
@@ -552,12 +620,19 @@ export class GoogleCalendarService extends CalendarProvider {
 
 			// Get list of calendars and store them
 			this.availableCalendars = await this.listCalendars();
+			await this.applyPendingSelectAll();
 
 			// Get enabled calendar IDs from settings
 			const enabledCalendarIds = this.getEnabledCalendarIds();
 
 			// Get current cached events
-			let cachedEvents = this.getAllEvents();
+			let cachedEvents = this.getCachedEventsForEnabledCalendars();
+			// getAllEvents() drops disabled calendars, so they need a full sync when re-enabled.
+			for (const calendarId of this.fullySyncedCalendarIds) {
+				if (!enabledCalendarIds.includes(calendarId)) {
+					this.fullySyncedCalendarIds.delete(calendarId);
+				}
+			}
 			const calendarErrors: { calendarId: string; message: string }[] = [];
 
 			// Fetch events from each enabled calendar
@@ -579,6 +654,7 @@ export class GoogleCalendarService extends CalendarProvider {
 							.map((event) => this.convertToICSEvent(event, calendarId));
 
 						cachedEvents.push(...icsEvents);
+						this.fullySyncedCalendarIds.add(calendarId);
 					} else {
 						// Incremental sync: Update cache with changes
 						for (const googleEvent of googleEvents) {
@@ -653,12 +729,42 @@ export class GoogleCalendarService extends CalendarProvider {
 	}
 
 	/**
-	 * Gets all cached events
+	 * Gets cached events from enabled calendars, including hidden event types,
+	 * so refreshes keep them and they reappear when their type is shown again.
 	 */
-	getAllEvents(): ICSEvent[] {
+	private getCachedEventsForEnabledCalendars(): ICSEvent[] {
 		const events = this.cache.get("all") || [];
 		const enabled = new Set(this.getEnabledCalendarIds().map((id) => `google-${id}`));
 		return events.filter((event) => enabled.has(event.subscriptionId));
+	}
+
+	/**
+	 * Gets all cached events, without event types the user chose to hide
+	 */
+	getAllEvents(): ICSEvent[] {
+		return this.getCachedEventsForEnabledCalendars().filter(
+			(event) => this.getEventDisplayMode(event) !== "hide"
+		);
+	}
+
+	/**
+	 * How calendar views should present an event, based on its Google event type
+	 */
+	getEventDisplayMode(event: Pick<ICSEvent, "providerEventType">): CalendarEventDisplayMode {
+		const type = event.providerEventType as GoogleCalendarEventType | undefined;
+		return (type && this.plugin.settings.googleCalendarEventTypeDisplay?.[type]) || "show";
+	}
+
+	async setEventTypeDisplayMode(
+		type: GoogleCalendarEventType,
+		mode: CalendarEventDisplayMode
+	): Promise<void> {
+		this.plugin.settings.googleCalendarEventTypeDisplay = {
+			...this.plugin.settings.googleCalendarEventTypeDisplay,
+			[type]: mode,
+		};
+		await this.persistSettingsDataOnly();
+		this.emit("data-changed");
 	}
 
 	/**
@@ -711,6 +817,7 @@ export class GoogleCalendarService extends CalendarProvider {
 	 */
 	clearCache(): void {
 		this.cache.clear();
+		this.fullySyncedCalendarIds.clear();
 	}
 
 	/**
@@ -1115,7 +1222,12 @@ export class GoogleCalendarService extends CalendarProvider {
 	 */
 	destroy(): void {
 		this.stopRefreshTimer();
+		if (this.selectionRefreshTimer) {
+			window.clearTimeout(this.selectionRefreshTimer);
+			this.selectionRefreshTimer = null;
+		}
 		this.cache.clear();
+		this.fullySyncedCalendarIds.clear();
 		this.removeAllListeners();
 	}
 }

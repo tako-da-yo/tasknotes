@@ -1056,6 +1056,11 @@ export const de: TranslationTree = {
 					name: "Abschlussdatum",
 					description: "Zeitstempel, wann die Aufgabe als erledigt markiert wurde. Wird automatisch gesetzt, wenn der Status auf einen abgeschlossenen Zustand wechselt."
 				},
+				completedAt: {
+					name: "Abgeschlossen um",
+					description:
+						"Datum und Uhrzeit, zu der die Aufgabe als erledigt markiert wurde. Wird automatisch gesetzt und verwendet, um erledigte Aufgaben im Kalender zu platzieren.",
+				},
 				archiveTag: {
 					name: "Archiv-Tag",
 					description: "Tag, das zu Aufgaben hinzugefügt wird, wenn sie archiviert werden. Wird verwendet, um archivierte Aufgaben zu identifizieren und kann das Verschieben von Dateien in den Archivordner auslösen."
@@ -1067,6 +1072,11 @@ export const de: TranslationTree = {
 				completeInstances: {
 					name: "Abgeschlossene Instanzen",
 					description: "Abschlusshistorie für wiederkehrende Aufgaben. Speichert Daten, an denen jede Instanz abgeschlossen wurde, um doppelte Abschlüsse zu verhindern."
+				},
+				completeInstanceTimes: {
+					name: "Abschlusszeiten der Instanzen",
+					description:
+						"Datum und Uhrzeit, zu der jede wiederkehrende Instanz abgeschlossen wurde, nach Instanzdatum. Wird verwendet, um erledigte Instanzen im Kalender zu platzieren.",
 				},
 				skippedInstances: {
 					name: "Übersprungene Instanzen",

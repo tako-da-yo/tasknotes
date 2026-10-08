@@ -141,6 +141,20 @@ function migrateLoadedSettingsData(data: LoadedSettingsData | null): LoadedSetti
 		}
 	}
 
+	// Migration: Calendars used to be fetched when no calendar was selected. Keep every
+	// calendar selected for providers still on that default; each calendar service drops
+	// its provider at startup when the account is not connected.
+	if (!hasOwnSetting(migratedData, "pendingSelectAllCalendarProviders")) {
+		const pendingProviders: ("google" | "microsoft")[] = [];
+		if (!migratedData.enabledGoogleCalendars?.length) {
+			pendingProviders.push("google");
+		}
+		if (!migratedData.enabledMicrosoftCalendars?.length) {
+			pendingProviders.push("microsoft");
+		}
+		migratedData.pendingSelectAllCalendarProviders = pendingProviders;
+	}
+
 	// Normalize accidental surrounding whitespace in configured frontmatter keys.
 	if (Array.isArray(migratedData.userFields)) {
 		migratedData.userFields = migratedData.userFields.map((field) => ({
@@ -234,6 +248,10 @@ export function buildSettingsFromLoadedData(data: LoadedSettingsData | null): Se
 		icsIntegration: {
 			...DEFAULT_SETTINGS.icsIntegration,
 			...(loadedData?.icsIntegration || {}),
+		},
+		googleCalendarEventTypeDisplay: {
+			...DEFAULT_SETTINGS.googleCalendarEventTypeDisplay,
+			...(loadedData?.googleCalendarEventTypeDisplay || {}),
 		},
 		nlpTriggers: {
 			...DEFAULT_SETTINGS.nlpTriggers,

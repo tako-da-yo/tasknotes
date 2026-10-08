@@ -1056,6 +1056,11 @@ export const es: TranslationTree = {
 					name: "Fecha de completado",
 					description: "Marca de tiempo de cuando la tarea fue marcada como completa. Se establece automáticamente cuando el estado cambia a un estado completado."
 				},
+				completedAt: {
+					name: "Completada a las",
+					description:
+						"Fecha y hora en que la tarea se marcó como completada. Se establece automáticamente y se usa para situar las tareas completadas en el calendario.",
+				},
 				archiveTag: {
 					name: "Etiqueta de archivo",
 					description: "Etiqueta añadida a las tareas cuando se archivan. Se usa para identificar tareas archivadas y puede activar el movimiento de archivos a la carpeta de archivo."
@@ -1067,6 +1072,11 @@ export const es: TranslationTree = {
 				completeInstances: {
 					name: "Instancias completadas",
 					description: "Historial de completado para tareas recurrentes. Almacena fechas cuando cada instancia fue completada para prevenir completados duplicados."
+				},
+				completeInstanceTimes: {
+					name: "Horas de instancias completadas",
+					description:
+						"Fecha y hora en que se completó cada instancia recurrente, indexadas por la fecha de la instancia. Se usa para situar las instancias completadas en el calendario.",
 				},
 				skippedInstances: {
 					name: "Instancias omitidas",

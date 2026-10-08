@@ -213,10 +213,11 @@ describe('MicrosoftCalendarService', () => {
 		});
 
 		test('should use delta link for incremental sync', async () => {
-			// Set up existing delta token
+			// Set up existing delta token for a calendar already fully synced this session
 			mockPlugin.settings!.microsoftCalendarSyncTokens = {
 				'AAMkADA1': 'https://graph.microsoft.com/v1.0/me/calendars/AAMkADA1/calendarView/delta?$deltatoken=old123'
 			};
+			(service as any).fullySyncedCalendarIds.add('AAMkADA1');
 
 			mockRequestUrl.mockResolvedValueOnce({
 				status: 200,

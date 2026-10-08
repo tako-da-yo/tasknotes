@@ -4,6 +4,7 @@ import TaskNotesPlugin from "../main";
 import { OAuthService } from "./OAuthService";
 import { ICSEvent } from "../types";
 import { MICROSOFT_CALENDAR_CONSTANTS } from "./constants";
+import { CALENDAR_SELECTION_REFRESH_DELAY_MS, updateCalendarSelection } from "./calendarSelection";
 import {
 	GoogleCalendarError,
 	EventNotFoundError,
@@ -121,7 +122,11 @@ export class MicrosoftCalendarService extends CalendarProvider {
 	private oauthService: OAuthService;
 	private baseUrl = "https://graph.microsoft.com/v1.0";
 	private cache: Map<string, ICSEvent[]> = new Map();
+	// Delta links are persisted but the event cache is not, so a delta link is only usable
+	// for calendars whose full event list was fetched into the cache this session.
+	private fullySyncedCalendarIds = new Set<string>();
 	private refreshTimer: number | null = null;
+	private selectionRefreshTimer: number | null = null;
 	private availableCalendars: ProviderCalendar[] = [];
 	private lastManualRefresh = 0; // Timestamp of last manual refresh for rate limiting
 	private lifecycleGeneration = 0;
@@ -242,11 +247,65 @@ export class MicrosoftCalendarService extends CalendarProvider {
 	 * Gets the list of enabled calendar IDs from settings
 	 */
 	private getEnabledCalendarIds(): string[] {
-		// If empty, show all calendars
-		if (this.plugin.settings.enabledMicrosoftCalendars.length === 0) {
-			return this.availableCalendars.map((cal) => cal.id);
-		}
 		return this.plugin.settings.enabledMicrosoftCalendars;
+	}
+
+	/**
+	 * Selects every calendar for accounts that synced before calendars were opt-in,
+	 * so upgrading does not hide calendars that were previously shown.
+	 */
+	private async applyPendingSelectAll(): Promise<void> {
+		if (!this.plugin.settings.pendingSelectAllCalendarProviders?.includes("microsoft")) {
+			return;
+		}
+		this.plugin.settings.enabledMicrosoftCalendars = this.availableCalendars.map(
+			(calendar) => calendar.id
+		);
+		await this.discardPendingSelectAll();
+	}
+
+	/** Accounts connected after upgrading start with no calendars selected. */
+	private async discardPendingSelectAll(): Promise<void> {
+		const pending = this.plugin.settings.pendingSelectAllCalendarProviders;
+		if (!pending?.includes("microsoft")) {
+			return;
+		}
+		this.plugin.settings.pendingSelectAllCalendarProviders = pending.filter(
+			(provider) => provider !== "microsoft"
+		);
+		await this.persistSettingsDataOnly();
+	}
+
+	isCalendarEnabled(calendarId: string): boolean {
+		return this.getEnabledCalendarIds().includes(calendarId);
+	}
+
+	/**
+	 * Enables or disables fetching a calendar.
+	 */
+	async setCalendarEnabled(calendarId: string, enabled: boolean): Promise<void> {
+		const next = updateCalendarSelection(
+			this.plugin.settings.enabledMicrosoftCalendars,
+			this.availableCalendars.map((calendar) => calendar.id),
+			calendarId,
+			enabled
+		);
+		this.plugin.settings.enabledMicrosoftCalendars = next;
+		await this.persistSettingsDataOnly();
+		this.emit("data-changed");
+		if (enabled) {
+			this.scheduleSelectionRefresh();
+		}
+	}
+
+	private scheduleSelectionRefresh(): void {
+		if (this.selectionRefreshTimer) {
+			window.clearTimeout(this.selectionRefreshTimer);
+		}
+		this.selectionRefreshTimer = window.setTimeout(() => {
+			this.selectionRefreshTimer = null;
+			void this.refreshAllCalendars();
+		}, CALENDAR_SELECTION_REFRESH_DELAY_MS);
 	}
 
 	/**
@@ -358,6 +417,8 @@ export class MicrosoftCalendarService extends CalendarProvider {
 
 			// Set up periodic refresh (every 15 minutes)
 			if (this.isCurrentConnection(generation)) this.startRefreshTimer();
+		} else if (!isConnected) {
+			await this.discardPendingSelectAll();
 		}
 	}
 
@@ -473,7 +534,9 @@ export class MicrosoftCalendarService extends CalendarProvider {
 		try {
 			const token = await this.oauthService.getValidToken("microsoft");
 			if (!this.isCurrentConnection(generation)) return { events: [], isFullSync: true, hasDeletes: false };
-			const deltaLink = this.getSyncToken(calendarId);
+			const deltaLink = this.fullySyncedCalendarIds.has(calendarId)
+				? this.getSyncToken(calendarId)
+				: undefined;
 
 			let allEvents: MicrosoftCalendarEvent[] = [];
 			let nextLink: string | undefined;
@@ -655,6 +718,7 @@ export class MicrosoftCalendarService extends CalendarProvider {
 			const calendars = await this.listCalendars();
 			if (!this.isCurrentConnection(generation)) return;
 			this.availableCalendars = calendars;
+			await this.applyPendingSelectAll();
 
 			// Get enabled calendar IDs from settings
 			const enabledCalendarIds = this.getEnabledCalendarIds();
@@ -665,6 +729,12 @@ export class MicrosoftCalendarService extends CalendarProvider {
 
 			// Get current cached events
 			let cachedEvents = this.getAllEvents();
+			// getAllEvents() drops disabled calendars, so they need a full sync when re-enabled.
+			for (const calendarId of this.fullySyncedCalendarIds) {
+				if (!enabledCalendarIds.includes(calendarId)) {
+					this.fullySyncedCalendarIds.delete(calendarId);
+				}
+			}
 
 			// Fetch events from each enabled calendar
 			for (const calendarId of enabledCalendarIds) {
@@ -685,6 +755,7 @@ export class MicrosoftCalendarService extends CalendarProvider {
 							.map((event) => this.convertToICSEvent(event, calendarId));
 
 						cachedEvents.push(...icsEvents);
+						this.fullySyncedCalendarIds.add(calendarId);
 					} else {
 						// Incremental sync: Update cache with changes
 						for (const msEvent of msEvents) {
@@ -887,6 +958,7 @@ export class MicrosoftCalendarService extends CalendarProvider {
 	 */
 	clearCache(): void {
 		this.cache.clear();
+		this.fullySyncedCalendarIds.clear();
 	}
 
 	/**
@@ -1273,7 +1345,11 @@ export class MicrosoftCalendarService extends CalendarProvider {
 		this.destroyed = true;
 		this.lifecycleGeneration++;
 		this.stopRefreshTimer();
-		this.cache.clear();
+		if (this.selectionRefreshTimer) {
+			window.clearTimeout(this.selectionRefreshTimer);
+			this.selectionRefreshTimer = null;
+		}
+		this.clearCache();
 		this.removeAllListeners();
 	}
 }

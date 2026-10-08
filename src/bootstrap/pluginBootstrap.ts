@@ -412,6 +412,17 @@ function registerEditorIntegrations(plugin: TaskNotesPlugin): void {
 	plugin.registerMarkdownPostProcessor(createReadingModeTaskLinkProcessor(plugin));
 }
 
+function startCalendarInitialization(source: string, initialize: () => Promise<void>): void {
+	initialize().catch((error) => {
+		tasknotesLogger.error("Calendar initialization failed:", {
+			category: "provider",
+			operation: "initialize-calendar-source",
+			details: { source },
+			error: error,
+		});
+	});
+}
+
 export function initializeServicesLazily(plugin: TaskNotesPlugin): void {
 	window.setTimeout(() => {
 		void (async () => {
@@ -425,89 +436,98 @@ export function initializeServicesLazily(plugin: TaskNotesPlugin): void {
 				plugin.autoExportService.start();
 
 				if (!isCalendarIntegrationDisabledOnMobile(plugin.settings)) {
-					await plugin.icsSubscriptionService.initialize();
-
-					plugin.googleCalendarService.on("data-changed", () => {
-						plugin.notifyDataChanged(undefined, false, true);
-					});
-					await plugin.googleCalendarService.initialize();
-
-					plugin.taskCalendarSyncService = new (
-						await import("../services/TaskCalendarSyncService")
-					).TaskCalendarSyncService(plugin, plugin.googleCalendarService);
-					await plugin.taskCalendarSyncService.initializeExternalFileReconciliation();
-					plugin.taskCalendarSyncService.startRecoveryQueueProcessor();
-
-					plugin.registerEvent(
-						plugin.emitter.on("file-updated", (data: FileUpdatedEventData) => {
-							if (!plugin.taskCalendarSyncService || !data?.path) {
-								return;
-							}
-
-							plugin.taskCalendarSyncService
-								.handleExternalTaskFileUpdated(data.path, data.updatedTask)
-								.catch((error) => {
-									tasknotesLogger.warn(
-										"Failed to reconcile externally updated task with Google Calendar:",
-										{
-											category: "provider",
-											operation: "reconcile-external-task-file-update",
-											error: error,
-										}
-									);
-								});
-						})
+					// Each calendar source loads independently so a slow feed or provider
+					// does not delay the others or the rest of startup.
+					startCalendarInitialization("ics", () =>
+						plugin.icsSubscriptionService.initialize()
 					);
 
-					plugin.registerEvent(
-						plugin.emitter.on("file-deleted", (data: FileDeletedEventData) => {
-							if (!plugin.taskCalendarSyncService) {
-								return;
-							}
+					startCalendarInitialization("google", async () => {
+						plugin.googleCalendarService.on("data-changed", () => {
+							plugin.notifyDataChanged(undefined, false, true);
+						});
+						await plugin.googleCalendarService.initialize();
 
-							const eventIdKey =
-								plugin.fieldMapper.toUserField("googleCalendarEventId");
-							const exceptionEventIdKey = plugin.fieldMapper.toUserField(
-								"googleCalendarExceptionEventId"
-							);
-							const prevCache = data.prevCache as
-								| { frontmatter?: Record<string, unknown> }
-								| undefined;
-							const eventId = prevCache?.frontmatter?.[eventIdKey];
-							const exceptionEventId = prevCache?.frontmatter?.[exceptionEventIdKey];
+						plugin.taskCalendarSyncService = new (
+							await import("../services/TaskCalendarSyncService")
+						).TaskCalendarSyncService(plugin, plugin.googleCalendarService);
+						await plugin.taskCalendarSyncService.initializeExternalFileReconciliation();
+						plugin.taskCalendarSyncService.startRecoveryQueueProcessor();
 
-							if (
-								(typeof eventId === "string" && eventId.length > 0) ||
-								(typeof exceptionEventId === "string" &&
-									exceptionEventId.length > 0)
-							) {
+						plugin.registerEvent(
+							plugin.emitter.on("file-updated", (data: FileUpdatedEventData) => {
+								if (!plugin.taskCalendarSyncService || !data?.path) {
+									return;
+								}
+
 								plugin.taskCalendarSyncService
-									.deleteTaskFromCalendarByPath(
-										data.path,
-										typeof eventId === "string" ? eventId : undefined,
-										typeof exceptionEventId === "string"
-											? exceptionEventId
-											: undefined
-									)
+									.handleExternalTaskFileUpdated(data.path, data.updatedTask)
 									.catch((error) => {
 										tasknotesLogger.warn(
-											"Failed to delete task from Google Calendar on file deletion:",
+											"Failed to reconcile externally updated task with Google Calendar:",
 											{
 												category: "provider",
-												operation:
-													"delete-task-google-calendar-on-file-deletion",
+												operation: "reconcile-external-task-file-update",
 												error: error,
 											}
 										);
 									});
-							}
-						})
-					);
+							})
+						);
+
+						plugin.registerEvent(
+							plugin.emitter.on("file-deleted", (data: FileDeletedEventData) => {
+								if (!plugin.taskCalendarSyncService) {
+									return;
+								}
+
+								const eventIdKey =
+									plugin.fieldMapper.toUserField("googleCalendarEventId");
+								const exceptionEventIdKey = plugin.fieldMapper.toUserField(
+									"googleCalendarExceptionEventId"
+								);
+								const prevCache = data.prevCache as
+									| { frontmatter?: Record<string, unknown> }
+									| undefined;
+								const eventId = prevCache?.frontmatter?.[eventIdKey];
+								const exceptionEventId =
+									prevCache?.frontmatter?.[exceptionEventIdKey];
+
+								if (
+									(typeof eventId === "string" && eventId.length > 0) ||
+									(typeof exceptionEventId === "string" &&
+										exceptionEventId.length > 0)
+								) {
+									plugin.taskCalendarSyncService
+										.deleteTaskFromCalendarByPath(
+											data.path,
+											typeof eventId === "string" ? eventId : undefined,
+											typeof exceptionEventId === "string"
+												? exceptionEventId
+												: undefined
+										)
+										.catch((error) => {
+											tasknotesLogger.warn(
+												"Failed to delete task from Google Calendar on file deletion:",
+												{
+													category: "provider",
+													operation:
+														"delete-task-google-calendar-on-file-deletion",
+													error: error,
+												}
+											);
+										});
+								}
+							})
+						);
+					});
 
 					plugin.microsoftCalendarService.on("data-changed", () => {
 						plugin.notifyDataChanged(undefined, false, true);
 					});
-					await plugin.microsoftCalendarService.initialize();
+					startCalendarInitialization("microsoft", () =>
+						plugin.microsoftCalendarService.initialize()
+					);
 				}
 
 				plugin.taskFileLifecycleReconciliationService =

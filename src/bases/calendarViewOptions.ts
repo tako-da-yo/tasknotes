@@ -101,7 +101,10 @@ function buildExternalCalendarToggleGroups(
 		});
 	}
 
-	const googleCalendars = plugin.googleCalendarService?.getAvailableCalendars() ?? [];
+	// Calendars deselected in the integration settings are not fetched, so they get no toggle.
+	const googleCalendars = (plugin.googleCalendarService?.getAvailableCalendars() ?? []).filter(
+		(cal) => plugin.googleCalendarService.isCalendarEnabled(cal.id)
+	);
 	if (googleCalendars.length > 0) {
 		options.push({
 			type: "group",
@@ -115,7 +118,9 @@ function buildExternalCalendarToggleGroups(
 		});
 	}
 
-	const microsoftCalendars = plugin.microsoftCalendarService?.getAvailableCalendars() ?? [];
+	const microsoftCalendars = (
+		plugin.microsoftCalendarService?.getAvailableCalendars() ?? []
+	).filter((cal) => plugin.microsoftCalendarService.isCalendarEnabled(cal.id));
 	if (microsoftCalendars.length > 0) {
 		options.push({
 			type: "group",

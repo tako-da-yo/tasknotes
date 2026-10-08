@@ -1,4 +1,5 @@
 import { TFile, stringifyYaml, type Vault } from "obsidian";
+import { resolveCompletedAt } from "./completionTime";
 import {
 	EVENT_TASK_UPDATED,
 	FieldMapping,
@@ -153,6 +154,9 @@ export class TaskCreationService {
 						? getCurrentDateString()
 						: undefined)
 				: undefined;
+			const completedAt = completedDate
+				? resolveCompletedAt(completedDate, taskData.completedAt)
+				: undefined;
 
 			const contextsArray = taskData.contexts || [];
 			const projectsArray = taskData.projects || [];
@@ -230,6 +234,7 @@ export class TaskCreationService {
 				dateModified,
 				recurrence,
 				completedDate,
+				completedAt,
 				recurrence_anchor: taskData.recurrence_anchor || undefined,
 				recurrence_parent: taskData.recurrence_parent || undefined,
 				occurrence_date: taskData.occurrence_date || undefined,

@@ -25,7 +25,8 @@ OAuth calendar integration requires creating an OAuth application with your cale
 - Events are fetched automatically every 15 minutes
 - Events are also fetched when local changes occur (task creation, updates, rescheduling)
 - Dragging calendar events to new dates/times updates the event in the calendar provider
-- Per-calendar visibility toggles allow selective display of calendars
+- Choose which calendars are fetched in [Integrations settings](../settings/integrations.md#choosing-calendars); per-view toggles in calendar views then hide or show the fetched calendars
+- ICS subscriptions, Google, and Microsoft calendars load independently at startup, so a slow source does not delay the others
 - Access tokens are automatically refreshed when expired
 - Globally disabled calendars are excluded from the combined event data, not just hidden in a view
 - Connecting Microsoft starts an initial fetch and automatic refresh; disconnecting removes its cached calendars, events, and sync state

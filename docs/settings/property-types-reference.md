@@ -13,6 +13,7 @@ This reference documents the expected data types for each frontmatter property t
 | due | text (date) | `"2025-01-15"` |
 | scheduled | text (date) | `"2025-01-10"` |
 | completedDate | text (date) | `"2025-01-20"` |
+| completedAt | text (datetime) | `"2025-01-20T14:02:05.123+01:00"` |
 | dateCreated | text (datetime) | `"2025-01-01T08:00:00Z"` |
 | dateModified | text (datetime) | `"2025-01-15T10:30:00Z"` |
 | tags | list | `["work", "urgent"]` |
@@ -25,6 +26,7 @@ This reference documents the expected data types for each frontmatter property t
 | blockedBy | list (objects) | See [Dependencies](#dependencies-blockedby) |
 | reminders | list (objects) | See [Reminders](#reminders) |
 | complete_instances | list | `["2025-01-08", "2025-01-15"]` |
+| complete_instance_times | object (date → datetime) | `{"2025-01-08": "2025-01-08T17:45:00.000+01:00"}` |
 | skipped_instances | list | `["2025-01-22"]` |
 | recurrence_parent | text (link/path) | `"[[Tasks/Weekly review]]"` |
 | occurrence_date | text (date) | `"2025-01-15"` |

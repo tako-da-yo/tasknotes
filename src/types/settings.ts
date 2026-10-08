@@ -81,6 +81,17 @@ export interface NLPTriggersConfig {
 
 export type HideIdentifyingTagsMode = "all" | "exact-only";
 
+/** Google Calendar event kinds other than regular events. */
+export type GoogleCalendarEventType =
+	| "workingLocation"
+	| "outOfOffice"
+	| "focusTime"
+	| "birthday"
+	| "fromGmail";
+
+/** How calendar views present an external event kind. */
+export type CalendarEventDisplayMode = "show" | "ghost" | "hide";
+
 export interface ProjectAutosuggestSettings {
 	enableFuzzy: boolean;
 	rows: string[]; // up to 3 rows; each uses {property|flags} format
@@ -251,10 +262,14 @@ export interface TaskNotesSettings {
 	enabledGoogleCalendars: string[]; // Array of calendar IDs that should be displayed
 	// Google Calendar sync tokens (for incremental sync)
 	googleCalendarSyncTokens: Record<string, string>; // Maps calendar ID to sync token
+	// How each special Google event kind (working location, focus time, ...) is displayed
+	googleCalendarEventTypeDisplay: Record<GoogleCalendarEventType, CalendarEventDisplayMode>;
 	// Microsoft Calendar selection
 	enabledMicrosoftCalendars: string[]; // Array of calendar IDs that should be displayed
 	// Microsoft Calendar sync tokens (delta links for incremental sync)
 	microsoftCalendarSyncTokens: Record<string, string>; // Maps calendar ID to delta link
+	// Providers synced before calendars were opt-in; all their calendars are selected on the next sync
+	pendingSelectAllCalendarProviders: ("google" | "microsoft")[];
 	// Google Calendar task export settings
 	googleCalendarExport: GoogleCalendarExportSettings;
 	// Debug logging

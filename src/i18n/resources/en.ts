@@ -1126,6 +1126,11 @@ export const en: TranslationTree = {
 					description:
 						"Timestamp when the task was marked complete. Set automatically when status changes to a completed state.",
 				},
+				completedAt: {
+					name: "Completed at",
+					description:
+						"Date and time when the task was marked complete. Set automatically and used to place completed tasks on the calendar.",
+				},
 				archiveTag: {
 					name: "Archive tag",
 					description:
@@ -1140,6 +1145,11 @@ export const en: TranslationTree = {
 					name: "Complete instances",
 					description:
 						"Completion history for recurring tasks. Stores dates when each instance was completed to prevent duplicate completions.",
+				},
+				completeInstanceTimes: {
+					name: "Complete instance times",
+					description:
+						"Date and time each recurring instance was completed, keyed by instance date. Used to place completed instances on the calendar.",
 				},
 				skippedInstances: {
 					name: "Skipped instances",

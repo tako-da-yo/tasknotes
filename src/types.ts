@@ -467,6 +467,7 @@ export interface TaskInfo {
 	recurrence?: string; // RFC 5545 recurrence rule string
 	recurrence_anchor?: 'scheduled' | 'completion'; // Determines if recurrence is from scheduled date (fixed) or completion date (flexible). Defaults to 'scheduled'
 	complete_instances?: string[]; // Array of dates (YYYY-MM-DD) when recurring task was completed
+	complete_instance_times?: Record<string, string>; // Instance date (YYYY-MM-DD) -> timestamp it was completed
 	skipped_instances?: string[]; // Array of dates (YYYY-MM-DD) when recurring task was skipped
 	recurrence_parent?: string; // Link/path to the parent recurring task when this is a materialized occurrence
 	occurrence_date?: string; // Target recurrence date (YYYY-MM-DD) for materialized occurrences
@@ -476,6 +477,7 @@ export interface TaskInfo {
 	occurrence_past_horizon?: string; // ISO duration override for rolling materialization past horizon
 	occurrence_future_horizon?: string; // ISO duration override for rolling materialization future horizon
 	completedDate?: string; // Date (YYYY-MM-DD) when task was marked as done
+	completedAt?: string; // Timestamp when task was marked as done (absent for older completions)
 	timeEstimate?: number; // Estimated time in minutes
 	timeEntries?: TimeEntry[]; // Individual time tracking sessions
 	totalTrackedTime?: number; // Total tracked time in minutes (calculated from timeEntries)
@@ -580,6 +582,7 @@ export interface TaskFrontmatter {
 	attachments?: string[];
 	recurrence?: string; // RFC 5545 recurrence rule string
 	complete_instances?: string[];
+	complete_instance_times?: Record<string, string>;
 	skipped_instances?: string[];
 	recurrence_parent?: string;
 	occurrence_date?: string;
@@ -589,6 +592,7 @@ export interface TaskFrontmatter {
 	occurrence_past_horizon?: string;
 	occurrence_future_horizon?: string;
 	completedDate?: string;
+	completedAt?: string;
 	timeEstimate?: number;
 	timeEntries?: TimeEntry[];
 }
@@ -707,6 +711,7 @@ export interface FieldMapping {
 	attachments: string;
 	timeEstimate: string;
 	completedDate: string;
+	completedAt: string; // Timestamp when a non-recurring task was completed
 	dateCreated: string;
 	dateModified: string;
 	recurrence: string; // RFC 5545 recurrence rule string
@@ -721,6 +726,7 @@ export interface FieldMapping {
 	archiveTag: string; // For the archive tag in the tags array
 	timeEntries: string;
 	completeInstances: string;
+	completeInstanceTimes: string; // Map of recurring instance date -> completion timestamp
 	skippedInstances: string; // User-configurable property name for skipped instances
 	blockedBy: string;
 	pomodoros: string; // For daily note pomodoro tracking
@@ -836,6 +842,7 @@ export interface ICSEvent {
 	rrule?: string; // Recurrence rule
 	recurringEventId?: string; // Stable master/series ID for expanded recurring event instances
 	color?: string; // Hex color code (e.g., "#4285F4")
+	providerEventType?: string; // Provider-specific event kind, e.g. Google "workingLocation"
 }
 
 export interface ICSCache {
@@ -999,6 +1006,7 @@ export interface GoogleCalendarEvent {
 	recurrence?: string[]; // RRULE strings
 	colorId?: string; // Google Calendar color ID (1-11)
 	status?: string; // Event status: "confirmed", "tentative", or "cancelled"
+	eventType?: string; // "default", "workingLocation", "outOfOffice", "focusTime", "birthday", "fromGmail"
 }
 
 export interface GoogleCalendar {

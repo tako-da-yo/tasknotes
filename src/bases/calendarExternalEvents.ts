@@ -14,6 +14,16 @@ export type ExternalCalendarEventFactory = (
 
 type Nullable<T> = T | null;
 
+/** Class for external events shown de-emphasized, such as Google working location. */
+export const GHOST_EVENT_CLASS = "fc-event--ghost";
+
+function normalizeClassNames(classNames: EventInput["classNames"]): string[] {
+	if (!classNames) return [];
+	return typeof classNames === "string"
+		? classNames.split(/\s+/).filter(Boolean)
+		: [...classNames];
+}
+
 export interface BuildExternalCalendarEventsInput {
 	events: readonly ICSEvent[];
 	provider: ExternalCalendarProvider;
@@ -75,10 +85,30 @@ export function buildExternalCalendarEvents({
 			continue;
 		}
 
+		const displayMode =
+			provider === "google"
+				? plugin.googleCalendarService?.getEventDisplayMode(event)
+				: "show";
+		if (displayMode === "hide") {
+			continue;
+		}
+
 		const calendarEvent = createEvent(event, plugin, {
 			relatedNoteCount: relatedNoteCountsByEventId?.get(event.id),
 		});
 		if (calendarEvent) {
+			if (displayMode === "ghost") {
+				// Outline in the calendar color instead of filling with it.
+				calendarEvent.textColor =
+					calendarEvent.borderColor ??
+					calendarEvent.backgroundColor ??
+					calendarEvent.textColor;
+				calendarEvent.backgroundColor = "transparent";
+				calendarEvent.classNames = [
+					...normalizeClassNames(calendarEvent.classNames),
+					GHOST_EVENT_CLASS,
+				];
+			}
 			calendarEvents.push(calendarEvent);
 		}
 	}

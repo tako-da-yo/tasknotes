@@ -58,6 +58,7 @@ When connected, displays:
 - Connection time
 - Last sync time
 - Manual refresh button
+- A toggle for each calendar on the account (see [Choosing calendars](#choosing-calendars))
 
 ### Microsoft Outlook Calendar
 
@@ -67,6 +68,15 @@ When connected, displays:
 - Connected account email
 - Connection time
 - Last sync time
+- A toggle for each calendar on the account (see [Choosing calendars](#choosing-calendars))
+
+### Choosing calendars
+
+After connecting, turn on the calendars you want in the connected Google or Microsoft card. Calendars are off until you turn them on, including calendars shared with you later. Only selected calendars are fetched, and only they appear in calendar view toggles. If an account was already connected when you updated to a version with calendar selection, all of its calendars stay selected; turn off the ones you do not need.
+
+### Google event types
+
+Google Calendar marks some entries as special event types: working location, out of office, focus time, birthdays, and events created from Gmail. In the connected Google card, choose for each type whether calendar views show it as a normal event, show it as a ghost, or hide it. Ghosts are drawn as faded outlines in the calendar color so they stay visible without competing with regular events; restyle them with the `fc-event--ghost` CSS class. Working location is hidden by default; the other types are shown as events. Changes apply immediately without a resync.
 
 ### Security
 

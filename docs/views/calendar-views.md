@@ -137,6 +137,12 @@ Multiple saved calendar views can store different option sets (for example plann
 
 The **All-day slot** option is particularly useful when you have many all-day tasks on a single date, as hiding it can resolve scrolling issues and make the hourly time slots more accessible. When disabled, all-day events will not be displayed in time grid views, but they will still appear in month view.
 
+#### Completed Tasks
+
+Completed tasks collapse into a thin, faded marker showing a checkmark, the time the task was completed, and its title. The marker replaces the task's scheduled, due, and span events; tracked time entries still appear. TaskNotes records the completion time in `completedAt` when you complete a task, and in `complete_instance_times` for each completed recurring instance, so each instance appears at its own completion time.
+
+Tasks completed before completion times were recorded, or completed on a past date chosen from the context menu, have no completion time; their marker stays at the scheduled time (or the due date when there is no scheduled date). Markers cannot be dragged. Restyle them with the `fc-completion-marker` CSS class.
+
 #### Multi-Day Task Spans
 
 The **Span tasks between scheduled and due dates** option provides a visual representation of task duration on the calendar. When enabled:

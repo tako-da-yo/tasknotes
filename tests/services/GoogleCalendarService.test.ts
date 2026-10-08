@@ -195,9 +195,29 @@ describe('GoogleCalendarService', () => {
 			expect(events[1].description).toBe('Contact <user@example.com>; venue <TBC>');
 		});
 
-		test('should use sync token for incremental updates', async () => {
-			// Set up sync token
+		test('should ignore a stored sync token until the calendar is fully synced this session', async () => {
+			// Sync tokens persist across restarts but the event cache does not
 			mockPlugin.settings!.googleCalendarSyncTokens = { 'primary': 'old-sync-token' };
+
+			mockRequestUrl.mockResolvedValueOnce({
+				status: 200,
+				json: { items: [], nextSyncToken: 'new-sync-token' },
+				text: '',
+				arrayBuffer: new ArrayBuffer(0),
+				headers: {}
+			});
+
+			await service.getEvents('primary');
+
+			const url = new URL(mockRequestUrl.mock.calls[0][0].url);
+			expect(url.searchParams.get('syncToken')).toBeNull();
+			expect(url.searchParams.get('timeMin')).not.toBeNull();
+		});
+
+		test('should use sync token for incremental updates', async () => {
+			// Set up sync token for a calendar already fully synced this session
+			mockPlugin.settings!.googleCalendarSyncTokens = { 'primary': 'old-sync-token' };
+			(service as any).fullySyncedCalendarIds.add('primary');
 
 			mockRequestUrl.mockResolvedValueOnce({
 				status: 200,

@@ -692,6 +692,7 @@ export class TaskService {
 					dateModified: updatePlan.dateModified,
 					dateModifiedField,
 					completedDateField,
+					completedAtField: this.plugin.fieldMapper.toUserField("completedAt"),
 					isRecurring: !!freshTask.recurrence,
 					normalizeStatusValue: (candidate) => this.normalizeStatusValue(candidate),
 					isCompletedStatus: (status) =>
@@ -1954,6 +1955,7 @@ export class TaskService {
 			applyRecurringTaskCompleteFrontmatterChange({
 				frontmatter,
 				completeInstancesField,
+				completeInstanceTimesField: this.plugin.fieldMapper.toUserField("completeInstanceTimes"),
 				skippedInstancesField,
 				dateModifiedField,
 				scheduledField,
@@ -2108,6 +2110,7 @@ export class TaskService {
 				frontmatter,
 				skippedField,
 				completeField,
+				completeInstanceTimesField: this.plugin.fieldMapper.toUserField("completeInstanceTimes"),
 				dateModifiedField,
 				scheduledField,
 				dueField,
@@ -2252,7 +2255,8 @@ export class TaskService {
 			isRecurring,
 			completedDateField,
 			(status) => this.plugin.statusManager.isCompletedStatus(status),
-			getCurrentDateString()
+			getCurrentDateString(),
+			this.plugin.fieldMapper.toUserField("completedAt")
 		);
 	}
 

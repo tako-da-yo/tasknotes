@@ -1,6 +1,7 @@
 import type { TaskDependency, TaskInfo } from "../../types";
 import { normalizeDependencyEntry, serializeDependencies } from "../../utils/dependencyUtils";
 import { assertValidFrontmatterFieldName } from "./taskPropertyFrontmatterField";
+import { resolveCompletedAt } from "./completionTime";
 
 export interface TaskPropertyUpdatePlan {
 	updatedTask: TaskInfo;
@@ -27,6 +28,7 @@ export interface ApplyTaskPropertyFrontmatterChangeInput {
 	dateModified: string;
 	dateModifiedField: string;
 	completedDateField: string;
+	completedAtField?: string;
 	isRecurring: boolean;
 	normalizeStatusValue: (value: unknown) => string;
 	isCompletedStatus: (status: string) => boolean;
@@ -80,8 +82,10 @@ export function buildTaskPropertyUpdatePlan({
 		const normalizedStatus = normalizeStatusValue(normalizedValue);
 		if (isCompletedStatus(normalizedStatus)) {
 			updatedTask.completedDate = currentDateString;
+			updatedTask.completedAt = resolveCompletedAt(currentDateString, freshTask.completedAt);
 		} else {
 			updatedTask.completedDate = undefined;
+			updatedTask.completedAt = undefined;
 		}
 	}
 
@@ -103,7 +107,8 @@ export function updateCompletedDateFrontmatter(
 	isRecurring: boolean,
 	completedDateField: string,
 	isCompletedStatus: (status: string) => boolean,
-	currentDateString: string
+	currentDateString: string,
+	completedAtField?: string
 ): void {
 	if (isRecurring) {
 		return;
@@ -111,11 +116,25 @@ export function updateCompletedDateFrontmatter(
 
 	if (isCompletedStatus(newStatus)) {
 		frontmatter[completedDateField] = currentDateString;
+		if (completedAtField) {
+			const completedAt = resolveCompletedAt(
+				currentDateString,
+				frontmatter[completedAtField]
+			);
+			if (completedAt) {
+				frontmatter[completedAtField] = completedAt;
+			} else {
+				delete frontmatter[completedAtField];
+			}
+		}
 		return;
 	}
 
 	if (frontmatter[completedDateField]) {
 		delete frontmatter[completedDateField];
+	}
+	if (completedAtField && completedAtField in frontmatter) {
+		delete frontmatter[completedAtField];
 	}
 }
 
@@ -128,6 +147,7 @@ export function applyTaskPropertyFrontmatterChange({
 	dateModified,
 	dateModifiedField,
 	completedDateField,
+	completedAtField,
 	isRecurring,
 	normalizeStatusValue,
 	isCompletedStatus,
@@ -155,7 +175,10 @@ export function applyTaskPropertyFrontmatterChange({
 			isRecurring,
 			resolvedCompletedDateField,
 			isCompletedStatus,
-			currentDateString
+			currentDateString,
+			completedAtField
+				? assertValidFrontmatterFieldName(completedAtField, "completedAt field mapping")
+				: undefined
 		);
 	} else if ((property === "due" || property === "scheduled") && !rawValue) {
 		delete frontmatter[resolvedFieldName];
