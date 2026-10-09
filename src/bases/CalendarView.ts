@@ -63,12 +63,13 @@ import { CalendarEventCreationModal } from "../modals/CalendarEventCreationModal
 import { ICSEventInfoModal } from "../modals/ICSEventInfoModal";
 import { Menu, Notice, Platform, TFile, setIcon, setTooltip } from "obsidian";
 import type { EventRef } from "obsidian";
-import { format } from "date-fns";
+import { format, startOfDay } from "date-fns";
 import { TaskContextMenu } from "../components/TaskContextMenu";
 import { ICSEventContextMenu } from "../components/ICSEventContextMenu";
 import { parseDateToLocal } from "../utils/dateUtils";
 import {
 	CalendarRecreateNavigationState,
+	getDayRolloverTargetDate,
 	shouldPreserveVisibleDateOnCalendarRecreate,
 } from "./calendarRecreateUtils";
 import type { BasesTaskUpdateSource } from "./basesUpdateEvents";
@@ -172,6 +173,8 @@ type Calendar = {
 	setOption(name: string, value: unknown): void;
 	view?: {
 		type?: string;
+		currentStart?: Date;
+		currentEnd?: Date;
 	};
 };
 
@@ -472,6 +475,9 @@ export class CalendarView extends BasesViewBase {
 	private _configChangedNeedsRecreate = false;
 	// Preserve visible date when calendar is re-created.
 	private _recreateTargetDate: Date | null = null;
+	// Local day the calendar was built for; FullCalendar's own midnight timer misses
+	// rollovers that happen while the machine sleeps.
+	private _calendarDay: Date = startOfDay(new Date());
 	// Track Bases view/filter transitions so user-initiated view switches render immediately.
 	private _previousDataSignature: string | null = null;
 	private _previousControllerViewName: string | null = null;
@@ -627,6 +633,36 @@ export class CalendarView extends BasesViewBase {
 		this.registerEvent(
 			this.plugin.emitter.on("settings-changed", () => this.calendar?.refetchEvents())
 		);
+		this.registerInterval(window.setInterval(() => this.handleDayRollover(), 60 * 1000));
+		this.registerDomEvent(window, "focus", () => this.handleDayRollover());
+	}
+
+	/**
+	 * Rebuild the calendar when the local date changes so "today" (highlight, Today
+	 * button, and views anchored on today) follows the new day.
+	 */
+	private handleDayRollover(): void {
+		const now = new Date();
+		const today = startOfDay(now);
+		if (today.getTime() === this._calendarDay.getTime()) return;
+		const previousDay = this._calendarDay;
+		this._calendarDay = today;
+		if (!this.calendar) return;
+
+		const currentDate = this.calendar.getDate();
+		const { currentStart, currentEnd } = this.calendar.view ?? {};
+		this._recreateTargetDate =
+			currentStart && currentEnd
+				? getDayRolloverTargetDate(
+						previousDay,
+						now,
+						{ start: currentStart, end: currentEnd },
+						currentDate
+					)
+				: currentDate;
+		this.calendar.destroy();
+		this.calendar = null;
+		void this.render();
 	}
 
 	/**
@@ -1436,6 +1472,7 @@ export class CalendarView extends BasesViewBase {
 		// Create calendar
 		this.calendar = new Calendar(this.calendarEl, calendarOptions);
 		this.calendar.render();
+		this._calendarDay = startOfDay(new Date());
 		this.observeCanvasZoom();
 		this._recreateTargetDate = null;
 		this.applyLayoutClasses();
@@ -1688,9 +1725,7 @@ export class CalendarView extends BasesViewBase {
 
 		const getScale = (): number => {
 			const slat = this.calendarEl?.querySelector<HTMLElement>(".fc-timegrid-slot-lane");
-			return slat?.offsetHeight
-				? slat.getBoundingClientRect().height / slat.offsetHeight
-				: 1;
+			return slat?.offsetHeight ? slat.getBoundingClientRect().height / slat.offsetHeight : 1;
 		};
 		let lastScale = getScale();
 		this.canvasZoomObserver = new win.MutationObserver(() => {
@@ -2444,14 +2479,10 @@ export class CalendarView extends BasesViewBase {
 						const scheduledField = this.plugin.fieldMapper.toUserField("scheduled");
 						const dueField = this.plugin.fieldMapper.toUserField("due");
 
-						await processVaultFrontMatter(
-							this.plugin.app,
-							spanFile,
-							(frontmatter) => {
-								if (plan.scheduled) frontmatter[scheduledField] = plan.scheduled;
-								if (plan.due) frontmatter[dueField] = plan.due;
-							}
-						);
+						await processVaultFrontMatter(this.plugin.app, spanFile, (frontmatter) => {
+							if (plan.scheduled) frontmatter[scheduledField] = plan.scheduled;
+							if (plan.due) frontmatter[dueField] = plan.due;
+						});
 						await this.refreshAfterDirectCalendarTaskWrite({
 							...taskInfo,
 							scheduled: plan.scheduled ?? taskInfo.scheduled,
@@ -2809,14 +2840,17 @@ export class CalendarView extends BasesViewBase {
 
 			// Right-click to choose the timeblock's context
 			arg.el.addEventListener("contextmenu", (e: MouseEvent) => {
-				const date = extendedProps.originalDate ?? (arg.event.start && format(arg.event.start, "yyyy-MM-dd"));
+				const date =
+					extendedProps.originalDate ??
+					(arg.event.start && format(arg.event.start, "yyyy-MM-dd"));
 				if (!date || !timeblock.id) return;
 				const menu = new Menu();
 				const hasContexts = addContextChoiceItems(menu, {
 					groups: this.plugin.settings.contextGroups,
 					current: timeblock.context,
 					noneLabel: this.plugin.i18n.translate("contextGroups.menu.none"),
-					onSelect: (context) => void this.setTimeblockContext(date, timeblock.id, context),
+					onSelect: (context) =>
+						void this.setTimeblockContext(date, timeblock.id, context),
 				});
 				if (!hasContexts) return;
 				e.preventDefault();
@@ -2937,9 +2971,7 @@ export class CalendarView extends BasesViewBase {
 		// Add hover preview for property-based events (Ctrl+hover to preview note)
 		if (eventType === "property-based" && extendedProps.filePath) {
 			arg.el.addEventListener("mouseover", (event: MouseEvent) => {
-				const file = this.plugin.app.vault.getAbstractFileByPath(
-					extendedProps.filePath
-				);
+				const file = this.plugin.app.vault.getAbstractFileByPath(extendedProps.filePath);
 				if (file) {
 					this.plugin.app.workspace.trigger("hover-link", {
 						event,
@@ -2959,9 +2991,7 @@ export class CalendarView extends BasesViewBase {
 				e.preventDefault();
 				e.stopPropagation();
 
-				const file = this.plugin.app.vault.getAbstractFileByPath(
-					extendedProps.filePath
-				);
+				const file = this.plugin.app.vault.getAbstractFileByPath(extendedProps.filePath);
 
 				if (file instanceof TFile) {
 					const menu = new Menu();

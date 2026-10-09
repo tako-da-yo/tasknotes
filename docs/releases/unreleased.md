@@ -44,6 +44,8 @@ When a change has user-facing documentation, include a canonical tasknotes.dev l
 
 ## Changed
 
+- New installs now default to no scheduled date for new tasks, so tasks created outside the calendar are unscheduled. Tasks created from a calendar slot still use the selected date and time. Existing vaults keep their **Default scheduled date** setting in Task properties settings.
+
 - Tasks in the calendar's time grid and all-day row now show a bar in the task's color on the leading side over a dim fill of the same color, matching the completed-task markers at full strength. Timeblocks use the same fill with dashed bars on both sides instead of a faded solid block.
 
 - Creating a task from a calendar slot now opens the task form with detailed options already shown and the title field focused. Clicking a timed slot without dragging gives the task a 15-minute time estimate unless you have set a default time estimate in Task properties settings.
@@ -55,6 +57,10 @@ When a change has user-facing documentation, include a canonical tasknotes.dev l
 ## Fixed
 
 - Fixed the custom days calendar view (for example 3 days) showing fewer days near the end of the week when weekends are hidden. It now skips weekends, so on a Thursday it shows Thursday, Friday, and Monday.
+
+- Fixed calendar views staying on the previous day after midnight, often after the computer had been asleep: today's highlight stayed on yesterday, the custom days view still started on yesterday, and the **Today** button couldn't be clicked. When the date changes, views that were showing today now move to the new day, and views you navigated elsewhere stay where they are.
+
+- Fixed open calendar and other TaskNotes Bases views losing Google Calendar, Microsoft Outlook, and ICS events after TaskNotes was reloaded (for example after a plugin update). Moving a task or timeblock afterwards made all calendar events disappear until the view was closed and reopened. TaskNotes now rebuilds its open Bases views when it loads.
 
 - Fixed Make.md's "Type '/' for commands" hint showing on top of the placeholder text in the task modal's natural language, details, and time entry description editors.
 

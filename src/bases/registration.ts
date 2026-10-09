@@ -23,6 +23,29 @@ const EXPANDED_RELATIONSHIP_FILTER_MODE_OPTIONS: Record<string, string> = {
 	"show-all": "Show all",
 };
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+	return typeof value === "object" && value !== null;
+}
+
+/**
+ * True when a Bases leaf shows a TaskNotes view created by another (unloaded)
+ * instance of the plugin.
+ */
+export function isTaskNotesViewFromOtherPlugin(
+	leafView: unknown,
+	plugin: TaskNotesPlugin
+): boolean {
+	const controller = isRecord(leafView) ? leafView.controller : undefined;
+	const view = isRecord(controller) ? controller.view : undefined;
+	return (
+		isRecord(view) &&
+		typeof view.type === "string" &&
+		view.type.startsWith("tasknotes") &&
+		"plugin" in view &&
+		view.plugin !== plugin
+	);
+}
+
 /**
  * Register TaskNotes views with Bases plugin
  * Requires Obsidian 1.10.1+ (public Bases API with groupBy support)
@@ -252,6 +275,22 @@ export async function registerBasesTaskList(plugin: TaskNotesPlugin): Promise<bo
 			// Refresh existing Bases views
 			plugin.app.workspace.iterateAllLeaves((leaf) => {
 				if (leaf.view?.getViewType?.() === "bases") {
+					// Bases keeps view instances across a plugin reload (updates, Hot Reload),
+					// so open TaskNotes views would keep using the unloaded plugin's services.
+					const rebuildableLeaf = leaf as { rebuildView?: () => Promise<void> };
+					if (
+						isTaskNotesViewFromOtherPlugin(leaf.view, plugin) &&
+						typeof rebuildableLeaf.rebuildView === "function"
+					) {
+						void rebuildableLeaf.rebuildView().catch((rebuildError: unknown) => {
+							logger.debug("Error rebuilding Bases view after reload", {
+								category: "provider",
+								operation: "rebuild-stale-view",
+								error: rebuildError,
+							});
+						});
+						return;
+					}
 					const view = leaf.view as { refresh?: () => void };
 					if (typeof view.refresh === "function") {
 						try {

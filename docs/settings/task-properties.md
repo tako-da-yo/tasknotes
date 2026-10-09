@@ -111,7 +111,7 @@ When the task must be completed. Configuration options:
 When to work on the task. Configuration options:
 
 - **Property key**: Frontmatter field name (default: `scheduled`)
-- **Default**: Default scheduled date for new tasks (None, Today, Tomorrow, Next Week)
+- **Default**: Default scheduled date for new tasks (None, Today, Tomorrow, Next Week). Defaults to **None**, so new tasks are unscheduled. Tasks created from a calendar slot always use the date and time you selected.
 
 When you use **Convert current note to task**, this default is also applied if the source note does not already have `scheduled` frontmatter. Choose **None** to keep converted notes unscheduled by default.
 

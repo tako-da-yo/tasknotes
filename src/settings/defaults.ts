@@ -116,7 +116,7 @@ export const DEFAULT_TASK_CREATION_DEFAULTS: TaskCreationDefaults = {
 	defaultRecurrence: "none",
 	defaultDueDate: "none",
 	defaultDueTime: "none",
-	defaultScheduledDate: "today",
+	defaultScheduledDate: "none",
 	defaultScheduledTime: "none",
 	bodyTemplate: "",
 	useBodyTemplate: false,
