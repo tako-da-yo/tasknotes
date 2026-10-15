@@ -3,7 +3,7 @@ import type { BasesPropertyId, BasesQueryResult, BasesViewConfig, EventRef } fro
 import TaskNotesPlugin from "../main";
 import { BasesDataAdapter } from "./BasesDataAdapter";
 import { PropertyMappingService } from "./PropertyMappingService";
-import { TaskInfo } from "../types";
+import { EVENT_DATE_CHANGED, TaskInfo } from "../types";
 import { convertInternalToUserProperties } from "../utils/propertyMapping";
 import { DEFAULT_INTERNAL_VISIBLE_PROPERTIES } from "../settings/defaults";
 import { SearchBox } from "./components/SearchBox";
@@ -177,7 +177,18 @@ export abstract class BasesViewBase extends Component {
 		this.setupTaskUpdateListener();
 		this.setupSelectionHandling();
 		this.updateRelevantPathsCache();
+		this.registerEvent(this.plugin.emitter.on(EVENT_DATE_CHANGED, () => this.onDateChanged()));
 		void this.render();
+	}
+
+	/**
+	 * Called when the local date changes. Views compute "today" while rendering, so
+	 * re-render them; views that cache more (the calendar) override this.
+	 */
+	protected onDateChanged(): void {
+		if (!this.rootElement?.isConnected) return;
+		const savedState = this.getEphemeralState();
+		void Promise.resolve(this.render()).finally(() => this.setEphemeralState(savedState));
 	}
 
 	/**

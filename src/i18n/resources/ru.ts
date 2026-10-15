@@ -3442,6 +3442,7 @@ export const ru: TranslationTree = {
 			contextNamePlaceholder: "Название контекста",
 			emptyState: "Групп контекстов пока нет.",
 			deleteGroup: "Удалить группу",
+			dragContext: "Перетащите, чтобы изменить порядок или переместить в другую группу",
 			deleteContext: "Удалить контекст",
 			enabled: "Включено",
 			color: "Цвет",

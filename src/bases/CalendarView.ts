@@ -63,13 +63,13 @@ import { CalendarEventCreationModal } from "../modals/CalendarEventCreationModal
 import { ICSEventInfoModal } from "../modals/ICSEventInfoModal";
 import { Menu, Notice, Platform, TFile, setIcon, setTooltip } from "obsidian";
 import type { EventRef } from "obsidian";
-import { format, startOfDay } from "date-fns";
+import { format } from "date-fns";
 import { TaskContextMenu } from "../components/TaskContextMenu";
 import { ICSEventContextMenu } from "../components/ICSEventContextMenu";
-import { parseDateToLocal } from "../utils/dateUtils";
+import { getTodayLocal, parseDateToLocal } from "../utils/dateUtils";
 import {
 	CalendarRecreateNavigationState,
-	getDayRolloverTargetDate,
+	rangeContainsDate,
 	shouldPreserveVisibleDateOnCalendarRecreate,
 } from "./calendarRecreateUtils";
 import type { BasesTaskUpdateSource } from "./basesUpdateEvents";
@@ -173,8 +173,8 @@ type Calendar = {
 	setOption(name: string, value: unknown): void;
 	view?: {
 		type?: string;
-		currentStart?: Date;
-		currentEnd?: Date;
+		currentStart: Date;
+		currentEnd: Date;
 	};
 };
 
@@ -475,9 +475,10 @@ export class CalendarView extends BasesViewBase {
 	private _configChangedNeedsRecreate = false;
 	// Preserve visible date when calendar is re-created.
 	private _recreateTargetDate: Date | null = null;
-	// Local day the calendar was built for; FullCalendar's own midnight timer misses
-	// rollovers that happen while the machine sleeps.
-	private _calendarDay: Date = startOfDay(new Date());
+	// Local day the calendar was built for, and whether a date change needs a rebuild.
+	// FullCalendar's own midnight timer misses rollovers while the machine sleeps.
+	private _calendarDay: Date = getTodayLocal();
+	private _dateChangedNeedsRecreate = false;
 	// Track Bases view/filter transitions so user-initiated view switches render immediately.
 	private _previousDataSignature: string | null = null;
 	private _previousControllerViewName: string | null = null;
@@ -633,36 +634,22 @@ export class CalendarView extends BasesViewBase {
 		this.registerEvent(
 			this.plugin.emitter.on("settings-changed", () => this.calendar?.refetchEvents())
 		);
-		this.registerInterval(window.setInterval(() => this.handleDayRollover(), 60 * 1000));
-		this.registerDomEvent(window, "focus", () => this.handleDayRollover());
 	}
 
 	/**
-	 * Rebuild the calendar when the local date changes so "today" (highlight, Today
-	 * button, and views anchored on today) follows the new day.
+	 * Rebuild the calendar on a new day so "today" (highlight, Today button, and
+	 * views anchored on today) follows it. Not restoring ephemeral state here keeps
+	 * the old date from being restored over the new one.
 	 */
-	private handleDayRollover(): void {
-		const now = new Date();
-		const today = startOfDay(now);
-		if (today.getTime() === this._calendarDay.getTime()) return;
-		const previousDay = this._calendarDay;
-		this._calendarDay = today;
-		if (!this.calendar) return;
+	protected onDateChanged(): void {
+		this._dateChangedNeedsRecreate = true;
+		if (this.rootElement?.isConnected) void this.render();
+	}
 
-		const currentDate = this.calendar.getDate();
-		const { currentStart, currentEnd } = this.calendar.view ?? {};
-		this._recreateTargetDate =
-			currentStart && currentEnd
-				? getDayRolloverTargetDate(
-						previousDay,
-						now,
-						{ start: currentStart, end: currentEnd },
-						currentDate
-					)
-				: currentDate;
-		this.calendar.destroy();
+	private destroyCalendarForRecreate(targetDate: Date | null): void {
+		this._recreateTargetDate = targetDate;
+		this.calendar?.destroy();
 		this.calendar = null;
-		void this.render();
 	}
 
 	/**
@@ -1227,18 +1214,33 @@ export class CalendarView extends BasesViewBase {
 				this.readViewOptions();
 				if (this.calendar) {
 					const nextNavigationState = this.getNavigationConfigState();
-					this._recreateTargetDate = shouldPreserveVisibleDateOnCalendarRecreate(
-						previousNavigationState,
-						nextNavigationState
-					)
-						? this.calendar.getDate()
-						: null;
-					this.calendar.destroy();
-					this.calendar = null;
+					this.destroyCalendarForRecreate(
+						shouldPreserveVisibleDateOnCalendarRecreate(
+							previousNavigationState,
+							nextNavigationState
+						)
+							? this.calendar.getDate()
+							: null
+					);
 				}
 			} else {
 				// Normal render - just re-read event toggles
 				this.readEventToggles();
+			}
+		}
+
+		if (this._dateChangedNeedsRecreate) {
+			this._dateChangedNeedsRecreate = false;
+			if (this.calendar) {
+				// A view still showing the previous day was following "today".
+				const { currentStart, currentEnd } = this.calendar.view ?? {};
+				const wasShowingToday =
+					currentStart &&
+					currentEnd &&
+					rangeContainsDate({ start: currentStart, end: currentEnd }, this._calendarDay);
+				this.destroyCalendarForRecreate(
+					wasShowingToday ? new Date() : this.calendar.getDate()
+				);
 			}
 		}
 
@@ -1472,7 +1474,7 @@ export class CalendarView extends BasesViewBase {
 		// Create calendar
 		this.calendar = new Calendar(this.calendarEl, calendarOptions);
 		this.calendar.render();
-		this._calendarDay = startOfDay(new Date());
+		this._calendarDay = getTodayLocal();
 		this.observeCanvasZoom();
 		this._recreateTargetDate = null;
 		this.applyLayoutClasses();

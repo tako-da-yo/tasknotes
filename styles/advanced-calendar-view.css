@@ -88,6 +88,16 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+/* Invitations not accepted yet (no response or "maybe"): dashed outline.
+   Classes from calendarExternalEvents.ts; Google and Microsoft only. */
+.advanced-calendar-view .fc-timegrid-event.fc-external-event--response-needed,
+.advanced-calendar-view .fc-timegrid-event.fc-external-event--response-tentative,
+.advanced-calendar-view .fc-daygrid-block-event.fc-external-event--response-needed,
+.advanced-calendar-view .fc-daygrid-block-event.fc-external-event--response-tentative {
+    border-width: 2px;
+    border-style: dashed;
+}
+
 /* Google Calendar special event types (classes from calendarExternalEvents.ts) */
 
 /* Working location: context only, so it never takes clicks, drags, or selection */
@@ -224,14 +234,9 @@
     border-radius: 0;
     border-width: 2px 0 0 0;
     box-shadow: none;
-    transition: box-shadow 0.2s ease;
-    margin-bottom:2px;
-    mask: conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/8px 100%
-}
-
-.advanced-calendar-view .fc-event.fc-timeblock-event:hover,
-.advanced-calendar-view .fc-event[data-event-type="timeblock"]:hover {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2px;
+    /* The mask clips to the border box, so timeblocks get no hover shadow. */
+    mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 8px 100%;
 }
 
 /* Time Entry Events - recorded time, intentionally quieter than actionable tasks */
@@ -280,7 +285,7 @@
     border-width: 0 0 0 3px;
     border-radius: 2px;
     box-shadow: none;
-    margin-bottom:2px;
+    margin-bottom: 2px;
 }
 
 .fc-task-event:hover {

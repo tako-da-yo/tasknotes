@@ -18,6 +18,7 @@ import { CalendarProvider, findProviderCalendar, ProviderCalendar } from "./Cale
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { publishUserNotice } from "../core/userNotices";
 import { normalizeCalendarDescription } from "../utils/calendarDescription";
+import { getGoogleResponseStatus } from "../utils/calendarResponseStatus";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Services/GoogleCalendarService" });
 
@@ -604,6 +605,7 @@ export class GoogleCalendarService extends CalendarProvider {
 				googleEvent.eventType && googleEvent.eventType !== "default"
 					? googleEvent.eventType
 					: undefined,
+			responseStatus: getGoogleResponseStatus(googleEvent.attendees),
 		};
 	}
 

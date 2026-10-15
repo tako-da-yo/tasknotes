@@ -3442,6 +3442,7 @@ export const ja: TranslationTree = {
 			contextNamePlaceholder: "コンテキスト名",
 			emptyState: "コンテキストグループはまだありません。",
 			deleteGroup: "グループを削除",
+			dragContext: "ドラッグして並べ替え、または別のグループへ移動",
 			deleteContext: "コンテキストを削除",
 			enabled: "有効",
 			color: "色",

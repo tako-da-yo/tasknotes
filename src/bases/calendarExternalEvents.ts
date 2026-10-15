@@ -28,6 +28,12 @@ export const GOOGLE_EVENT_TYPE_CLASSES: Readonly<Record<string, string>> = {
 	fromGmail: "fc-google-event--from-gmail",
 };
 
+/** Invitations the user has not accepted yet: no response, or "maybe". */
+export const RESPONSE_STATUS_CLASSES: Readonly<Record<string, string>> = {
+	needsAction: "fc-external-event--response-needed",
+	tentative: "fc-external-event--response-tentative",
+};
+
 /** Display for types drawn differently from a solid block. */
 function applyGoogleEventTypeColors(event: EventInput, type: string): void {
 	const color = event.borderColor ?? event.backgroundColor;
@@ -146,6 +152,15 @@ export function buildExternalCalendarEvents({
 				calendarEvent.classNames = [
 					...normalizeClassNames(calendarEvent.classNames),
 					typeClass,
+				];
+			}
+			const responseClass = event.responseStatus
+				? RESPONSE_STATUS_CLASSES[event.responseStatus]
+				: undefined;
+			if (responseClass) {
+				calendarEvent.classNames = [
+					...normalizeClassNames(calendarEvent.classNames),
+					responseClass,
 				];
 			}
 			calendarEvents.push(calendarEvent);

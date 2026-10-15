@@ -16,6 +16,7 @@ import { validateEventId, validateMicrosoftCalendarId, validateRequired } from "
 import { CalendarProvider, ProviderCalendar } from "./CalendarProvider";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { publishUserNotice } from "../core/userNotices";
+import { getMicrosoftResponseStatus } from "../utils/calendarResponseStatus";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Services/MicrosoftCalendarService" });
 
@@ -61,6 +62,9 @@ interface MicrosoftCalendarEvent {
 	isAllDay?: boolean;
 	isCancelled?: boolean;
 	showAs?: string;
+	responseStatus?: {
+		response?: string; // "none", "organizer", "tentativelyAccepted", "accepted", "declined", "notResponded"
+	};
 	type?: "singleInstance" | "occurrence" | "exception" | "seriesMaster";
 	seriesMasterId?: string;
 	"@removed"?: {
@@ -692,6 +696,7 @@ export class MicrosoftCalendarService extends CalendarProvider {
 			url: msEvent.webLink,
 			recurringEventId,
 			color: color,
+			responseStatus: getMicrosoftResponseStatus(msEvent.responseStatus?.response),
 		};
 	}
 

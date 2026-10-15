@@ -3621,6 +3621,7 @@ export const en: TranslationTree = {
 			contextNamePlaceholder: "Context name",
 			emptyState: "No context groups yet.",
 			deleteGroup: "Delete group",
+			dragContext: "Drag to reorder or move to another group",
 			deleteContext: "Delete context",
 			enabled: "Enabled",
 			color: "Color",

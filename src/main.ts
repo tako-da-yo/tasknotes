@@ -667,10 +667,12 @@ export default class TaskNotesPlugin extends Plugin {
 	 * Set up date change detection to refresh task states when the date rolls over
 	 */
 	setupDateChangeDetection(): void {
-		startDateChangeDetection({
+		const { checkDateChange } = startDateChangeDetection({
 			registerTimer: (timerId) => this.registerInterval(timerId),
 			emitDateChanged: () => this.emitter.trigger(EVENT_DATE_CHANGED),
 		});
+		// Timers lag after the machine sleeps; check as soon as the user comes back.
+		this.registerDomEvent(window, "focus", () => checkDateChange());
 	}
 
 	onunload() {

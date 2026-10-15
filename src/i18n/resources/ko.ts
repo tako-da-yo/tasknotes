@@ -3426,6 +3426,7 @@ export const ko: TranslationTree = {
 			contextNamePlaceholder: "컨텍스트 이름",
 			emptyState: "아직 컨텍스트 그룹이 없습니다.",
 			deleteGroup: "그룹 삭제",
+			dragContext: "드래그하여 순서를 바꾸거나 다른 그룹으로 이동",
 			deleteContext: "컨텍스트 삭제",
 			enabled: "사용",
 			color: "색상",

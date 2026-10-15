@@ -137,6 +137,8 @@ Context groups organize contexts into categories, such as **Work** and **Self**,
 
 Each context can be turned off with its toggle. Turned-off contexts are not offered in menus and do not color anything.
 
+To reorder groups, drag a group by the handle on its card header. To reorder contexts, drag a context by the grip at the start of its row: drop it above or below another context, in the same group or a different one, or onto a group's empty area to add it at the end. Pickers and menus list groups and contexts in this order.
+
 On task cards, the **Contexts** property shows configured contexts with their emoji, tinted with their color. To see each task's context group in a task list or Kanban view, add the `contextGroup` formula to the view's properties. It shows the group's name, tinted with the task's context color. Views created by TaskNotes after this change include the formula. For an existing view, open the `.base` file's **Properties** menu, choose **Add formula**, name it `contextGroup`, use `contexts` as the formula, then turn it on.
 
 **Default context** sets the color for items that have no context. It only affects colors and is not written to any file. Leave it set to **None** to keep each item's own color.

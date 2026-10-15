@@ -27,6 +27,10 @@ When a change has user-facing documentation, include a canonical tasknotes.dev l
 ```
 ## Added
 
+- Context groups and their contexts can now be reordered by dragging in Task properties settings, and contexts can be dragged from one group to another. Pickers and menus follow the new order. See [Context Groups](https://tasknotes.dev/settings/task-properties/#context-groups).
+
+- Google Calendar and Microsoft Outlook invitations you haven't accepted yet, or answered with "maybe", now have a dashed outline in the calendar view. See [Unanswered invitations](https://tasknotes.dev/settings/integrations/#unanswered-invitations).
+
 - Added materialized occurrence notes for recurring tasks. See [Recurring Tasks](https://tasknotes.dev/features/recurring-tasks/#materialized-occurrence-notes) for setup and calendar behavior.
 ```
 
@@ -58,7 +62,7 @@ When a change has user-facing documentation, include a canonical tasknotes.dev l
 
 - Fixed the custom days calendar view (for example 3 days) showing fewer days near the end of the week when weekends are hidden. It now skips weekends, so on a Thursday it shows Thursday, Friday, and Monday.
 
-- Fixed calendar views staying on the previous day after midnight, often after the computer had been asleep: today's highlight stayed on yesterday, the custom days view still started on yesterday, and the **Today** button couldn't be clicked. When the date changes, views that were showing today now move to the new day, and views you navigated elsewhere stay where they are.
+- Fixed calendar views staying on the previous day after midnight, often after the computer had been asleep: today's highlight stayed on yesterday, the custom days view still started on yesterday, and the **Today** button couldn't be clicked. When the date changes, calendar views that were showing today now move to the new day, and views you navigated elsewhere stay where they are. Task list, Kanban, and mini calendar views also refresh, so today's highlight and recurring-task states follow the new day.
 
 - Fixed open calendar and other TaskNotes Bases views losing Google Calendar, Microsoft Outlook, and ICS events after TaskNotes was reloaded (for example after a plugin update). Moving a task or timeblock afterwards made all calendar events disappear until the view was closed and reopened. TaskNotes now rebuilds its open Bases views when it loads.
 

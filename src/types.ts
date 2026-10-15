@@ -844,7 +844,11 @@ export interface ICSEvent {
 	recurringEventId?: string; // Stable master/series ID for expanded recurring event instances
 	color?: string; // Hex color code (e.g., "#4285F4")
 	providerEventType?: string; // Provider-specific event kind, e.g. Google "workingLocation"
+	responseStatus?: CalendarResponseStatus; // The user's own RSVP, when the provider reports one
 }
+
+/** The user's RSVP to an external calendar event, in Google Calendar's vocabulary. */
+export type CalendarResponseStatus = "needsAction" | "tentative" | "accepted" | "declined";
 
 export interface ICSCache {
 	subscriptionId: string;
@@ -996,6 +1000,7 @@ export interface GoogleCalendarEvent {
 		email: string;
 		displayName?: string;
 		responseStatus?: string;
+		self?: boolean; // True for the attendee entry of the authenticated user
 	}>;
 	htmlLink?: string;
 	recurringEventId?: string;

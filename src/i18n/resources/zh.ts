@@ -3441,6 +3441,7 @@ export const zh: TranslationTree = {
 			contextNamePlaceholder: "情境名称",
 			emptyState: "还没有情境分组。",
 			deleteGroup: "删除分组",
+			dragContext: "拖动以重新排序或移动到其他分组",
 			deleteContext: "删除情境",
 			enabled: "已启用",
 			color: "颜色",

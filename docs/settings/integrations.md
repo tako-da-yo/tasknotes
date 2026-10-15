@@ -88,6 +88,10 @@ Google Calendar marks some entries as special event types. The calendar view giv
 
 To change a type's appearance or hide it, target its class in a CSS snippet. For example, `.fc-google-event--working-location { display: none; }` hides working location events.
 
+### Unanswered invitations
+
+Google Calendar and Microsoft Outlook events you're invited to but haven't accepted get a dashed outline in the calendar view. This covers invitations with no response (`fc-external-event--response-needed`) and ones you answered with "maybe" (`fc-external-event--response-tentative`). Events you organize, accepted, or weren't invited to keep a solid outline. ICS subscriptions don't report your own response, so their events are never marked.
+
 ### Security
 
 - OAuth client credentials and account tokens are stored in Obsidian Secret Storage, which is encrypted at rest when supported by the operating system
