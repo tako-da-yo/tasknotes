@@ -1,4 +1,4 @@
-import { ensureInboxStatuses } from "../../../src/core/inboxStatuses";
+import { ensureInboxStatuses, triageStatusOptions } from "../../../src/core/inboxStatuses";
 import { DEFAULT_STATUSES } from "../../../src/settings/defaults";
 
 describe("ensureInboxStatuses", () => {
@@ -40,5 +40,27 @@ describe("ensureInboxStatuses", () => {
 		const snapshot = JSON.parse(JSON.stringify(input));
 		ensureInboxStatuses(input, { inbox: "Inbox", someday: "Someday" });
 		expect(input).toEqual(snapshot);
+	});
+});
+
+describe("triageStatusOptions", () => {
+	const labels = { none: "None", missing: (value: string) => `${value} (missing)` };
+
+	it("lists None and the open statuses", () => {
+		const options = triageStatusOptions(DEFAULT_STATUSES, "", labels);
+		expect(options[0]).toEqual({ value: "", label: "None" });
+		expect(options.map((o) => o.value)).toContain("open");
+		expect(options.map((o) => o.value)).not.toContain("done");
+	});
+
+	it("shows a configured status that no longer exists as missing instead of None", () => {
+		const options = triageStatusOptions(DEFAULT_STATUSES, "inbox", labels);
+		expect(options).toContainEqual({ value: "inbox", label: "inbox (missing)" });
+	});
+
+	it("does not mark an existing configured status as missing", () => {
+		const options = triageStatusOptions(DEFAULT_STATUSES, "open", labels);
+		expect(options.filter((o) => o.value === "open")).toHaveLength(1);
+		expect(options.some((o) => o.label.includes("missing"))).toBe(false);
 	});
 });

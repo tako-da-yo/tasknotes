@@ -7,6 +7,7 @@ import {
 	FreshStartPreview,
 } from "../core/freshStartPlanning";
 import { selectInboxTasks, updatesForAction, TriageAction } from "../core/triageSession";
+import { isTriageStatusUsable } from "../core/captureStatus";
 
 export type TriageRevert =
 	| { kind: "updates"; path: string; previous: Partial<TaskInfo> }
@@ -30,7 +31,13 @@ export class TriageService {
 
 	isInboxReady(): boolean {
 		const { inboxStatus } = this.deps.getSettings().triage;
-		return !!inboxStatus && this.deps.statusExists(inboxStatus);
+		return isTriageStatusUsable(inboxStatus, (v) => this.deps.statusExists(v));
+	}
+
+	/** Whether the Someday action is available: the someday status is set and still exists. */
+	isSomedayReady(): boolean {
+		const { somedayStatus } = this.deps.getSettings().triage;
+		return isTriageStatusUsable(somedayStatus, (v) => this.deps.statusExists(v));
 	}
 
 	getInboxTasks(): TaskInfo[] {
@@ -40,6 +47,7 @@ export class TriageService {
 
 	/** Applies an action and returns what is needed to revert it (null when nothing changed). */
 	async applyAction(task: TaskInfo, action: TriageAction): Promise<TriageRevert | null> {
+		if (action.kind === "someday" && !this.isSomedayReady()) return null;
 		const settings = this.deps.getSettings();
 		const result = updatesForAction(task, action, {
 			today: this.deps.today(),

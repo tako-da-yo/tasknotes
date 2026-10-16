@@ -1122,6 +1122,7 @@ export const ja: TranslationTree = {
 				defaultsFieldScheduled: "予定日",
 				defaultsFieldDue: "期限日",
 				defaultsSetNone: "なしに設定",
+				missingStatus: "{status}（見つかりません）",
 			},
 			priorityCard: {
 				valuesHeader: "優先度値"

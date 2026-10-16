@@ -1122,6 +1122,7 @@ export const es: TranslationTree = {
 				defaultsFieldScheduled: "fecha programada",
 				defaultsFieldDue: "fecha de vencimiento",
 				defaultsSetNone: "Establecer en ninguna",
+				missingStatus: "{status} (no existe)",
 			},
 			priorityCard: {
 				valuesHeader: "Valores de prioridad"

@@ -22,17 +22,30 @@ jest.mock("../../../src/utils/templateProcessor", () => ({
 	mergeTemplateFrontmatter: jest.fn((base, template) => ({ ...base, ...template })),
 }));
 
+const EXISTING_STATUSES = ["open", "in-progress", "done", "inbox", "someday"];
+
+function withStatusConfigs(runtime: ReturnType<typeof PluginFactory.createMockPlugin>): void {
+	runtime.statusManager.getStatusConfig = jest.fn((value: string) =>
+		EXISTING_STATUSES.includes(value) ? { value } : undefined
+	);
+}
+
 describe("task creation capture to inbox", () => {
 	let runtime: ReturnType<typeof PluginFactory.createMockPlugin>;
 	let service: TaskCreationService;
+	let applyTemplate: jest.Mock<(taskData: { status?: string }) => Promise<{ frontmatter: object; body: string }>>;
+	let processFolderTemplate: jest.Mock<(folderTemplate: string, taskData?: { status?: string }) => string>;
 
 	beforeEach(() => {
 		runtime = PluginFactory.createMockPlugin();
+		withStatusConfigs(runtime);
+		applyTemplate = jest.fn(async () => ({ frontmatter: {}, body: "" }));
+		processFolderTemplate = jest.fn((folderTemplate: string) => folderTemplate);
 		service = new TaskCreationService({
 			runtime,
 			applyTaskCreationDefaults: jest.fn(async (taskData) => taskData),
-			applyTemplate: jest.fn(async () => ({ frontmatter: {}, body: "" })),
-			processFolderTemplate: jest.fn((folderTemplate) => folderTemplate),
+			applyTemplate: applyTemplate as never,
+			processFolderTemplate: processFolderTemplate as never,
 			sanitizeTitleForFilename: jest.fn((input) => input),
 			sanitizeTitleForStorage: jest.fn((input) => input),
 		});
@@ -61,6 +74,39 @@ describe("task creation capture to inbox", () => {
 		const task = await service.createTask({ title: "Call dentist" });
 		expect(task.taskInfo.status).toBe(runtime.settings.defaultTaskStatus);
 	});
+
+	it("uses the default status when the configured inbox status was deleted", async () => {
+		runtime.settings.triage = { inboxStatus: "inbox", somedayStatus: "", captureToInbox: true };
+		runtime.statusManager.getStatusConfig = jest.fn((value: string) =>
+			value === "inbox" ? undefined : { value }
+		);
+		const task = await service.createTask({ title: "Call dentist" });
+		expect(task.taskInfo.status).toBe(runtime.settings.defaultTaskStatus);
+	});
+
+	describe.each([
+		["inbox off", { inboxStatus: "", somedayStatus: "", captureToInbox: false }, "open"],
+		["inbox on", { inboxStatus: "inbox", somedayStatus: "", captureToInbox: true }, "inbox"],
+	])("templates see the resolved status (%s)", (_label, triage, expected) => {
+		beforeEach(() => {
+			runtime.settings.triage = triage;
+			runtime.settings.defaultTaskStatus = "open";
+			runtime.settings.tasksFolder = "Work/{{status}}";
+		});
+
+		it("passes the resolved status to the folder template", async () => {
+			await service.createTask({ title: "Call dentist", status: undefined });
+			expect(processFolderTemplate).toHaveBeenCalled();
+			for (const call of processFolderTemplate.mock.calls) {
+				expect(call[1]?.status).toBe(expected);
+			}
+		});
+
+		it("passes the resolved status to the body template", async () => {
+			await service.createTask({ title: "Call dentist", status: undefined });
+			expect(applyTemplate).toHaveBeenCalledWith(expect.objectContaining({ status: expected }));
+		});
+	});
 });
 
 describe("buildTaskCreationDataFromParsed captureToInbox option", () => {
@@ -71,6 +117,7 @@ describe("buildTaskCreationDataFromParsed captureToInbox option", () => {
 
 	beforeEach(() => {
 		runtime = PluginFactory.createMockPlugin();
+		withStatusConfigs(runtime);
 		runtime.settings.triage = inboxOn;
 		applyDefaults = jest.fn(async (taskData: object) => taskData);
 		service = new TaskCreationService({
@@ -125,6 +172,16 @@ describe("buildTaskCreationDataFromParsed captureToInbox option", () => {
 
 	it("fills the default status when the option is on but the inbox is off", () => {
 		runtime.settings.triage = { inboxStatus: "", somedayStatus: "", captureToInbox: true };
+		const data = buildTaskCreationDataFromParsed(
+			plugin(),
+			{ title: "Call dentist" },
+			{ captureToInbox: true }
+		);
+		expect(data.status).toBe(runtime.settings.defaultTaskStatus);
+	});
+
+	it("fills the default status when the configured inbox status was deleted", () => {
+		runtime.statusManager.getStatusConfig = jest.fn(() => undefined);
 		const data = buildTaskCreationDataFromParsed(
 			plugin(),
 			{ title: "Call dentist" },

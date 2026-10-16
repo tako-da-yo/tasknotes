@@ -1122,6 +1122,7 @@ export const ko: TranslationTree = {
 				defaultsFieldScheduled: "예정일",
 				defaultsFieldDue: "마감일",
 				defaultsSetNone: "없음으로 설정",
+				missingStatus: "{status} (없음)",
 			},
 			priorityCard: {
 				valuesHeader: "우선순위 값"

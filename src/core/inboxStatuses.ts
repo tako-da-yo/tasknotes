@@ -45,3 +45,29 @@ export function ensureInboxStatuses(
 		somedayValue: SOMEDAY_VALUE,
 	};
 }
+
+/**
+ * Options for an inbox/someday status picker: None, then the open statuses. A configured
+ * status that no longer exists is kept as a "missing" option so the picker does not
+ * pretend the setting is empty.
+ */
+export function triageStatusOptions(
+	statuses: StatusConfig[],
+	configured: string,
+	labels: { none: string; missing: (value: string) => string }
+): { value: string; label: string }[] {
+	const options = [
+		{ value: "", label: labels.none },
+		...statuses
+			.filter((s) => !s.isCompleted)
+			.map((s) => ({ value: s.value, label: s.label || s.value })),
+	];
+	if (configured && !options.some((o) => o.value === configured)) {
+		const existing = statuses.find((s) => s.value === configured);
+		options.push({
+			value: configured,
+			label: existing ? existing.label || existing.value : labels.missing(configured),
+		});
+	}
+	return options;
+}

@@ -23,7 +23,10 @@ export function buildTaskCreationDataFromParsed(
 	const deferStatusToCaptureRule =
 		options.captureToInbox === true &&
 		!parsed.status &&
-		isCaptureToInboxEnabled(plugin.settings.triage ?? TRIAGE_DISABLED);
+		isCaptureToInboxEnabled(
+			plugin.settings.triage ?? TRIAGE_DISABLED,
+			(value) => !!plugin.statusManager.getStatusConfig(value)
+		);
 	const taskData: TaskCreationData = {
 		title: parsed.title.trim(),
 		status: deferStatusToCaptureRule

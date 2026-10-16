@@ -2812,6 +2812,10 @@
       "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
       "translation": "37eb6906dfa1b25a7d86fee48f844ad2aacc860c"
     },
+    "settings.taskProperties.triage.missingStatus": {
+      "source": "f73e7662e3808414b04f663a9c573ec9eed42c35",
+      "translation": "9dc45b7f07f3ea716a207e6660a10a644aa2bb3f"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "c602150d4829ed75cee581b73742fae538548e94"
@@ -12145,6 +12149,10 @@
     "settings.taskProperties.triage.defaultsSetNone": {
       "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
       "translation": "cab52153ccb808d281715379fb96b06c36cf5f4a"
+    },
+    "settings.taskProperties.triage.missingStatus": {
+      "source": "f73e7662e3808414b04f663a9c573ec9eed42c35",
+      "translation": "feeec7fa35ff015fb0c2ef3a0e8b4b92349a69a0"
     },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
@@ -21480,6 +21488,10 @@
       "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
       "translation": "c4ec6ab953ae04eb7677cc5fc92600a206c4733f"
     },
+    "settings.taskProperties.triage.missingStatus": {
+      "source": "f73e7662e3808414b04f663a9c573ec9eed42c35",
+      "translation": "765d25a25c5fb38875cd562e87fb71f20765fefd"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "fb026d0eaad45b388c84db6e9efb723033ef0134"
@@ -30813,6 +30825,10 @@
     "settings.taskProperties.triage.defaultsSetNone": {
       "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
       "translation": "07d73ac516e75f49b534c60b28aa927ea23547fa"
+    },
+    "settings.taskProperties.triage.missingStatus": {
+      "source": "f73e7662e3808414b04f663a9c573ec9eed42c35",
+      "translation": "09fe6c9293679ebeb2295228ffa67102eb6b70c4"
     },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
@@ -40148,6 +40164,10 @@
       "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
       "translation": "7195339368ef4e6675a9491580d3937c61b11dbc"
     },
+    "settings.taskProperties.triage.missingStatus": {
+      "source": "f73e7662e3808414b04f663a9c573ec9eed42c35",
+      "translation": "be918dafbf09b82a4ca6b6c8e98e25ea4e7f9f49"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "5b187c18393ba9f40fa30f45f743c136f9e2c2a4"
@@ -49481,6 +49501,10 @@
     "settings.taskProperties.triage.defaultsSetNone": {
       "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
       "translation": "4c635bc837847f34b88c33895e8a855daae4b3cb"
+    },
+    "settings.taskProperties.triage.missingStatus": {
+      "source": "f73e7662e3808414b04f663a9c573ec9eed42c35",
+      "translation": "ddd3b687715452c15003decf853176ef73012048"
     },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
@@ -58816,6 +58840,10 @@
       "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
       "translation": "e80525eb1663d07a01be1739b045f4b965e0d88b"
     },
+    "settings.taskProperties.triage.missingStatus": {
+      "source": "f73e7662e3808414b04f663a9c573ec9eed42c35",
+      "translation": "329ec9f47704ccdd6c59e4f21833a36214e39ba7"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "598dbbf4e742f35ac9e774281b016897e5a788ef"
@@ -68149,6 +68177,10 @@
     "settings.taskProperties.triage.defaultsSetNone": {
       "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
       "translation": "d653eb2139b89791f7c60e12587b8b874fee467d"
+    },
+    "settings.taskProperties.triage.missingStatus": {
+      "source": "f73e7662e3808414b04f663a9c573ec9eed42c35",
+      "translation": "0f7e8b73b0895728de0e7607fb25e7cb7a413db1"
     },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",

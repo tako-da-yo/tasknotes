@@ -856,7 +856,10 @@ export class InstantTaskConvertService {
 		// With inbox capture on, leave an unparsed status unset so task creation applies the
 		// capture rule after creation-default dates are filled in.
 		if (!status) {
-			status = isCaptureToInboxEnabled(this.plugin.settings.triage ?? TRIAGE_DISABLED)
+			status = isCaptureToInboxEnabled(
+				this.plugin.settings.triage ?? TRIAGE_DISABLED,
+				(value) => !!this.plugin.statusManager.getStatusConfig(value)
+			)
 				? undefined
 				: fallbackStatus;
 		}

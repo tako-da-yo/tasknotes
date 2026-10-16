@@ -34,7 +34,11 @@ describe("InstantTaskConvertService capture to inbox", () => {
 	let service: InstantTaskConvertService;
 	let createdStatus: string | undefined;
 
-	function setup(settings: Record<string, unknown>, defaultScheduledDate = "none") {
+	function setup(
+		settings: Record<string, unknown>,
+		defaultScheduledDate = "none",
+		deletedStatus?: string
+	) {
 		mockPlugin = PluginFactory.createMockPlugin({
 			settings: {
 				defaultTaskStatus: "open",
@@ -58,6 +62,11 @@ describe("InstantTaskConvertService capture to inbox", () => {
 			{ value: "in-progress" },
 			{ value: "inbox" },
 		]);
+		mockPlugin.statusManager.getStatusConfig = jest.fn((value: string) =>
+			["open", "in-progress", "inbox"].includes(value) && value !== deletedStatus
+				? { value }
+				: undefined
+		);
 		// Real creation service, so creation defaults are applied before the status is resolved
 		const creation = new TaskCreationService({
 			runtime: mockPlugin,
@@ -112,6 +121,11 @@ describe("InstantTaskConvertService capture to inbox", () => {
 		it("treats a Default scheduled date as a real date", async () => {
 			setup({ useDefaultsOnInstantConvert: useDefaults, triage: INBOX_ON }, "today");
 			expect(await convert({ title: "Call dentist" })).toBe("open");
+		});
+
+		it("keeps today's fallback when the configured inbox status was deleted", async () => {
+			setup({ useDefaultsOnInstantConvert: useDefaults, triage: INBOX_ON }, "none", "inbox");
+			expect(await convert({ title: "Call dentist" })).toBe(offFallback);
 		});
 
 		it("keeps today's fallback when the inbox is off", async () => {

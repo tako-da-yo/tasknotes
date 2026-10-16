@@ -71,6 +71,7 @@ interface TaskCreationCalendarSyncService {
 
 interface TaskCreationStatusManager {
 	isCompletedStatus(status: string): boolean;
+	getStatusConfig?(value: string): unknown;
 }
 
 type TaskCreationSettings = Pick<
@@ -152,7 +153,11 @@ export class TaskCreationService {
 				scheduled: taskData.scheduled,
 				defaultStatus: runtime.settings.defaultTaskStatus,
 				triage: runtime.settings.triage ?? TRIAGE_DISABLED,
+				statusExists: (value) => !!runtime.statusManager?.getStatusConfig?.(value),
 			});
+			// Folder and body templates read {{status}} from taskData, so give them the
+			// resolved value rather than the caller's (possibly unset) status.
+			taskData = { ...taskData, status };
 			const dateCreated = taskData.dateCreated || getCurrentTimestamp();
 			const dateModified = taskData.dateModified || getCurrentTimestamp();
 			const recurrence = taskData.recurrence || undefined;

@@ -1122,6 +1122,7 @@ export const ru: TranslationTree = {
 				defaultsFieldScheduled: "запланированную дату",
 				defaultsFieldDue: "срок выполнения",
 				defaultsSetNone: "Установить «нет»",
+				missingStatus: "{status} (отсутствует)",
 			},
 			priorityCard: {
 				valuesHeader: "Значения приоритета"

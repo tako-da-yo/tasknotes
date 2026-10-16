@@ -3,7 +3,7 @@ import { Notice, setIcon } from "obsidian";
 import TaskNotesPlugin from "../../../main";
 import { showConfirmationModal } from "../../../modals/ConfirmationModal";
 import { captureBlockedByDefaults } from "../../../core/captureStatus";
-import { ensureInboxStatuses } from "../../../core/inboxStatuses";
+import { ensureInboxStatuses, triageStatusOptions } from "../../../core/inboxStatuses";
 import {
 	createCard,
 	createStatusBadge,
@@ -266,19 +266,23 @@ function renderTriageSection(
 		);
 	}
 
-	const statusOptions = [
-		{ value: "", label: translate("settings.taskProperties.triage.none") },
-		...plugin.settings.customStatuses
-			.filter((s) => !s.isCompleted)
-			.map((s) => ({ value: s.value, label: s.label || s.value })),
-	];
-	const inboxSelect = createCardSelect(statusOptions, triage.inboxStatus);
+	const optionLabels = {
+		none: translate("settings.taskProperties.triage.none"),
+		missing: (status: string) =>
+			translate("settings.taskProperties.triage.missingStatus", { status }),
+	};
+	const statusOptions = (configured: string) =>
+		triageStatusOptions(plugin.settings.customStatuses, configured, optionLabels);
+	const inboxSelect = createCardSelect(statusOptions(triage.inboxStatus), triage.inboxStatus);
 	inboxSelect.addEventListener("change", () => {
 		plugin.settings.triage.inboxStatus = inboxSelect.value;
 		save();
 		renderTriageSection(container, plugin, save, translate, onStatusesReplaced);
 	});
-	const somedaySelect = createCardSelect(statusOptions, triage.somedayStatus);
+	const somedaySelect = createCardSelect(
+		statusOptions(triage.somedayStatus),
+		triage.somedayStatus
+	);
 	somedaySelect.addEventListener("change", () => {
 		plugin.settings.triage.somedayStatus = somedaySelect.value;
 		save();
@@ -303,7 +307,7 @@ function renderTriageSection(
 	);
 
 	const blocked = captureBlockedByDefaults(plugin.settings.taskCreationDefaults);
-	if (triage.inboxStatus && triage.captureToInbox && blocked.length > 0) {
+	if (inboxConfigured && triage.captureToInbox && blocked.length > 0) {
 		const fields = blocked
 			.map((field) =>
 				translate(

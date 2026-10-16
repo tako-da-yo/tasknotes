@@ -45,6 +45,18 @@ describe("TriageService", () => {
 		expect(svc.getInboxTasks()).toEqual([]);
 	});
 
+	it("hides Someday when the someday status no longer exists", async () => {
+		const deps = makeDeps([TaskFactory.createTask({ path: "a.md", status: "inbox" })]);
+		const svc = new TriageService(deps);
+		expect(svc.isSomedayReady()).toBe(true);
+		deps.settings.triage.somedayStatus = "deleted-status";
+		expect(svc.isSomedayReady()).toBe(false);
+		expect(await svc.applyAction(deps.store.get("a.md")!, { kind: "someday" })).toBeNull();
+		expect(deps.store.get("a.md")!.status).toBe("inbox");
+		deps.settings.triage.somedayStatus = "";
+		expect(svc.isSomedayReady()).toBe(false);
+	});
+
 	it("applies and reverts a triage action", async () => {
 		const deps = makeDeps([TaskFactory.createTask({ path: "a.md", status: "inbox" })]);
 		const svc = new TriageService(deps);

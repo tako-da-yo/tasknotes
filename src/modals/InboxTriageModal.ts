@@ -125,7 +125,7 @@ export class InboxTriageModal extends Modal {
 	}
 
 	private hasSomeday(): boolean {
-		return !!this.plugin.settings.triage.somedayStatus;
+		return this.plugin.triageService.isSomedayReady();
 	}
 
 	/** The freshest known version of a queued task. */

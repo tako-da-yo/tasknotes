@@ -1122,6 +1122,7 @@ export const zh: TranslationTree = {
 				defaultsFieldScheduled: "计划日期",
 				defaultsFieldDue: "截止日期",
 				defaultsSetNone: "设为无",
+				missingStatus: "{status}（缺失）",
 			},
 			priorityCard: {
 				valuesHeader: "优先级值"

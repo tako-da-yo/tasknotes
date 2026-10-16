@@ -7,9 +7,23 @@ export const TRIAGE_DISABLED: TriageSettings = {
 	captureToInbox: false,
 };
 
+/** Whether a status value exists in the configured statuses. */
+export type StatusExists = (value: string) => boolean;
+
+/**
+ * Whether a configured triage status (inbox or someday) can be used: it is set and still
+ * exists. A deleted status stays in settings but is treated as not configured.
+ */
+export function isTriageStatusUsable(value: string, statusExists: StatusExists): boolean {
+	return Boolean(value) && statusExists(value);
+}
+
 /** Whether dateless tasks without an explicit status are captured to the inbox status. */
-export function isCaptureToInboxEnabled(triage: TriageSettings): boolean {
-	return Boolean(triage.inboxStatus) && triage.captureToInbox;
+export function isCaptureToInboxEnabled(
+	triage: TriageSettings,
+	statusExists: StatusExists
+): boolean {
+	return triage.captureToInbox && isTriageStatusUsable(triage.inboxStatus, statusExists);
 }
 
 /** Status for a newly captured task: explicit status, else inbox when dateless, else the default. */
@@ -19,9 +33,10 @@ export function resolveCaptureStatus(input: {
 	scheduled?: string;
 	defaultStatus: string;
 	triage: TriageSettings;
+	statusExists: StatusExists;
 }): string {
 	if (input.explicitStatus) return input.explicitStatus;
-	if (isCaptureToInboxEnabled(input.triage) && !input.due && !input.scheduled) {
+	if (isCaptureToInboxEnabled(input.triage, input.statusExists) && !input.due && !input.scheduled) {
 		return input.triage.inboxStatus;
 	}
 	return input.defaultStatus;

@@ -25,6 +25,11 @@ describe("TaskSelectorWithCreateModal quick-create capture to inbox", () => {
 				triage,
 			},
 			i18n: { translate: jest.fn((key: string) => key) },
+			statusManager: {
+				getStatusConfig: jest.fn((value: string) =>
+					["open", "inbox"].includes(value) ? { value } : undefined
+				),
+			},
 		};
 		return new TaskSelectorWithCreateModal(mockApp, mockPlugin as never, [], {
 			onResult: jest.fn(),
