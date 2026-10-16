@@ -717,12 +717,15 @@ ${orderYaml}
 				.map(status => `${formatDependencyEntryFileExpression("value")}.properties.${getPropertyName(statusProperty)} != "${escapeBasesStringLiteral(status)}"`)
 				.join(' && ');
 
-			// Inbox and Someday views exist only once the matching triage status is configured
+			// Inbox and Someday views exist only once the matching triage status is configured.
+			// Archiving adds the archive tag without changing status, so exclude archived tasks.
+			const archiveTag = plugin.fieldMapper.toUserField('archiveTag');
 			const triageStatusView = (name: string, status: string, sortColumn: string): string => `  - type: tasknotesTaskList
     name: "${name}"
     filters:
       and:
         - ${statusProperty} == "${escapeBasesStringLiteral(status)}"
+        - file.hasTag("${escapeBasesStringLiteral(archiveTag)}") != true
     order:
 ${orderYaml}
     sort:

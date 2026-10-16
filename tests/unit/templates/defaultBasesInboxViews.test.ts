@@ -17,9 +17,10 @@ const fieldMapping = {
 	timeEstimate: "timeEstimate",
 	timeEntries: "timeEntries",
 	pomodoros: "pomodoros",
+	archiveTag: "archived",
 };
 
-const createMockPlugin = () => ({
+const createMockPlugin = (mapping: Record<string, string> = fieldMapping) => ({
 	settings: {
 		taskTag: "task",
 		taskIdentificationMethod: "tag",
@@ -33,12 +34,12 @@ const createMockPlugin = () => ({
 		defaultVisibleProperties: ["status", "priority", "due"],
 		calendarViewSettings: { firstDay: 1 },
 		userFields: [],
-		fieldMapping,
+		fieldMapping: mapping,
 		triage: { inboxStatus: "", somedayStatus: "", captureToInbox: true },
 	},
 	fieldMapper: {
-		toUserField: jest.fn((key: keyof typeof fieldMapping) => fieldMapping[key] ?? key),
-		getMapping: jest.fn(() => fieldMapping),
+		toUserField: jest.fn((key: string) => mapping[key] ?? key),
+		getMapping: jest.fn(() => mapping),
 	},
 });
 
@@ -61,9 +62,12 @@ describe("default Bases Inbox and Someday views", () => {
 		const base = parse(generateBasesFileTemplate("open-tasks-view", plugin as any));
 		const inbox = base.views.find((v: any) => v.name === "Inbox");
 		const someday = base.views.find((v: any) => v.name === "Someday");
-		expect(inbox.filters.and).toEqual(['status == "inbox"']);
+		expect(inbox.filters.and).toEqual(['status == "inbox"', 'file.hasTag("archived") != true']);
 		expect(inbox.sort).toEqual([{ column: "file.ctime", direction: "ASC" }]);
-		expect(someday.filters.and).toEqual(['status == "someday"']);
+		expect(someday.filters.and).toEqual([
+			'status == "someday"',
+			'file.hasTag("archived") != true',
+		]);
 		expect(someday.sort).toEqual([{ column: "file.mtime", direction: "ASC" }]);
 	});
 
@@ -81,7 +85,17 @@ describe("default Bases Inbox and Someday views", () => {
 		plugin.settings.triage = { inboxStatus: 'in "box"', somedayStatus: "", captureToInbox: true };
 		const base = parse(generateBasesFileTemplate("open-tasks-view", plugin as any));
 		const inbox = base.views.find((v: any) => v.name === "Inbox");
-		expect(inbox.filters.and).toEqual([`status == ${JSON.stringify('in "box"')}`]);
+		expect(inbox.filters.and[0]).toBe(`status == ${JSON.stringify('in "box"')}`);
+	});
+
+	it("excludes tasks carrying the user's mapped archive tag", () => {
+		const plugin = createMockPlugin({ ...fieldMapping, archiveTag: 'old "stuff"' });
+		plugin.settings.triage = { inboxStatus: "inbox", somedayStatus: "someday", captureToInbox: true };
+		const base = parse(generateBasesFileTemplate("open-tasks-view", plugin as any));
+		const expected = `file.hasTag(${JSON.stringify('old "stuff"')}) != true`;
+		for (const name of ["Inbox", "Someday"]) {
+			expect(base.views.find((v: any) => v.name === name).filters.and).toContain(expected);
+		}
 	});
 
 	it("tolerates settings without a triage block", () => {
