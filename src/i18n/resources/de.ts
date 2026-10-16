@@ -465,7 +465,16 @@ export const de: TranslationTree = {
 				totalTasks: "Aufgaben gesamt",
 				completionRate: "Abschlussrate",
 				activeProjects: "Aktive Projekte",
-				avgTimePerTask: "Ø Zeit pro Aufgabe"
+				avgTimePerTask: "Ø Zeit pro Aufgabe",
+				estimateAccuracy: "Schätzgenauigkeit",
+			},
+			estimateAccuracy: {
+				headline: "Aufgaben dauern meist das {factor}× deiner Schätzung",
+				basis: "Median aus {n} Aufgaben, letzte {days} Tage",
+				notEnough: "Noch nicht genug erfasste Aufgaben ({n} von {min})",
+				small: "Bis 30 Min.",
+				medium: "30–120 Min.",
+				large: "Über 2 Std.",
 			},
 			labels: {
 				tasks: "Aufgaben",
@@ -690,6 +699,20 @@ export const de: TranslationTree = {
 			timeTrackingSection: {
 				header: "Zeiterfassung",
 				description: "Konfiguriere automatische Zeiterfassungsverhalten."
+			},
+			planning: {
+				heading: "Planung",
+				workHours: "Arbeitszeiten",
+				workHoursDesc: "Wird verwendet, um zu berechnen, wie viel Zeit an jedem Tag frei ist.",
+				dayOff: "Frei",
+				busyCalendars: "Kalender, die dich als beschäftigt markieren",
+				allDayBusy: "Ganztägige Termine als beschäftigt zählen",
+				defaultEstimate: "Standardschätzung für Aufgaben ohne Schätzung (Minuten)",
+				defaultEstimateDesc: "Leer lassen, um sie stattdessen als ungeschätzt anzuzeigen.",
+				showInStatusBar: "Heutige Kapazität in der Statusleiste anzeigen",
+				warnOnOverbook: "Warnen, wenn ein Tag überbucht ist",
+				calibrationWindow: "Zeitraum für die Schätzkalibrierung (Tage)",
+				applyCalibration: "Kalibrierte Schätzungen für die Planung verwenden",
 			},
 			recurringSection: {
 				header: "Wiederkehrende Aufgaben",
@@ -2289,6 +2312,7 @@ export const de: TranslationTree = {
 		triageInbox: "Posteingang sichten",
 		freshStart: "Neuanfang: überfällige Aufgaben zurücksetzen",
 		undoFreshStart: "Letzten Neuanfang rückgängig machen",
+		showTodayCapacity: "Heutige Kapazität anzeigen",
 		openCalendarView: "Mini-Kalenderansicht öffnen",
 		openAdvancedCalendarView: "Kalenderansicht öffnen",
 		openTasksView: "Aufgabenansicht öffnen",
@@ -2561,6 +2585,8 @@ export const de: TranslationTree = {
 			tagsPlaceholder: "schlagwort1, schlagwort2",
 			timeEstimateLabel: "Zeitschätzung (Minuten)",
 			timeEstimatePlaceholder: "30",
+			estimateHint: "Nach ähnlichen Aufgaben wahrscheinlich ~{duration}",
+			estimateHintUse: "Übernehmen",
 			unsavedChanges: {
 				title: "Ungespeicherte Änderungen",
 				message: "Sie haben ungespeicherte Änderungen. Möchten Sie diese speichern?",
@@ -3518,5 +3544,17 @@ export const de: TranslationTree = {
 			color: "Farbe",
 			emoji: "Emoji",
 		},
+	},
+	capacity: {
+		status: "Heute: {planned} geplant · {free} frei",
+		over: " · {over} zu viel",
+		noWorkHours: "Heute: {planned} geplant",
+		unestimated: "{count} Aufgaben ohne Schätzung",
+		calibrated: "kalibriert",
+		openToday: "Heute-Ansicht öffnen",
+		moveToInbox: "Einige in den Posteingang verschieben…",
+		moveToInboxHint: "Wähle Aufgaben aus und nutze dann „Neuanfang für Auswahl“ oder setze ihren Status auf Posteingang.",
+		ariaLabel: "Heutige Kapazität",
+		overbooked: "{day} liegt jetzt {over} über deiner verfügbaren Zeit.",
 	},
 };

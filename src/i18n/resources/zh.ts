@@ -465,7 +465,16 @@ export const zh: TranslationTree = {
 				totalTasks: "总任务数",
 				completionRate: "完成率",
 				activeProjects: "活跃项目",
-				avgTimePerTask: "每个任务的平均时间"
+				avgTimePerTask: "每个任务的平均时间",
+				estimateAccuracy: "估算准确度",
+			},
+			estimateAccuracy: {
+				headline: "任务通常需要你估算时间的 {factor} 倍",
+				basis: "{n} 个任务的中位数，最近 {days} 天",
+				notEnough: "已跟踪的任务还不够（{n}/{min}）",
+				small: "30 分钟以内",
+				medium: "30–120 分钟",
+				large: "超过 2 小时",
 			},
 			labels: {
 				tasks: "任务",
@@ -690,6 +699,20 @@ export const zh: TranslationTree = {
 			timeTrackingSection: {
 				header: "时间跟踪",
 				description: "配置自动时间跟踪行为。"
+			},
+			planning: {
+				heading: "规划",
+				workHours: "工作时间",
+				workHoursDesc: "用于计算每天有多少空闲时间。",
+				dayOff: "休息",
+				busyCalendars: "使你处于忙碌状态的日历",
+				allDayBusy: "将全天事件计为忙碌",
+				defaultEstimate: "没有估算的任务的默认估算（分钟）",
+				defaultEstimateDesc: "留空则将其显示为未估算。",
+				showInStatusBar: "在状态栏中显示今日容量",
+				warnOnOverbook: "某天超出安排时发出警告",
+				calibrationWindow: "估算校准时间范围（天）",
+				applyCalibration: "在规划中使用校准后的估算",
 			},
 			recurringSection: {
 				header: "重复任务",
@@ -2289,6 +2312,7 @@ export const zh: TranslationTree = {
 		triageInbox: "整理收件箱",
 		freshStart: "重新开始：重置逾期任务",
 		undoFreshStart: "撤销上次重新开始",
+		showTodayCapacity: "显示今日容量",
 		openCalendarView: "打开迷你日历视图",
 		openAdvancedCalendarView: "打开日历视图",
 		openTasksView: "打开任务视图",
@@ -2561,6 +2585,8 @@ export const zh: TranslationTree = {
 			tagsPlaceholder: "标签1，标签2",
 			timeEstimateLabel: "时间估计（分钟）",
 			timeEstimatePlaceholder: "30",
+			estimateHint: "根据类似任务，可能需要 ~{duration}",
+			estimateHintUse: "使用",
 			unsavedChanges: {
 				title: "未保存的更改",
 				message: "您有未保存的更改。是否要保存？",
@@ -3517,5 +3543,17 @@ export const zh: TranslationTree = {
 			color: "颜色",
 			emoji: "表情符号",
 		},
+	},
+	capacity: {
+		status: "今天：已计划 {planned} · 空闲 {free}",
+		over: " · 超出 {over}",
+		noWorkHours: "今天：已计划 {planned}",
+		unestimated: "{count} 个任务没有估算",
+		calibrated: "已校准",
+		openToday: "打开今日视图",
+		moveToInbox: "将部分移到收件箱…",
+		moveToInboxHint: "选择任务，然后使用“对所选任务重新开始”，或将其状态设为收件箱。",
+		ariaLabel: "今日容量",
+		overbooked: "{day} 现在超出可用时间 {over}。",
 	},
 };

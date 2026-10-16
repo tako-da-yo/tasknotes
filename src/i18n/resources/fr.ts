@@ -465,7 +465,16 @@ export const fr: TranslationTree = {
 				totalTasks: "Total des tâches",
 				completionRate: "Taux de complétion",
 				activeProjects: "Projets actifs",
-				avgTimePerTask: "Temps moyen par tâche"
+				avgTimePerTask: "Temps moyen par tâche",
+				estimateAccuracy: "Précision des estimations",
+			},
+			estimateAccuracy: {
+				headline: "Les tâches prennent généralement {factor}× votre estimation",
+				basis: "Médiane de {n} tâches, {days} derniers jours",
+				notEnough: "Pas encore assez de tâches suivies ({n} sur {min})",
+				small: "Jusqu'à 30 min",
+				medium: "30–120 min",
+				large: "Plus de 2 h",
 			},
 			labels: {
 				tasks: "Tâches",
@@ -690,6 +699,20 @@ export const fr: TranslationTree = {
 			timeTrackingSection: {
 				header: "Suivi du temps",
 				description: "Configurez les comportements de suivi automatique du temps."
+			},
+			planning: {
+				heading: "Planification",
+				workHours: "Heures de travail",
+				workHoursDesc: "Sert à calculer le temps libre disponible chaque jour.",
+				dayOff: "Repos",
+				busyCalendars: "Calendriers qui vous rendent occupé",
+				allDayBusy: "Compter les événements d'une journée entière comme occupés",
+				defaultEstimate: "Estimation par défaut des tâches sans estimation (minutes)",
+				defaultEstimateDesc: "Laissez vide pour les afficher comme non estimées.",
+				showInStatusBar: "Afficher la capacité du jour dans la barre d'état",
+				warnOnOverbook: "Avertir lorsqu'une journée devient surchargée",
+				calibrationWindow: "Période de calibrage des estimations (jours)",
+				applyCalibration: "Utiliser les estimations calibrées pour la planification",
 			},
 			recurringSection: {
 				header: "Tâches récurrentes",
@@ -2289,6 +2312,7 @@ export const fr: TranslationTree = {
 		triageInbox: "Trier la boîte de réception",
 		freshStart: "Nouveau départ : réinitialiser les tâches en retard",
 		undoFreshStart: "Annuler le dernier nouveau départ",
+		showTodayCapacity: "Afficher la capacité du jour",
 		openCalendarView: "Ouvrir la vue mini calendrier",
 		openAdvancedCalendarView: "Ouvrir la vue calendrier",
 		openTasksView: "Ouvrir la vue tâches",
@@ -2561,6 +2585,8 @@ export const fr: TranslationTree = {
 			tagsPlaceholder: "etiquette1, etiquette2",
 			timeEstimateLabel: "Estimation (minutes)",
 			timeEstimatePlaceholder: "30",
+			estimateHint: "D'après des tâches similaires, probablement ~{duration}",
+			estimateHintUse: "Utiliser",
 			unsavedChanges: {
 				title: "Modifications non enregistrées",
 				message: "Vous avez des modifications non enregistrées. Voulez-vous les enregistrer ?",
@@ -3518,5 +3544,17 @@ export const fr: TranslationTree = {
 			color: "Couleur",
 			emoji: "Émoji",
 		},
+	},
+	capacity: {
+		status: "Aujourd'hui : {planned} prévu · {free} libre",
+		over: " · {over} de trop",
+		noWorkHours: "Aujourd'hui : {planned} prévu",
+		unestimated: "{count} tâches sans estimation",
+		calibrated: "calibré",
+		openToday: "Ouvrir la vue Aujourd'hui",
+		moveToInbox: "En déplacer vers la boîte de réception…",
+		moveToInboxHint: "Sélectionnez des tâches, puis utilisez « Nouveau départ pour la sélection » ou passez leur statut à boîte de réception.",
+		ariaLabel: "Capacité du jour",
+		overbooked: "{day} dépasse maintenant votre temps disponible de {over}.",
 	},
 };

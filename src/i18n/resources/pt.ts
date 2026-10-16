@@ -465,7 +465,16 @@ export const pt: TranslationTree = {
 				totalTasks: "Total de Tarefas",
 				completionRate: "Taxa de Conclusão",
 				activeProjects: "Projetos Ativos",
-				avgTimePerTask: "Tempo Médio por Tarefa"
+				avgTimePerTask: "Tempo Médio por Tarefa",
+				estimateAccuracy: "Precisão das estimativas",
+			},
+			estimateAccuracy: {
+				headline: "As tarefas costumam levar {factor}× a sua estimativa",
+				basis: "Mediana de {n} tarefas, últimos {days} dias",
+				notEnough: "Ainda não há tarefas registradas suficientes ({n} de {min})",
+				small: "Até 30 min",
+				medium: "30–120 min",
+				large: "Mais de 2 h",
 			},
 			labels: {
 				tasks: "Tarefas",
@@ -692,6 +701,20 @@ export const pt: TranslationTree = {
 			timeTrackingSection: {
 				header: "Registro de Tempo",
 				description: "Configure comportamentos automáticos de registro de tempo."
+			},
+			planning: {
+				heading: "Planejamento",
+				workHours: "Horário de trabalho",
+				workHoursDesc: "Usado para calcular quanto tempo livre há em cada dia.",
+				dayOff: "Folga",
+				busyCalendars: "Calendários que deixam você ocupado",
+				allDayBusy: "Contar eventos de dia inteiro como ocupado",
+				defaultEstimate: "Estimativa padrão para tarefas sem estimativa (minutos)",
+				defaultEstimateDesc: "Deixe vazio para mostrá-las como sem estimativa.",
+				showInStatusBar: "Mostrar a capacidade de hoje na barra de status",
+				warnOnOverbook: "Avisar quando um dia ficar sobrecarregado",
+				calibrationWindow: "Período de calibração das estimativas (dias)",
+				applyCalibration: "Usar estimativas calibradas no planejamento",
 			},
 			recurringSection: {
 				header: "Tarefas Recorrentes",
@@ -2291,6 +2314,7 @@ export const pt: TranslationTree = {
 		triageInbox: "Triar caixa de entrada",
 		freshStart: "Recomeço: redefinir tarefas atrasadas",
 		undoFreshStart: "Desfazer último recomeço",
+		showTodayCapacity: "Mostrar a capacidade de hoje",
 		openCalendarView: "Abrir visualização de mini calendário",
 		openAdvancedCalendarView: "Abrir visualização de calendário",
 		openTasksView: "Abrir visualização de tarefas",
@@ -2563,6 +2587,8 @@ export const pt: TranslationTree = {
 			tagsPlaceholder: "etiqueta1, etiqueta2",
 			timeEstimateLabel: "Estimativa de tempo (minutos)",
 			timeEstimatePlaceholder: "30",
+			estimateHint: "Com base em tarefas semelhantes, provavelmente ~{duration}",
+			estimateHintUse: "Usar",
 			unsavedChanges: {
 				title: "Alterações não salvas",
 				message: "Você tem alterações não salvas. Deseja salvá-las?",
@@ -3523,5 +3549,17 @@ export const pt: TranslationTree = {
 			color: "Cor",
 			emoji: "Emoji",
 		},
+	},
+	capacity: {
+		status: "Hoje: {planned} planejado · {free} livre",
+		over: " · {over} a mais",
+		noWorkHours: "Hoje: {planned} planejado",
+		unestimated: "{count} tarefas sem estimativa",
+		calibrated: "calibrado",
+		openToday: "Abrir a visualização de hoje",
+		moveToInbox: "Mover algumas para a caixa de entrada…",
+		moveToInboxHint: "Selecione tarefas e use \"Recomeço para selecionadas\" ou defina o status delas como caixa de entrada.",
+		ariaLabel: "Capacidade de hoje",
+		overbooked: "{day} agora excede em {over} o seu tempo disponível.",
 	},
 };

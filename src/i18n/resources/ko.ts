@@ -465,7 +465,16 @@ export const ko: TranslationTree = {
 				totalTasks: "총 작업",
 				completionRate: "완료율",
 				activeProjects: "활성 프로젝트",
-				avgTimePerTask: "작업당 평균 시간"
+				avgTimePerTask: "작업당 평균 시간",
+				estimateAccuracy: "추정 정확도",
+			},
+			estimateAccuracy: {
+				headline: "작업은 보통 추정치의 {factor}배가 걸립니다",
+				basis: "작업 {n}개의 중앙값, 최근 {days}일",
+				notEnough: "아직 추적된 작업이 충분하지 않습니다 ({min}개 중 {n}개)",
+				small: "30분 이하",
+				medium: "30–120분",
+				large: "2시간 초과",
 			},
 			labels: {
 				tasks: "작업",
@@ -690,6 +699,20 @@ export const ko: TranslationTree = {
 			timeTrackingSection: {
 				header: "시간 추적",
 				description: "자동 시간 추적 동작을 설정합니다."
+			},
+			planning: {
+				heading: "계획",
+				workHours: "근무 시간",
+				workHoursDesc: "매일 남는 시간을 계산하는 데 사용됩니다.",
+				dayOff: "휴무",
+				busyCalendars: "바쁨으로 표시할 캘린더",
+				allDayBusy: "종일 일정을 바쁨으로 계산",
+				defaultEstimate: "추정치가 없는 작업의 기본 추정치 (분)",
+				defaultEstimateDesc: "비워 두면 추정되지 않은 작업으로 표시합니다.",
+				showInStatusBar: "상태 표시줄에 오늘의 용량 표시",
+				warnOnOverbook: "하루 일정이 초과되면 경고",
+				calibrationWindow: "추정 보정 기간 (일)",
+				applyCalibration: "계획에 보정된 추정치 사용",
 			},
 			recurringSection: {
 				header: "반복 작업",
@@ -2273,6 +2296,7 @@ export const ko: TranslationTree = {
 		triageInbox: "수신함 정리",
 		freshStart: "새 출발: 기한이 지난 작업 재설정",
 		undoFreshStart: "마지막 새 출발 취소",
+		showTodayCapacity: "오늘의 용량 표시",
 		openCalendarView: "미니 캘린더 뷰 열기",
 		openAdvancedCalendarView: "캘린더 뷰 열기",
 		openTasksView: "작업 뷰 열기",
@@ -2545,6 +2569,8 @@ export const ko: TranslationTree = {
 			tagsPlaceholder: "태그1, 태그2",
 			timeEstimateLabel: "시간 예상 (분)",
 			timeEstimatePlaceholder: "30",
+			estimateHint: "비슷한 작업을 보면 ~{duration} 정도 걸릴 것 같습니다",
+			estimateHintUse: "사용",
 			unsavedChanges: {
 				title: "저장되지 않은 변경 사항",
 				message: "저장되지 않은 변경 사항이 있습니다. 저장하시겠습니까?",
@@ -3502,5 +3528,17 @@ export const ko: TranslationTree = {
 			color: "색상",
 			emoji: "이모지",
 		},
+	},
+	capacity: {
+		status: "오늘: {planned} 계획됨 · {free} 여유",
+		over: " · {over} 초과",
+		noWorkHours: "오늘: {planned} 계획됨",
+		unestimated: "추정치가 없는 작업 {count}개",
+		calibrated: "보정됨",
+		openToday: "오늘 뷰 열기",
+		moveToInbox: "일부를 수신함으로 이동…",
+		moveToInboxHint: "작업을 선택한 다음 '선택 항목 새 출발'을 사용하거나 상태를 수신함으로 설정하세요.",
+		ariaLabel: "오늘의 용량",
+		overbooked: "{day}이(가) 이제 사용 가능한 시간을 {over} 초과합니다.",
 	},
 };

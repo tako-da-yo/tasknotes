@@ -1312,13 +1312,34 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "550e06afd501e2f3b0a8a7c198ffd48f6722add9"
     },
-    "views.stats.cards.estimateAccuracy": null,
-    "views.stats.estimateAccuracy.headline": null,
-    "views.stats.estimateAccuracy.basis": null,
-    "views.stats.estimateAccuracy.notEnough": null,
-    "views.stats.estimateAccuracy.small": null,
-    "views.stats.estimateAccuracy.medium": null,
-    "views.stats.estimateAccuracy.large": null,
+    "views.stats.cards.estimateAccuracy": {
+      "source": "3288a18c25ea4932470eccb6f7a3a0e4755ca3aa",
+      "translation": "d1fdd9307610bce5efae75a3603efa6df538fd83"
+    },
+    "views.stats.estimateAccuracy.headline": {
+      "source": "cb32f91c9c190b9534fdbbce5b6cf6bfd1e81a5b",
+      "translation": "bdfb8488d8722c64c4e8f88e8a589e69a5c2a96b"
+    },
+    "views.stats.estimateAccuracy.basis": {
+      "source": "6cf5369fbcff53cf96a89c1ac7049c670204206b",
+      "translation": "ec3276611d947be628da77360433bff5a762b198"
+    },
+    "views.stats.estimateAccuracy.notEnough": {
+      "source": "3fd2f49a1677ade63d0b45c78488a77f0ad9ba8c",
+      "translation": "31e69736f561b778805eb5af21165383c05fb4d5"
+    },
+    "views.stats.estimateAccuracy.small": {
+      "source": "e3d0fb2681236b8fe4875b8b99a10f05e68e787c",
+      "translation": "0566bb511db1abc9f3b36280b7a08ed4200fd796"
+    },
+    "views.stats.estimateAccuracy.medium": {
+      "source": "815f250615f55ae232224b8b76e2442d2f78c604",
+      "translation": "a83076d3c2da5b488191b2a2a5b19e6c8b90d88c"
+    },
+    "views.stats.estimateAccuracy.large": {
+      "source": "4210a49306d7db4c75b41755a11c3a8e44aa1994",
+      "translation": "0ea3eef09c6bc8c0f4848e1872065f96831d633d"
+    },
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "c667f1f22a05f7a3fde816af664758eb9240bcb1"
@@ -1843,18 +1864,54 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "d74f4732b69cfdb3869fd894f5e12377e4cb213d"
     },
-    "settings.features.planning.heading": null,
-    "settings.features.planning.workHours": null,
-    "settings.features.planning.workHoursDesc": null,
-    "settings.features.planning.dayOff": null,
-    "settings.features.planning.busyCalendars": null,
-    "settings.features.planning.allDayBusy": null,
-    "settings.features.planning.defaultEstimate": null,
-    "settings.features.planning.defaultEstimateDesc": null,
-    "settings.features.planning.showInStatusBar": null,
-    "settings.features.planning.warnOnOverbook": null,
-    "settings.features.planning.calibrationWindow": null,
-    "settings.features.planning.applyCalibration": null,
+    "settings.features.planning.heading": {
+      "source": "0005027d894f6116a64b320ea04afa5663a57cdb",
+      "translation": "7f40d3fc4f6d34b35021243db81dcee060171a6e"
+    },
+    "settings.features.planning.workHours": {
+      "source": "fdb5e96f3e71dbd1068377edb7e2baa7354cf091",
+      "translation": "090e7eb5bdc6962a7f52eb55ed1394c202491406"
+    },
+    "settings.features.planning.workHoursDesc": {
+      "source": "dcd9d1b000fc2dcccd8c167b8ecd76fa04d907af",
+      "translation": "bded3c8928b5f3aa89358977e76220cc01b4a5fb"
+    },
+    "settings.features.planning.dayOff": {
+      "source": "e3de5ab0ca4c69dbf00e86d2558843e8d806bb49",
+      "translation": "308e7cd094c0c1217bcb5922ed5ac21df3a55389"
+    },
+    "settings.features.planning.busyCalendars": {
+      "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
+      "translation": "f97b53293d744d9f66328b6a418c5aa0af6accb1"
+    },
+    "settings.features.planning.allDayBusy": {
+      "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
+      "translation": "2804f3d0b66b96c2fad6dc21ad8839891570bee1"
+    },
+    "settings.features.planning.defaultEstimate": {
+      "source": "073e14143b1597a96079646ad62a2ca8ed83d4bd",
+      "translation": "8ad478058b763c268e6c159625c986ef9ce6b806"
+    },
+    "settings.features.planning.defaultEstimateDesc": {
+      "source": "e2f2afadfeb9fb0ded472f6caa92746136a87723",
+      "translation": "a137a41198a0992a66e58d2562ad182a51b538b0"
+    },
+    "settings.features.planning.showInStatusBar": {
+      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
+      "translation": "9f8e07a6b319f7197b940d375c9a60e1aa02a740"
+    },
+    "settings.features.planning.warnOnOverbook": {
+      "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
+      "translation": "625fd927ef1e0db172b3b9bd0d5aa8d965118257"
+    },
+    "settings.features.planning.calibrationWindow": {
+      "source": "1f7b7e576d951781f70db4a46f0b8d0d6755d080",
+      "translation": "6613e43a47b9a37d568d210003ab253e3816e350"
+    },
+    "settings.features.planning.applyCalibration": {
+      "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
+      "translation": "5fdec269a55c0903ea4f38f9f48e92fe5ca6eda6"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "f8d65c41fbeffee5100a9a76ed32a87e19dc15b4"
@@ -5807,7 +5864,10 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "b51a6998fc65f470988ce718e711cf29ef304251"
     },
-    "commands.showTodayCapacity": null,
+    "commands.showTodayCapacity": {
+      "source": "42bb2d702635030d332cf146fea8d7a480c72460",
+      "translation": "635f9ca6935dda17f4d4aef1b36c3c8bbcf1dace"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "18f280a11c64b8a8dc89ae2d6d0c44c70e450126"
@@ -6528,8 +6588,14 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
-    "modals.task.estimateHint": null,
-    "modals.task.estimateHintUse": null,
+    "modals.task.estimateHint": {
+      "source": "b87741058ddb9c41ebdd279aaf0be599cdeed4dc",
+      "translation": "abe40377938f1a49ceba8149dfbcbfac0c83ab57"
+    },
+    "modals.task.estimateHintUse": {
+      "source": "1d4d43cc6f3a833e0340a0d1794b6d7b9958657e",
+      "translation": "594308426372d71c09231455583225970dbeb7ae"
+    },
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "e50663338266e1575304ce9dc1ed034e7b43a0c4"
@@ -9358,16 +9424,46 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     },
-    "capacity.status": null,
-    "capacity.over": null,
-    "capacity.noWorkHours": null,
-    "capacity.unestimated": null,
-    "capacity.calibrated": null,
-    "capacity.openToday": null,
-    "capacity.moveToInbox": null,
-    "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null,
-    "capacity.overbooked": null
+    "capacity.status": {
+      "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
+      "translation": "b150630225f04f0591c9b0adf8a37b898e13660e"
+    },
+    "capacity.over": {
+      "source": "3e690886b91fe86658f3e7b0b15a9b7b30c2d4b8",
+      "translation": "53e0bb64d586f25ad9e2073c5ca16224273b506e"
+    },
+    "capacity.noWorkHours": {
+      "source": "6bd3fb35c9bd60a1aa9acd6343ef371f953cc5a5",
+      "translation": "6da5410fc4a4ae5e27c51dc612b6645aa644d1cb"
+    },
+    "capacity.unestimated": {
+      "source": "7803476af1625807163702c80cab03afcf466159",
+      "translation": "ba57a41e00d1db475f1a76fa61021c01fa3d0004"
+    },
+    "capacity.calibrated": {
+      "source": "2daa92af282cb5e9fdce94771567c334b5a496c2",
+      "translation": "9172f28a8631f02d76d9c2070f27891318989fe2"
+    },
+    "capacity.openToday": {
+      "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
+      "translation": "8602ed4f0934b83981739ad0fb37ebb7f65f82bb"
+    },
+    "capacity.moveToInbox": {
+      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
+      "translation": "38e3906a318af049e0fb0a30cde4d286232e771f"
+    },
+    "capacity.moveToInboxHint": {
+      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
+      "translation": "34b2052d662e13718f1dff668be3e9d1150de0ac"
+    },
+    "capacity.ariaLabel": {
+      "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
+      "translation": "eca8fce04958a2210232f2d9d71208931ede5258"
+    },
+    "capacity.overbooked": {
+      "source": "81019a63df8692e751bb245c1a54aeb2f019c25f",
+      "translation": "78adfbdcabc2840109bcb1ce6125723f1d6d4096"
+    }
   },
   "es": {
     "common.appName": {
@@ -10682,13 +10778,34 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "61b5eb44e0358039c7928be62475b69658e64ec1"
     },
-    "views.stats.cards.estimateAccuracy": null,
-    "views.stats.estimateAccuracy.headline": null,
-    "views.stats.estimateAccuracy.basis": null,
-    "views.stats.estimateAccuracy.notEnough": null,
-    "views.stats.estimateAccuracy.small": null,
-    "views.stats.estimateAccuracy.medium": null,
-    "views.stats.estimateAccuracy.large": null,
+    "views.stats.cards.estimateAccuracy": {
+      "source": "3288a18c25ea4932470eccb6f7a3a0e4755ca3aa",
+      "translation": "3714e6db4c226a091df5f60d52066bb340be26b6"
+    },
+    "views.stats.estimateAccuracy.headline": {
+      "source": "cb32f91c9c190b9534fdbbce5b6cf6bfd1e81a5b",
+      "translation": "0819ebc1f2e0d1684134d34b8cd43ddad3d25788"
+    },
+    "views.stats.estimateAccuracy.basis": {
+      "source": "6cf5369fbcff53cf96a89c1ac7049c670204206b",
+      "translation": "6217d7629dd54537411b925dab33cd5b4ce991f7"
+    },
+    "views.stats.estimateAccuracy.notEnough": {
+      "source": "3fd2f49a1677ade63d0b45c78488a77f0ad9ba8c",
+      "translation": "eec36a8d594ec40ca203ba3dbfa042b97ea1d43d"
+    },
+    "views.stats.estimateAccuracy.small": {
+      "source": "e3d0fb2681236b8fe4875b8b99a10f05e68e787c",
+      "translation": "49cdb030818bd7fbce41492c1d197ece14d4ca21"
+    },
+    "views.stats.estimateAccuracy.medium": {
+      "source": "815f250615f55ae232224b8b76e2442d2f78c604",
+      "translation": "815f250615f55ae232224b8b76e2442d2f78c604"
+    },
+    "views.stats.estimateAccuracy.large": {
+      "source": "4210a49306d7db4c75b41755a11c3a8e44aa1994",
+      "translation": "1f4d31dbf91fe6ebede2ff0ed35bcdb1c7568121"
+    },
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "0e783f9dd49b856c8b58298414ed0ee934652e73"
@@ -11213,18 +11330,54 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "c3e64df413e32592ecc7675f324c00b1d6509fb8"
     },
-    "settings.features.planning.heading": null,
-    "settings.features.planning.workHours": null,
-    "settings.features.planning.workHoursDesc": null,
-    "settings.features.planning.dayOff": null,
-    "settings.features.planning.busyCalendars": null,
-    "settings.features.planning.allDayBusy": null,
-    "settings.features.planning.defaultEstimate": null,
-    "settings.features.planning.defaultEstimateDesc": null,
-    "settings.features.planning.showInStatusBar": null,
-    "settings.features.planning.warnOnOverbook": null,
-    "settings.features.planning.calibrationWindow": null,
-    "settings.features.planning.applyCalibration": null,
+    "settings.features.planning.heading": {
+      "source": "0005027d894f6116a64b320ea04afa5663a57cdb",
+      "translation": "ccf86e5706b51b4305bcaf5848628c8650c08e2b"
+    },
+    "settings.features.planning.workHours": {
+      "source": "fdb5e96f3e71dbd1068377edb7e2baa7354cf091",
+      "translation": "e66c303ee7bdf1e1e3287c07a92cec4c72821f58"
+    },
+    "settings.features.planning.workHoursDesc": {
+      "source": "dcd9d1b000fc2dcccd8c167b8ecd76fa04d907af",
+      "translation": "ec4489bdb975f9060aa045624ddcf6a838db7230"
+    },
+    "settings.features.planning.dayOff": {
+      "source": "e3de5ab0ca4c69dbf00e86d2558843e8d806bb49",
+      "translation": "a688511115fd795ebdf58fdcd1f32373c741e66e"
+    },
+    "settings.features.planning.busyCalendars": {
+      "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
+      "translation": "e47bd3bc659c7629d4b7158b8a43fc39c613d87c"
+    },
+    "settings.features.planning.allDayBusy": {
+      "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
+      "translation": "120dff3fac1c58292754c0e256cbfe1f87fa84a7"
+    },
+    "settings.features.planning.defaultEstimate": {
+      "source": "073e14143b1597a96079646ad62a2ca8ed83d4bd",
+      "translation": "724f0e093a188fa79b0cd8e78f882e972b1a93d0"
+    },
+    "settings.features.planning.defaultEstimateDesc": {
+      "source": "e2f2afadfeb9fb0ded472f6caa92746136a87723",
+      "translation": "c44f685f4f3edd37107d5b4d831919a7f077e807"
+    },
+    "settings.features.planning.showInStatusBar": {
+      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
+      "translation": "280b3d97d358fe3e85c3eb7893ac3cb321fdddfb"
+    },
+    "settings.features.planning.warnOnOverbook": {
+      "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
+      "translation": "818bca279e4576251f5e685e50ae8373921dd685"
+    },
+    "settings.features.planning.calibrationWindow": {
+      "source": "1f7b7e576d951781f70db4a46f0b8d0d6755d080",
+      "translation": "669163b6f54135be61a08fd297d615eb2e224078"
+    },
+    "settings.features.planning.applyCalibration": {
+      "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
+      "translation": "4c54cc214d0c07cc21f7cf0416c4e31de4f94d0a"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "4c0ca3e381fd1cdee36c8fd640e48cb88a056469"
@@ -15177,7 +15330,10 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "bc65218936e17175941d2a06e4ff34d18a7d1da7"
     },
-    "commands.showTodayCapacity": null,
+    "commands.showTodayCapacity": {
+      "source": "42bb2d702635030d332cf146fea8d7a480c72460",
+      "translation": "8f567618ee3c41422728a46ec8a4173fe73a7a25"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "1e3dfca4721b5a527de500afbda1fa0d2992e3c8"
@@ -15898,8 +16054,14 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
-    "modals.task.estimateHint": null,
-    "modals.task.estimateHintUse": null,
+    "modals.task.estimateHint": {
+      "source": "b87741058ddb9c41ebdd279aaf0be599cdeed4dc",
+      "translation": "99f4a6ade874930cc85e7c263f78991936f6a989"
+    },
+    "modals.task.estimateHintUse": {
+      "source": "1d4d43cc6f3a833e0340a0d1794b6d7b9958657e",
+      "translation": "742ea9527ebd4ac24939386126cfb831fdce30c8"
+    },
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "ebc06692e03e45d145d87ac1ef4be373b3d99bc6"
@@ -18728,16 +18890,46 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     },
-    "capacity.status": null,
-    "capacity.over": null,
-    "capacity.noWorkHours": null,
-    "capacity.unestimated": null,
-    "capacity.calibrated": null,
-    "capacity.openToday": null,
-    "capacity.moveToInbox": null,
-    "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null,
-    "capacity.overbooked": null
+    "capacity.status": {
+      "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
+      "translation": "910b9ebed42ee2a4760c1c4e966692823860a70a"
+    },
+    "capacity.over": {
+      "source": "3e690886b91fe86658f3e7b0b15a9b7b30c2d4b8",
+      "translation": "4796830f19cb6bb7c21e62fdcaff1e535dd52a38"
+    },
+    "capacity.noWorkHours": {
+      "source": "6bd3fb35c9bd60a1aa9acd6343ef371f953cc5a5",
+      "translation": "e94f9604780a079387f022678db1cb58dc713359"
+    },
+    "capacity.unestimated": {
+      "source": "7803476af1625807163702c80cab03afcf466159",
+      "translation": "3b6eae8aac681623655479fcb58c06d420adef44"
+    },
+    "capacity.calibrated": {
+      "source": "2daa92af282cb5e9fdce94771567c334b5a496c2",
+      "translation": "2ab491c71bff831d74d13cf8770ffda0303c9471"
+    },
+    "capacity.openToday": {
+      "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
+      "translation": "a1e1c2eccd1fba505f37a21d4280ade5f62e27bf"
+    },
+    "capacity.moveToInbox": {
+      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
+      "translation": "94fa6e11a1265e1d6c589a6896c3f1890808165b"
+    },
+    "capacity.moveToInboxHint": {
+      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
+      "translation": "d6fc741a4ac93910b0452af2fc111a2acff678b6"
+    },
+    "capacity.ariaLabel": {
+      "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
+      "translation": "6a22943209e62553446730ad81b0115f1146d63c"
+    },
+    "capacity.overbooked": {
+      "source": "81019a63df8692e751bb245c1a54aeb2f019c25f",
+      "translation": "0d68eb436286961de483da59d641a122217a69f0"
+    }
   },
   "fr": {
     "common.appName": {
@@ -20052,13 +20244,34 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "c8bc2fd81b8939b0a4388892f42b49089bf5cc09"
     },
-    "views.stats.cards.estimateAccuracy": null,
-    "views.stats.estimateAccuracy.headline": null,
-    "views.stats.estimateAccuracy.basis": null,
-    "views.stats.estimateAccuracy.notEnough": null,
-    "views.stats.estimateAccuracy.small": null,
-    "views.stats.estimateAccuracy.medium": null,
-    "views.stats.estimateAccuracy.large": null,
+    "views.stats.cards.estimateAccuracy": {
+      "source": "3288a18c25ea4932470eccb6f7a3a0e4755ca3aa",
+      "translation": "5fa6bf7b10d493a88b4f09302982ba6c9b79e734"
+    },
+    "views.stats.estimateAccuracy.headline": {
+      "source": "cb32f91c9c190b9534fdbbce5b6cf6bfd1e81a5b",
+      "translation": "b64d854279ff87eb41b4bc07886817c891028d92"
+    },
+    "views.stats.estimateAccuracy.basis": {
+      "source": "6cf5369fbcff53cf96a89c1ac7049c670204206b",
+      "translation": "42c362354e2911a4e30c477bf127853502c8d2d4"
+    },
+    "views.stats.estimateAccuracy.notEnough": {
+      "source": "3fd2f49a1677ade63d0b45c78488a77f0ad9ba8c",
+      "translation": "6ba40d8caae86a7ef5092aa795e44915450a0200"
+    },
+    "views.stats.estimateAccuracy.small": {
+      "source": "e3d0fb2681236b8fe4875b8b99a10f05e68e787c",
+      "translation": "1ea0f257bb10c2700d1afee3e0cb0261f1afc173"
+    },
+    "views.stats.estimateAccuracy.medium": {
+      "source": "815f250615f55ae232224b8b76e2442d2f78c604",
+      "translation": "815f250615f55ae232224b8b76e2442d2f78c604"
+    },
+    "views.stats.estimateAccuracy.large": {
+      "source": "4210a49306d7db4c75b41755a11c3a8e44aa1994",
+      "translation": "c49fc86fea1301ca553dafa7095d527866bfceb0"
+    },
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "1b018f86f2cae2df1a70e37a69cc41124105ca4e"
@@ -20583,18 +20796,54 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "7d2b7f718376114c2b29cb6daaf1f2f85aa29755"
     },
-    "settings.features.planning.heading": null,
-    "settings.features.planning.workHours": null,
-    "settings.features.planning.workHoursDesc": null,
-    "settings.features.planning.dayOff": null,
-    "settings.features.planning.busyCalendars": null,
-    "settings.features.planning.allDayBusy": null,
-    "settings.features.planning.defaultEstimate": null,
-    "settings.features.planning.defaultEstimateDesc": null,
-    "settings.features.planning.showInStatusBar": null,
-    "settings.features.planning.warnOnOverbook": null,
-    "settings.features.planning.calibrationWindow": null,
-    "settings.features.planning.applyCalibration": null,
+    "settings.features.planning.heading": {
+      "source": "0005027d894f6116a64b320ea04afa5663a57cdb",
+      "translation": "17624316337226f8339b13e903b5fe726c82ff77"
+    },
+    "settings.features.planning.workHours": {
+      "source": "fdb5e96f3e71dbd1068377edb7e2baa7354cf091",
+      "translation": "3b17a334c1478145296e93eab607a3605d330054"
+    },
+    "settings.features.planning.workHoursDesc": {
+      "source": "dcd9d1b000fc2dcccd8c167b8ecd76fa04d907af",
+      "translation": "380c1f873217f6d8b287d183650e65f1495dabe5"
+    },
+    "settings.features.planning.dayOff": {
+      "source": "e3de5ab0ca4c69dbf00e86d2558843e8d806bb49",
+      "translation": "d84c1eb8c3d9980df6547a19b80e233c2064f7e7"
+    },
+    "settings.features.planning.busyCalendars": {
+      "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
+      "translation": "189931164286bfd03b7656b8fa16cf285f97e8d1"
+    },
+    "settings.features.planning.allDayBusy": {
+      "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
+      "translation": "bdc7b9322c34c6b766987d8e2dd7ea6ac1563b96"
+    },
+    "settings.features.planning.defaultEstimate": {
+      "source": "073e14143b1597a96079646ad62a2ca8ed83d4bd",
+      "translation": "53ac6e77f7f0f097e697c8fb06037a45ffaf59aa"
+    },
+    "settings.features.planning.defaultEstimateDesc": {
+      "source": "e2f2afadfeb9fb0ded472f6caa92746136a87723",
+      "translation": "5fe4af1acefef539c012fa5ce5cfe89976ba1959"
+    },
+    "settings.features.planning.showInStatusBar": {
+      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
+      "translation": "ff072eb57635d2f433e0a860b14b7d0789948c71"
+    },
+    "settings.features.planning.warnOnOverbook": {
+      "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
+      "translation": "43c10caac971adc22b432108fcc5c51dee31abcc"
+    },
+    "settings.features.planning.calibrationWindow": {
+      "source": "1f7b7e576d951781f70db4a46f0b8d0d6755d080",
+      "translation": "4acea99720c66226a0847ba630ef4dd2e4eff8c4"
+    },
+    "settings.features.planning.applyCalibration": {
+      "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
+      "translation": "16058fa28f77028a10a5a0db94f829e0e4f88b1f"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "a5f7f40f1cc5116d99e65b8b4bd8dcb32682b8a8"
@@ -24547,7 +24796,10 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "66cb392de38f44c2986bc5d71d57c62c2f9e534a"
     },
-    "commands.showTodayCapacity": null,
+    "commands.showTodayCapacity": {
+      "source": "42bb2d702635030d332cf146fea8d7a480c72460",
+      "translation": "370f91f08abab704e4a5b7572e831d692a348305"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "da0564618387e99d32978e8012ee241b430f493a"
@@ -25268,8 +25520,14 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
-    "modals.task.estimateHint": null,
-    "modals.task.estimateHintUse": null,
+    "modals.task.estimateHint": {
+      "source": "b87741058ddb9c41ebdd279aaf0be599cdeed4dc",
+      "translation": "fec9220eec2adfae42f60708076958342d2acfb1"
+    },
+    "modals.task.estimateHintUse": {
+      "source": "1d4d43cc6f3a833e0340a0d1794b6d7b9958657e",
+      "translation": "fb5e43ce31f03a571fe470569e95277bec03feb4"
+    },
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "ca4fbcca7935171240662a9f5e72455246c7ff13"
@@ -28098,16 +28356,46 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "e582e53cb5f667d8b1755431b37ede223e92c9f0"
     },
-    "capacity.status": null,
-    "capacity.over": null,
-    "capacity.noWorkHours": null,
-    "capacity.unestimated": null,
-    "capacity.calibrated": null,
-    "capacity.openToday": null,
-    "capacity.moveToInbox": null,
-    "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null,
-    "capacity.overbooked": null
+    "capacity.status": {
+      "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
+      "translation": "35b77098d76b8d1ee95044267700101ec88c1bb1"
+    },
+    "capacity.over": {
+      "source": "3e690886b91fe86658f3e7b0b15a9b7b30c2d4b8",
+      "translation": "70fff2b1b659ffb14106fdee548b4dea4774c602"
+    },
+    "capacity.noWorkHours": {
+      "source": "6bd3fb35c9bd60a1aa9acd6343ef371f953cc5a5",
+      "translation": "03da7259b009f25ef1092e0974f19ce00676812e"
+    },
+    "capacity.unestimated": {
+      "source": "7803476af1625807163702c80cab03afcf466159",
+      "translation": "a76a08f390e3a3fb68fa64adbafb2d361c817e01"
+    },
+    "capacity.calibrated": {
+      "source": "2daa92af282cb5e9fdce94771567c334b5a496c2",
+      "translation": "af93bf05112f3d5361114315960200c7a9f07177"
+    },
+    "capacity.openToday": {
+      "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
+      "translation": "05c4190b5fac88d7b087c08eca44b513283f1bd2"
+    },
+    "capacity.moveToInbox": {
+      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
+      "translation": "c4116cc2a3935164162c185345c718f67086ef28"
+    },
+    "capacity.moveToInboxHint": {
+      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
+      "translation": "5f39003384d7501fbd3e5db523de68a776712694"
+    },
+    "capacity.ariaLabel": {
+      "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
+      "translation": "8cbc99664e575cdf471fcd5687e46e5c5ff38620"
+    },
+    "capacity.overbooked": {
+      "source": "81019a63df8692e751bb245c1a54aeb2f019c25f",
+      "translation": "662c422d4948887d38f3dee7b04b6a1643cdbafd"
+    }
   },
   "ja": {
     "common.appName": {
@@ -29422,13 +29710,34 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "a2d68b784fb281ebab38c92d29bf0f2402dcbf8a"
     },
-    "views.stats.cards.estimateAccuracy": null,
-    "views.stats.estimateAccuracy.headline": null,
-    "views.stats.estimateAccuracy.basis": null,
-    "views.stats.estimateAccuracy.notEnough": null,
-    "views.stats.estimateAccuracy.small": null,
-    "views.stats.estimateAccuracy.medium": null,
-    "views.stats.estimateAccuracy.large": null,
+    "views.stats.cards.estimateAccuracy": {
+      "source": "3288a18c25ea4932470eccb6f7a3a0e4755ca3aa",
+      "translation": "1d20afe7f66ab703c4e4b6e5325e02ddcff5f7d5"
+    },
+    "views.stats.estimateAccuracy.headline": {
+      "source": "cb32f91c9c190b9534fdbbce5b6cf6bfd1e81a5b",
+      "translation": "5b8656ae17034d4431afcd07d5f28ee4558564ad"
+    },
+    "views.stats.estimateAccuracy.basis": {
+      "source": "6cf5369fbcff53cf96a89c1ac7049c670204206b",
+      "translation": "546f8547f443a319dee85eeca36bcccb2f54f690"
+    },
+    "views.stats.estimateAccuracy.notEnough": {
+      "source": "3fd2f49a1677ade63d0b45c78488a77f0ad9ba8c",
+      "translation": "718e0a61bd63c1c1060465fbfe30ac46c72655b1"
+    },
+    "views.stats.estimateAccuracy.small": {
+      "source": "e3d0fb2681236b8fe4875b8b99a10f05e68e787c",
+      "translation": "d63a0a87ec5ff9c5e725b24338a9a19c707293ab"
+    },
+    "views.stats.estimateAccuracy.medium": {
+      "source": "815f250615f55ae232224b8b76e2442d2f78c604",
+      "translation": "88a2a22e05eb81f211d199d2a340a942d207de63"
+    },
+    "views.stats.estimateAccuracy.large": {
+      "source": "4210a49306d7db4c75b41755a11c3a8e44aa1994",
+      "translation": "d401b2fab13dde16534028bf2acd1f527df15b1f"
+    },
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "2b79c0b9423d706444ac2a504d6157f503834d4f"
@@ -29953,18 +30262,54 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "f48211e0aa0a5d7652d1dc780018948bd188ed84"
     },
-    "settings.features.planning.heading": null,
-    "settings.features.planning.workHours": null,
-    "settings.features.planning.workHoursDesc": null,
-    "settings.features.planning.dayOff": null,
-    "settings.features.planning.busyCalendars": null,
-    "settings.features.planning.allDayBusy": null,
-    "settings.features.planning.defaultEstimate": null,
-    "settings.features.planning.defaultEstimateDesc": null,
-    "settings.features.planning.showInStatusBar": null,
-    "settings.features.planning.warnOnOverbook": null,
-    "settings.features.planning.calibrationWindow": null,
-    "settings.features.planning.applyCalibration": null,
+    "settings.features.planning.heading": {
+      "source": "0005027d894f6116a64b320ea04afa5663a57cdb",
+      "translation": "6ef064b3bbf133a441def173636a1db773fc68ce"
+    },
+    "settings.features.planning.workHours": {
+      "source": "fdb5e96f3e71dbd1068377edb7e2baa7354cf091",
+      "translation": "d4c3c48dc2d1dcb20c3f2562266fcbcb3774ef8f"
+    },
+    "settings.features.planning.workHoursDesc": {
+      "source": "dcd9d1b000fc2dcccd8c167b8ecd76fa04d907af",
+      "translation": "9810679f9a5395bcdde361de7ada7633f62c765e"
+    },
+    "settings.features.planning.dayOff": {
+      "source": "e3de5ab0ca4c69dbf00e86d2558843e8d806bb49",
+      "translation": "d6ca110fffb9557acc77b7a53a263fa5d4172002"
+    },
+    "settings.features.planning.busyCalendars": {
+      "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
+      "translation": "188fa41325976d9c60cdb8b5bc54715e0580cf81"
+    },
+    "settings.features.planning.allDayBusy": {
+      "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
+      "translation": "3eddee3e5d46311f282db2f174fc6a2ab44da29e"
+    },
+    "settings.features.planning.defaultEstimate": {
+      "source": "073e14143b1597a96079646ad62a2ca8ed83d4bd",
+      "translation": "fe2774117e5d58d12586fcdfe1692cb80f1cd73c"
+    },
+    "settings.features.planning.defaultEstimateDesc": {
+      "source": "e2f2afadfeb9fb0ded472f6caa92746136a87723",
+      "translation": "5c3d1d806608a9ea6f69cd88f7907cef958f59c4"
+    },
+    "settings.features.planning.showInStatusBar": {
+      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
+      "translation": "c2a280c667321c916961e45578e0e1c9dbd00630"
+    },
+    "settings.features.planning.warnOnOverbook": {
+      "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
+      "translation": "10b9aa0b710513c398fa0817e903d31aecf2d97a"
+    },
+    "settings.features.planning.calibrationWindow": {
+      "source": "1f7b7e576d951781f70db4a46f0b8d0d6755d080",
+      "translation": "afc42c7d53cc6a3eb6c45ca6fbafc43a02d2c3aa"
+    },
+    "settings.features.planning.applyCalibration": {
+      "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
+      "translation": "e035dbfdec3e36b36c87f9d05a160e75743e8f3b"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "77c4460b544a9124d89441d892cbf8507bc65679"
@@ -33917,7 +34262,10 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "78d1ea7ebc78e5e2ba116f50a37eba708c10069d"
     },
-    "commands.showTodayCapacity": null,
+    "commands.showTodayCapacity": {
+      "source": "42bb2d702635030d332cf146fea8d7a480c72460",
+      "translation": "193e01859f75a5147551dcc7ae47cb5f708226c0"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "fc5b2ca043e23fd1524c8a007b6116444ea9c239"
@@ -34638,8 +34986,14 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
-    "modals.task.estimateHint": null,
-    "modals.task.estimateHintUse": null,
+    "modals.task.estimateHint": {
+      "source": "b87741058ddb9c41ebdd279aaf0be599cdeed4dc",
+      "translation": "f1f230f23d625eb6c26f16be2066b1fd98ebcdc8"
+    },
+    "modals.task.estimateHintUse": {
+      "source": "1d4d43cc6f3a833e0340a0d1794b6d7b9958657e",
+      "translation": "0e2d3a3c09c26c16074039b7a2739f5111323ad0"
+    },
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "0a79b9ff685d4f2c176b92038dfc577acef0e2a7"
@@ -37468,16 +37822,46 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "b46b7646a3de5c7fa376305d8f0e7b42d9c17514"
     },
-    "capacity.status": null,
-    "capacity.over": null,
-    "capacity.noWorkHours": null,
-    "capacity.unestimated": null,
-    "capacity.calibrated": null,
-    "capacity.openToday": null,
-    "capacity.moveToInbox": null,
-    "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null,
-    "capacity.overbooked": null
+    "capacity.status": {
+      "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
+      "translation": "23719bfed0c991fb2aae79db4309ac01f28ffcbc"
+    },
+    "capacity.over": {
+      "source": "3e690886b91fe86658f3e7b0b15a9b7b30c2d4b8",
+      "translation": "a5e845af5dadd708ae9d592b75c668b97e998543"
+    },
+    "capacity.noWorkHours": {
+      "source": "6bd3fb35c9bd60a1aa9acd6343ef371f953cc5a5",
+      "translation": "3d2f5186ffb8e8fc6d474c7e0887930d2815480b"
+    },
+    "capacity.unestimated": {
+      "source": "7803476af1625807163702c80cab03afcf466159",
+      "translation": "2a430f4f058ac68ceae67200593c2fa4809fd919"
+    },
+    "capacity.calibrated": {
+      "source": "2daa92af282cb5e9fdce94771567c334b5a496c2",
+      "translation": "4646d5e46a5d99cd92ec7afad4153813ad3cc7c2"
+    },
+    "capacity.openToday": {
+      "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
+      "translation": "be54bbb6d7b4d38a3c6c80c0fe2e95687c2ef639"
+    },
+    "capacity.moveToInbox": {
+      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
+      "translation": "e6ccb5872cc1ab23b31d16d5a4dc8d357b495ce1"
+    },
+    "capacity.moveToInboxHint": {
+      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
+      "translation": "c0c125105315812fc579cc2cb31c6a9f6d771ff4"
+    },
+    "capacity.ariaLabel": {
+      "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
+      "translation": "71964aa3dcde4dc33a5eb3fee621e8d2bbf8146f"
+    },
+    "capacity.overbooked": {
+      "source": "81019a63df8692e751bb245c1a54aeb2f019c25f",
+      "translation": "d43beef530c6fa09c91820fe00c8df087b13a846"
+    }
   },
   "ko": {
     "common.appName": {
@@ -38792,13 +39176,34 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "c91208d4703f89310a79e48afae2a2e1064b8b5a"
     },
-    "views.stats.cards.estimateAccuracy": null,
-    "views.stats.estimateAccuracy.headline": null,
-    "views.stats.estimateAccuracy.basis": null,
-    "views.stats.estimateAccuracy.notEnough": null,
-    "views.stats.estimateAccuracy.small": null,
-    "views.stats.estimateAccuracy.medium": null,
-    "views.stats.estimateAccuracy.large": null,
+    "views.stats.cards.estimateAccuracy": {
+      "source": "3288a18c25ea4932470eccb6f7a3a0e4755ca3aa",
+      "translation": "96d350d204fc51f9cb75f3b7484e94000918373d"
+    },
+    "views.stats.estimateAccuracy.headline": {
+      "source": "cb32f91c9c190b9534fdbbce5b6cf6bfd1e81a5b",
+      "translation": "8fce72203b4b8a6706df2147cf3cdd4200b27869"
+    },
+    "views.stats.estimateAccuracy.basis": {
+      "source": "6cf5369fbcff53cf96a89c1ac7049c670204206b",
+      "translation": "0c41974a28eb502d51587a044fc335c6635da8f0"
+    },
+    "views.stats.estimateAccuracy.notEnough": {
+      "source": "3fd2f49a1677ade63d0b45c78488a77f0ad9ba8c",
+      "translation": "bc9c8cf49de3171607b3745c125591d3fb103ce6"
+    },
+    "views.stats.estimateAccuracy.small": {
+      "source": "e3d0fb2681236b8fe4875b8b99a10f05e68e787c",
+      "translation": "1aa6e19ce79379c8258e1975160e168cfefcff19"
+    },
+    "views.stats.estimateAccuracy.medium": {
+      "source": "815f250615f55ae232224b8b76e2442d2f78c604",
+      "translation": "545b60a0930aaebb3015bc3f9e13918457e8efa7"
+    },
+    "views.stats.estimateAccuracy.large": {
+      "source": "4210a49306d7db4c75b41755a11c3a8e44aa1994",
+      "translation": "2ecabc97ee1a0279526f8dae8bb68924cc643843"
+    },
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "9d9bf438ff1aa4be040a318fb253cfdb8f09cd26"
@@ -39323,18 +39728,54 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "7fd20158cb9e082d5d2e7c5614e8580d69bebd89"
     },
-    "settings.features.planning.heading": null,
-    "settings.features.planning.workHours": null,
-    "settings.features.planning.workHoursDesc": null,
-    "settings.features.planning.dayOff": null,
-    "settings.features.planning.busyCalendars": null,
-    "settings.features.planning.allDayBusy": null,
-    "settings.features.planning.defaultEstimate": null,
-    "settings.features.planning.defaultEstimateDesc": null,
-    "settings.features.planning.showInStatusBar": null,
-    "settings.features.planning.warnOnOverbook": null,
-    "settings.features.planning.calibrationWindow": null,
-    "settings.features.planning.applyCalibration": null,
+    "settings.features.planning.heading": {
+      "source": "0005027d894f6116a64b320ea04afa5663a57cdb",
+      "translation": "a0264f7504d71d647673890561111c544bff5abc"
+    },
+    "settings.features.planning.workHours": {
+      "source": "fdb5e96f3e71dbd1068377edb7e2baa7354cf091",
+      "translation": "90c95ec3662d762df71e588f281937feb89668bb"
+    },
+    "settings.features.planning.workHoursDesc": {
+      "source": "dcd9d1b000fc2dcccd8c167b8ecd76fa04d907af",
+      "translation": "9bd6ab60a58eeb7b494fefd70f9d557b01900cd0"
+    },
+    "settings.features.planning.dayOff": {
+      "source": "e3de5ab0ca4c69dbf00e86d2558843e8d806bb49",
+      "translation": "2c1df82142de27fd0ec14ae544c572ed4de1102a"
+    },
+    "settings.features.planning.busyCalendars": {
+      "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
+      "translation": "e3bec95a289439a34c2bbdc56946af943fe4934f"
+    },
+    "settings.features.planning.allDayBusy": {
+      "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
+      "translation": "24e696743d4cdc3aa097cbbc241a2d5676e6b2b3"
+    },
+    "settings.features.planning.defaultEstimate": {
+      "source": "073e14143b1597a96079646ad62a2ca8ed83d4bd",
+      "translation": "f75fd902287f4e597812e60ac5912ae3164882a1"
+    },
+    "settings.features.planning.defaultEstimateDesc": {
+      "source": "e2f2afadfeb9fb0ded472f6caa92746136a87723",
+      "translation": "60491e9d33585914f1d619390cf1756fb0212549"
+    },
+    "settings.features.planning.showInStatusBar": {
+      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
+      "translation": "0bf346e79faba91ff5a5f8994831146aac1bd784"
+    },
+    "settings.features.planning.warnOnOverbook": {
+      "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
+      "translation": "7e4c99aec926e6d6e6a3a0fb23f28aff6b5df50d"
+    },
+    "settings.features.planning.calibrationWindow": {
+      "source": "1f7b7e576d951781f70db4a46f0b8d0d6755d080",
+      "translation": "43493d9902021207433957659c9333e2be91ec9b"
+    },
+    "settings.features.planning.applyCalibration": {
+      "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
+      "translation": "65d1fa35318a3fec3611a431ab250a8a671ef405"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "bd0c59c5581b33718277f5170690b8224e7e0a48"
@@ -43287,7 +43728,10 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "f918ed2eafbeaab4fb6c5e8fc076a77e001a1e9f"
     },
-    "commands.showTodayCapacity": null,
+    "commands.showTodayCapacity": {
+      "source": "42bb2d702635030d332cf146fea8d7a480c72460",
+      "translation": "0ddd661b8ebde5b559826a9ea2afdc7e119fe29b"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "5afaa1821a1ddb502ba70fa10b60708e4d9b3113"
@@ -44008,8 +44452,14 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
-    "modals.task.estimateHint": null,
-    "modals.task.estimateHintUse": null,
+    "modals.task.estimateHint": {
+      "source": "b87741058ddb9c41ebdd279aaf0be599cdeed4dc",
+      "translation": "880bdbadbc432d36faed8240fae563532a957624"
+    },
+    "modals.task.estimateHintUse": {
+      "source": "1d4d43cc6f3a833e0340a0d1794b6d7b9958657e",
+      "translation": "7f3ba385e9db6e5250818faf80807207b4e616e8"
+    },
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "bc3f4b2da6d55a970eb6f6ac06e0f6b36f2d4ce8"
@@ -46838,16 +47288,46 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "3cf0a67476a9def32ffaa4b76dc45b80b730fce1"
     },
-    "capacity.status": null,
-    "capacity.over": null,
-    "capacity.noWorkHours": null,
-    "capacity.unestimated": null,
-    "capacity.calibrated": null,
-    "capacity.openToday": null,
-    "capacity.moveToInbox": null,
-    "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null,
-    "capacity.overbooked": null
+    "capacity.status": {
+      "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
+      "translation": "7de25a1dcc4d3273de20362c8d2c224d5f1f6701"
+    },
+    "capacity.over": {
+      "source": "3e690886b91fe86658f3e7b0b15a9b7b30c2d4b8",
+      "translation": "2ecb6bdbaaabdeb304b8730c49865e5c6985ceae"
+    },
+    "capacity.noWorkHours": {
+      "source": "6bd3fb35c9bd60a1aa9acd6343ef371f953cc5a5",
+      "translation": "4d054673f5e2c2e07bff245ac978b1e9f5eccfea"
+    },
+    "capacity.unestimated": {
+      "source": "7803476af1625807163702c80cab03afcf466159",
+      "translation": "7c3c39208a0d010542f31ecad630ca8b9fe52297"
+    },
+    "capacity.calibrated": {
+      "source": "2daa92af282cb5e9fdce94771567c334b5a496c2",
+      "translation": "793d22412ec5952e6a07f2968644103ea1a7f976"
+    },
+    "capacity.openToday": {
+      "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
+      "translation": "4fe6366499474074368c52edf1417ee56c3d4be5"
+    },
+    "capacity.moveToInbox": {
+      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
+      "translation": "3171de165f79e9e8aa0abbc1f424d6d7c8526575"
+    },
+    "capacity.moveToInboxHint": {
+      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
+      "translation": "d141f07599f286d7b82fa8df07e241db934bbf25"
+    },
+    "capacity.ariaLabel": {
+      "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
+      "translation": "11bf84f0c30dab175bf8223fd079c5b3b439da8a"
+    },
+    "capacity.overbooked": {
+      "source": "81019a63df8692e751bb245c1a54aeb2f019c25f",
+      "translation": "0d21e43e80cfd2d1145f5db6d6aa4000a61e0479"
+    }
   },
   "pt": {
     "common.appName": {
@@ -48162,13 +48642,34 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "6caf6562d83b7e5e97c56f9f9644b5b966c6c082"
     },
-    "views.stats.cards.estimateAccuracy": null,
-    "views.stats.estimateAccuracy.headline": null,
-    "views.stats.estimateAccuracy.basis": null,
-    "views.stats.estimateAccuracy.notEnough": null,
-    "views.stats.estimateAccuracy.small": null,
-    "views.stats.estimateAccuracy.medium": null,
-    "views.stats.estimateAccuracy.large": null,
+    "views.stats.cards.estimateAccuracy": {
+      "source": "3288a18c25ea4932470eccb6f7a3a0e4755ca3aa",
+      "translation": "841abb8407557083a43fe4225b1613916571eb15"
+    },
+    "views.stats.estimateAccuracy.headline": {
+      "source": "cb32f91c9c190b9534fdbbce5b6cf6bfd1e81a5b",
+      "translation": "11d3d25d318688ba54039274b43df921bc4ab64b"
+    },
+    "views.stats.estimateAccuracy.basis": {
+      "source": "6cf5369fbcff53cf96a89c1ac7049c670204206b",
+      "translation": "d561ff2c5f4650b61a3e02ca6539d5d6b06ac9c6"
+    },
+    "views.stats.estimateAccuracy.notEnough": {
+      "source": "3fd2f49a1677ade63d0b45c78488a77f0ad9ba8c",
+      "translation": "923489763fbf56ca06415b3bf021a5651b9502c6"
+    },
+    "views.stats.estimateAccuracy.small": {
+      "source": "e3d0fb2681236b8fe4875b8b99a10f05e68e787c",
+      "translation": "dc67d85270e76be2df60b62b9d049b37c63273a1"
+    },
+    "views.stats.estimateAccuracy.medium": {
+      "source": "815f250615f55ae232224b8b76e2442d2f78c604",
+      "translation": "815f250615f55ae232224b8b76e2442d2f78c604"
+    },
+    "views.stats.estimateAccuracy.large": {
+      "source": "4210a49306d7db4c75b41755a11c3a8e44aa1994",
+      "translation": "3356eead7b747e691fe459c066f2389b75322d7b"
+    },
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "5920bbfe1d67a61e9d4b6249fdf75b6f73d7cfed"
@@ -48693,18 +49194,54 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "3cc62a416bad4bfd6cee3a60d033d329281de4a5"
     },
-    "settings.features.planning.heading": null,
-    "settings.features.planning.workHours": null,
-    "settings.features.planning.workHoursDesc": null,
-    "settings.features.planning.dayOff": null,
-    "settings.features.planning.busyCalendars": null,
-    "settings.features.planning.allDayBusy": null,
-    "settings.features.planning.defaultEstimate": null,
-    "settings.features.planning.defaultEstimateDesc": null,
-    "settings.features.planning.showInStatusBar": null,
-    "settings.features.planning.warnOnOverbook": null,
-    "settings.features.planning.calibrationWindow": null,
-    "settings.features.planning.applyCalibration": null,
+    "settings.features.planning.heading": {
+      "source": "0005027d894f6116a64b320ea04afa5663a57cdb",
+      "translation": "c7fce19a7742b776f9d5d2b19f12e4233a35f9bc"
+    },
+    "settings.features.planning.workHours": {
+      "source": "fdb5e96f3e71dbd1068377edb7e2baa7354cf091",
+      "translation": "b98fe5ed91a5828cc7d6ca6bc8fe75fa6e544d5c"
+    },
+    "settings.features.planning.workHoursDesc": {
+      "source": "dcd9d1b000fc2dcccd8c167b8ecd76fa04d907af",
+      "translation": "89855dc55796e292f1ab8bd7b33b20b1ca0a2738"
+    },
+    "settings.features.planning.dayOff": {
+      "source": "e3de5ab0ca4c69dbf00e86d2558843e8d806bb49",
+      "translation": "322042dc173708e0523939f9cedd14318b88097e"
+    },
+    "settings.features.planning.busyCalendars": {
+      "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
+      "translation": "9dc8a560494763c67c4b5b8638dcbf179c2e5a27"
+    },
+    "settings.features.planning.allDayBusy": {
+      "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
+      "translation": "34f0439411795f97d9da613bef4f1e2fd1c5e448"
+    },
+    "settings.features.planning.defaultEstimate": {
+      "source": "073e14143b1597a96079646ad62a2ca8ed83d4bd",
+      "translation": "51eb4523129128ed5d7a5affc82a59e7c5b4649e"
+    },
+    "settings.features.planning.defaultEstimateDesc": {
+      "source": "e2f2afadfeb9fb0ded472f6caa92746136a87723",
+      "translation": "cd39d55b1e1df493ee1d6a2fe76a3b1871847510"
+    },
+    "settings.features.planning.showInStatusBar": {
+      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
+      "translation": "d25ebf526a572973ef8f5ee0733c012f705de144"
+    },
+    "settings.features.planning.warnOnOverbook": {
+      "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
+      "translation": "8155c0198033373fa4342168bc6347373bd738be"
+    },
+    "settings.features.planning.calibrationWindow": {
+      "source": "1f7b7e576d951781f70db4a46f0b8d0d6755d080",
+      "translation": "98e107987d6930638c677627550d027aa055fab4"
+    },
+    "settings.features.planning.applyCalibration": {
+      "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
+      "translation": "5d69b489ec363e25c8663527295e95deafe73857"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "9120379848b593a73daa93fbc3a6c021cf2a7266"
@@ -52657,7 +53194,10 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "769e9d0db2ca28de5917069b59a0d99e64004cef"
     },
-    "commands.showTodayCapacity": null,
+    "commands.showTodayCapacity": {
+      "source": "42bb2d702635030d332cf146fea8d7a480c72460",
+      "translation": "cbd1d0734b87d8e4f6c1f2654883ca5988fc6dc0"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "835d5deafbe6951c341d22cbea09489aad6c87ed"
@@ -53378,8 +53918,14 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
-    "modals.task.estimateHint": null,
-    "modals.task.estimateHintUse": null,
+    "modals.task.estimateHint": {
+      "source": "b87741058ddb9c41ebdd279aaf0be599cdeed4dc",
+      "translation": "f0865f05f944ae4d54e2ae052ed1f037907850da"
+    },
+    "modals.task.estimateHintUse": {
+      "source": "1d4d43cc6f3a833e0340a0d1794b6d7b9958657e",
+      "translation": "742ea9527ebd4ac24939386126cfb831fdce30c8"
+    },
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "2dc981a4e9b1298fada6de3678bd0c91fa9bc276"
@@ -56208,16 +56754,46 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     },
-    "capacity.status": null,
-    "capacity.over": null,
-    "capacity.noWorkHours": null,
-    "capacity.unestimated": null,
-    "capacity.calibrated": null,
-    "capacity.openToday": null,
-    "capacity.moveToInbox": null,
-    "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null,
-    "capacity.overbooked": null
+    "capacity.status": {
+      "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
+      "translation": "0d8edb4d1f9516570fd5b251e583da381550faab"
+    },
+    "capacity.over": {
+      "source": "3e690886b91fe86658f3e7b0b15a9b7b30c2d4b8",
+      "translation": "4774154d7e2084bad719a347baaf4678f5e61d62"
+    },
+    "capacity.noWorkHours": {
+      "source": "6bd3fb35c9bd60a1aa9acd6343ef371f953cc5a5",
+      "translation": "96869dec92d6c076d589310f487663ee02f06f0f"
+    },
+    "capacity.unestimated": {
+      "source": "7803476af1625807163702c80cab03afcf466159",
+      "translation": "ff157a48c19cd8e1d33055566a7c4b02d005e4b3"
+    },
+    "capacity.calibrated": {
+      "source": "2daa92af282cb5e9fdce94771567c334b5a496c2",
+      "translation": "2ab491c71bff831d74d13cf8770ffda0303c9471"
+    },
+    "capacity.openToday": {
+      "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
+      "translation": "e8d8ee0c265e7feaf45bb0bfd22f4bb91a4cdcb1"
+    },
+    "capacity.moveToInbox": {
+      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
+      "translation": "d76b59e11c395760a1c19788ec246b90885be7f1"
+    },
+    "capacity.moveToInboxHint": {
+      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
+      "translation": "dea0e93daed4a077ebcb110ce15b602ac3cdcd82"
+    },
+    "capacity.ariaLabel": {
+      "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
+      "translation": "f3d1b852e9aa65de79049027d859e38aa5535928"
+    },
+    "capacity.overbooked": {
+      "source": "81019a63df8692e751bb245c1a54aeb2f019c25f",
+      "translation": "67344527024ded9bfa4c0c27b452714ef16e057c"
+    }
   },
   "ru": {
     "common.appName": {
@@ -57532,13 +58108,34 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "0a90f1876a124c2cbf6dcb63c4f01d83cc4fc527"
     },
-    "views.stats.cards.estimateAccuracy": null,
-    "views.stats.estimateAccuracy.headline": null,
-    "views.stats.estimateAccuracy.basis": null,
-    "views.stats.estimateAccuracy.notEnough": null,
-    "views.stats.estimateAccuracy.small": null,
-    "views.stats.estimateAccuracy.medium": null,
-    "views.stats.estimateAccuracy.large": null,
+    "views.stats.cards.estimateAccuracy": {
+      "source": "3288a18c25ea4932470eccb6f7a3a0e4755ca3aa",
+      "translation": "f0c0920df19493ce86c8f005238abad17d5f59e4"
+    },
+    "views.stats.estimateAccuracy.headline": {
+      "source": "cb32f91c9c190b9534fdbbce5b6cf6bfd1e81a5b",
+      "translation": "9f268a2b5724d682cfe66463bfaa1a83cef01ec3"
+    },
+    "views.stats.estimateAccuracy.basis": {
+      "source": "6cf5369fbcff53cf96a89c1ac7049c670204206b",
+      "translation": "2566c5de596d586e8b0221513b651cb855ac584a"
+    },
+    "views.stats.estimateAccuracy.notEnough": {
+      "source": "3fd2f49a1677ade63d0b45c78488a77f0ad9ba8c",
+      "translation": "b6f541223168ef619f853a7be3dd692d934edef3"
+    },
+    "views.stats.estimateAccuracy.small": {
+      "source": "e3d0fb2681236b8fe4875b8b99a10f05e68e787c",
+      "translation": "8eff75be0fe23cd95b08b6ede7a5522a00eab00f"
+    },
+    "views.stats.estimateAccuracy.medium": {
+      "source": "815f250615f55ae232224b8b76e2442d2f78c604",
+      "translation": "769b495ae2dafd7c59beac88d32ddeac5fb9850e"
+    },
+    "views.stats.estimateAccuracy.large": {
+      "source": "4210a49306d7db4c75b41755a11c3a8e44aa1994",
+      "translation": "54bf1daa20719cd6dc2a54153f27c12831193224"
+    },
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "2ff08344934d2f5c54e31d9346e380a747f8ac33"
@@ -58063,18 +58660,54 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "8c277df3397f9bf062109245e1295363b772c0a6"
     },
-    "settings.features.planning.heading": null,
-    "settings.features.planning.workHours": null,
-    "settings.features.planning.workHoursDesc": null,
-    "settings.features.planning.dayOff": null,
-    "settings.features.planning.busyCalendars": null,
-    "settings.features.planning.allDayBusy": null,
-    "settings.features.planning.defaultEstimate": null,
-    "settings.features.planning.defaultEstimateDesc": null,
-    "settings.features.planning.showInStatusBar": null,
-    "settings.features.planning.warnOnOverbook": null,
-    "settings.features.planning.calibrationWindow": null,
-    "settings.features.planning.applyCalibration": null,
+    "settings.features.planning.heading": {
+      "source": "0005027d894f6116a64b320ea04afa5663a57cdb",
+      "translation": "de14eafa9a776c47d9b244ce1cbd85aa79879ea9"
+    },
+    "settings.features.planning.workHours": {
+      "source": "fdb5e96f3e71dbd1068377edb7e2baa7354cf091",
+      "translation": "b113a20ee02be1c1b2b3e382f10cb7fbcd589b42"
+    },
+    "settings.features.planning.workHoursDesc": {
+      "source": "dcd9d1b000fc2dcccd8c167b8ecd76fa04d907af",
+      "translation": "3f211a381666b5c9ff761646350868f2e0c2f5a6"
+    },
+    "settings.features.planning.dayOff": {
+      "source": "e3de5ab0ca4c69dbf00e86d2558843e8d806bb49",
+      "translation": "d2b60ac86c624c4de0bce64781f53ed1608225a2"
+    },
+    "settings.features.planning.busyCalendars": {
+      "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
+      "translation": "3f9b12cc59b3a2b2f56d8501575537d4c0519204"
+    },
+    "settings.features.planning.allDayBusy": {
+      "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
+      "translation": "ed14178088d7f50fc98278004ee1b17064c003d9"
+    },
+    "settings.features.planning.defaultEstimate": {
+      "source": "073e14143b1597a96079646ad62a2ca8ed83d4bd",
+      "translation": "bb807714dea793a91bfeecd3223a46575dc10dc9"
+    },
+    "settings.features.planning.defaultEstimateDesc": {
+      "source": "e2f2afadfeb9fb0ded472f6caa92746136a87723",
+      "translation": "7e79dedd3fa912c4b6b4be5b71bc05cba88c1ea5"
+    },
+    "settings.features.planning.showInStatusBar": {
+      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
+      "translation": "80bb88603b85484674d1a1fb96d190ff18a89330"
+    },
+    "settings.features.planning.warnOnOverbook": {
+      "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
+      "translation": "a84e08bd17bcdef71b6a657c477a08da916bff05"
+    },
+    "settings.features.planning.calibrationWindow": {
+      "source": "1f7b7e576d951781f70db4a46f0b8d0d6755d080",
+      "translation": "ccb388b62b9b3c0f47e6a48005652d1437ee61c1"
+    },
+    "settings.features.planning.applyCalibration": {
+      "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
+      "translation": "8ee63fee6abdbb23722b833f3f58ab866147d4bc"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "2790d0e72f91ee2a7b5a2e462de03080d55bfa58"
@@ -62027,7 +62660,10 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "f27bf07674199d91ae546c84419e978a3e162c32"
     },
-    "commands.showTodayCapacity": null,
+    "commands.showTodayCapacity": {
+      "source": "42bb2d702635030d332cf146fea8d7a480c72460",
+      "translation": "4271f1ec4cb57d231e28f1989b1d3e610663a8cd"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "155d77f8989026d850cb9eae638d1f3aa35a7c20"
@@ -62748,8 +63384,14 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
-    "modals.task.estimateHint": null,
-    "modals.task.estimateHintUse": null,
+    "modals.task.estimateHint": {
+      "source": "b87741058ddb9c41ebdd279aaf0be599cdeed4dc",
+      "translation": "153a4b44203ca008c01d0a5aea47cb33998eff60"
+    },
+    "modals.task.estimateHintUse": {
+      "source": "1d4d43cc6f3a833e0340a0d1794b6d7b9958657e",
+      "translation": "768af677624eed273910f68f18b32647efbc330e"
+    },
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "70d744f7368ad3bb20acba45f05c2e87934fa875"
@@ -65578,16 +66220,46 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "8f9eec5d25d2633da4dd1d0c1a82a3310455a6e2"
     },
-    "capacity.status": null,
-    "capacity.over": null,
-    "capacity.noWorkHours": null,
-    "capacity.unestimated": null,
-    "capacity.calibrated": null,
-    "capacity.openToday": null,
-    "capacity.moveToInbox": null,
-    "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null,
-    "capacity.overbooked": null
+    "capacity.status": {
+      "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
+      "translation": "dfb4e5d70cc1c58c27cda848580bcd3eb32c0ddc"
+    },
+    "capacity.over": {
+      "source": "3e690886b91fe86658f3e7b0b15a9b7b30c2d4b8",
+      "translation": "2ca54ca3ec6a1e57603dfcec33e2a829c9c693cd"
+    },
+    "capacity.noWorkHours": {
+      "source": "6bd3fb35c9bd60a1aa9acd6343ef371f953cc5a5",
+      "translation": "f0ccdff31320a95565cd0a44b62e908cfe794010"
+    },
+    "capacity.unestimated": {
+      "source": "7803476af1625807163702c80cab03afcf466159",
+      "translation": "436ec115a24a6246d9cec3d40781e1f245eacc8e"
+    },
+    "capacity.calibrated": {
+      "source": "2daa92af282cb5e9fdce94771567c334b5a496c2",
+      "translation": "98a6ae2848ae30dc9145b70d5106479aa4a7e63f"
+    },
+    "capacity.openToday": {
+      "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
+      "translation": "37a4cd341f49f550b328a04f6088591f01c25752"
+    },
+    "capacity.moveToInbox": {
+      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
+      "translation": "8afbed453807d1076926abdba340a21410fd904d"
+    },
+    "capacity.moveToInboxHint": {
+      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
+      "translation": "78a1711833262ac6ed22be6c8daead179848492a"
+    },
+    "capacity.ariaLabel": {
+      "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
+      "translation": "337e127aee0700eea4a2a85e58bb6a006e1d7652"
+    },
+    "capacity.overbooked": {
+      "source": "81019a63df8692e751bb245c1a54aeb2f019c25f",
+      "translation": "d34fe4b042f5617e00e8e45df9c133bc873f947d"
+    }
   },
   "zh": {
     "common.appName": {
@@ -66902,13 +67574,34 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "49c2487c2992208e293b1b3b72e9fb00e64622bf"
     },
-    "views.stats.cards.estimateAccuracy": null,
-    "views.stats.estimateAccuracy.headline": null,
-    "views.stats.estimateAccuracy.basis": null,
-    "views.stats.estimateAccuracy.notEnough": null,
-    "views.stats.estimateAccuracy.small": null,
-    "views.stats.estimateAccuracy.medium": null,
-    "views.stats.estimateAccuracy.large": null,
+    "views.stats.cards.estimateAccuracy": {
+      "source": "3288a18c25ea4932470eccb6f7a3a0e4755ca3aa",
+      "translation": "037b5b043f510b71ecb0d036a52ef617bc08e442"
+    },
+    "views.stats.estimateAccuracy.headline": {
+      "source": "cb32f91c9c190b9534fdbbce5b6cf6bfd1e81a5b",
+      "translation": "3a3befb0ef86ea3e992944e73b1422390cea6226"
+    },
+    "views.stats.estimateAccuracy.basis": {
+      "source": "6cf5369fbcff53cf96a89c1ac7049c670204206b",
+      "translation": "edc914c24e891fb0f9e2ecef297bf73a1a654266"
+    },
+    "views.stats.estimateAccuracy.notEnough": {
+      "source": "3fd2f49a1677ade63d0b45c78488a77f0ad9ba8c",
+      "translation": "4530a5a0bc34d857ea4753eb44538345b4693cf6"
+    },
+    "views.stats.estimateAccuracy.small": {
+      "source": "e3d0fb2681236b8fe4875b8b99a10f05e68e787c",
+      "translation": "27d1541c7d5e74f67401a40168185e3b726531e3"
+    },
+    "views.stats.estimateAccuracy.medium": {
+      "source": "815f250615f55ae232224b8b76e2442d2f78c604",
+      "translation": "3f3f981db506d5e6ac04d5baaeb8489f80715e1a"
+    },
+    "views.stats.estimateAccuracy.large": {
+      "source": "4210a49306d7db4c75b41755a11c3a8e44aa1994",
+      "translation": "24001ecbf509d0fd0dfdf59df63af357fd9f2797"
+    },
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "3172b317f9fc809f3aee467c0446384de4cc9255"
@@ -67433,18 +68126,54 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "0b3a4ad6acefa7ae6b1a8f38172727546f7b89f8"
     },
-    "settings.features.planning.heading": null,
-    "settings.features.planning.workHours": null,
-    "settings.features.planning.workHoursDesc": null,
-    "settings.features.planning.dayOff": null,
-    "settings.features.planning.busyCalendars": null,
-    "settings.features.planning.allDayBusy": null,
-    "settings.features.planning.defaultEstimate": null,
-    "settings.features.planning.defaultEstimateDesc": null,
-    "settings.features.planning.showInStatusBar": null,
-    "settings.features.planning.warnOnOverbook": null,
-    "settings.features.planning.calibrationWindow": null,
-    "settings.features.planning.applyCalibration": null,
+    "settings.features.planning.heading": {
+      "source": "0005027d894f6116a64b320ea04afa5663a57cdb",
+      "translation": "6c09b4e917cbdadf7940b0873d0b8ae44cb86ffc"
+    },
+    "settings.features.planning.workHours": {
+      "source": "fdb5e96f3e71dbd1068377edb7e2baa7354cf091",
+      "translation": "e6412d7d7f6afcb487246dcf20b8f695b466c202"
+    },
+    "settings.features.planning.workHoursDesc": {
+      "source": "dcd9d1b000fc2dcccd8c167b8ecd76fa04d907af",
+      "translation": "9664ef7204b4b892ff8e0042c4ad860d55224243"
+    },
+    "settings.features.planning.dayOff": {
+      "source": "e3de5ab0ca4c69dbf00e86d2558843e8d806bb49",
+      "translation": "da11d57634b6751f3eced3e5b08889611348e879"
+    },
+    "settings.features.planning.busyCalendars": {
+      "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
+      "translation": "65d633d68ff35c5d724d0a3e667c23e7157f0c2d"
+    },
+    "settings.features.planning.allDayBusy": {
+      "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
+      "translation": "01c0e2bbe58c850e57e1e866c13663460e2ffae7"
+    },
+    "settings.features.planning.defaultEstimate": {
+      "source": "073e14143b1597a96079646ad62a2ca8ed83d4bd",
+      "translation": "1594899b4ac1594146e437a248a0c27fce0c5663"
+    },
+    "settings.features.planning.defaultEstimateDesc": {
+      "source": "e2f2afadfeb9fb0ded472f6caa92746136a87723",
+      "translation": "e5a73787b9ab80cbe5379703e38e0fc3b6ff176b"
+    },
+    "settings.features.planning.showInStatusBar": {
+      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
+      "translation": "e24f98d5ee77c7ff6e08011a1e63dd0d45d48fa2"
+    },
+    "settings.features.planning.warnOnOverbook": {
+      "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
+      "translation": "6082a0b88555eadfc50c1b5907f4c14825b0fbd5"
+    },
+    "settings.features.planning.calibrationWindow": {
+      "source": "1f7b7e576d951781f70db4a46f0b8d0d6755d080",
+      "translation": "ba8c8625f8db309a83fc39c65c3e2b82ffc64584"
+    },
+    "settings.features.planning.applyCalibration": {
+      "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
+      "translation": "d5aab9a5163463bca9c9a176e9bd191f56cea6b8"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "a494fec9acc52ee5b25f67d1af09d93e12d7fc6b"
@@ -71397,7 +72126,10 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "b2266ef1f34a57c1335ad30c6106fa9db15e0236"
     },
-    "commands.showTodayCapacity": null,
+    "commands.showTodayCapacity": {
+      "source": "42bb2d702635030d332cf146fea8d7a480c72460",
+      "translation": "ae73b386b383e0387881e030688c14d5b625e4ef"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "f17fc9b7f685759a454f1bb94659b367044402c1"
@@ -72118,8 +72850,14 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
-    "modals.task.estimateHint": null,
-    "modals.task.estimateHintUse": null,
+    "modals.task.estimateHint": {
+      "source": "b87741058ddb9c41ebdd279aaf0be599cdeed4dc",
+      "translation": "85ef1e5d3bcfdb90389b5dce9eaa4e045443c815"
+    },
+    "modals.task.estimateHintUse": {
+      "source": "1d4d43cc6f3a833e0340a0d1794b6d7b9958657e",
+      "translation": "0e2d3a3c09c26c16074039b7a2739f5111323ad0"
+    },
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "3764741a21dc975acfbb79f4ed079c82885d03d3"
@@ -74948,15 +75686,45 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "978b0408a02d3ed12151c714327f16eee7b72e8c"
     },
-    "capacity.status": null,
-    "capacity.over": null,
-    "capacity.noWorkHours": null,
-    "capacity.unestimated": null,
-    "capacity.calibrated": null,
-    "capacity.openToday": null,
-    "capacity.moveToInbox": null,
-    "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null,
-    "capacity.overbooked": null
+    "capacity.status": {
+      "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
+      "translation": "d0bf21c62dca9e612481363ab24acdcf3ada2526"
+    },
+    "capacity.over": {
+      "source": "3e690886b91fe86658f3e7b0b15a9b7b30c2d4b8",
+      "translation": "5359917cffcb8970b31a1e581503c8bb1b0c95cf"
+    },
+    "capacity.noWorkHours": {
+      "source": "6bd3fb35c9bd60a1aa9acd6343ef371f953cc5a5",
+      "translation": "ad33bf7380732a9d8ffa73ccae701939fd40f4c6"
+    },
+    "capacity.unestimated": {
+      "source": "7803476af1625807163702c80cab03afcf466159",
+      "translation": "16adaf462ec862e3efa17970c4a0242e330066cc"
+    },
+    "capacity.calibrated": {
+      "source": "2daa92af282cb5e9fdce94771567c334b5a496c2",
+      "translation": "e67248fff4ad9710aeca945121499998322e4c20"
+    },
+    "capacity.openToday": {
+      "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
+      "translation": "aa2263e333b11f789bff521d0e4d33d81e9840e1"
+    },
+    "capacity.moveToInbox": {
+      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
+      "translation": "d2d398ff66e26bc7cfe5fae84771219c1726d739"
+    },
+    "capacity.moveToInboxHint": {
+      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
+      "translation": "f997b321a0ba05898a2aad9b0a8b60135a8125f7"
+    },
+    "capacity.ariaLabel": {
+      "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
+      "translation": "d00b2db2710e5c6fe7cd05cbf8c799181084969a"
+    },
+    "capacity.overbooked": {
+      "source": "81019a63df8692e751bb245c1a54aeb2f019c25f",
+      "translation": "98557c46f4c70ee4e2bd4d0c58e0b04c4dab4f3c"
+    }
   }
 }

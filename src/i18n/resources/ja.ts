@@ -465,7 +465,16 @@ export const ja: TranslationTree = {
 				totalTasks: "総タスク数",
 				completionRate: "完了率",
 				activeProjects: "アクティブプロジェクト",
-				avgTimePerTask: "タスクあたりの平均時間"
+				avgTimePerTask: "タスクあたりの平均時間",
+				estimateAccuracy: "見積もりの精度",
+			},
+			estimateAccuracy: {
+				headline: "タスクには通常、見積もりの{factor}倍の時間がかかります",
+				basis: "{n}件のタスクの中央値（過去{days}日間）",
+				notEnough: "記録済みのタスクがまだ足りません（{n}/{min}件）",
+				small: "30分以下",
+				medium: "30〜120分",
+				large: "2時間超",
 			},
 			labels: {
 				tasks: "タスク",
@@ -690,6 +699,20 @@ export const ja: TranslationTree = {
 			timeTrackingSection: {
 				header: "時間追跡",
 				description: "自動時間追跡の動作を設定します。"
+			},
+			planning: {
+				heading: "計画",
+				workHours: "勤務時間",
+				workHoursDesc: "各日の空き時間を計算するために使用します。",
+				dayOff: "休み",
+				busyCalendars: "予定ありとして扱うカレンダー",
+				allDayBusy: "終日の予定を予定ありとして扱う",
+				defaultEstimate: "見積もりのないタスクのデフォルト見積もり（分）",
+				defaultEstimateDesc: "空欄にすると、未見積もりとして表示します。",
+				showInStatusBar: "今日のキャパシティをステータスバーに表示",
+				warnOnOverbook: "1日の予定が超過したときに警告する",
+				calibrationWindow: "見積もり補正の対象期間（日）",
+				applyCalibration: "計画に補正済みの見積もりを使用する",
 			},
 			recurringSection: {
 				header: "繰り返しタスク",
@@ -2289,6 +2312,7 @@ export const ja: TranslationTree = {
 		triageInbox: "インボックスを整理",
 		freshStart: "仕切り直し：期限超過のタスクをリセット",
 		undoFreshStart: "最後の仕切り直しを元に戻す",
+		showTodayCapacity: "今日のキャパシティを表示",
 		openCalendarView: "ミニカレンダービューを開く",
 		openAdvancedCalendarView: "カレンダービューを開く",
 		openTasksView: "タスクビューを開く",
@@ -2561,6 +2585,8 @@ export const ja: TranslationTree = {
 			tagsPlaceholder: "タグ1, タグ2",
 			timeEstimateLabel: "時間見積もり（分）",
 			timeEstimatePlaceholder: "30",
+			estimateHint: "類似のタスクから、おそらく約{duration}",
+			estimateHintUse: "使用",
 			unsavedChanges: {
 				title: "未保存の変更",
 				message: "未保存の変更があります。保存しますか？",
@@ -3518,5 +3544,17 @@ export const ja: TranslationTree = {
 			color: "色",
 			emoji: "絵文字",
 		},
+	},
+	capacity: {
+		status: "今日: 予定 {planned} · 空き {free}",
+		over: " · {over} 超過",
+		noWorkHours: "今日: 予定 {planned}",
+		unestimated: "見積もりのないタスク {count} 件",
+		calibrated: "補正済み",
+		openToday: "今日のビューを開く",
+		moveToInbox: "一部をインボックスに移動…",
+		moveToInboxHint: "タスクを選択し、「選択したタスクを仕切り直し」を使うか、ステータスをインボックスに設定してください。",
+		ariaLabel: "今日のキャパシティ",
+		overbooked: "{day}は利用可能な時間を{over}超過しています。",
 	},
 };

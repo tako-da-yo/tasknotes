@@ -465,7 +465,16 @@ export const ru: TranslationTree = {
 				totalTasks: "Доtal Tasks",
 				completionRate: "Процент завершения",
 				activeProjects: "Активные проекты",
-				avgTimePerTask: "Среднее время на задачу"
+				avgTimePerTask: "Среднее время на задачу",
+				estimateAccuracy: "Точность оценок",
+			},
+			estimateAccuracy: {
+				headline: "Задачи обычно занимают {factor}× от вашей оценки",
+				basis: "Медиана по {n} задачам за последние {days} дн.",
+				notEnough: "Пока недостаточно задач с учтённым временем ({n} из {min})",
+				small: "До 30 мин",
+				medium: "30–120 мин",
+				large: "Более 2 ч",
 			},
 			labels: {
 				tasks: "Задачи",
@@ -690,6 +699,20 @@ export const ru: TranslationTree = {
 			timeTrackingSection: {
 				header: "Отслеживание времени",
 				description: "Настройка автоматического отслеживания времени."
+			},
+			planning: {
+				heading: "Планирование",
+				workHours: "Рабочие часы",
+				workHoursDesc: "Используются для расчёта свободного времени на каждый день.",
+				dayOff: "Выходной",
+				busyCalendars: "Календари, в которых вы заняты",
+				allDayBusy: "Считать события на весь день занятым временем",
+				defaultEstimate: "Оценка по умолчанию для задач без оценки (минуты)",
+				defaultEstimateDesc: "Оставьте пустым, чтобы показывать такие задачи как неоценённые.",
+				showInStatusBar: "Показывать загрузку на сегодня в строке состояния",
+				warnOnOverbook: "Предупреждать, когда день перегружен",
+				calibrationWindow: "Период калибровки оценок (дни)",
+				applyCalibration: "Использовать откалиброванные оценки при планировании",
 			},
 			recurringSection: {
 				header: "Повторяющиеся задачи",
@@ -2289,6 +2312,7 @@ export const ru: TranslationTree = {
 		triageInbox: "Разобрать входящие",
 		freshStart: "Чистый лист: сбросить просроченные задачи",
 		undoFreshStart: "Отменить последний чистый лист",
+		showTodayCapacity: "Показать загрузку на сегодня",
 		openCalendarView: "Открыть представление мини-календаря",
 		openAdvancedCalendarView: "Открыть представление календаря",
 		openTasksView: "Открыть представление задач",
@@ -2561,6 +2585,8 @@ export const ru: TranslationTree = {
 			tagsPlaceholder: "тег1, тег2",
 			timeEstimateLabel: "Оценка времени (минуты)",
 			timeEstimatePlaceholder: "30",
+			estimateHint: "По похожим задачам, вероятно, ~{duration}",
+			estimateHintUse: "Применить",
 			unsavedChanges: {
 				title: "Несохранённые изменения",
 				message: "У вас есть несохранённые изменения. Хотите сохранить их?",
@@ -3518,5 +3544,17 @@ export const ru: TranslationTree = {
 			color: "Цвет",
 			emoji: "Эмодзи",
 		},
+	},
+	capacity: {
+		status: "Сегодня: запланировано {planned} · свободно {free}",
+		over: " · сверх {over}",
+		noWorkHours: "Сегодня: запланировано {planned}",
+		unestimated: "Задач без оценки: {count}",
+		calibrated: "с калибровкой",
+		openToday: "Открыть представление «Сегодня»",
+		moveToInbox: "Переместить часть во входящие…",
+		moveToInboxHint: "Выберите задачи, затем используйте «Чистый лист для выбранных» или установите для них статус «Входящие».",
+		ariaLabel: "Загрузка на сегодня",
+		overbooked: "{day}: теперь на {over} больше доступного времени.",
 	},
 };
