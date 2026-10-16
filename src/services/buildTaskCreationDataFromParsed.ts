@@ -3,9 +3,15 @@ import type { ParsedTaskData } from "./NaturalLanguageParser";
 import type { TaskCreationData } from "../types";
 import { combineDateAndTime, getCurrentTimestamp } from "../utils/dateUtils";
 import { sanitizeTags } from "../utils/helpers";
+import { isCaptureToInboxEnabled, TRIAGE_DISABLED } from "../core/captureStatus";
 
 interface BuildTaskCreationDataOptions {
 	creationContext?: TaskCreationData["creationContext"];
+	/**
+	 * Apply the inbox capture rule when no status is parsed. The status is left unset so
+	 * task creation resolves it after creation-default dates are applied.
+	 */
+	captureToInbox?: boolean;
 }
 
 export function buildTaskCreationDataFromParsed(
@@ -14,9 +20,15 @@ export function buildTaskCreationDataFromParsed(
 	options: BuildTaskCreationDataOptions = {}
 ): TaskCreationData {
 	const now = getCurrentTimestamp();
+	const deferStatusToCaptureRule =
+		options.captureToInbox === true &&
+		!parsed.status &&
+		isCaptureToInboxEnabled(plugin.settings.triage ?? TRIAGE_DISABLED);
 	const taskData: TaskCreationData = {
 		title: parsed.title.trim(),
-		status: parsed.status || plugin.settings.defaultTaskStatus,
+		status: deferStatusToCaptureRule
+			? undefined
+			: parsed.status || plugin.settings.defaultTaskStatus,
 		priority: parsed.priority || plugin.settings.defaultTaskPriority,
 		dateCreated: now,
 		dateModified: now,

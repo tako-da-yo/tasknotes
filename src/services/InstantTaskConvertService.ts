@@ -22,6 +22,7 @@ import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { sanitizeGeneratedLinkAlias, sanitizeLinkAliasText } from "../utils/linkAliasUtils";
 import { publishUserNotice } from "../core/userNotices";
 import { modifyVaultFile } from "./VaultMutationService";
+import { resolveCaptureStatus, TRIAGE_DISABLED } from "../core/captureStatus";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Services/InstantTaskConvertService" });
 
@@ -626,6 +627,8 @@ export class InstantTaskConvertService {
 		// Apply task creation defaults if setting is enabled
 		let priority: string | undefined;
 		let status: string | undefined;
+		// Used when no status was parsed and the capture rule does not route the task to the inbox
+		let fallbackStatus: string;
 		let dueDate: string | undefined;
 		let scheduledDate: string | undefined;
 		let contextsArray: string[] = [];
@@ -649,9 +652,8 @@ export class InstantTaskConvertService {
 			priority =
 				(parsedData.priority ? this.sanitizePriority(parsedData.priority) : "") ||
 				this.plugin.settings.defaultTaskPriority;
-			status =
-				(parsedData.status ? this.sanitizeStatus(parsedData.status) : "") ||
-				this.plugin.settings.defaultTaskStatus;
+			status = parsedData.status ? this.sanitizeStatus(parsedData.status) : "";
+			fallbackStatus = this.plugin.settings.defaultTaskStatus;
 
 			// Apply due date: parsed date takes priority, then defaults
 			if (parsedDueDate) {
@@ -735,7 +737,8 @@ export class InstantTaskConvertService {
 			// Minimal behavior: only use parsed data, use "none" for unset values
 			priority =
 				(parsedData.priority ? this.sanitizePriority(parsedData.priority) : "") || "none";
-			status = (parsedData.status ? this.sanitizeStatus(parsedData.status) : "") || "none";
+			status = parsedData.status ? this.sanitizeStatus(parsedData.status) : "";
+			fallbackStatus = "none";
 			dueDate = parsedDueDate
 				? parsedDueTime
 					? combineDateAndTime(parsedDueDate, parsedDueTime)
@@ -849,6 +852,14 @@ export class InstantTaskConvertService {
 				}
 			}
 		}
+
+		status = resolveCaptureStatus({
+			explicitStatus: status,
+			due: dueDate,
+			scheduled: scheduledDate,
+			defaultStatus: fallbackStatus,
+			triage: this.plugin.settings.triage ?? TRIAGE_DISABLED,
+		});
 
 		// Create TaskCreationData object with all the data
 		const taskData: TaskCreationData = {

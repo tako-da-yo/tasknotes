@@ -9,7 +9,7 @@ import {
 } from "../../types";
 import type { TaskNotesSettings } from "../../types/settings";
 import { addDTSTARTToRecurrenceRule } from "../../core/recurrence";
-import { resolveCaptureStatus } from "../../core/captureStatus";
+import { resolveCaptureStatus, TRIAGE_DISABLED } from "../../core/captureStatus";
 import {
 	FilenameContext,
 	type TaskFilenameSettings,
@@ -151,11 +151,7 @@ export class TaskCreationService {
 				due: taskData.due,
 				scheduled: taskData.scheduled,
 				defaultStatus: runtime.settings.defaultTaskStatus,
-				triage: runtime.settings.triage ?? {
-					inboxStatus: "",
-					somedayStatus: "",
-					captureToInbox: false,
-				},
+				triage: runtime.settings.triage ?? TRIAGE_DISABLED,
 			});
 			const dateCreated = taskData.dateCreated || getCurrentTimestamp();
 			const dateModified = taskData.dateModified || getCurrentTimestamp();

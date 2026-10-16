@@ -549,7 +549,9 @@ export class TaskSelectorWithCreateModal extends SuggestModal<TaskInfo> {
 	}
 
 	private buildTaskDataFromParsed(parsed: ParsedTaskData): TaskCreationData {
-		const taskData = buildTaskCreationDataFromParsed(this.plugin, parsed);
+		const taskData = buildTaskCreationDataFromParsed(this.plugin, parsed, {
+			captureToInbox: true,
+		});
 		const defaults = this.options.creationDefaults;
 		if (!defaults) return taskData;
 
