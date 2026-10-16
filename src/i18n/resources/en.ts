@@ -3763,7 +3763,7 @@ export const en: TranslationTree = {
 			gaugeAriaProjected: "Battery projected {projected}% by end of day",
 			mix: "{kind} {hours}h ({done}h done)",
 			biggest: "Biggest effects",
-			assumed: "{count} items sized by default",
+			assumed: "Sized by default: {count}",
 			lowTitle: "Low battery forecast",
 			lowBody: "Move a drain task, or add something that sparks.",
 			showDrains: "Show drain tasks",

@@ -98,7 +98,7 @@ How long each item counts for:
 
 Tasks are counted on the day they are scheduled, or on their due date if they have no scheduled date, as for [daily capacity](#daily-capacity).
 
-A timeblock with a context stands for the tasks attached to it: the timeblock's time is counted, and its attached tasks are skipped so they are not counted twice. A timeblock without a context is skipped, and its attached tasks count on their own.
+A timeblock with a context stands for the tasks attached to it: the timeblock's time is counted, and its attached tasks are skipped so they are not counted twice. A timeblock without a context is skipped, and its attached tasks count on their own. A timeblock whose context was renamed or removed still stands for its attached tasks, and counts as the **Default context** or, without one, as Steady.
 
 An item's energy kind comes from the same context as its calendar color: the first of its contexts that is in a context group, otherwise the **Default context**. Items with neither count as Steady.
 
