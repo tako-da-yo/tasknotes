@@ -13,7 +13,7 @@ export class FreshStartModal extends Modal {
 	private resolve: ((result: FreshStartModalResult) => void) | null = null;
 	private clearDue = false;
 	private settled = false;
-	private confirmButton: ButtonComponent | null = null;
+	private confirmButton?: ButtonComponent;
 
 	constructor(
 		app: App,
