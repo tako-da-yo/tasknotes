@@ -8,10 +8,15 @@ import {
 } from "../core/freshStartPlanning";
 import { selectInboxTasks, updatesForAction, TriageAction } from "../core/triageSession";
 
+export type TriageRevert =
+	| { kind: "updates"; path: string; previous: Partial<TaskInfo> }
+	/** `task` is the TaskInfo returned by archiveTask (archived: true, current path). */
+	| { kind: "archived"; task: TaskInfo };
+
 export interface TriageServiceDeps {
 	getTasks(): TaskInfo[];
 	updateTask(task: TaskInfo, updates: Partial<TaskInfo>): Promise<TaskInfo>;
-	archiveTask(task: TaskInfo): Promise<unknown>;
+	archiveTask(task: TaskInfo): Promise<TaskInfo>;
 	isCompleted(status: string): boolean;
 	firstCompletedStatus(): string;
 	statusExists(value: string): boolean;
@@ -34,10 +39,7 @@ export class TriageService {
 	}
 
 	/** Applies an action and returns what is needed to revert it (null when nothing changed). */
-	async applyAction(
-		task: TaskInfo,
-		action: TriageAction
-	): Promise<Partial<TaskInfo> | "archived" | null> {
+	async applyAction(task: TaskInfo, action: TriageAction): Promise<TriageRevert | null> {
 		const settings = this.deps.getSettings();
 		const result = updatesForAction(task, action, {
 			today: this.deps.today(),
@@ -47,23 +49,31 @@ export class TriageService {
 		});
 		if (result.kind === "none") return null;
 		if (result.kind === "archive") {
-			await this.deps.archiveTask(task);
-			return "archived";
+			const archived = await this.deps.archiveTask(task);
+			return { kind: "archived", task: archived };
 		}
+		const current = this.findTask(task.path) ?? task;
 		const previous: Partial<TaskInfo> = {};
 		for (const key of Object.keys(result.updates) as (keyof TaskInfo)[]) {
-			(previous as Record<string, unknown>)[key] = task[key];
+			(previous as Record<string, unknown>)[key] = current[key];
 		}
-		await this.deps.updateTask(task, result.updates);
-		return previous;
+		await this.deps.updateTask(current, result.updates);
+		return { kind: "updates", path: current.path, previous };
 	}
 
-	async revertAction(task: TaskInfo, previous: Partial<TaskInfo> | "archived"): Promise<void> {
-		if (previous === "archived") {
-			await this.deps.archiveTask(task);
+	async revertAction(revert: TriageRevert): Promise<void> {
+		if (revert.kind === "archived") {
+			// Only unarchive; toggling an unarchived task would archive it again.
+			if (revert.task.archived) await this.deps.archiveTask(revert.task);
 			return;
 		}
-		await this.deps.updateTask(task, previous);
+		const current = this.findTask(revert.path);
+		if (!current) return;
+		await this.deps.updateTask(current, revert.previous);
+	}
+
+	private findTask(path: string): TaskInfo | undefined {
+		return this.deps.getTasks().find((t) => t.path === path);
 	}
 
 	previewFreshStart(): FreshStartPreview {
