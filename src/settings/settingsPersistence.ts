@@ -245,6 +245,8 @@ export function buildSettingsFromLoadedData(data: LoadedSettingsData | null): Se
 			...(loadedData?.calendarViewSettings || {}),
 		},
 		triage: { ...DEFAULT_SETTINGS.triage, ...(loadedData?.triage || {}) },
+		planning: { ...DEFAULT_SETTINGS.planning, ...(loadedData?.planning || {}) },
+		calibration: { ...DEFAULT_SETTINGS.calibration, ...(loadedData?.calibration || {}) },
 		commandFileMapping: {
 			...DEFAULT_SETTINGS.commandFileMapping,
 			...(loadedData?.commandFileMapping || {}),

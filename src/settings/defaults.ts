@@ -419,6 +419,23 @@ export const DEFAULT_SETTINGS: TaskNotesSettings = {
 	fallbackContext: "",
 	triage: { inboxStatus: "", somedayStatus: "", captureToInbox: true },
 	triageLastFreshStart: null,
+	planning: {
+		workHours: [
+			null,
+			{ start: "09:00", end: "17:00" },
+			{ start: "09:00", end: "17:00" },
+			{ start: "09:00", end: "17:00" },
+			{ start: "09:00", end: "17:00" },
+			{ start: "09:00", end: "17:00" },
+			null,
+		],
+		busyCalendars: null,
+		allDayEventsBusy: false,
+		defaultEstimate: null,
+		showInStatusBar: true,
+		warnOnOverbook: true,
+	},
+	calibration: { windowDays: 90, applyToPlanning: true },
 	externalEventContexts: {},
 	// Google Calendar task export settings
 	googleCalendarExport: DEFAULT_GOOGLE_CALENDAR_EXPORT,

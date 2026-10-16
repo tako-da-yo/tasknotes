@@ -113,6 +113,28 @@ export interface TriageSettings {
 	captureToInbox: boolean;
 }
 
+export interface WorkDayHours {
+	start: string; // "HH:MM"
+	end: string; // "HH:MM"
+}
+
+export interface PlanningSettings {
+	// index 0 = Sunday … 6 = Saturday; null = day off
+	workHours: (WorkDayHours | null)[];
+	// event subscriptionIds (ICS id, "google-<id>", "microsoft-<id>"); null = all
+	busyCalendars: string[] | null;
+	allDayEventsBusy: boolean;
+	// minutes
+	defaultEstimate: number | null;
+	showInStatusBar: boolean;
+	warnOnOverbook: boolean;
+}
+
+export interface CalibrationSettings {
+	windowDays: number;
+	applyToPlanning: boolean;
+}
+
 export interface FreshStartSnapshotEntry {
 	path: string;
 	before: { scheduled?: string; due?: string; status: string };
@@ -299,6 +321,10 @@ export interface TaskNotesSettings {
 	triage: TriageSettings;
 	// Last Fresh Start run, kept so it can be undone
 	triageLastFreshStart: FreshStartSnapshot | null;
+	// Daily capacity planning settings
+	planning: PlanningSettings;
+	// Estimate calibration settings
+	calibration: CalibrationSettings;
 	// Contexts applied to external calendar events, keyed by event (or recurring series)
 	externalEventContexts: Record<string, string>;
 	// Google Calendar task export settings
