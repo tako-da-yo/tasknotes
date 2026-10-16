@@ -226,9 +226,19 @@ export class InboxTriageModal extends Modal {
 	}
 
 	private async checkOverbook(task: TaskInfo, previous: Partial<TaskInfo>): Promise<void> {
-		const updated = await this.plugin.cacheManager.getTaskInfo(task.path);
-		if (!updated) return;
-		await this.plugin.overbookNotifier?.check(datesTouched({ ...task, ...previous }, updated));
+		try {
+			const updated = await this.plugin.cacheManager.getTaskInfo(task.path);
+			if (!updated) return;
+			await this.plugin.overbookNotifier?.check(datesTouched({ ...task, ...previous }, updated));
+		} catch (error) {
+			// The notice is advisory; the triage action itself already succeeded.
+			logger.warn("Inbox triage overbook check failed", {
+				category: "stale-data",
+				operation: "inbox-triage-overbook-check",
+				details: { path: task.path },
+				error,
+			});
+		}
 	}
 
 	private async undoLast(): Promise<void> {

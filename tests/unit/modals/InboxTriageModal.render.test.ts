@@ -55,3 +55,15 @@ describe("InboxTriageModal progress announcement", () => {
 		expect(region?.textContent).toContain("modals.inboxTriage.finished");
 	});
 });
+
+describe("InboxTriageModal overbook check", () => {
+	it("never rejects when the updated task cannot be read", async () => {
+		const task = TaskFactory.createTask({ path: "a.md", title: "A", status: "inbox" });
+		const modal = createModal([task]);
+		const plugin = (modal as any).plugin;
+		plugin.cacheManager = { getTaskInfo: jest.fn(async () => Promise.reject(new Error("boom"))) };
+		plugin.overbookNotifier = { check: jest.fn() };
+		await expect((modal as any).checkOverbook(task, {})).resolves.toBeUndefined();
+		expect(plugin.overbookNotifier.check).not.toHaveBeenCalled();
+	});
+});
