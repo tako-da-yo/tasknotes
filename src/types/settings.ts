@@ -98,6 +98,22 @@ export interface ContextDefinition {
 	color: string;
 	emoji?: string; // Shown before the name in pickers and on calendar events
 	enabled: boolean; // Disabled contexts are not offered and do not color items
+	energy?: EnergyKind; // How time in this context affects the daily energy battery
+}
+
+/** How time spent in a context affects energy: restores it, is neutral, or drains it. */
+export type EnergyKind = "spark" | "steady" | "drain";
+
+/** Daily energy (mental battery) settings. Rates are points per hour on a 0-100 scale. */
+export interface EnergySettings {
+	enabled: boolean;
+	baseline: number;
+	sparkPerHour: number;
+	drainPerHour: number;
+	steadyPerHour: number;
+	lowThreshold: number;
+	// Minutes counted for an all-day spark or drain event
+	allDayMinutes: number;
 }
 
 /** A group of related contexts, such as "Work" or "Self". */
@@ -326,6 +342,8 @@ export interface TaskNotesSettings {
 	planning: PlanningSettings;
 	// Estimate calibration settings
 	calibration: CalibrationSettings;
+	// Daily energy (mental battery) settings
+	energy: EnergySettings;
 	// Contexts applied to external calendar events, keyed by event (or recurring series)
 	externalEventContexts: Record<string, string>;
 	// Google Calendar task export settings

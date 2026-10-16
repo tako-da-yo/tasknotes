@@ -1,7 +1,15 @@
 import { normalizePath } from "obsidian";
 import { DEFAULT_NLP_TRIGGERS, DEFAULT_SETTINGS } from "./defaults";
 import { hasMissingMigratedSettings } from "./settingsMigration";
-import type { PlanningSettings, TaskCreationDefaults, TaskNotesSettings } from "../types/settings";
+import type {
+	ContextDefinition,
+	ContextGroup,
+	EnergyKind,
+	EnergySettings,
+	PlanningSettings,
+	TaskCreationDefaults,
+	TaskNotesSettings,
+} from "../types/settings";
 import { initializeFieldConfig } from "../utils/fieldConfigDefaults";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 
@@ -219,6 +227,38 @@ function buildPlanningSettings(
 	};
 }
 
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+	return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+// A corrupt (non-object) saved value falls back to the defaults.
+function buildEnergySettings(loadedEnergy: unknown): EnergySettings {
+	return {
+		...DEFAULT_SETTINGS.energy,
+		...(isPlainObject(loadedEnergy) ? (loadedEnergy as Partial<EnergySettings>) : {}),
+	};
+}
+
+const ENERGY_KINDS: readonly EnergyKind[] = ["spark", "steady", "drain"];
+
+// Copies groups and contexts, keeping a context's energy only when it is a known kind.
+function buildContextGroups(loadedGroups: unknown): ContextGroup[] {
+	if (!Array.isArray(loadedGroups)) return [];
+	return loadedGroups.map((group: ContextGroup) => {
+		if (!isPlainObject(group) || !Array.isArray(group.contexts)) return group;
+		return {
+			...group,
+			contexts: group.contexts.map((context: ContextDefinition) => {
+				if (!isPlainObject(context)) return context;
+				const { energy, ...rest } = context;
+				return energy !== undefined && ENERGY_KINDS.includes(energy)
+					? { ...rest, energy }
+					: rest;
+			}),
+		};
+	});
+}
+
 function buildTaskCreationDefaults(
 	loadedDefaults: LoadedSettingsData["taskCreationDefaults"] | undefined
 ): TaskCreationDefaults {
@@ -267,6 +307,8 @@ export function buildSettingsFromLoadedData(data: LoadedSettingsData | null): Se
 		triage: { ...DEFAULT_SETTINGS.triage, ...(loadedData?.triage || {}) },
 		planning: buildPlanningSettings(loadedData?.planning),
 		calibration: { ...DEFAULT_SETTINGS.calibration, ...(loadedData?.calibration || {}) },
+		energy: buildEnergySettings(loadedData?.energy),
+		contextGroups: buildContextGroups(loadedData?.contextGroups ?? DEFAULT_SETTINGS.contextGroups),
 		commandFileMapping: {
 			...DEFAULT_SETTINGS.commandFileMapping,
 			...(loadedData?.commandFileMapping || {}),

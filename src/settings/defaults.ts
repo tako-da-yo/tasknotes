@@ -436,6 +436,7 @@ export const DEFAULT_SETTINGS: TaskNotesSettings = {
 		warnOnOverbook: true,
 	},
 	calibration: { windowDays: 90, applyToPlanning: true },
+	energy: { enabled: true, baseline: 70, sparkPerHour: 10, drainPerHour: 10, steadyPerHour: 0, lowThreshold: 25, allDayMinutes: 240 },
 	externalEventContexts: {},
 	// Google Calendar task export settings
 	googleCalendarExport: DEFAULT_GOOGLE_CALENDAR_EXPORT,
