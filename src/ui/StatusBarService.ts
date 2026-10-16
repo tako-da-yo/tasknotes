@@ -8,7 +8,7 @@ import {
 	TaskInfo,
 } from "../types";
 import { RequestDeduplicator } from "../utils/RequestDeduplicator";
-import { EventRef, setIcon, setTooltip, TFile } from "obsidian";
+import { EventRef, Platform, setIcon, setTooltip, TFile } from "obsidian";
 import { openTaskSelector } from "../modals/TaskSelectorWithCreateModal";
 import { formatPomodoroTime } from "../utils/pomodoroTime";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
@@ -20,6 +20,8 @@ import { openCapacityPopover } from "./CapacityPopover";
 const tasknotesLogger = createTaskNotesLogger({ tag: "Services/StatusBarService" });
 
 const CAPACITY_REFRESH_INTERVAL_MS = 5 * 60 * 1000;
+// Edits arrive in bursts (typing in a task, batch updates); recompute once they settle.
+const CAPACITY_CHANGE_DEBOUNCE_MS = 750;
 
 export class StatusBarService {
 	private plugin: import("../main").default;
@@ -36,6 +38,7 @@ export class StatusBarService {
 	private capacityUnsubscribe: (() => void) | null = null;
 	private capacityIntervalRegistered = false;
 	private capacityUpdateSeq = 0;
+	private capacityChangeTimeout: number | null = null;
 
 	constructor(plugin: import("../main").default) {
 		this.plugin = plugin;
@@ -95,7 +98,12 @@ export class StatusBarService {
 	}
 
 	private ensureCapacityStatusBarElement(): void {
-		if (this.capacityStatusBarElement || !this.plugin.settings.planning?.showInStatusBar) {
+		// Mobile has no status bar; the capacity command still works there.
+		if (
+			Platform.isMobile ||
+			this.capacityStatusBarElement ||
+			!this.plugin.settings.planning?.showInStatusBar
+		) {
 			return;
 		}
 
@@ -121,7 +129,7 @@ export class StatusBarService {
 	private registerCapacityRefresh(): void {
 		if (!this.capacityUnsubscribe && this.plugin.dayPlanService) {
 			this.capacityUnsubscribe = this.plugin.dayPlanService.onChange(() => {
-				void this.updateCapacityStatusBar();
+				this.requestCapacityUpdate();
 			});
 		}
 
@@ -136,7 +144,16 @@ export class StatusBarService {
 		}
 	}
 
+	private requestCapacityUpdate(): void {
+		if (this.capacityChangeTimeout !== null) window.clearTimeout(this.capacityChangeTimeout);
+		this.capacityChangeTimeout = window.setTimeout(() => {
+			this.capacityChangeTimeout = null;
+			void this.updateCapacityStatusBar();
+		}, CAPACITY_CHANGE_DEBOUNCE_MS);
+	}
+
 	private async updateCapacityStatusBar(): Promise<void> {
+		if (Platform.isMobile) return;
 		const seq = ++this.capacityUpdateSeq;
 
 		if (!this.plugin.settings.planning?.showInStatusBar) {
@@ -657,6 +674,10 @@ export class StatusBarService {
 		this.pomodoroEventRefs = [];
 		this.capacityUnsubscribe?.();
 		this.capacityUnsubscribe = null;
+		if (this.capacityChangeTimeout !== null) {
+			window.clearTimeout(this.capacityChangeTimeout);
+			this.capacityChangeTimeout = null;
+		}
 		// Invalidate any in-flight capacity refresh.
 		this.capacityUpdateSeq++;
 
