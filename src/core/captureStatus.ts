@@ -1,4 +1,4 @@
-import type { TriageSettings } from "../types/settings";
+import type { TaskCreationDefaults, TriageSettings } from "../types/settings";
 
 /** Fallback when triage settings are missing: the capture rule is off. */
 export const TRIAGE_DISABLED: TriageSettings = {
@@ -25,4 +25,14 @@ export function resolveCaptureStatus(input: {
 		return input.triage.inboxStatus;
 	}
 	return input.defaultStatus;
+}
+
+/** Creation-default dates that would stop new tasks from being captured to the inbox. */
+export function captureBlockedByDefaults(
+	defaults: Pick<TaskCreationDefaults, "defaultScheduledDate" | "defaultDueDate">
+): ("scheduled" | "due")[] {
+	const blocked: ("scheduled" | "due")[] = [];
+	if (defaults.defaultScheduledDate !== "none") blocked.push("scheduled");
+	if (defaults.defaultDueDate !== "none") blocked.push("due");
+	return blocked;
 }

@@ -1,4 +1,4 @@
-import { resolveCaptureStatus } from "../../../src/core/captureStatus";
+import { captureBlockedByDefaults, resolveCaptureStatus } from "../../../src/core/captureStatus";
 
 const triage = { inboxStatus: "inbox", somedayStatus: "someday", captureToInbox: true };
 
@@ -18,5 +18,15 @@ describe("resolveCaptureStatus", () => {
 	});
 	it("uses default status when captureToInbox is off", () => {
 		expect(resolveCaptureStatus({ defaultStatus: "open", triage: { ...triage, captureToInbox: false } })).toBe("open");
+	});
+});
+
+describe("captureBlockedByDefaults", () => {
+	it("lists default dates that stop capture to the inbox", () => {
+		expect(captureBlockedByDefaults({ defaultScheduledDate: "none", defaultDueDate: "none" })).toEqual([]);
+		expect(captureBlockedByDefaults({ defaultScheduledDate: "today", defaultDueDate: "none" })).toEqual(["scheduled"]);
+		expect(
+			captureBlockedByDefaults({ defaultScheduledDate: "tomorrow", defaultDueDate: "next-week" })
+		).toEqual(["scheduled", "due"]);
 	});
 });

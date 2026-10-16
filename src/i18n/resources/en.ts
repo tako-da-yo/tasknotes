@@ -1186,6 +1186,25 @@ export const en: TranslationTree = {
 			statusCard: {
 				valuesHeader: "Status values",
 			},
+			triage: {
+				heading: "Inbox",
+				enable: "Enable inbox",
+				enableDesc: "Adds inbox and someday statuses and the triage inbox command.",
+				enabledNotice:
+					"Inbox enabled. To add the inbox and someday views to your task base, use the update default files button.",
+				inboxStatus: "Inbox status",
+				somedayStatus: "Someday status",
+				none: "None",
+				captureToInbox: "Capture to inbox",
+				captureToInboxDesc: "New tasks without a date or status go to the inbox.",
+				inboxLabel: "Inbox",
+				somedayLabel: "Someday",
+				defaultsBlockCapture:
+					"New tasks get a default {fields} date, so they won't go to the inbox.",
+				defaultsFieldScheduled: "scheduled",
+				defaultsFieldDue: "due",
+				defaultsSetNone: "Set to none",
+			},
 			priorityCard: {
 				valuesHeader: "Priority values",
 			},

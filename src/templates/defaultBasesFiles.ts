@@ -717,6 +717,27 @@ ${orderYaml}
 				.map(status => `${formatDependencyEntryFileExpression("value")}.properties.${getPropertyName(statusProperty)} != "${escapeBasesStringLiteral(status)}"`)
 				.join(' && ');
 
+			// Inbox and Someday views exist only once the matching triage status is configured
+			const triageStatusView = (name: string, status: string, sortColumn: string): string => `  - type: tasknotesTaskList
+    name: "${name}"
+    filters:
+      and:
+        - ${statusProperty} == "${escapeBasesStringLiteral(status)}"
+    order:
+${orderYaml}
+    sort:
+      - column: ${sortColumn}
+        direction: ASC
+`;
+			const triage = settings.triage ?? { inboxStatus: "", somedayStatus: "" };
+			let triageViewsYaml = "";
+			if (triage.inboxStatus) {
+				triageViewsYaml += triageStatusView("Inbox", triage.inboxStatus, mapPropertyToBasesProperty('dateCreated', plugin));
+				if (triage.somedayStatus) {
+					triageViewsYaml += triageStatusView("Someday", triage.somedayStatus, mapPropertyToBasesProperty('dateModified', plugin));
+				}
+			}
+
 			return `# All Tasks
 
 ${formatFilterAsYAML(taskFilterConditions)}
@@ -871,7 +892,7 @@ ${orderYaml}
     sort:
       - column: ${statusProperty}
         direction: ASC
-`;
+${triageViewsYaml}`;
 		}
 
 		case 'open-advanced-calendar-view':

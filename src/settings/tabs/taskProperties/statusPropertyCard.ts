@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion -- Settings controls are created synchronously before handlers access them. */
-import { setIcon } from "obsidian";
+import { Notice, setIcon } from "obsidian";
 import TaskNotesPlugin from "../../../main";
 import { showConfirmationModal } from "../../../modals/ConfirmationModal";
+import { captureBlockedByDefaults } from "../../../core/captureStatus";
+import { ensureInboxStatuses } from "../../../core/inboxStatuses";
 import {
 	createCard,
 	createStatusBadge,
@@ -115,8 +117,9 @@ export function renderStatusPropertyCard(
 
 	// Render status value cards
 	const statusListContainer = statusValuesContent.createDiv("tasknotes-statuses-container");
-	renderStatusList(statusListContainer, plugin, save, translate, () => {
-		// Re-render the default select when statuses change
+	const triageContainer = activeWindow.createDiv();
+	// Re-render the default select and inbox controls when statuses change
+	const onStatusesChanged = (): void => {
 		defaultSelect.empty();
 		plugin.settings.customStatuses.forEach((status) => {
 			const option = defaultSelect.createEl("option", {
@@ -127,7 +130,13 @@ export function renderStatusPropertyCard(
 				option.selected = true;
 			}
 		});
-	});
+		renderTriageSection(triageContainer, plugin, save, translate, rerenderStatuses);
+	};
+	const rerenderStatuses = (): void => {
+		renderStatusList(statusListContainer, plugin, save, translate, onStatusesChanged);
+		onStatusesChanged();
+	};
+	renderStatusList(statusListContainer, plugin, save, translate, onStatusesChanged);
 
 	// Add status button
 	const addStatusButton = statusValuesContent.createEl("button", {
@@ -163,18 +172,7 @@ export function renderStatusPropertyCard(
 		};
 		plugin.settings.customStatuses.push(newStatus);
 		save();
-		renderStatusList(statusListContainer, plugin, save, translate, () => {
-			defaultSelect.empty();
-			plugin.settings.customStatuses.forEach((status) => {
-				const option = defaultSelect.createEl("option", {
-					value: status.value,
-					text: status.label || status.value,
-				});
-				if (status.value === plugin.settings.defaultTaskStatus) {
-					option.selected = true;
-				}
-			});
-		});
+		renderStatusList(statusListContainer, plugin, save, translate, onStatusesChanged);
 	};
 
 	// Toggle collapse
@@ -184,6 +182,9 @@ export function renderStatusPropertyCard(
 			!statusValuesSection.hasClass("tasknotes-settings__collapsible-section--collapsed")
 		);
 	});
+
+	nestedContainer.appendChild(triageContainer);
+	renderTriageSection(triageContainer, plugin, save, translate, rerenderStatuses);
 
 	const nlpRows = createNLPTriggerRows(plugin, "status", "*", save, translate);
 
@@ -214,6 +215,131 @@ export function renderStatusPropertyCard(
 		content: {
 			sections: [{ rows }],
 		},
+	});
+}
+
+/**
+ * Renders the inbox triage controls: enable button, inbox/someday status pickers,
+ * the capture toggle, and a note when creation-default dates block capture.
+ */
+function renderTriageSection(
+	container: HTMLElement,
+	plugin: TaskNotesPlugin,
+	save: () => void,
+	translate: TranslateFn,
+	onStatusesReplaced: () => void
+): void {
+	container.empty();
+	const triage = plugin.settings.triage;
+	const rows: CardRow[] = [];
+
+	const inboxConfigured =
+		Boolean(triage.inboxStatus) &&
+		plugin.settings.customStatuses.some((s) => s.value === triage.inboxStatus);
+	if (!inboxConfigured) {
+		const enableButton = activeWindow.createEl("button", {
+			text: translate("settings.taskProperties.triage.enable"),
+			cls: "tn-btn tn-btn--ghost",
+		});
+		enableButton.onclick = () => {
+			const result = ensureInboxStatuses(plugin.settings.customStatuses, {
+				inbox: translate("settings.taskProperties.triage.inboxLabel"),
+				someday: translate("settings.taskProperties.triage.somedayLabel"),
+			});
+			plugin.settings.customStatuses = result.statuses;
+			plugin.settings.triage.inboxStatus = result.inboxValue;
+			plugin.settings.triage.somedayStatus = result.somedayValue;
+			plugin.statusManager.updateStatuses(plugin.settings.customStatuses);
+			save();
+			onStatusesReplaced();
+			new Notice(translate("settings.taskProperties.triage.enabledNotice"));
+		};
+		rows.push(
+			{
+				label: "",
+				input: createPropertyDescription(
+					translate("settings.taskProperties.triage.enableDesc")
+				),
+				fullWidth: true,
+			},
+			{ label: translate("settings.taskProperties.triage.enable"), input: enableButton }
+		);
+	}
+
+	const statusOptions = [
+		{ value: "", label: translate("settings.taskProperties.triage.none") },
+		...plugin.settings.customStatuses
+			.filter((s) => !s.isCompleted)
+			.map((s) => ({ value: s.value, label: s.label || s.value })),
+	];
+	const inboxSelect = createCardSelect(statusOptions, triage.inboxStatus);
+	inboxSelect.addEventListener("change", () => {
+		plugin.settings.triage.inboxStatus = inboxSelect.value;
+		save();
+		renderTriageSection(container, plugin, save, translate, onStatusesReplaced);
+	});
+	const somedaySelect = createCardSelect(statusOptions, triage.somedayStatus);
+	somedaySelect.addEventListener("change", () => {
+		plugin.settings.triage.somedayStatus = somedaySelect.value;
+		save();
+	});
+	const captureToggle = createCardToggle(triage.captureToInbox, (value) => {
+		plugin.settings.triage.captureToInbox = value;
+		save();
+		renderTriageSection(container, plugin, save, translate, onStatusesReplaced);
+	});
+
+	rows.push(
+		{ label: translate("settings.taskProperties.triage.inboxStatus"), input: inboxSelect },
+		{ label: translate("settings.taskProperties.triage.somedayStatus"), input: somedaySelect },
+		{
+			label: "",
+			input: createPropertyDescription(
+				translate("settings.taskProperties.triage.captureToInboxDesc")
+			),
+			fullWidth: true,
+		},
+		{ label: translate("settings.taskProperties.triage.captureToInbox"), input: captureToggle }
+	);
+
+	const blocked = captureBlockedByDefaults(plugin.settings.taskCreationDefaults);
+	if (triage.inboxStatus && triage.captureToInbox && blocked.length > 0) {
+		const fields = blocked
+			.map((field) =>
+				translate(
+					field === "scheduled"
+						? "settings.taskProperties.triage.defaultsFieldScheduled"
+						: "settings.taskProperties.triage.defaultsFieldDue"
+				)
+			)
+			.join(" / ");
+		const setNoneButton = activeWindow.createEl("button", {
+			text: translate("settings.taskProperties.triage.defaultsSetNone"),
+			cls: "tn-btn tn-btn--ghost",
+		});
+		setNoneButton.onclick = () => {
+			const defaults = plugin.settings.taskCreationDefaults;
+			if (blocked.includes("scheduled")) defaults.defaultScheduledDate = "none";
+			if (blocked.includes("due")) defaults.defaultDueDate = "none";
+			save();
+			renderTriageSection(container, plugin, save, translate, onStatusesReplaced);
+		};
+		rows.push(
+			{
+				label: "",
+				input: createPropertyDescription(
+					translate("settings.taskProperties.triage.defaultsBlockCapture", { fields })
+				),
+				fullWidth: true,
+			},
+			{ label: "", input: setNoneButton }
+		);
+	}
+
+	createCard(container, {
+		id: "status-triage",
+		header: { primaryText: translate("settings.taskProperties.triage.heading") },
+		content: { sections: [{ rows }] },
 	});
 }
 
