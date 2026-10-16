@@ -2,7 +2,22 @@ import type { TaskInfo } from "../types";
 import type { EnergyKind, EnergySettings } from "../types/settings";
 import type { DayItem } from "./dayPlan";
 
-export interface EnergyContribution { item: DayItem; kind: EnergyKind; minutes: number; points: number; assumedSize: boolean }
+/**
+ * One item's effect on the day. A task can have a spent part (time tracked on the date,
+ * or the size of a task completed that day) and a planned part (what is still left);
+ * both are merged into one contribution so the effects list shows one row per item.
+ * `minutes`/`points` are the totals (projected); `doneMinutes`/`donePoints` the spent
+ * part (now). `assumedSize` marks a planned or completed size taken from the default.
+ */
+export interface EnergyContribution {
+	item: DayItem;
+	kind: EnergyKind;
+	minutes: number;
+	points: number;
+	doneMinutes: number;
+	donePoints: number;
+	assumedSize: boolean;
+}
 
 export interface DayEnergy {
 	date: string;
@@ -26,6 +41,7 @@ export interface EnergyOptions {
 
 const FALLBACK_TASK_MINUTES = 30;
 const clamp = (v: number) => Math.max(0, Math.min(100, Math.round(v)));
+const round1 = (v: number) => Math.round(v * 10) / 10;
 
 export function levelOf(value: number, lowThreshold: number): "low" | "ok" | "high" {
 	if (value < lowThreshold) return "low";
@@ -39,24 +55,36 @@ function rate(kind: EnergyKind, e: EnergySettings): number {
 	return -e.steadyPerHour;
 }
 
-function sizeOf(item: DayItem, kind: EnergyKind, opts: EnergyOptions): { minutes: number; assumed: boolean } | null {
-	if (item.kind === "task" && item.task) {
-		const t = item.task;
-		const fallback = opts.defaultEstimate ?? FALLBACK_TASK_MINUTES;
-		if (item.done) {
-			if (item.trackedMinutes > 0) return { minutes: item.trackedMinutes, assumed: false };
-			if (t.timeEstimate) return { minutes: t.timeEstimate, assumed: false };
-			return { minutes: fallback, assumed: true };
-		}
-		const size = opts.sizeOpenTask(t);
-		if (size === null) return { minutes: fallback, assumed: true };
-		return { minutes: Math.max(0, size - item.trackedMinutes), assumed: false };
+interface Size { done: number; planned: number; assumed: boolean }
+
+/** Energy spent on a date is time tracked on that date; what is left is planned. */
+function taskSize(item: DayItem, task: TaskInfo, opts: EnergyOptions): Size {
+	const fallback = opts.defaultEstimate ?? FALLBACK_TASK_MINUTES;
+	const today = item.trackedOnDateMinutes;
+	if (item.done) {
+		if (today > 0) return { done: today, planned: 0, assumed: false };
+		// Tracked only on other days: that energy was spent then.
+		if (item.trackedMinutes > 0) return { done: 0, planned: 0, assumed: false };
+		if (task.timeEstimate) return { done: task.timeEstimate, planned: 0, assumed: false };
+		return { done: fallback, planned: 0, assumed: true };
 	}
+	const size = opts.sizeOpenTask(task);
+	const planned = Math.max(0, (size ?? fallback) - item.trackedMinutes);
+	return { done: today, planned, assumed: size === null && planned > 0 };
+}
+
+function sizeOf(item: DayItem, kind: EnergyKind, opts: EnergyOptions): Size | null {
+	if (item.kind === "task" && item.task) return taskSize(item, item.task, opts);
+	let minutes: number;
 	if (item.allDay) {
-		return kind === "steady" ? null : { minutes: opts.energy.allDayMinutes, assumed: false };
+		if (kind === "steady") return null;
+		minutes = opts.energy.allDayMinutes;
+	} else if (item.interval) {
+		minutes = (item.interval.end - item.interval.start) / 60_000;
+	} else {
+		return null;
 	}
-	if (!item.interval) return null;
-	return { minutes: (item.interval.end - item.interval.start) / 60_000, assumed: false };
+	return item.done ? { done: minutes, planned: 0, assumed: false } : { done: 0, planned: minutes, assumed: false };
 }
 
 export function computeDayEnergy(items: DayItem[], opts: EnergyOptions): DayEnergy {
@@ -76,19 +104,21 @@ export function computeDayEnergy(items: DayItem[], opts: EnergyOptions): DayEner
 		if (item.kind === "task" && coveredTasks.has(item.ref)) continue;
 		const kind = opts.kindOf(item.contexts);
 		const size = sizeOf(item, kind, opts);
-		if (!size || size.minutes <= 0) continue;
-		const h = size.minutes / 60;
-		const points = Math.round(rate(kind, opts.energy) * h * 10) / 10;
-		hours[kind] += h;
+		if (!size) continue;
+		const minutes = size.done + size.planned;
+		if (minutes <= 0) continue;
+		const r = rate(kind, opts.energy);
+		const donePoints = round1((r * size.done) / 60);
+		const points = round1(donePoints + round1((r * size.planned) / 60));
+		hours[kind] += minutes / 60;
 		if (size.assumed) assumedSizeCount++;
 		projectedSum += points;
-		if (item.done) nowSum += points;
-		contributions.push({ item, kind, minutes: size.minutes, points, assumedSize: size.assumed });
+		nowSum += donePoints;
+		contributions.push({ item, kind, minutes, points, doneMinutes: size.done, donePoints, assumedSize: size.assumed });
 	}
 
 	contributions.sort((a, b) => Math.abs(b.points) - Math.abs(a.points) || b.minutes - a.minutes);
 	const projected = clamp(opts.energy.baseline + projectedSum);
-	const round1 = (v: number) => Math.round(v * 10) / 10;
 
 	return {
 		date: opts.date,

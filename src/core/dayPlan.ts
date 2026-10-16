@@ -13,6 +13,9 @@ export interface DayItem {
 	// Minutes already tracked against this item: the date's time entries for a
 	// recurring instance, the task's lifetime total otherwise, 0 for non-tasks.
 	trackedMinutes: number;
+	// Minutes from time entries that started on this date, for any task (recurring or
+	// not); 0 for non-tasks. Energy counts this as spent on the date.
+	trackedOnDateMinutes: number;
 	task?: TaskInfo;
 	sourceId?: string;
 	responseStatus?: CalendarResponseStatus;
@@ -81,10 +84,11 @@ function taskItem(task: TaskInfo, input: DayPlanInput): DayItem | null {
 		const start = localTime(date, time);
 		interval = { start, end: start + (task.timeEstimate || 30) * 60_000 };
 	}
-	const trackedMinutes = task.recurrence ? trackedOnDate(task, date, input.now) : (task.totalTrackedTime ?? 0);
+	const trackedOnDateMinutes = trackedOnDate(task, date, input.now);
+	const trackedMinutes = task.recurrence ? trackedOnDateMinutes : (task.totalTrackedTime ?? 0);
 	return {
 		kind: "task", ref: task.path, date, title: task.title, interval, allDay: !interval, contexts: task.contexts ?? [], done,
-		trackedMinutes, task,
+		trackedMinutes, trackedOnDateMinutes, task,
 	};
 }
 
@@ -93,7 +97,7 @@ function eventItem(event: ICSEvent, input: DayPlanInput): DayItem | null {
 	const { date } = input;
 	const external = input.externalContextFor(event);
 	const base = {
-		kind: "event" as const, ref: event.id, date, title: event.title, contexts: external ? [external] : [], trackedMinutes: 0,
+		kind: "event" as const, ref: event.id, date, title: event.title, contexts: external ? [external] : [], trackedMinutes: 0, trackedOnDateMinutes: 0,
 		sourceId: event.subscriptionId, responseStatus: event.responseStatus,
 	};
 	if (event.allDay) {
@@ -119,7 +123,7 @@ function timeblockItem(tb: TimeBlock, input: DayPlanInput): DayItem {
 	const end = endsAtMidnight ? localDayBounds(input.date).end : localTime(input.date, tb.endTime);
 	const interval = { start, end };
 	return {
-		kind: "timeblock", ref: tb.id, date: input.date, title: tb.title, interval, allDay: false, trackedMinutes: 0,
+		kind: "timeblock", ref: tb.id, date: input.date, title: tb.title, interval, allDay: false, trackedMinutes: 0, trackedOnDateMinutes: 0,
 		contexts: tb.context ? [tb.context] : [], done: interval.end <= input.now,
 		attachments: (tb.attachments ?? []).map((l) => input.resolveAttachment(l)).filter((p): p is string => !!p),
 	};

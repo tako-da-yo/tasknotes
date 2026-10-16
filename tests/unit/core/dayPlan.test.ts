@@ -47,6 +47,7 @@ describe("collectDayItems: tasks", () => {
 		});
 		const [item] = collectDayItems(input({ isRecurringOnDate: () => true, tasks: [task] }));
 		expect(item.trackedMinutes).toBe(20 + 5 + 10);
+		expect(item.trackedOnDateMinutes).toBe(20 + 5 + 10);
 	});
 	it("uses totalTrackedTime for a non-recurring task and 0 for other items", () => {
 		const items = collectDayItems(input({
@@ -56,6 +57,17 @@ describe("collectDayItems: tasks", () => {
 			timeblocks: [{ id: "tb", title: "B", startTime: "09:00", endTime: "10:00" }],
 		}));
 		expect(items.map((i) => [i.kind, i.trackedMinutes])).toEqual([["task", 42], ["event", 0], ["timeblock", 0]]);
+		expect(items.map((i) => i.trackedOnDateMinutes)).toEqual([0, 0, 0]);
+	});
+	it("counts the date's time entries as trackedOnDateMinutes for a non-recurring task", () => {
+		const [item] = collectDayItems(input({
+			tasks: [TaskFactory.createTask({ path: "n.md", scheduled: "2026-10-15", totalTrackedTime: 70,
+				timeEntries: [
+					{ startTime: "2026-10-01T09:00:00Z", endTime: "2026-10-01T09:40:00Z" },
+					{ startTime: "2026-10-15T09:00:00Z", endTime: "2026-10-15T09:30:00Z" },
+				] })],
+		}));
+		expect(item).toMatchObject({ trackedMinutes: 70, trackedOnDateMinutes: 30 });
 	});
 	it("carries the task, event and timeblock title", () => {
 		const items = collectDayItems(input({

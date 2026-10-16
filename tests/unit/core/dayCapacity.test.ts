@@ -14,11 +14,11 @@ const opts = (o: Partial<CapacityOptions> = {}): CapacityOptions => ({
 	...o,
 });
 const taskItem = (est: number | undefined, tracked = 0, done = false): DayItem => ({
-	kind: "task", ref: `t${est}-${tracked}`, date: "2026-10-15", allDay: true, contexts: [], done, trackedMinutes: tracked,
+	kind: "task", ref: `t${est}-${tracked}`, date: "2026-10-15", allDay: true, contexts: [], done, trackedMinutes: tracked, trackedOnDateMinutes: 0,
 	task: TaskFactory.createTask({ path: `t${est}-${tracked}`, timeEstimate: est, totalTrackedTime: tracked }),
 });
 const event = (start: string, end: string, extra: Partial<DayItem> = {}): DayItem => ({
-	kind: "event", ref: start, date: "2026-10-15", allDay: false, contexts: [], done: false, trackedMinutes: 0, sourceId: "ics1",
+	kind: "event", ref: start, date: "2026-10-15", allDay: false, contexts: [], done: false, trackedMinutes: 0, trackedOnDateMinutes: 0, sourceId: "ics1",
 	interval: { start: t(start), end: t(end) }, ...extra,
 });
 
@@ -73,7 +73,7 @@ describe("computeDayCapacity", () => {
 		const recurring: DayItem = {
 			...taskItem(30),
 			task: TaskFactory.createTask({ path: "r", recurrence: "FREQ=DAILY", timeEstimate: 30, totalTrackedTime: 300 }),
-			trackedMinutes: 0,
+			trackedMinutes: 0, trackedOnDateMinutes: 0,
 		};
 		expect(computeDayCapacity([recurring], opts()).plannedMinutes).toBe(30);
 	});

@@ -128,8 +128,8 @@ export class EnergyPanel {
 		const mix = el.createDiv({ cls: "tn-energy-panel__mix" });
 		for (const kind of ["spark", "steady", "drain"] as const) {
 			const doneHours = e.contributions
-				.filter((c) => c.kind === kind && c.item.done)
-				.reduce((s, c) => s + c.minutes / 60, 0);
+				.filter((c) => c.kind === kind)
+				.reduce((s, c) => s + c.doneMinutes / 60, 0);
 			mix.createDiv({
 				cls: `tn-energy-panel__mix-row tn-energy-panel__mix-row--${kind}`,
 				text: t("energy.panel.mix", {

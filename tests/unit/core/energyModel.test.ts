@@ -13,12 +13,13 @@ const opts = (o: Partial<EnergyOptions> = {}): EnergyOptions => ({
 	...o,
 });
 const timed = (kind: DayItem["kind"], ctx: string, hours: number, done = false, extra: Partial<DayItem> = {}): DayItem => ({
-	kind, ref: `${kind}-${ctx}-${hours}`, date: "2026-10-15", allDay: false, contexts: [ctx], done, trackedMinutes: 0,
+	kind, ref: `${kind}-${ctx}-${hours}`, date: "2026-10-15", allDay: false, contexts: [ctx], done, trackedMinutes: 0, trackedOnDateMinutes: 0,
 	interval: { start: 0, end: hours * H }, ...extra,
 });
-const task = (ctx: string, estimate: number | undefined, extra: Partial<DayItem> = {}, taskExtra: { totalTrackedTime?: number } = {}): DayItem => ({
+// `today` is the minutes tracked on the plan date (trackedOnDateMinutes); it defaults to 0.
+const task = (ctx: string, estimate: number | undefined, extra: Partial<DayItem> = {}, taskExtra: { totalTrackedTime?: number } = {}, today = 0): DayItem => ({
 	kind: "task", ref: `t-${ctx}-${estimate}.md`, date: "2026-10-15", allDay: true, contexts: [ctx], done: false,
-	trackedMinutes: taskExtra.totalTrackedTime ?? 0,
+	trackedMinutes: taskExtra.totalTrackedTime ?? 0, trackedOnDateMinutes: today,
 	task: TaskFactory.createTask({ path: `t-${ctx}-${estimate}.md`, contexts: [ctx], timeEstimate: estimate, ...taskExtra }), ...extra,
 });
 
@@ -46,13 +47,46 @@ describe("computeDayEnergy", () => {
 		const e = computeDayEnergy([timed("event", "renamed-context", 3)], opts());
 		expect(e).toMatchObject({ projected: 70, hasSignal: false });
 	});
-	it("sizes open tasks by remaining estimate and completed tasks by tracked time", () => {
+	it("sizes open tasks by remaining estimate and completed tasks by time tracked on the date", () => {
 		const e = computeDayEnergy([
-			task("admin", 120, {}, { totalTrackedTime: 60 }),            // remaining 60m -> -10
-			task("admin", 60, { done: true }, { totalTrackedTime: 120 }), // tracked 120m -> -20
+			task("admin", 120, {}, { totalTrackedTime: 60 }),                  // tracked earlier; remaining 60m -> -10 planned
+			task("admin", 60, { done: true }, { totalTrackedTime: 120 }, 120), // tracked 120m today -> -20 done
 		], opts());
 		expect(e.projected).toBe(40);
 		expect(e.now).toBe(50);
+	});
+	it("counts time tracked today as spent: 2h of a 3h drain task -> now 50, projected 40", () => {
+		const e = computeDayEnergy([task("admin", 180, {}, { totalTrackedTime: 120 }, 120)], opts());
+		expect(e.now).toBe(70 - 20);
+		expect(e.projected).toBe(70 - 30);
+		expect(e.contributions).toHaveLength(1);
+		expect(e.contributions[0]).toMatchObject({ minutes: 180, doneMinutes: 120, points: -30, donePoints: -20 });
+	});
+	it("tracking today does not raise the battery: projected stays, now drops", () => {
+		const before = computeDayEnergy([task("admin", 180)], opts());
+		const after = computeDayEnergy([task("admin", 180, {}, { totalTrackedTime: 60 }, 60)], opts());
+		expect(before).toMatchObject({ projected: 40, now: 70 });
+		expect(after).toMatchObject({ projected: 40, now: 60 });
+	});
+	it("an open task tracked only on earlier days counts just its remaining time, as planned", () => {
+		const e = computeDayEnergy([task("admin", 180, {}, { totalTrackedTime: 60 })], opts());
+		expect(e).toMatchObject({ projected: 50, now: 70 });
+	});
+	it("a completed task tracked only on earlier days contributes 0", () => {
+		const e = computeDayEnergy([task("admin", 60, { done: true }, { totalTrackedTime: 90 })], opts());
+		expect(e.contributions).toHaveLength(0);
+		expect(e).toMatchObject({ projected: 70, now: 70 });
+	});
+	it("a completed task with no tracked time uses its estimate, else the fallback (assumed), as done", () => {
+		const est = computeDayEnergy([task("admin", 60, { done: true })], opts());
+		expect(est).toMatchObject({ projected: 60, now: 60, assumedSizeCount: 0 });
+		const fallback = computeDayEnergy([task("admin", undefined, { done: true })], opts());
+		expect(fallback).toMatchObject({ projected: 65, now: 65, assumedSizeCount: 1 });
+	});
+	it("an unestimated open task assumes the fallback minus tracked time", () => {
+		const e = computeDayEnergy([task("admin", undefined, {}, { totalTrackedTime: 12 }, 12)], opts());
+		// 12m done (-2) + 18m assumed (-3)
+		expect(e).toMatchObject({ now: 68, projected: 65, assumedSizeCount: 1 });
 	});
 	it("uses default estimate or 30 for unestimated tasks and counts them as assumed", () => {
 		expect(computeDayEnergy([task("admin", undefined)], opts()).assumedSizeCount).toBe(1);
@@ -60,7 +94,7 @@ describe("computeDayEnergy", () => {
 		expect(computeDayEnergy([task("admin", undefined)], opts({ defaultEstimate: 60 })).projected).toBe(60);
 	});
 	it("counts all-day events only when spark or drain", () => {
-		const allDay = (ctx: string): DayItem => ({ kind: "event", ref: ctx, date: "2026-10-15", allDay: true, contexts: [ctx], done: false, trackedMinutes: 0 });
+		const allDay = (ctx: string): DayItem => ({ kind: "event", ref: ctx, date: "2026-10-15", allDay: true, contexts: [ctx], done: false, trackedMinutes: 0, trackedOnDateMinutes: 0 });
 		expect(computeDayEnergy([allDay("work")], opts()).contributions).toHaveLength(0);
 		expect(computeDayEnergy([allDay("admin")], opts()).projected).toBe(30);
 	});

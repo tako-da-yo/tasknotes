@@ -1,9 +1,9 @@
 import { EnergyPanel, EnergyPanelDeps } from "../../../src/components/EnergyPanel";
 
 const t = (k: string, p: Record<string, string | number> = {}) => `${k}${Object.keys(p).length ? JSON.stringify(p) : ""}`;
-const contribution = (points: number, kind = "drain") => ({
-	item: { kind: "event", ref: `e${points}`, date: "2026-10-15", allDay: false, contexts: [], done: false, trackedMinutes: 0 },
-	kind, minutes: 90, points, assumedSize: false,
+const contribution = (points: number, kind = "drain", doneMinutes = 0) => ({
+	item: { kind: "event", ref: `e${points}`, date: "2026-10-15", allDay: false, contexts: [], done: false, trackedMinutes: 0, trackedOnDateMinutes: 0 },
+	kind, minutes: 90, points, doneMinutes, donePoints: 0, assumedSize: false,
 });
 const dayEnergy = (projected: number, now = 62, contributions: unknown[] = [contribution(-15)]) => ({
 	date: "2026-10-15", projected, now, hours: { spark: 1, steady: 4, drain: 3 },
@@ -33,6 +33,13 @@ describe("EnergyPanel", () => {
 		expect(low).not.toBeNull();
 		(low.querySelector("button") as HTMLElement).click();
 		expect(d.showDrainTasks).toHaveBeenCalled();
+	});
+	it("counts done hours from the spent part of each contribution", async () => {
+		const el = document.createElement("div");
+		// An open task with 60 of its 90 minutes tracked today.
+		const d = deps({ getDayEnergy: async () => dayEnergy(40, 62, [contribution(-15, "drain", 60)]) });
+		await new EnergyPanel(el, d, { date: "2026-10-15", navigable: false }).render();
+		expect(el.querySelector(".tn-energy-panel__mix-row--drain")?.textContent).toContain('"done":1');
 	});
 	it("shows the empty state when inactive", async () => {
 		const el = document.createElement("div");
