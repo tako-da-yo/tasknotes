@@ -9530,7 +9530,7 @@
     },
     "energy.panel.lowBody": {
       "source": "d71c4af5b62d62973f765cedcdaf4ba915dffdf4",
-      "translation": "88570409ebd99105da07d0c07b27ef3489423726"
+      "translation": "d57971e29a2b312b201759118f77b3e55cb311e5"
     },
     "energy.panel.showDrains": {
       "source": "6aa4845d0a2f36b986bb1c79db1238ecb578258b",
@@ -9570,19 +9570,19 @@
     },
     "energy.panel.drainsPlaceholder": {
       "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
-      "translation": "91ebf47411cd2a134a24c37bc0bf90a2bd3abfb5"
+      "translation": "bd87068910f4ad6183f09d147cbd52b78e14fddd"
     },
     "energy.panel.sparkPlaceholder": {
       "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
-      "translation": "47947a48030d4bd81c09b53d12345ab453ce2620"
+      "translation": "a0467ada0c4c863323fb1e4622837fece9954b46"
     },
     "energy.panel.noDrains": {
       "source": "8698a47f0b4f8a8bfdc58f9e8b93ff954224c2a2",
-      "translation": "85f736fe8bf1e07bad3e9610dda0aa4987067eb1"
+      "translation": "de79bec2d4765fb6b7f8e36aa15117931155e5a3"
     },
     "energy.panel.noSparks": {
       "source": "bcd81a13d821ea8b0b4a2fcfb90b98ef5196dc78",
-      "translation": "b27ce0669a5dc785fc737d9deb215a38b9cd5313"
+      "translation": "2af19f40382ec648e9de3b2fabcb386cd171c9c4"
     },
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
@@ -30848,7 +30848,7 @@
     },
     "settings.features.energy.baseline": {
       "source": "2183e31cc2290cc9678f0da6e252dbe0fa9abfb7",
-      "translation": "ba18d96290df741c90dee948eb40bcc0aed9d4e8"
+      "translation": "40687d2dabfeb0de32b5d36f34b472a88e8f08c2"
     },
     "settings.features.energy.sparkPerHour": {
       "source": "374d9b26cd6faa4931cae4c856a956ba04af57a4",
@@ -40486,7 +40486,7 @@
     },
     "settings.features.energy.baseline": {
       "source": "2183e31cc2290cc9678f0da6e252dbe0fa9abfb7",
-      "translation": "24853ba3e642390fa6e00132ba64b1ba52bf8ac6"
+      "translation": "7fb77e9437b475c642fcebc5f1a5051a3f810e8a"
     },
     "settings.features.energy.sparkPerHour": {
       "source": "374d9b26cd6faa4931cae4c856a956ba04af57a4",

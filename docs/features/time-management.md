@@ -91,7 +91,7 @@ With the default rates, a Spark hour adds 10 points, a Drain hour removes 10 and
 How long each item counts for:
 
 - **Open tasks** use their remaining estimate: the time estimate minus time already tracked. When **Use calibrated estimates for planning** is on, the calibrated estimate is used. Tasks without an estimate count as **Default estimate for tasks without one**, or 30 minutes if that is empty, and the energy panel notes how many items were sized this way.
-- **Completed tasks** use their tracked time (for recurring tasks, the time tracked that day), or their estimate if nothing was tracked.
+- **Completed tasks** use their tracked time (for recurring tasks, the time tracked that day), or their estimate if nothing was tracked, or otherwise **Default estimate for tasks without one** (30 minutes if that is empty).
 - **Calendar events and timeblocks** use their duration, including time outside your work hours. Declined invitations never count.
 - **All-day events** only count when their context is Spark or Drain, as **Size of an all-day event (minutes)** (240 by default).
 

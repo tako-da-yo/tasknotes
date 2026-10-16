@@ -720,7 +720,7 @@ export const ja: TranslationTree = {
 				heading: "エネルギー",
 				enabled: "エネルギーレベルを表示",
 				enabledDesc: "コンテキストを充電・安定・消耗に分類して、1日のバッテリー残量を表示します。",
-				baseline: "朝の充電量（%）",
+				baseline: "朝のバッテリー残量（%）",
 				sparkPerHour: "充電：1時間あたりに回復するポイント",
 				drainPerHour: "消耗：1時間あたりに減るポイント",
 				steadyPerHour: "安定：1時間あたりに減るポイント",

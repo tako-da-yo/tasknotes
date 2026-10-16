@@ -720,7 +720,7 @@ export const ko: TranslationTree = {
 				heading: "에너지",
 				enabled: "에너지 수준 표시",
 				enabledDesc: "컨텍스트를 충전, 안정 또는 소모로 표시하여 하루 배터리 수준을 확인합니다.",
-				baseline: "아침 충전량 (%)",
+				baseline: "아침 배터리 수준 (%)",
 				sparkPerHour: "충전: 시간당 얻는 포인트",
 				drainPerHour: "소모: 시간당 잃는 포인트",
 				steadyPerHour: "안정: 시간당 잃는 포인트",
