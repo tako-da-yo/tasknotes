@@ -417,6 +417,8 @@ export const DEFAULT_SETTINGS: TaskNotesSettings = {
 	pendingSelectAllCalendarProviders: [],
 	contextGroups: [],
 	fallbackContext: "",
+	triage: { inboxStatus: "", somedayStatus: "", captureToInbox: true },
+	triageLastFreshStart: null,
 	externalEventContexts: {},
 	// Google Calendar task export settings
 	googleCalendarExport: DEFAULT_GOOGLE_CALENDAR_EXPORT,

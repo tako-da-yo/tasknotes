@@ -107,6 +107,23 @@ export interface ContextGroup {
 	contexts: ContextDefinition[];
 }
 
+export interface TriageSettings {
+	inboxStatus: string;
+	somedayStatus: string;
+	captureToInbox: boolean;
+}
+
+export interface FreshStartSnapshotEntry {
+	path: string;
+	before: { scheduled?: string; due?: string; status: string };
+	after: { scheduled?: string; due?: string; status: string };
+}
+
+export interface FreshStartSnapshot {
+	runAt: string;
+	entries: FreshStartSnapshotEntry[];
+}
+
 export interface TaskNotesSettings {
 	tasksFolder: string; // Now just a default location for new tasks
 	moveArchivedTasks: boolean; // Whether to move tasks to archive folder when archived
@@ -278,6 +295,10 @@ export interface TaskNotesSettings {
 	contextGroups: ContextGroup[];
 	// Context whose color is used for items without a context ("" = none)
 	fallbackContext: string;
+	// Inbox triage settings ("" statuses = feature off)
+	triage: TriageSettings;
+	// Last Fresh Start run, kept so it can be undone
+	triageLastFreshStart: FreshStartSnapshot | null;
 	// Contexts applied to external calendar events, keyed by event (or recurring series)
 	externalEventContexts: Record<string, string>;
 	// Google Calendar task export settings
