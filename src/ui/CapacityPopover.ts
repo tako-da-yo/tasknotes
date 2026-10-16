@@ -1,9 +1,10 @@
-import { App, Modal, Notice, TFile } from "obsidian";
+import { App, Modal, Notice, setTooltip, TFile } from "obsidian";
 import type TaskNotesPlugin from "../main";
-import type { DayCapacity } from "../core/dayCapacity";
+import type { TaskInfo } from "../types";
+import { inboxMoveBlock, type DayCapacity } from "../core/dayCapacity";
 import { formatTime } from "../utils/helpers";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
-import { capacityStatusText } from "./capacityText";
+import { capacityPopoverSummary } from "./capacityText";
 
 const logger = createTaskNotesLogger({ tag: "UI/CapacityPopover" });
 
@@ -12,6 +13,7 @@ const TODAY_VIEW_NAME = "Today";
 
 /**
  * Shows a day's capacity: planned tasks, unestimated count and shortcuts.
+ * Each task row can be sent back to the inbox when the inbox is set up.
  *
  * TaskNotes has no anchored popover component, and an Obsidian Menu cannot hold
  * this content, so this is a small modal on every platform. The anchor, when
@@ -39,6 +41,7 @@ export function openCapacityPopover(
 class CapacityModal extends Modal {
 	/** Cleared when the modal closes because the user navigated somewhere. */
 	private restoreFocus = true;
+	private closed = false;
 
 	constructor(
 		app: App,
@@ -50,38 +53,41 @@ class CapacityModal extends Modal {
 	}
 
 	onOpen(): void {
-		const { contentEl, plugin, capacity } = this;
-		const t = (key: string, params?: Record<string, string | number>) =>
-			plugin.i18n.translate(key, params);
-
 		this.modalEl.addClass("tn-capacity-popover");
-		this.setTitle(t("capacity.ariaLabel"));
+		this.setTitle(this.t("capacity.ariaLabel"));
+		this.render();
+	}
 
-		const summary =
-			capacityStatusText(capacity, t, formatTime) ??
-			(capacity.hasWorkHours
-				? t("capacity.status", {
-						planned: formatTime(0),
-						free: formatTime(capacity.availableMinutes),
-					})
-				: t("capacity.noWorkHours", { planned: formatTime(0) }));
+	private t(key: string, params?: Record<string, string | number>): string {
+		return this.plugin.i18n.translate(key, params);
+	}
+
+	private render(): void {
+		const { contentEl, plugin, capacity } = this;
+		const t = (key: string, params?: Record<string, string | number>) => this.t(key, params);
+		contentEl.empty();
+
 		contentEl.createDiv({
 			cls: "tn-capacity-popover__summary",
-			text: summary,
+			text: capacityPopoverSummary(capacity, t, formatTime),
 		}).toggleClass("is-over", capacity.overByMinutes > 0);
 
+		const inboxReady = !!plugin.triageService?.isInboxReady();
 		const rows = capacity.tasks.filter((task) => task.minutes > 0);
 		if (rows.length > 0) {
 			const list = contentEl.createDiv({ cls: "tn-capacity-popover__list" });
 			for (const row of rows) {
-				const title =
-					plugin.cacheManager.getCachedTaskInfoSync(row.path)?.title ?? row.path;
-				const rowEl = list.createEl("button", {
-					cls: "tn-capacity-popover__row",
+				const task = plugin.cacheManager.getCachedTaskInfoSync(row.path);
+				const rowEl = list.createDiv({ cls: "tn-capacity-popover__row" });
+				const openEl = rowEl.createEl("button", {
+					cls: "tn-capacity-popover__open",
 					attr: { type: "button" },
 				});
-				rowEl.createSpan({ cls: "tn-capacity-popover__title", text: title });
-				const meta = rowEl.createSpan({ cls: "tn-capacity-popover__meta" });
+				openEl.createSpan({
+					cls: "tn-capacity-popover__title",
+					text: task?.title ?? row.path,
+				});
+				const meta = openEl.createSpan({ cls: "tn-capacity-popover__meta" });
 				if (row.calibrated) {
 					meta.createSpan({
 						cls: "tn-capacity-popover__tag",
@@ -89,9 +95,13 @@ class CapacityModal extends Modal {
 					});
 				}
 				meta.createSpan({ text: formatTime(row.minutes) });
-				rowEl.addEventListener("click", () => {
+				openEl.addEventListener("click", () => {
 					void this.openTask(row.path);
 				});
+
+				if (inboxReady && task) {
+					this.renderMoveButton(rowEl, task);
+				}
 			}
 		}
 
@@ -112,24 +122,50 @@ class CapacityModal extends Modal {
 			this.closeAndNavigate();
 			void plugin.openBasesFileForCommand("open-tasks-view", TODAY_VIEW_NAME);
 		});
+	}
 
-		if (plugin.triageService?.isInboxReady()) {
-			const moveToInbox = actions.createEl("button", {
-				text: t("capacity.moveToInbox"),
-				attr: { type: "button" },
+	private renderMoveButton(rowEl: HTMLElement, task: TaskInfo): void {
+		const block = inboxMoveBlock(task, this.capacity.date);
+		const button = rowEl.createEl("button", {
+			cls: "tn-capacity-popover__move",
+			text: this.t("capacity.moveRowToInbox"),
+			attr: { type: "button" },
+		});
+		if (block) {
+			button.disabled = true;
+			setTooltip(
+				button,
+				this.t(block === "due" ? "capacity.moveBlockedDue" : "capacity.moveBlockedRecurring")
+			);
+			return;
+		}
+		button.addEventListener("click", () => {
+			button.disabled = true;
+			void this.moveToInbox(task);
+		});
+	}
+
+	private async moveToInbox(task: TaskInfo): Promise<void> {
+		try {
+			await this.plugin.triageService.moveToInbox(task);
+			const capacity = await this.plugin.capacityService.getDayCapacity(this.capacity.date);
+			if (this.closed) return;
+			this.capacity = capacity;
+			this.render();
+		} catch (error) {
+			logger.error("Failed to move task to inbox from capacity popover:", {
+				category: "persistence",
+				operation: "capacity-move-to-inbox",
+				details: { path: task.path },
+				error,
 			});
-			moveToInbox.addEventListener("click", () => {
-				this.closeAndNavigate();
-				void (async () => {
-					await plugin.openBasesFileForCommand("open-tasks-view", TODAY_VIEW_NAME);
-					plugin.taskSelectionService?.enterSelectionMode();
-					new Notice(t("capacity.moveToInboxHint"));
-				})();
-			});
+			new Notice(this.t("capacity.moveFailed"));
+			if (!this.closed) this.render();
 		}
 	}
 
 	onClose(): void {
+		this.closed = true;
 		this.contentEl.empty();
 		if (this.restoreFocus && this.anchor?.isConnected) this.anchor.focus();
 	}

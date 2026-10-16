@@ -80,6 +80,15 @@ export class TriageService {
 		await this.deps.updateTask(current, revert.previous);
 	}
 
+	/** Sends a task back to the inbox, clearing its scheduled date so it leaves that day. */
+	async moveToInbox(task: TaskInfo): Promise<void> {
+		if (!this.isInboxReady()) throw new Error("The inbox status is not configured");
+		const current = this.findTask(task.path) ?? task;
+		const updates: Partial<TaskInfo> = { status: this.deps.getSettings().triage.inboxStatus };
+		if (current.scheduled) updates.scheduled = undefined;
+		await this.deps.updateTask(current, updates);
+	}
+
 	private findTask(path: string): TaskInfo | undefined {
 		return this.deps.getTasks().find((t) => t.path === path);
 	}

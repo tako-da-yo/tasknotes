@@ -145,4 +145,26 @@ describe("TriageService", () => {
 		expect(deps.settings.triageLastFreshStart).toBe(previous);
 		expect(deps.store.get("a.md")!.due).toBe("2026-10-01");
 	});
+	describe("moveToInbox", () => {
+		it("sets the inbox status and clears the scheduled date", async () => {
+			const deps = makeDeps([
+				TaskFactory.createTask({ path: "a.md", status: "open", scheduled: "2026-10-15", due: "2026-10-20" }),
+			]);
+			await new TriageService(deps).moveToInbox(deps.store.get("a.md")!);
+			expect(deps.store.get("a.md")!.status).toBe("inbox");
+			expect(deps.store.get("a.md")!.scheduled).toBeUndefined();
+			expect(deps.store.get("a.md")!.due).toBe("2026-10-20");
+		});
+		it("only changes the status when the task is unscheduled", async () => {
+			const deps = makeDeps([TaskFactory.createTask({ path: "a.md", status: "open", scheduled: undefined })]);
+			const updateTask = jest.spyOn(deps, "updateTask");
+			await new TriageService(deps).moveToInbox(deps.store.get("a.md")!);
+			expect(updateTask).toHaveBeenCalledWith(expect.objectContaining({ path: "a.md" }), { status: "inbox" });
+		});
+		it("refuses when the inbox status is unusable", async () => {
+			const deps = makeDeps([TaskFactory.createTask({ path: "a.md", status: "open" })], "deleted-status");
+			await expect(new TriageService(deps).moveToInbox(deps.store.get("a.md")!)).rejects.toThrow();
+			expect(deps.store.get("a.md")!.status).toBe("open");
+		});
+	});
 });

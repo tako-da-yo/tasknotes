@@ -1,4 +1,4 @@
-import { computeDayCapacity, CapacityOptions } from "../../../src/core/dayCapacity";
+import { computeDayCapacity, CapacityOptions, inboxMoveBlock } from "../../../src/core/dayCapacity";
 import type { DayItem } from "../../../src/core/dayPlan";
 import { TaskFactory } from "../../helpers/mock-factories";
 
@@ -83,5 +83,20 @@ describe("computeDayCapacity", () => {
 		const evening = (start: string) => ({ ...planning, workHours: planning.workHours.map((h, i) => (i === 4 ? { start, end: "00:00" } : h)) });
 		expect(computeDayCapacity([], opts({ planning: evening("18:00") })).availableMinutes).toBe(360);
 		expect(computeDayCapacity([], opts({ planning: evening("00:00") })).availableMinutes).toBe(0);
+	});
+});
+
+describe("inboxMoveBlock", () => {
+	const day = "2026-10-15";
+	it("allows a task scheduled on the day", () => {
+		expect(inboxMoveBlock(TaskFactory.createTask({ scheduled: day, due: undefined }), day)).toBeNull();
+		expect(inboxMoveBlock(TaskFactory.createTask({ scheduled: `${day}T09:00`, due: "2026-10-20" }), day)).toBeNull();
+	});
+	it("blocks a task whose due date keeps it on the day", () => {
+		expect(inboxMoveBlock(TaskFactory.createTask({ scheduled: undefined, due: day }), day)).toBe("due");
+		expect(inboxMoveBlock(TaskFactory.createTask({ scheduled: day, due: `${day}T17:00` }), day)).toBe("due");
+	});
+	it("blocks recurring tasks", () => {
+		expect(inboxMoveBlock(TaskFactory.createTask({ scheduled: day, recurrence: "RRULE:FREQ=DAILY" }), day)).toBe("recurring");
 	});
 });

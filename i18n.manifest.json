@@ -2361,8 +2361,11 @@
   "capacity.unestimated": "7803476af1625807163702c80cab03afcf466159",
   "capacity.calibrated": "2daa92af282cb5e9fdce94771567c334b5a496c2",
   "capacity.openToday": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
-  "capacity.moveToInbox": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
-  "capacity.moveToInboxHint": "1cfe983c0cde7e942f364790efe1b4350927968c",
+  "capacity.empty": "61a23f36ed0cf3b86c50b5feb71f311cc8b7a57f",
+  "capacity.moveRowToInbox": "3d0700bd60f2947e536c363884cc11b34157acc0",
+  "capacity.moveBlockedDue": "6025bd7081108ff2dee6394cf6e1cb5acdae5259",
+  "capacity.moveBlockedRecurring": "06b2b71a48a5447e8fbf2785acf3be8bfff7468a",
+  "capacity.moveFailed": "36a0df46c8ac3b68aca0f48fbea4afbecf4ff85c",
   "capacity.ariaLabel": "2d53633aff86224e207cb19d42fa8f507056c3fc",
   "capacity.overbooked": "81019a63df8692e751bb245c1a54aeb2f019c25f"
 }

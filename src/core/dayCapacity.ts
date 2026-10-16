@@ -78,3 +78,17 @@ export function computeDayCapacity(items: DayItem[], opts: CapacityOptions): Day
 		hasWorkHours: !!hours,
 	};
 }
+
+/**
+ * Why moving a task to the inbox would not take it off `date`, or null when it would.
+ * Moving clears the scheduled date only, so a due date on the day keeps the task there,
+ * and recurring tasks stay on their recurrence.
+ */
+export function inboxMoveBlock(
+	task: Pick<TaskInfo, "recurrence" | "due">,
+	date: string
+): "due" | "recurring" | null {
+	if (task.recurrence) return "recurring";
+	if (task.due?.slice(0, 10) === date) return "due";
+	return null;
+}

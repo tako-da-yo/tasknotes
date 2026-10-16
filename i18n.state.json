@@ -9448,13 +9448,25 @@
       "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
       "translation": "8602ed4f0934b83981739ad0fb37ebb7f65f82bb"
     },
-    "capacity.moveToInbox": {
-      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
-      "translation": "38e3906a318af049e0fb0a30cde4d286232e771f"
+    "capacity.empty": {
+      "source": "61a23f36ed0cf3b86c50b5feb71f311cc8b7a57f",
+      "translation": "1972bb4e2e39f1df4b12654f886d407ee7156b14"
     },
-    "capacity.moveToInboxHint": {
-      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
-      "translation": "34b2052d662e13718f1dff668be3e9d1150de0ac"
+    "capacity.moveRowToInbox": {
+      "source": "3d0700bd60f2947e536c363884cc11b34157acc0",
+      "translation": "73e7437470a986ed10d5699c7eec20be5f763845"
+    },
+    "capacity.moveBlockedDue": {
+      "source": "6025bd7081108ff2dee6394cf6e1cb5acdae5259",
+      "translation": "7c7a0c05e69cb8691fbf16ee4d0d144bc288e309"
+    },
+    "capacity.moveBlockedRecurring": {
+      "source": "06b2b71a48a5447e8fbf2785acf3be8bfff7468a",
+      "translation": "4bd286a8933e935857c3c16a597a8542eedfb4ec"
+    },
+    "capacity.moveFailed": {
+      "source": "36a0df46c8ac3b68aca0f48fbea4afbecf4ff85c",
+      "translation": "50dd063f474174cf0974b43cb423ff64fb13fb5e"
     },
     "capacity.ariaLabel": {
       "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
@@ -18914,13 +18926,25 @@
       "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
       "translation": "a1e1c2eccd1fba505f37a21d4280ade5f62e27bf"
     },
-    "capacity.moveToInbox": {
-      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
-      "translation": "94fa6e11a1265e1d6c589a6896c3f1890808165b"
+    "capacity.empty": {
+      "source": "61a23f36ed0cf3b86c50b5feb71f311cc8b7a57f",
+      "translation": "4f5e52bc1b35bf91e2e3fc630e9ae5263c703807"
     },
-    "capacity.moveToInboxHint": {
-      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
-      "translation": "d6fc741a4ac93910b0452af2fc111a2acff678b6"
+    "capacity.moveRowToInbox": {
+      "source": "3d0700bd60f2947e536c363884cc11b34157acc0",
+      "translation": "21835b17cd03123398a9df6f89be6433bb8ccb1b"
+    },
+    "capacity.moveBlockedDue": {
+      "source": "6025bd7081108ff2dee6394cf6e1cb5acdae5259",
+      "translation": "16aa365aaec33aa01c4f77c2012db7d28398104b"
+    },
+    "capacity.moveBlockedRecurring": {
+      "source": "06b2b71a48a5447e8fbf2785acf3be8bfff7468a",
+      "translation": "416f9b42ba62993851772f8421ee7928633a0881"
+    },
+    "capacity.moveFailed": {
+      "source": "36a0df46c8ac3b68aca0f48fbea4afbecf4ff85c",
+      "translation": "d41632a9b8ced2f82e094d7599f842f30ed0667e"
     },
     "capacity.ariaLabel": {
       "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
@@ -28380,13 +28404,25 @@
       "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
       "translation": "05c4190b5fac88d7b087c08eca44b513283f1bd2"
     },
-    "capacity.moveToInbox": {
-      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
-      "translation": "c4116cc2a3935164162c185345c718f67086ef28"
+    "capacity.empty": {
+      "source": "61a23f36ed0cf3b86c50b5feb71f311cc8b7a57f",
+      "translation": "08fa0316fe82dde820ae2f8c5d9aa2ab4987ab24"
     },
-    "capacity.moveToInboxHint": {
-      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
-      "translation": "5f39003384d7501fbd3e5db523de68a776712694"
+    "capacity.moveRowToInbox": {
+      "source": "3d0700bd60f2947e536c363884cc11b34157acc0",
+      "translation": "e09226c44e22d80b4dc73077a3019c847384aa09"
+    },
+    "capacity.moveBlockedDue": {
+      "source": "6025bd7081108ff2dee6394cf6e1cb5acdae5259",
+      "translation": "b9be2705d63223947aa707c1336015a7c23d666e"
+    },
+    "capacity.moveBlockedRecurring": {
+      "source": "06b2b71a48a5447e8fbf2785acf3be8bfff7468a",
+      "translation": "f7663877a028911f93e807d07e2155680e91ce4e"
+    },
+    "capacity.moveFailed": {
+      "source": "36a0df46c8ac3b68aca0f48fbea4afbecf4ff85c",
+      "translation": "2b3e5393d443e1ca99d9a046aed272d04dc4be65"
     },
     "capacity.ariaLabel": {
       "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
@@ -37846,13 +37882,25 @@
       "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
       "translation": "be54bbb6d7b4d38a3c6c80c0fe2e95687c2ef639"
     },
-    "capacity.moveToInbox": {
-      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
-      "translation": "e6ccb5872cc1ab23b31d16d5a4dc8d357b495ce1"
+    "capacity.empty": {
+      "source": "61a23f36ed0cf3b86c50b5feb71f311cc8b7a57f",
+      "translation": "c50e9111083785010e9f0e96460e54b965200941"
     },
-    "capacity.moveToInboxHint": {
-      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
-      "translation": "c0c125105315812fc579cc2cb31c6a9f6d771ff4"
+    "capacity.moveRowToInbox": {
+      "source": "3d0700bd60f2947e536c363884cc11b34157acc0",
+      "translation": "66307cbd1d61e2a834c63f2a94c092fcdbaefd96"
+    },
+    "capacity.moveBlockedDue": {
+      "source": "6025bd7081108ff2dee6394cf6e1cb5acdae5259",
+      "translation": "a678249c03e9bffde08eeb3fe55078c215816e30"
+    },
+    "capacity.moveBlockedRecurring": {
+      "source": "06b2b71a48a5447e8fbf2785acf3be8bfff7468a",
+      "translation": "4499b6cb3ca102e215c33e29f344ea18c932025f"
+    },
+    "capacity.moveFailed": {
+      "source": "36a0df46c8ac3b68aca0f48fbea4afbecf4ff85c",
+      "translation": "42ece0bc344b1a019a77bd1e802b2b8e6392ac63"
     },
     "capacity.ariaLabel": {
       "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
@@ -47312,13 +47360,25 @@
       "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
       "translation": "4fe6366499474074368c52edf1417ee56c3d4be5"
     },
-    "capacity.moveToInbox": {
-      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
-      "translation": "3171de165f79e9e8aa0abbc1f424d6d7c8526575"
+    "capacity.empty": {
+      "source": "61a23f36ed0cf3b86c50b5feb71f311cc8b7a57f",
+      "translation": "6b85a5593e6fc048211aa5a32a29de429dcc813c"
     },
-    "capacity.moveToInboxHint": {
-      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
-      "translation": "d141f07599f286d7b82fa8df07e241db934bbf25"
+    "capacity.moveRowToInbox": {
+      "source": "3d0700bd60f2947e536c363884cc11b34157acc0",
+      "translation": "1cebcae1aa8d54b1517a2aa5db54706cf03e4439"
+    },
+    "capacity.moveBlockedDue": {
+      "source": "6025bd7081108ff2dee6394cf6e1cb5acdae5259",
+      "translation": "cdbd973c425cb518fadfb28a33a9801070a0dc93"
+    },
+    "capacity.moveBlockedRecurring": {
+      "source": "06b2b71a48a5447e8fbf2785acf3be8bfff7468a",
+      "translation": "8796d4a790962e69fafe4794cd9c9784bc1ddb74"
+    },
+    "capacity.moveFailed": {
+      "source": "36a0df46c8ac3b68aca0f48fbea4afbecf4ff85c",
+      "translation": "96cae7aac35684fe9b75b5256f173e8f277843be"
     },
     "capacity.ariaLabel": {
       "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
@@ -56778,13 +56838,25 @@
       "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
       "translation": "e8d8ee0c265e7feaf45bb0bfd22f4bb91a4cdcb1"
     },
-    "capacity.moveToInbox": {
-      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
-      "translation": "d76b59e11c395760a1c19788ec246b90885be7f1"
+    "capacity.empty": {
+      "source": "61a23f36ed0cf3b86c50b5feb71f311cc8b7a57f",
+      "translation": "220c649652aaa6c0459298cb82512ef588dcf808"
     },
-    "capacity.moveToInboxHint": {
-      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
-      "translation": "dea0e93daed4a077ebcb110ce15b602ac3cdcd82"
+    "capacity.moveRowToInbox": {
+      "source": "3d0700bd60f2947e536c363884cc11b34157acc0",
+      "translation": "6d1c424ce8b64fec90fd12a9eb0adc20e59caa53"
+    },
+    "capacity.moveBlockedDue": {
+      "source": "6025bd7081108ff2dee6394cf6e1cb5acdae5259",
+      "translation": "5bac4ffaba3e6d07387ad2365f0033af5c03abfd"
+    },
+    "capacity.moveBlockedRecurring": {
+      "source": "06b2b71a48a5447e8fbf2785acf3be8bfff7468a",
+      "translation": "b315a0fdaf8d2df03868253e6c12c097aac55003"
+    },
+    "capacity.moveFailed": {
+      "source": "36a0df46c8ac3b68aca0f48fbea4afbecf4ff85c",
+      "translation": "4ceda19fa89d7c567a4609949e4e196297afdbbe"
     },
     "capacity.ariaLabel": {
       "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
@@ -66244,13 +66316,25 @@
       "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
       "translation": "37a4cd341f49f550b328a04f6088591f01c25752"
     },
-    "capacity.moveToInbox": {
-      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
-      "translation": "8afbed453807d1076926abdba340a21410fd904d"
+    "capacity.empty": {
+      "source": "61a23f36ed0cf3b86c50b5feb71f311cc8b7a57f",
+      "translation": "655bf143296c3cfb2828c7fedb2d16e374891cab"
     },
-    "capacity.moveToInboxHint": {
-      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
-      "translation": "78a1711833262ac6ed22be6c8daead179848492a"
+    "capacity.moveRowToInbox": {
+      "source": "3d0700bd60f2947e536c363884cc11b34157acc0",
+      "translation": "af8fbf07f667e84e52029f4d0709f0907ccefaf0"
+    },
+    "capacity.moveBlockedDue": {
+      "source": "6025bd7081108ff2dee6394cf6e1cb5acdae5259",
+      "translation": "ea66961c1c50cc7c52594a65682327a2d5732322"
+    },
+    "capacity.moveBlockedRecurring": {
+      "source": "06b2b71a48a5447e8fbf2785acf3be8bfff7468a",
+      "translation": "2dfe70972940a91fd30b754544e30234e73ecb24"
+    },
+    "capacity.moveFailed": {
+      "source": "36a0df46c8ac3b68aca0f48fbea4afbecf4ff85c",
+      "translation": "1132ceef881a524eb208ddae916b3f526745ca43"
     },
     "capacity.ariaLabel": {
       "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",
@@ -75710,13 +75794,25 @@
       "source": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
       "translation": "aa2263e333b11f789bff521d0e4d33d81e9840e1"
     },
-    "capacity.moveToInbox": {
-      "source": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
-      "translation": "d2d398ff66e26bc7cfe5fae84771219c1726d739"
+    "capacity.empty": {
+      "source": "61a23f36ed0cf3b86c50b5feb71f311cc8b7a57f",
+      "translation": "8b70c82de715bc314a4f3914925ee453be1823b6"
     },
-    "capacity.moveToInboxHint": {
-      "source": "1cfe983c0cde7e942f364790efe1b4350927968c",
-      "translation": "f997b321a0ba05898a2aad9b0a8b60135a8125f7"
+    "capacity.moveRowToInbox": {
+      "source": "3d0700bd60f2947e536c363884cc11b34157acc0",
+      "translation": "b2296a6272d9d7394c1c2ffafd91ee368e9a1af4"
+    },
+    "capacity.moveBlockedDue": {
+      "source": "6025bd7081108ff2dee6394cf6e1cb5acdae5259",
+      "translation": "d1907008e9b7aafd2c8552d5f509b42f31b82a5e"
+    },
+    "capacity.moveBlockedRecurring": {
+      "source": "06b2b71a48a5447e8fbf2785acf3be8bfff7468a",
+      "translation": "a1b7fd6458db6d61795cc8fa341ceef2dacd08a3"
+    },
+    "capacity.moveFailed": {
+      "source": "36a0df46c8ac3b68aca0f48fbea4afbecf4ff85c",
+      "translation": "a33b926675dc8174ec4e918103d7590d1111bdc4"
     },
     "capacity.ariaLabel": {
       "source": "2d53633aff86224e207cb19d42fa8f507056c3fc",

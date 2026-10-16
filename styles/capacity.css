@@ -23,10 +23,17 @@
 
 .tn-capacity-popover .tn-capacity-popover__row {
     display: flex;
+    align-items: center;
+    gap: var(--size-4-2);
+}
+
+.tn-capacity-popover .tn-capacity-popover__open {
+    display: flex;
+    flex: 1;
     justify-content: space-between;
     gap: var(--size-4-2);
+    min-width: 0;
     padding: var(--size-2-2) 0;
-    width: 100%;
     height: auto;
     background: transparent;
     box-shadow: none;
@@ -34,8 +41,13 @@
     cursor: pointer;
 }
 
-.tn-capacity-popover .tn-capacity-popover__row:hover {
+.tn-capacity-popover .tn-capacity-popover__open:hover {
     background: var(--background-modifier-hover);
+}
+
+.tn-capacity-popover .tn-capacity-popover__move {
+    flex-shrink: 0;
+    font-size: var(--font-ui-smaller);
 }
 
 .tn-capacity-popover .tn-capacity-popover__title {

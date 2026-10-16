@@ -14,3 +14,12 @@ export function capacityStatusText(
 	if (c.overByMinutes > 0) text += t("capacity.over", { over: fmt(c.overByMinutes) });
 	return text;
 }
+
+/** Summary line for the capacity popover; never hidden, so an empty day says so. */
+export function capacityPopoverSummary(
+	c: DayCapacity,
+	t: (k: string, p?: Record<string, string | number>) => string,
+	fmt: (m: number) => string
+): string {
+	return capacityStatusText(c, t, fmt) ?? t("capacity.empty");
+}

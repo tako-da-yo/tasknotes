@@ -1,8 +1,8 @@
-import { capacityStatusText } from "../../../src/ui/capacityText";
+import { capacityPopoverSummary, capacityStatusText } from "../../../src/ui/capacityText";
 
 const t = (k: string, p: Record<string, string | number> = {}) =>
 	({ "capacity.status": `Today: ${p.planned} planned · ${p.free} free`, "capacity.over": ` · ${p.over} over`,
-	   "capacity.noWorkHours": `Today: ${p.planned} planned` } as Record<string, string>)[k];
+	   "capacity.noWorkHours": `Today: ${p.planned} planned`, "capacity.empty": "Nothing planned for today." } as Record<string, string>)[k];
 const fmt = (m: number) => `${m}m`;
 const base = { date: "2026-10-15", unestimatedCount: 0, tasks: [], hasWorkHours: true };
 
@@ -17,5 +17,18 @@ describe("capacityStatusText", () => {
 	it("omits free on a day off", () => {
 		expect(capacityStatusText({ ...base, hasWorkHours: false, availableMinutes: 0, plannedMinutes: 60, overByMinutes: 60 }, t, fmt))
 			.toBe("Today: 60m planned");
+	});
+});
+
+describe("capacityPopoverSummary", () => {
+	it("shows an empty state instead of 0m planned", () => {
+		expect(capacityPopoverSummary({ ...base, availableMinutes: 300, plannedMinutes: 0, overByMinutes: 0 }, t, fmt))
+			.toBe("Nothing planned for today.");
+		expect(capacityPopoverSummary({ ...base, hasWorkHours: false, availableMinutes: 0, plannedMinutes: 0, overByMinutes: 0 }, t, fmt))
+			.toBe("Nothing planned for today.");
+	});
+	it("matches the status bar text when something is planned", () => {
+		expect(capacityPopoverSummary({ ...base, availableMinutes: 200, plannedMinutes: 100, overByMinutes: 0 }, t, fmt))
+			.toBe("Today: 100m planned · 200m free");
 	});
 });
