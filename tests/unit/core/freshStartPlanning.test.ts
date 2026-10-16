@@ -105,4 +105,41 @@ describe("planFreshStartUndo", () => {
 		]);
 		expect(skipped).toBe(1);
 	});
+	it("counts a task whose changed fields were all edited since as skipped", () => {
+		const current = new Map([
+			["a.md", TaskFactory.createTask({ path: "a.md", status: "open" })],
+			[
+				"b.md",
+				TaskFactory.createTask({
+					path: "b.md",
+					status: "waiting",
+					scheduled: "2026-10-16",
+				}),
+			],
+		]);
+		const { restores, skipped } = planFreshStartUndo(snapshot, current);
+		expect(restores).toEqual([{ path: "a.md", updates: { scheduled: "2026-10-10" } }]);
+		expect(skipped).toBe(2);
+	});
+	it("restores a cleared due date", () => {
+		const dueSnapshot = {
+			runAt: "2026-10-15T09:00:00Z",
+			entries: [
+				{
+					path: "d.md",
+					before: { scheduled: "2026-10-10", due: "2026-10-12T15:00", status: "open" },
+					after: { scheduled: undefined, due: undefined, status: "open" },
+				},
+			],
+		};
+		const current = new Map([
+			["d.md", TaskFactory.createTask({ path: "d.md", status: "open" })],
+		]);
+		expect(planFreshStartUndo(dueSnapshot, current)).toEqual({
+			restores: [
+				{ path: "d.md", updates: { scheduled: "2026-10-10", due: "2026-10-12T15:00" } },
+			],
+			skipped: 0,
+		});
+	});
 });

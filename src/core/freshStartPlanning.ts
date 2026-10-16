@@ -93,7 +93,11 @@ export function planFreshStartUndo(
 			if (task[field] !== entry.after[field]) continue; // user changed it since
 			(updates as Record<string, string | undefined>)[field] = entry.before[field];
 		}
-		if (Object.keys(updates).length > 0) restores.push({ path: entry.path, updates });
+		if (Object.keys(updates).length > 0) {
+			restores.push({ path: entry.path, updates });
+		} else {
+			skipped++; // every field fresh start changed has been edited since
+		}
 	}
 	return { restores, skipped };
 }
