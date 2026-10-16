@@ -1905,8 +1905,8 @@
       "translation": "a137a41198a0992a66e58d2562ad182a51b538b0"
     },
     "settings.features.planning.showInStatusBar": {
-      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
-      "translation": "9f8e07a6b319f7197b940d375c9a60e1aa02a740"
+      "source": "722bb23d64ee6c2c7b772f3f9d4da92fc967091e",
+      "translation": "b5be3f3f30c8662837e67a9044d7a0cd4e5aa625"
     },
     "settings.features.planning.warnOnOverbook": {
       "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
@@ -9492,6 +9492,14 @@
       "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
       "translation": "cd3b54eacfd5c4cd360b56fd3b3f15f5457fb631"
     },
+    "energy.statusAria": {
+      "source": "915b36eb50384103aaf03a0a101634f32ff43929",
+      "translation": "9f49c802ed3e3f05a579ccc6807e193a4ea2f890"
+    },
+    "energy.statusAriaLow": {
+      "source": "c90bb3e1568a8d9b1f852eaa2914664b410c5c2e",
+      "translation": "2e31b189aef937c1d8cf76997e51780d9fc93dfb"
+    },
     "energy.panel.title": {
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "51344b63032c35433ee22a213870de84be155e92"
@@ -9512,6 +9520,10 @@
       "source": "e0b8a102b5572833fce527648d322b189c5069bf",
       "translation": "f50c1195bb2503de4eaf0293e4d83f049a5190fa"
     },
+    "energy.panel.gaugeAriaProjected": {
+      "source": "f31d3ffc6f62017f86e13628526182f58305c516",
+      "translation": "951884184f7ae0bdc9f26bee7b500f7087a4e976"
+    },
     "energy.panel.mix": {
       "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
       "translation": "48508978cd9c833da60fb1b6a235f425dcaf8876"
@@ -9521,8 +9533,8 @@
       "translation": "dff89ce72b0c11e80adf8d7fb53f06c905b769a7"
     },
     "energy.panel.assumed": {
-      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
-      "translation": "a93c6f2baf51b4f5bd1a7ea2886fef371c69edf4"
+      "source": "98cf1e1ff6626da51707d84d28a16f4e121413d7",
+      "translation": "2260f1f3f33b4f9a9c6e4d76c2cb29069c5d5e53"
     },
     "energy.panel.lowTitle": {
       "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
@@ -9552,6 +9564,18 @@
       "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
       "translation": "190ed88ee9f6ed3310d15af22118504bc45e7e1c"
     },
+    "energy.panel.offTitle": {
+      "source": "e1a6a67ce0bc5ad9b11acead0ca0e1a55ef3f479",
+      "translation": "5a1ab1b9d671e2a4906e35b4b7286b680afa09c7"
+    },
+    "energy.panel.offBody": {
+      "source": "51a5a40fdc6ba3f2c1bcfab6d53af4f6eac64bca",
+      "translation": "3e9a5b526b59918a35ad6aaf6dea00ce2a1447b7"
+    },
+    "energy.panel.openEnergySettings": {
+      "source": "af254270157d0456f4941aab8d4c1e166c504bf5",
+      "translation": "ed435022f092567fa88c186c321fc0beae8fa0c7"
+    },
     "energy.panel.previousDay": {
       "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
       "translation": "55864474893e6240682f26b52c58299e0f719dfe"
@@ -9569,8 +9593,12 @@
       "translation": "5c924885fd04d0966e5b0ebd55317fc678115fe5"
     },
     "energy.panel.drainsPlaceholder": {
-      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
-      "translation": "bd87068910f4ad6183f09d147cbd52b78e14fddd"
+      "source": "419e342aa973fdda4e59cd466ce3919fd47dc174",
+      "translation": "f0a6c72475302c3fae9ceaf21d20d35324776250"
+    },
+    "energy.panel.moveTo": {
+      "source": "122793438f5246eaeb2dea650ab8a78c66f6c826",
+      "translation": "0700a5b79e7e33e980577b6339cc29025ef91f2f"
     },
     "energy.panel.sparkPlaceholder": {
       "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
@@ -11543,8 +11571,8 @@
       "translation": "c44f685f4f3edd37107d5b4d831919a7f077e807"
     },
     "settings.features.planning.showInStatusBar": {
-      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
-      "translation": "280b3d97d358fe3e85c3eb7893ac3cb321fdddfb"
+      "source": "722bb23d64ee6c2c7b772f3f9d4da92fc967091e",
+      "translation": "dbc2ae29f7e83cef47143a10a4ee824c435b9ed3"
     },
     "settings.features.planning.warnOnOverbook": {
       "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
@@ -19130,6 +19158,14 @@
       "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
       "translation": "2414ebb67b5586f248fa823156023d5b83e646e6"
     },
+    "energy.statusAria": {
+      "source": "915b36eb50384103aaf03a0a101634f32ff43929",
+      "translation": "d831495b4d628a85ef52840cb745a89ce858c034"
+    },
+    "energy.statusAriaLow": {
+      "source": "c90bb3e1568a8d9b1f852eaa2914664b410c5c2e",
+      "translation": "4f9aa532c4cc92138989f8c120529da872f07c6e"
+    },
     "energy.panel.title": {
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "0ac5b9db1d9be8414ca4daefdc7a47fd5ffeae73"
@@ -19150,6 +19186,10 @@
       "source": "e0b8a102b5572833fce527648d322b189c5069bf",
       "translation": "8e2fd3f32cd08ad994ef1f5662c13de4222e3d7d"
     },
+    "energy.panel.gaugeAriaProjected": {
+      "source": "f31d3ffc6f62017f86e13628526182f58305c516",
+      "translation": "bd7fd92575d99d574f0af3e686a2064df7912acd"
+    },
     "energy.panel.mix": {
       "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
       "translation": "0dec0be497c3d05ec3ee02dea146dd16f947e836"
@@ -19159,8 +19199,8 @@
       "translation": "41d890fe76342dba538090dbcf1c9bf700d754e9"
     },
     "energy.panel.assumed": {
-      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
-      "translation": "cfbb916bfb306abd5be844fe40314ab9d4ee313a"
+      "source": "98cf1e1ff6626da51707d84d28a16f4e121413d7",
+      "translation": "88997db0d16c8d0c42410b4c5f7032e7f04f451f"
     },
     "energy.panel.lowTitle": {
       "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
@@ -19190,6 +19230,18 @@
       "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
       "translation": "8d05309426cf92dc13b476a48af418b23666db84"
     },
+    "energy.panel.offTitle": {
+      "source": "e1a6a67ce0bc5ad9b11acead0ca0e1a55ef3f479",
+      "translation": "9ac87ac5e55d615fca2d75599881e118ded3632c"
+    },
+    "energy.panel.offBody": {
+      "source": "51a5a40fdc6ba3f2c1bcfab6d53af4f6eac64bca",
+      "translation": "30ffe0bfbac4d2359c899d418ea523cac58e1f8b"
+    },
+    "energy.panel.openEnergySettings": {
+      "source": "af254270157d0456f4941aab8d4c1e166c504bf5",
+      "translation": "8bd2400de4a6735462b5da2f24818b86503ceb39"
+    },
     "energy.panel.previousDay": {
       "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
       "translation": "0f242e62b5022f5b57060f2fe90f054e9b98a267"
@@ -19207,8 +19259,12 @@
       "translation": "1319a1e59fc2e20804fdda67a5293f065cb2e2b5"
     },
     "energy.panel.drainsPlaceholder": {
-      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
-      "translation": "fdfa0101aa74d8e3a41a7bf6cbf8eb618ed5f168"
+      "source": "419e342aa973fdda4e59cd466ce3919fd47dc174",
+      "translation": "0c3c24d2ba021f92d209774c7b83c818218eaf79"
+    },
+    "energy.panel.moveTo": {
+      "source": "122793438f5246eaeb2dea650ab8a78c66f6c826",
+      "translation": "4f8d5fab1c6d3134a368945a6c70c7f647541f2f"
     },
     "energy.panel.sparkPlaceholder": {
       "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
@@ -21181,8 +21237,8 @@
       "translation": "5fe4af1acefef539c012fa5ce5cfe89976ba1959"
     },
     "settings.features.planning.showInStatusBar": {
-      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
-      "translation": "ff072eb57635d2f433e0a860b14b7d0789948c71"
+      "source": "722bb23d64ee6c2c7b772f3f9d4da92fc967091e",
+      "translation": "6c061fac117481e0e5a28c1474b3cfcd70b85138"
     },
     "settings.features.planning.warnOnOverbook": {
       "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
@@ -28768,6 +28824,14 @@
       "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
       "translation": "c12d51b2aa25da30866c88b66ff1a6958d5aacc6"
     },
+    "energy.statusAria": {
+      "source": "915b36eb50384103aaf03a0a101634f32ff43929",
+      "translation": "9f2a4f8888e9581489af8de371987b179727983c"
+    },
+    "energy.statusAriaLow": {
+      "source": "c90bb3e1568a8d9b1f852eaa2914664b410c5c2e",
+      "translation": "40176d72e5be473d8925edd79941d8c177f1e3ae"
+    },
     "energy.panel.title": {
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "56b1baa1548790c0a4ff476dacc7b7a2f4fe2b92"
@@ -28788,6 +28852,10 @@
       "source": "e0b8a102b5572833fce527648d322b189c5069bf",
       "translation": "610193f6105c9eb0dc2ef46530cb7613b5ecadff"
     },
+    "energy.panel.gaugeAriaProjected": {
+      "source": "f31d3ffc6f62017f86e13628526182f58305c516",
+      "translation": "c545d7d194666f35315e168e9b09a2f69bea5a66"
+    },
     "energy.panel.mix": {
       "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
       "translation": "e0b8ca6da13e29696e216c411696c47540aba5fb"
@@ -28797,8 +28865,8 @@
       "translation": "530f9e29c6b45c4e6dd37018062b2d27f0eb0e04"
     },
     "energy.panel.assumed": {
-      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
-      "translation": "ffe96735df31a1b3218ee897b8072bb3efe9f480"
+      "source": "98cf1e1ff6626da51707d84d28a16f4e121413d7",
+      "translation": "c712f140d664abe9a0f35b871b5303c3ebadf766"
     },
     "energy.panel.lowTitle": {
       "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
@@ -28828,6 +28896,18 @@
       "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
       "translation": "a9f109c65d0c09c7962ef25d9a977edf157de06b"
     },
+    "energy.panel.offTitle": {
+      "source": "e1a6a67ce0bc5ad9b11acead0ca0e1a55ef3f479",
+      "translation": "82615ada6e9bb242adea5d6f112d9cf0379bd628"
+    },
+    "energy.panel.offBody": {
+      "source": "51a5a40fdc6ba3f2c1bcfab6d53af4f6eac64bca",
+      "translation": "7fc9cf6fb4bad9dedd8522b600ee39f69d77a899"
+    },
+    "energy.panel.openEnergySettings": {
+      "source": "af254270157d0456f4941aab8d4c1e166c504bf5",
+      "translation": "0e5938e3b526435c34c79714d50497af4010cd0a"
+    },
     "energy.panel.previousDay": {
       "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
       "translation": "f9fa33a4bcd95fe815a4c53e18f314b2d8368ddb"
@@ -28845,8 +28925,12 @@
       "translation": "e1320361b40fe181031217f1a6bdbf43c7428d3d"
     },
     "energy.panel.drainsPlaceholder": {
-      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
-      "translation": "5a7604eac84f6bc775cfde7396569cc83d968e62"
+      "source": "419e342aa973fdda4e59cd466ce3919fd47dc174",
+      "translation": "9c67bc719bef844f7aafbae969ac31391af5e3e4"
+    },
+    "energy.panel.moveTo": {
+      "source": "122793438f5246eaeb2dea650ab8a78c66f6c826",
+      "translation": "76a88fca5954fba7f867f14ccb99a09cab103789"
     },
     "energy.panel.sparkPlaceholder": {
       "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
@@ -30819,8 +30903,8 @@
       "translation": "5c3d1d806608a9ea6f69cd88f7907cef958f59c4"
     },
     "settings.features.planning.showInStatusBar": {
-      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
-      "translation": "c2a280c667321c916961e45578e0e1c9dbd00630"
+      "source": "722bb23d64ee6c2c7b772f3f9d4da92fc967091e",
+      "translation": "72d385b69edce7b44c1f3c6981fa0e03696e5578"
     },
     "settings.features.planning.warnOnOverbook": {
       "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
@@ -38406,6 +38490,14 @@
       "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
       "translation": "16fafd196fa0e8b6684e4302848b37784f807290"
     },
+    "energy.statusAria": {
+      "source": "915b36eb50384103aaf03a0a101634f32ff43929",
+      "translation": "0fe4ee970efa694fffc95358e9c66b455d9260f4"
+    },
+    "energy.statusAriaLow": {
+      "source": "c90bb3e1568a8d9b1f852eaa2914664b410c5c2e",
+      "translation": "5d6072e47a16005d70d1e8f4f13074b62544fe1e"
+    },
     "energy.panel.title": {
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "578325b56bfa62d16ea07c1e3c3021ca5c7c6fe0"
@@ -38426,6 +38518,10 @@
       "source": "e0b8a102b5572833fce527648d322b189c5069bf",
       "translation": "b93168e57d6a98936bdf2302671cdde5bf5ef184"
     },
+    "energy.panel.gaugeAriaProjected": {
+      "source": "f31d3ffc6f62017f86e13628526182f58305c516",
+      "translation": "510a21e17057d777cda10f235c0c1731db3cefb8"
+    },
     "energy.panel.mix": {
       "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
       "translation": "7c12ab969025968afc022b9904659cedea130568"
@@ -38435,8 +38531,8 @@
       "translation": "521d0ea7d7108481749a53114ded405b61bad26f"
     },
     "energy.panel.assumed": {
-      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
-      "translation": "386f2f48de71eb63b14c28797080e95b9bf763bf"
+      "source": "98cf1e1ff6626da51707d84d28a16f4e121413d7",
+      "translation": "bba3de65850c59dfcce90104b2ba3c50bafceb84"
     },
     "energy.panel.lowTitle": {
       "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
@@ -38466,6 +38562,18 @@
       "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
       "translation": "52b017c0a1c745d0db9e0ce5974ce2f350a1b972"
     },
+    "energy.panel.offTitle": {
+      "source": "e1a6a67ce0bc5ad9b11acead0ca0e1a55ef3f479",
+      "translation": "7b317956d2d022ffba80adec1949bcc75675745a"
+    },
+    "energy.panel.offBody": {
+      "source": "51a5a40fdc6ba3f2c1bcfab6d53af4f6eac64bca",
+      "translation": "16f0496247bd885fce2dfea256c2f7d7ac481ddf"
+    },
+    "energy.panel.openEnergySettings": {
+      "source": "af254270157d0456f4941aab8d4c1e166c504bf5",
+      "translation": "9c4e48f10cbb16d1fb44165147ded71ff723cd07"
+    },
     "energy.panel.previousDay": {
       "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
       "translation": "f6f002ec190e6c737c911bb1ce49893ea9367e79"
@@ -38483,8 +38591,12 @@
       "translation": "cd19f9bab99ad81963a3df9e383f70d2a0f161ef"
     },
     "energy.panel.drainsPlaceholder": {
-      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
-      "translation": "1b512cde2db23cab62ecbc4c89a507349cd341bf"
+      "source": "419e342aa973fdda4e59cd466ce3919fd47dc174",
+      "translation": "2469346683ec367cc7e8ceb3519ba34d81ad363f"
+    },
+    "energy.panel.moveTo": {
+      "source": "122793438f5246eaeb2dea650ab8a78c66f6c826",
+      "translation": "7de017aceddeaed6a8c658e3bdf949cfe2c60f6d"
     },
     "energy.panel.sparkPlaceholder": {
       "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
@@ -40457,8 +40569,8 @@
       "translation": "60491e9d33585914f1d619390cf1756fb0212549"
     },
     "settings.features.planning.showInStatusBar": {
-      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
-      "translation": "0bf346e79faba91ff5a5f8994831146aac1bd784"
+      "source": "722bb23d64ee6c2c7b772f3f9d4da92fc967091e",
+      "translation": "31159ea83022bad37e96ba6eeb091bf8c7b72543"
     },
     "settings.features.planning.warnOnOverbook": {
       "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
@@ -48044,6 +48156,14 @@
       "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
       "translation": "88985ca3c6634b5d8edeffb336bc37d341972fe0"
     },
+    "energy.statusAria": {
+      "source": "915b36eb50384103aaf03a0a101634f32ff43929",
+      "translation": "5c959bfda909b9f545d03adc0d441fc58b570d89"
+    },
+    "energy.statusAriaLow": {
+      "source": "c90bb3e1568a8d9b1f852eaa2914664b410c5c2e",
+      "translation": "afb1c387348a41809ddd31d5c33a8a16442e7343"
+    },
     "energy.panel.title": {
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "7154da110a18388a66eb99086c2d096502c4b439"
@@ -48064,6 +48184,10 @@
       "source": "e0b8a102b5572833fce527648d322b189c5069bf",
       "translation": "01043d8d750ef1102013a2dae4b872bab845aec3"
     },
+    "energy.panel.gaugeAriaProjected": {
+      "source": "f31d3ffc6f62017f86e13628526182f58305c516",
+      "translation": "602c52e17a8e46fa0cd76aed3e42825fc7b848e7"
+    },
     "energy.panel.mix": {
       "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
       "translation": "9b61fd676348f84ecdaa59378d73c0ca278955a6"
@@ -48073,8 +48197,8 @@
       "translation": "b8db599b5b310079015437c3507c57542b8a6d16"
     },
     "energy.panel.assumed": {
-      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
-      "translation": "9aa0926057dfe8eb36ec841e0426605d215abcdf"
+      "source": "98cf1e1ff6626da51707d84d28a16f4e121413d7",
+      "translation": "dd2552c6ca9debd68427553886601eeccabd8a3c"
     },
     "energy.panel.lowTitle": {
       "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
@@ -48104,6 +48228,18 @@
       "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
       "translation": "6365a85b2fd829a69db696b119de52fd5bf67196"
     },
+    "energy.panel.offTitle": {
+      "source": "e1a6a67ce0bc5ad9b11acead0ca0e1a55ef3f479",
+      "translation": "f49b50959916cf3727db6dae0f42253275834e5e"
+    },
+    "energy.panel.offBody": {
+      "source": "51a5a40fdc6ba3f2c1bcfab6d53af4f6eac64bca",
+      "translation": "028610bb8653245a2b63f1d389b8e0390b051bb5"
+    },
+    "energy.panel.openEnergySettings": {
+      "source": "af254270157d0456f4941aab8d4c1e166c504bf5",
+      "translation": "0717a81bcd7a69d24c04759a71ee5943a2907064"
+    },
     "energy.panel.previousDay": {
       "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
       "translation": "fa9a799834621f9342b91b6765408a0512361601"
@@ -48121,8 +48257,12 @@
       "translation": "eb522cb7ea8a1ffb04261ad7bf1f16aa3886dc38"
     },
     "energy.panel.drainsPlaceholder": {
-      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
-      "translation": "eb43d51a59f356d55d32015b2917ee02f56ab7db"
+      "source": "419e342aa973fdda4e59cd466ce3919fd47dc174",
+      "translation": "12133c0241c6aa35095ce79ff954ee7b62e519b2"
+    },
+    "energy.panel.moveTo": {
+      "source": "122793438f5246eaeb2dea650ab8a78c66f6c826",
+      "translation": "0805be51368fcc6d9fc549ac557318c1a8e5a8f3"
     },
     "energy.panel.sparkPlaceholder": {
       "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
@@ -50095,8 +50235,8 @@
       "translation": "cd39d55b1e1df493ee1d6a2fe76a3b1871847510"
     },
     "settings.features.planning.showInStatusBar": {
-      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
-      "translation": "d25ebf526a572973ef8f5ee0733c012f705de144"
+      "source": "722bb23d64ee6c2c7b772f3f9d4da92fc967091e",
+      "translation": "a6f8d0f60a6da7f361f8cc6dac879c1725df5847"
     },
     "settings.features.planning.warnOnOverbook": {
       "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
@@ -57682,6 +57822,14 @@
       "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
       "translation": "5b990f2bac1ac5b84efeb1d67879fde03a87e36c"
     },
+    "energy.statusAria": {
+      "source": "915b36eb50384103aaf03a0a101634f32ff43929",
+      "translation": "ea103ff34bba9b150e0573d353c06ae853397c8c"
+    },
+    "energy.statusAriaLow": {
+      "source": "c90bb3e1568a8d9b1f852eaa2914664b410c5c2e",
+      "translation": "15e3fc6e091446b116a5522cbe7870c524f5acc2"
+    },
     "energy.panel.title": {
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "f41aa7a3294ffe47a5be7cc93e17696055fbe800"
@@ -57702,6 +57850,10 @@
       "source": "e0b8a102b5572833fce527648d322b189c5069bf",
       "translation": "0442a314670d542b5a33c7a86d2551386315aa59"
     },
+    "energy.panel.gaugeAriaProjected": {
+      "source": "f31d3ffc6f62017f86e13628526182f58305c516",
+      "translation": "06ef411f545a7bdfc7f45845a1ca2abfba59dcff"
+    },
     "energy.panel.mix": {
       "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
       "translation": "dd2754eb4d9e90830779fdcebd2edcfa9f3454bb"
@@ -57711,8 +57863,8 @@
       "translation": "d07c2c32c636daffc8094d60fae1646bb3b57ad2"
     },
     "energy.panel.assumed": {
-      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
-      "translation": "8f991b18fc25cadadff305ec90a3ab2d1dbeda4a"
+      "source": "98cf1e1ff6626da51707d84d28a16f4e121413d7",
+      "translation": "adf643886be80f91ac17d0c39abaa772e1577675"
     },
     "energy.panel.lowTitle": {
       "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
@@ -57742,6 +57894,18 @@
       "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
       "translation": "238cc3935b8d8450519fe5b77935a7e605f4d395"
     },
+    "energy.panel.offTitle": {
+      "source": "e1a6a67ce0bc5ad9b11acead0ca0e1a55ef3f479",
+      "translation": "cabceec7e75eb7dfd4c7c116692dd6d32bdbe43a"
+    },
+    "energy.panel.offBody": {
+      "source": "51a5a40fdc6ba3f2c1bcfab6d53af4f6eac64bca",
+      "translation": "b2afe93ab0f132e936f911d6e83a124735d20a1e"
+    },
+    "energy.panel.openEnergySettings": {
+      "source": "af254270157d0456f4941aab8d4c1e166c504bf5",
+      "translation": "fbbfd9a87e70d71674ced80c9847a3260f8d3612"
+    },
     "energy.panel.previousDay": {
       "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
       "translation": "3bdf2c7de744a250094ef4a61a09a56e02074fca"
@@ -57759,8 +57923,12 @@
       "translation": "5569564abdfd517049c5380669e7206bb9d4abb4"
     },
     "energy.panel.drainsPlaceholder": {
-      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
-      "translation": "39ed9494900e640fadafc7ae3df8b6262f412857"
+      "source": "419e342aa973fdda4e59cd466ce3919fd47dc174",
+      "translation": "22b05e5cba9d21d47c1353c23d6318914f364b08"
+    },
+    "energy.panel.moveTo": {
+      "source": "122793438f5246eaeb2dea650ab8a78c66f6c826",
+      "translation": "eabc46b4c20a25e821d215b3057e3818629487a7"
     },
     "energy.panel.sparkPlaceholder": {
       "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
@@ -59733,8 +59901,8 @@
       "translation": "7e79dedd3fa912c4b6b4be5b71bc05cba88c1ea5"
     },
     "settings.features.planning.showInStatusBar": {
-      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
-      "translation": "80bb88603b85484674d1a1fb96d190ff18a89330"
+      "source": "722bb23d64ee6c2c7b772f3f9d4da92fc967091e",
+      "translation": "618473202538ad8609cc1182aff29f146d7d68b2"
     },
     "settings.features.planning.warnOnOverbook": {
       "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
@@ -67320,6 +67488,14 @@
       "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
       "translation": "b0f26578b6da290f4beb8d10acbd9aadba5dca98"
     },
+    "energy.statusAria": {
+      "source": "915b36eb50384103aaf03a0a101634f32ff43929",
+      "translation": "da8bc0e34dc1b34b39e24caaa8351bdac163103d"
+    },
+    "energy.statusAriaLow": {
+      "source": "c90bb3e1568a8d9b1f852eaa2914664b410c5c2e",
+      "translation": "dc701857b7c6a991da3ef4ceeaf331ab04c2e733"
+    },
     "energy.panel.title": {
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "f561c6b678d4450cfbab4700dcc6e39cae3a9d5c"
@@ -67340,6 +67516,10 @@
       "source": "e0b8a102b5572833fce527648d322b189c5069bf",
       "translation": "dcff9132ce8b15163a1ba53291b74b878ad6afd8"
     },
+    "energy.panel.gaugeAriaProjected": {
+      "source": "f31d3ffc6f62017f86e13628526182f58305c516",
+      "translation": "a139434fde0e8f1684e92139d4b4fb6a5d15a2ea"
+    },
     "energy.panel.mix": {
       "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
       "translation": "613c17002dccf08efb0003f9fae2712f259e8c90"
@@ -67349,8 +67529,8 @@
       "translation": "4cc49cd79222b7d0e0ebec32450613fe34299116"
     },
     "energy.panel.assumed": {
-      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
-      "translation": "18f6b52da65618736204a65830c4e30b66dabf2b"
+      "source": "98cf1e1ff6626da51707d84d28a16f4e121413d7",
+      "translation": "b7208cf0f3ac7b9169d72c3f600cd50e6c0c5b7f"
     },
     "energy.panel.lowTitle": {
       "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
@@ -67380,6 +67560,18 @@
       "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
       "translation": "2fb10365945f4fd9e14d666f605b6a70faff265a"
     },
+    "energy.panel.offTitle": {
+      "source": "e1a6a67ce0bc5ad9b11acead0ca0e1a55ef3f479",
+      "translation": "7725065344e959a1b952ec622277f6e924c9ab94"
+    },
+    "energy.panel.offBody": {
+      "source": "51a5a40fdc6ba3f2c1bcfab6d53af4f6eac64bca",
+      "translation": "f56e6279f6493aacd865d658fb716b60934d2360"
+    },
+    "energy.panel.openEnergySettings": {
+      "source": "af254270157d0456f4941aab8d4c1e166c504bf5",
+      "translation": "5581b366fbd6a64589a9a3770b4d06bcda1cf022"
+    },
     "energy.panel.previousDay": {
       "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
       "translation": "0e26e83b9183f77e50f7da0e51305d089ed9ecf3"
@@ -67397,8 +67589,12 @@
       "translation": "ee7505bdb874028693a289901b416ac8c97b8d9f"
     },
     "energy.panel.drainsPlaceholder": {
-      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
-      "translation": "fd7232ccf8228b0fb24feffd0483ea8189a77530"
+      "source": "419e342aa973fdda4e59cd466ce3919fd47dc174",
+      "translation": "77d5068e2f5518c0637a5091191c49f0ff58cfb6"
+    },
+    "energy.panel.moveTo": {
+      "source": "122793438f5246eaeb2dea650ab8a78c66f6c826",
+      "translation": "acbcecb0ac16c8c18ee1f98e53d8dec7439302e3"
     },
     "energy.panel.sparkPlaceholder": {
       "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
@@ -69371,8 +69567,8 @@
       "translation": "e5a73787b9ab80cbe5379703e38e0fc3b6ff176b"
     },
     "settings.features.planning.showInStatusBar": {
-      "source": "041e8b2eabfb02073ba89fc3876e0b37f02ea92d",
-      "translation": "e24f98d5ee77c7ff6e08011a1e63dd0d45d48fa2"
+      "source": "722bb23d64ee6c2c7b772f3f9d4da92fc967091e",
+      "translation": "327ee77b3dee3cd419f146092462b7b1cc8a62dc"
     },
     "settings.features.planning.warnOnOverbook": {
       "source": "0b05703ef029840a2ea6b5e41efbb67be4e9cf38",
@@ -76958,6 +77154,14 @@
       "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
       "translation": "9b2aabb801d011e3a2e1b097e9fc0544d9d325e2"
     },
+    "energy.statusAria": {
+      "source": "915b36eb50384103aaf03a0a101634f32ff43929",
+      "translation": "376b736202577e62604cfcdff407d83c7bfe6eb2"
+    },
+    "energy.statusAriaLow": {
+      "source": "c90bb3e1568a8d9b1f852eaa2914664b410c5c2e",
+      "translation": "4c84d09181af005fcc243752a54d548b2ee96789"
+    },
     "energy.panel.title": {
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "6e01538b7fa565c8239fc94475d3a2209e547b0a"
@@ -76978,6 +77182,10 @@
       "source": "e0b8a102b5572833fce527648d322b189c5069bf",
       "translation": "91a533b0088422240b21dfee6911c7caf9abbebd"
     },
+    "energy.panel.gaugeAriaProjected": {
+      "source": "f31d3ffc6f62017f86e13628526182f58305c516",
+      "translation": "4cd9f4e9d41ca0dde32ac34e7e475b6cf9ea8179"
+    },
     "energy.panel.mix": {
       "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
       "translation": "7ae1a262ea13a0a8bc495d4f5df600dc7a3b03c4"
@@ -76987,8 +77195,8 @@
       "translation": "ebdb744d2e63add3d81958cfca78f87584459a6b"
     },
     "energy.panel.assumed": {
-      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
-      "translation": "1c2c6227f6df034858cd8291ab0a3563c0584ea5"
+      "source": "98cf1e1ff6626da51707d84d28a16f4e121413d7",
+      "translation": "9ce69ea32a9d93d1df6fc05fd087f41ba46edde3"
     },
     "energy.panel.lowTitle": {
       "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
@@ -77018,6 +77226,18 @@
       "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
       "translation": "c235ad0225dbc40e017044a2d6259ad60e2df8f3"
     },
+    "energy.panel.offTitle": {
+      "source": "e1a6a67ce0bc5ad9b11acead0ca0e1a55ef3f479",
+      "translation": "8d7e848c70b2889ac44e4f346383032613d48b4e"
+    },
+    "energy.panel.offBody": {
+      "source": "51a5a40fdc6ba3f2c1bcfab6d53af4f6eac64bca",
+      "translation": "64b1da5b628a705e79440e9eb9ee726050ed80c8"
+    },
+    "energy.panel.openEnergySettings": {
+      "source": "af254270157d0456f4941aab8d4c1e166c504bf5",
+      "translation": "4139a0ea63d918a953b38108e51e6659cc94d0e3"
+    },
     "energy.panel.previousDay": {
       "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
       "translation": "dede7b4ef6da608b98200f3c31a4ccb612d86a43"
@@ -77035,8 +77255,12 @@
       "translation": "99624293fb7b096aa06c20ef5cf40529db8efdfa"
     },
     "energy.panel.drainsPlaceholder": {
-      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
-      "translation": "a02c78db480f1de0f7bdbd3aac5e83fa4c55efc7"
+      "source": "419e342aa973fdda4e59cd466ce3919fd47dc174",
+      "translation": "4677749f0a33756e3c0bb3992096ef49dcdf2c4c"
+    },
+    "energy.panel.moveTo": {
+      "source": "122793438f5246eaeb2dea650ab8a78c66f6c826",
+      "translation": "191ed866fc604a7ec702f8de2470f1138b06b1b6"
     },
     "energy.panel.sparkPlaceholder": {
       "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
