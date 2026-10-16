@@ -70,6 +70,26 @@ export function formatCapturedAge(created: Date, now: Date, locale: string): str
 	return rtf.format(0, "minute");
 }
 
+/**
+ * Local YYYY-MM-DD dates for the schedule presets. `weekend` is the upcoming Saturday, or
+ * today on a Saturday or Sunday; `nextWeek` is the first Monday strictly after today.
+ */
+export function schedulePresetDates(today: Date): {
+	tomorrow: string;
+	weekend: string;
+	nextWeek: string;
+} {
+	const day = today.getDay(); // 0 = Sunday, 6 = Saturday
+	const offset = (days: number) => format(addDays(today, days), "yyyy-MM-dd");
+	const daysUntilWeekend = day === 0 || day === 6 ? 0 : 6 - day;
+	const daysUntilMonday = (8 - day) % 7 || 7;
+	return {
+		tomorrow: offset(1),
+		weekend: offset(daysUntilWeekend),
+		nextWeek: offset(daysUntilMonday),
+	};
+}
+
 interface UndoEntry {
 	task: TaskInfo;
 	revert: TriageRevert | null;
@@ -272,14 +292,11 @@ export class InboxTriageModal extends Modal {
 		if (!actions) return;
 		actions.empty();
 		// Local calendar dates (formatDateForStorage would use the UTC calendar day).
-		const today = getTodayLocal();
-		const offset = (days: number) => format(addDays(today, days), "yyyy-MM-dd");
-		const daysUntilSaturday = (6 - today.getDay() + 7) % 7 || 7;
-		const daysUntilMonday = (8 - today.getDay()) % 7 || 7;
+		const dates = schedulePresetDates(getTodayLocal());
 		const presets: [string, string][] = [
-			[this.t("modals.inboxTriage.schedule.tomorrow"), offset(1)],
-			[this.t("modals.inboxTriage.schedule.weekend"), offset(daysUntilSaturday)],
-			[this.t("modals.inboxTriage.schedule.nextWeek"), offset(daysUntilMonday)],
+			[this.t("modals.inboxTriage.schedule.tomorrow"), dates.tomorrow],
+			[this.t("modals.inboxTriage.schedule.weekend"), dates.weekend],
+			[this.t("modals.inboxTriage.schedule.nextWeek"), dates.nextWeek],
 		];
 		for (const [label, date] of presets) {
 			const btn = actions.createEl("button", { cls: "tn-triage__action", text: label });

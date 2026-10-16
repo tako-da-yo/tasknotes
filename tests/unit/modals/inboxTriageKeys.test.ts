@@ -1,4 +1,8 @@
-import { formatCapturedAge, keyToAction } from "../../../src/modals/InboxTriageModal";
+import {
+	formatCapturedAge,
+	keyToAction,
+	schedulePresetDates,
+} from "../../../src/modals/InboxTriageModal";
 
 describe("keyToAction", () => {
 	const opts = { hasSomeday: true, targetIsInput: false };
@@ -35,5 +39,28 @@ describe("formatCapturedAge", () => {
 		expect(formatCapturedAge(new Date("2026-10-12T12:00:00Z"), now, "??")).toEqual(
 			expect.any(String)
 		);
+	});
+});
+
+describe("schedulePresetDates", () => {
+	// Week of Mon 2026-10-12 to Sun 2026-10-18 (local dates).
+	const cases: [number, string, string, string][] = [
+		[12, "2026-10-13", "2026-10-17", "2026-10-19"], // Mon
+		[13, "2026-10-14", "2026-10-17", "2026-10-19"], // Tue
+		[14, "2026-10-15", "2026-10-17", "2026-10-19"], // Wed
+		[15, "2026-10-16", "2026-10-17", "2026-10-19"], // Thu
+		[16, "2026-10-17", "2026-10-17", "2026-10-19"], // Fri
+		[17, "2026-10-18", "2026-10-17", "2026-10-19"], // Sat: weekend is today
+		[18, "2026-10-19", "2026-10-18", "2026-10-19"], // Sun: weekend is today, next week is tomorrow
+	];
+	it.each(cases)("Oct %i", (day, tomorrow, weekend, nextWeek) => {
+		expect(schedulePresetDates(new Date(2026, 9, day))).toEqual({
+			tomorrow,
+			weekend,
+			nextWeek,
+		});
+	});
+	it("ignores the time of day", () => {
+		expect(schedulePresetDates(new Date(2026, 9, 17, 23, 30)).weekend).toBe("2026-10-17");
 	});
 });
