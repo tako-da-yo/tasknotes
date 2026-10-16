@@ -8,6 +8,8 @@ const tasknotesLogger = createTaskNotesLogger({ tag: "Components/EnergyPanel" })
 export interface EnergyPanelDeps {
 	getDayEnergy(date: string): Promise<DayEnergy>;
 	isActive(): boolean;
+	/** Whether "Show energy levels" is on; when off, the empty state says so. */
+	isEnabled?(): boolean;
 	getCapacityLine?(date: string): Promise<string | null>;
 	/** Task title, event title or timeblock title. */
 	titleOf(item: DayItem): string;
@@ -15,7 +17,8 @@ export interface EnergyPanelDeps {
 	showDrainTasks(date: string, contributions: EnergyContribution[]): void;
 	/** Offer undated spark tasks to schedule on `date` (the panel's date). */
 	findSpark(date: string): void;
-	openSettings(): void;
+	/** Open the settings for energy kinds on contexts, or for energy itself. */
+	openSettings(target: "contexts" | "energy"): void;
 	t: (k: string, p?: Record<string, string | number>) => string;
 	today(): string;
 }
@@ -31,6 +34,14 @@ function shiftDate(date: string, days: number): string {
 	const d = new Date(`${date}T00:00:00Z`);
 	d.setUTCDate(d.getUTCDate() + days);
 	return d.toISOString().slice(0, 10);
+}
+
+/**
+ * The date a panel that follows today should show once today may have changed: a panel
+ * that was on the previous today moves to the new today; any other date stays.
+ */
+export function followTodayDate(viewDate: string, previousToday: string, today: string): string {
+	return viewDate === previousToday ? today : viewDate;
 }
 
 function formatPoints(points: number): string {
@@ -96,18 +107,25 @@ export class EnergyPanel {
 	private reset(): void {
 		this.container.empty();
 		if (this.opts.navigable) this.renderNav(this.container);
+		// Without navigation the date is otherwise not shown; today needs no label.
+		else if (this.date !== this.deps.today()) {
+			this.container.createDiv({ cls: "tn-energy-panel__date-heading", text: this.date });
+		}
 	}
 
 	private renderDay(el: HTMLElement, date: string, e: DayEnergy, capacity: string | null): void {
 		const { t } = this.deps;
-		const isToday = date === this.deps.today();
+		const today = this.deps.today();
+		const isToday = date === today;
 
 		// 1. Gauge
 		const gauge = el.createDiv({
 			cls: `tn-energy-gauge is-${e.level}`,
 			attr: {
 				role: "img",
-				"aria-label": t("energy.panel.gaugeAria", { now: e.now, projected: e.projected }),
+				"aria-label": isToday
+					? t("energy.panel.gaugeAria", { now: e.now, projected: e.projected })
+					: t("energy.panel.gaugeAriaProjected", { projected: e.projected }),
 			},
 		});
 		const bar = gauge.createDiv({ cls: "tn-energy-gauge__bar" });
@@ -170,8 +188,8 @@ export class EnergyPanel {
 		// 4. Capacity line
 		if (capacity) el.createDiv({ cls: "tn-energy-panel__capacity", text: capacity });
 
-		// 5. Low-battery suggestion
-		if (e.level === "low") {
+		// 5. Low-battery suggestion (a past day can no longer be changed)
+		if (e.level === "low" && date >= today) {
 			const low = el.createDiv({ cls: "tn-energy-panel__low" });
 			low.createDiv({ cls: "tn-energy-panel__low-title", text: t("energy.panel.lowTitle") });
 			low.createDiv({ text: t("energy.panel.lowBody") });
@@ -214,11 +232,15 @@ export class EnergyPanel {
 
 	private renderEmpty(el: HTMLElement): void {
 		const { t } = this.deps;
+		const off = this.deps.isEnabled?.() === false;
 		const empty = el.createDiv({ cls: "tn-energy-panel__empty" });
-		empty.createDiv({ cls: "tn-energy-panel__heading", text: t("energy.panel.emptyTitle") });
-		empty.createDiv({ text: t("energy.panel.emptyBody") });
+		empty.createDiv({
+			cls: "tn-energy-panel__heading",
+			text: t(off ? "energy.panel.offTitle" : "energy.panel.emptyTitle"),
+		});
+		empty.createDiv({ text: t(off ? "energy.panel.offBody" : "energy.panel.emptyBody") });
 		empty
-			.createEl("button", { text: t("energy.panel.openSettings") })
-			.addEventListener("click", () => this.deps.openSettings());
+			.createEl("button", { text: t(off ? "energy.panel.openEnergySettings" : "energy.panel.openSettings") })
+			.addEventListener("click", () => this.deps.openSettings(off ? "energy" : "contexts"));
 	}
 }

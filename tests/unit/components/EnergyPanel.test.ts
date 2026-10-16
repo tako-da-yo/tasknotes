@@ -1,4 +1,4 @@
-import { EnergyPanel, EnergyPanelDeps } from "../../../src/components/EnergyPanel";
+import { EnergyPanel, EnergyPanelDeps, followTodayDate } from "../../../src/components/EnergyPanel";
 
 const t = (k: string, p: Record<string, string | number> = {}) => `${k}${Object.keys(p).length ? JSON.stringify(p) : ""}`;
 const contribution = (points: number, kind = "drain", doneMinutes = 0) => ({
@@ -101,11 +101,66 @@ describe("EnergyPanel", () => {
 		const titles = [...el.querySelectorAll(".tn-energy-panel__effect-title")].map((b) => b.textContent);
 		expect(titles).toEqual(["e-30", "e-15", "e20", "e5"]);
 	});
+	it("uses the projected wording for the gauge label on other days", async () => {
+		const el = document.createElement("div");
+		await new EnergyPanel(el, deps(), { date: "2026-10-20", navigable: true }).render();
+		const aria = el.querySelector(".tn-energy-gauge")?.getAttribute("aria-label");
+		expect(aria).toContain("energy.panel.gaugeAriaProjected");
+		expect(aria).not.toContain('"now"');
+	});
+	it("hides the low-battery suggestion on past dates", async () => {
+		const el = document.createElement("div");
+		await new EnergyPanel(el, deps({ getDayEnergy: async () => dayEnergy(10) }), { date: "2026-10-14", navigable: true }).render();
+		expect(el.querySelector(".tn-energy-panel__low")).toBeNull();
+		const future = document.createElement("div");
+		await new EnergyPanel(future, deps({ getDayEnergy: async () => dayEnergy(10) }), { date: "2026-10-16", navigable: true }).render();
+		expect(future.querySelector(".tn-energy-panel__low")).not.toBeNull();
+	});
+	it("says energy is turned off, with a settings button, when it is disabled", async () => {
+		const el = document.createElement("div");
+		const d = deps({ isActive: () => false, isEnabled: () => false });
+		await new EnergyPanel(el, d, { date: "2026-10-15", navigable: false }).render();
+		expect(el.textContent).toContain("energy.panel.offTitle");
+		expect(el.textContent).not.toContain("energy.panel.emptyTitle");
+		(el.querySelector(".tn-energy-panel__empty button") as HTMLElement).click();
+		expect(d.openSettings).toHaveBeenCalledWith("energy");
+	});
+	it("opens the context settings from the empty state when energy is on", async () => {
+		const el = document.createElement("div");
+		const d = deps({ isActive: () => false, isEnabled: () => true });
+		await new EnergyPanel(el, d, { date: "2026-10-15", navigable: false }).render();
+		(el.querySelector(".tn-energy-panel__empty button") as HTMLElement).click();
+		expect(d.openSettings).toHaveBeenCalledWith("contexts");
+	});
+	it("shows the date as a heading on a non-navigable panel that is not for today", async () => {
+		const el = document.createElement("div");
+		await new EnergyPanel(el, deps(), { date: "2026-10-20", navigable: false }).render();
+		expect(el.querySelector(".tn-energy-panel__date-heading")?.textContent).toBe("2026-10-20");
+		const today = document.createElement("div");
+		await new EnergyPanel(today, deps(), { date: "2026-10-15", navigable: false }).render();
+		expect(today.querySelector(".tn-energy-panel__date-heading")).toBeNull();
+		const nav = document.createElement("div");
+		await new EnergyPanel(nav, deps(), { date: "2026-10-20", navigable: true }).render();
+		expect(nav.querySelector(".tn-energy-panel__date-heading")).toBeNull();
+	});
 	it("opens an item when its title is clicked", async () => {
 		const el = document.createElement("div");
 		const d = deps();
 		await new EnergyPanel(el, d, { date: "2026-10-15", navigable: false }).render();
 		(el.querySelector(".tn-energy-panel__effect-title") as HTMLElement).click();
 		expect(d.openItem).toHaveBeenCalledWith(expect.objectContaining({ ref: "e-15" }));
+	});
+});
+
+describe("followTodayDate", () => {
+	it("moves a panel that was on today to the new today", () => {
+		expect(followTodayDate("2026-10-15", "2026-10-15", "2026-10-16")).toBe("2026-10-16");
+	});
+	it("keeps a panel on another date where it is", () => {
+		expect(followTodayDate("2026-10-20", "2026-10-15", "2026-10-16")).toBe("2026-10-20");
+		expect(followTodayDate("2026-10-14", "2026-10-15", "2026-10-16")).toBe("2026-10-14");
+	});
+	it("does nothing when today has not changed", () => {
+		expect(followTodayDate("2026-10-15", "2026-10-15", "2026-10-15")).toBe("2026-10-15");
 	});
 });

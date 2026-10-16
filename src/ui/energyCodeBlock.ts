@@ -1,13 +1,10 @@
 import { MarkdownRenderChild, type MarkdownPostProcessorContext } from "obsidian";
 import { EnergyPanel, type EnergyPanelDeps } from "../components/EnergyPanel";
 
-/** Reads an optional `date: YYYY-MM-DD` line; no line means the fallback date. */
-export function parseEnergyBlock(
-	source: string,
-	fallbackDate: string
-): { date: string } | { error: string } {
+/** Reads an optional `date: YYYY-MM-DD` line; `date: null` when there is none. */
+export function parseEnergyBlock(source: string): { date: string | null } | { error: string } {
 	const match = /^\s*date\s*:\s*(.+?)\s*$/m.exec(source);
-	if (!match) return { date: fallbackDate };
+	if (!match) return { date: null };
 	const value = match[1];
 	const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
 	if (!m) return { error: value };
@@ -16,9 +13,22 @@ export function parseEnergyBlock(
 	return { date: value };
 }
 
+/**
+ * The block's date at each render: its `date:` line, else the daily note's date, else
+ * today (looked up each time, so a block in a regular note moves on at midnight).
+ */
+export function energyBlockDateResolver(
+	explicit: string | null,
+	dailyNoteDate: () => string | null,
+	today: () => string
+): () => string {
+	return () => explicit ?? dailyNoteDate() ?? today();
+}
+
 export interface EnergyCodeBlockEnv {
-	/** Date used when the block has no `date:` line (the daily note's date, or today). */
-	fallbackDate: string;
+	/** The date of the note the block is in, if it is a daily note. */
+	dailyNoteDate: () => string | null;
+	today: () => string;
 	deps: EnergyPanelDeps;
 	onChange(listener: () => void): () => void;
 }
@@ -30,7 +40,7 @@ export function renderEnergyCodeBlock(
 	ctx: MarkdownPostProcessorContext,
 	env: EnergyCodeBlockEnv
 ): void {
-	const parsed = parseEnergyBlock(source, env.fallbackDate);
+	const parsed = parseEnergyBlock(source);
 	if ("error" in parsed) {
 		el.createDiv({
 			cls: "tn-energy-panel__error",
@@ -38,12 +48,14 @@ export function renderEnergyCodeBlock(
 		});
 		return;
 	}
+	const dateOf = energyBlockDateResolver(parsed.date, env.dailyNoteDate, env.today);
 	const panel = new EnergyPanel(el.createDiv(), env.deps, {
-		date: parsed.date,
+		date: dateOf(),
 		navigable: false,
 	});
 	void panel.render();
 	const child = new MarkdownRenderChild(el);
-	child.register(env.onChange(() => void panel.render()));
+	// Energy changes include the day changing (midnight, or waking from sleep).
+	child.register(env.onChange(() => void panel.setDate(dateOf())));
 	ctx.addChild(child);
 }

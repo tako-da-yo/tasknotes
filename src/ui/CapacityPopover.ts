@@ -80,9 +80,9 @@ class CapacityModal extends Modal {
 					this.closeAndNavigate();
 					base.openItem(item);
 				},
-				openSettings: () => {
+				openSettings: (target) => {
 					this.closeAndNavigate();
-					base.openSettings();
+					base.openSettings(target);
 				},
 			};
 			const panel = new EnergyPanel(

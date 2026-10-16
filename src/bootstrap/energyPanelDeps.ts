@@ -70,6 +70,7 @@ export function createEnergyPanelDeps(plugin: TaskNotesPlugin): EnergyPanelDeps 
 	const deps: EnergyPanelDeps = {
 		getDayEnergy: (date) => plugin.energyService.getDayEnergy(date),
 		isActive: () => plugin.energyService.isActive(),
+		isEnabled: () => plugin.settings.energy.enabled,
 		titleOf: (item: DayItem) => item.title || item.task?.title || item.ref,
 		openItem: (item) => {
 			const open =
@@ -122,10 +123,11 @@ export function createEnergyPanelDeps(plugin: TaskNotesPlugin): EnergyPanelDeps 
 				}
 			).open();
 		},
-		openSettings: () => {
+		openSettings: (target) => {
 			plugin.app.setting.open();
 			plugin.app.setting.openTabById(plugin.manifest.id);
-			plugin.settingTab?.openTab("task-properties", "property-context-groups");
+			if (target === "energy") plugin.settingTab?.openTab("features");
+			else plugin.settingTab?.openTab("task-properties", "property-context-groups");
 		},
 		t,
 		today: () => getTodayString(),

@@ -105,8 +105,8 @@ An item's energy kind comes from the same context as its calendar color: the fir
 ### Where the battery shows up
 
 - **Calendar view**: each day in month, week, day and year views shows a small battery whose fill is that day's projected level. Hover it to see the level and the hours of drain, spark and steady time, for example "Projected battery 60%. 2h drain, 1h spark, 0h steady." Days with no Spark or Drain time have no battery. Click it to open the energy panel for that day. Turn the batteries off for a view with its **Show energy levels** option.
-- **Energy panel**: run **Open energy panel** to open it in the right sidebar. Use the arrows to move between days and **Today** to come back. For today it shows the level now (from items already done) and tonight's projected level; for other days it shows the projected level. Below that are the Spark, Steady and Drain hours with how many are done, the items with the biggest effect (drains first, then sparks), and, for today, the [daily capacity](#daily-capacity) line. When the day is forecast to end below the low battery level, **Show drain tasks** lets you pick one of that day's open drain tasks and move it to **Tomorrow**, **This weekend** or **Next week** (the same choices as [inbox triage](task-management.md#triage-inbox)), or to a date you pick, and **Find a spark** lets you schedule an undated Spark task on that day.
-- **In notes**: a `tasknotes-energy` code block shows the same panel for one day. Without a `date:` line it shows the daily note's date, or today in other notes:
+- **Energy panel**: run **Open energy panel** to open it in the right sidebar. Use the arrows to move between days and **Today** to come back. When it shows today, it moves on to the new day at midnight or when Obsidian wakes from sleep. For today it shows the level now (from items already done) and tonight's projected level; for other days it shows the projected level. Below that are the Spark, Steady and Drain hours with how many are done, the items with the biggest effect (drains first, then sparks), and, for today, the [daily capacity](#daily-capacity) line. When today or a later day is forecast to end below the low battery level, **Show drain tasks** lets you pick one of that day's open drain tasks and move it to **Tomorrow**, **This weekend** or **Next week** (the same choices as [inbox triage](task-management.md#triage-inbox)), or to a date you pick, and **Find a spark** lets you schedule an undated Spark task on that day.
+- **In notes**: a `tasknotes-energy` code block shows the same panel for one day, with the date above it when that day is not today. Without a `date:` line it shows the daily note's date, or today in other notes (moving on to the new day at midnight):
 
     ````markdown
     ```tasknotes-energy
@@ -117,7 +117,7 @@ An item's energy kind comes from the same context as its calendar color: the fir
     An invalid date shows an error in place of the panel.
 - **Status bar**: on desktop, the daily capacity item starts with today's projected battery, for example `🔋60% · Today: 3h planned · 2h free`, or `🪫` when it is low. It is shown when the capacity text or energy is on. Clicking it shows today's energy panel above the capacity summary and task list.
 
-When no context is Spark or Drain yet, the panel says so and links to the context settings.
+When no context is Spark or Drain yet, the panel says so and links to the context settings. When **Show energy levels** is off, it says energy levels are turned off and links to the energy settings.
 
 ## Pomodoro Timer
 

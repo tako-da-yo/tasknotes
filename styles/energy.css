@@ -204,3 +204,8 @@ body {
 	display: block;
 	color: var(--text-muted);
 }
+
+.tn-energy-panel__date-heading {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}

@@ -522,7 +522,8 @@ function registerEditorIntegrations(plugin: TaskNotesPlugin): void {
 	plugin.registerMarkdownPostProcessor(createReadingModeTaskLinkProcessor(plugin));
 	plugin.registerMarkdownCodeBlockProcessor("tasknotes-energy", (source, el, ctx) =>
 		renderEnergyCodeBlock(source, el, ctx, {
-			fallbackDate: dailyNoteDateFor(plugin, ctx.sourcePath) ?? getTodayString(),
+			dailyNoteDate: () => dailyNoteDateFor(plugin, ctx.sourcePath),
+			today: () => getTodayString(),
 			deps: createEnergyPanelDeps(plugin),
 			onChange: (listener) => plugin.energyService.onChange(listener),
 		})
