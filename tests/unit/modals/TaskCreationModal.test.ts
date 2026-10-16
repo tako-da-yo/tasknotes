@@ -381,7 +381,7 @@ describe("TaskCreationModal - Fixed Implementation", () => {
 
 		it("should create task with valid data", async () => {
 			(modal as any).title = "Test Task";
-			(modal as any).status = "open";
+			(modal as any).getActionMenuContext().setStatus("open");
 			(modal as any).priority = "high";
 			(modal as any).details = "Task details";
 			(modal as any).contexts = "work, urgent";
@@ -479,6 +479,53 @@ describe("TaskCreationModal - Fixed Implementation", () => {
 			} finally {
 				jest.useRealTimers();
 			}
+		});
+	});
+
+	describe("Status capture", () => {
+		const sentStatus = () => mockPlugin.taskService.createTask.mock.calls[0][0].status;
+
+		it("leaves status unset when it only came from the default", async () => {
+			modal = new TaskCreationModal(createMockApp(mockApp), mockPlugin);
+			await (modal as any).initializeFormData();
+			(modal as any).title = "Call dentist";
+
+			await modal.handleSave();
+
+			expect(sentStatus()).toBeUndefined();
+		});
+
+		it("sends a status picked from the status menu", async () => {
+			modal = new TaskCreationModal(createMockApp(mockApp), mockPlugin);
+			await (modal as any).initializeFormData();
+			(modal as any).title = "Call dentist";
+			(modal as any).getActionMenuContext().setStatus("open");
+
+			await modal.handleSave();
+
+			expect(sentStatus()).toBe("open");
+		});
+
+		it("sends a status parsed from natural language input", async () => {
+			modal = new TaskCreationModal(createMockApp(mockApp), mockPlugin);
+			await (modal as any).initializeFormData();
+			(modal as any).applyParsedData({ title: "Call dentist", status: "done" });
+
+			await modal.handleSave();
+
+			expect(sentStatus()).toBe("done");
+		});
+
+		it("sends a pre-populated status", async () => {
+			modal = new TaskCreationModal(createMockApp(mockApp), mockPlugin, {
+				prePopulatedValues: { status: "open" },
+			});
+			await (modal as any).initializeFormData();
+			(modal as any).title = "Call dentist";
+
+			await modal.handleSave();
+
+			expect(sentStatus()).toBe("open");
 		});
 	});
 

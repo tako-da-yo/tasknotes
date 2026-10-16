@@ -14,7 +14,8 @@ export interface TaskCreationDataInput {
 	dueDate: string;
 	scheduledDate: string;
 	priority: string;
-	status: string;
+	/** Omitted when the status only came from defaults, so creation can apply the capture rule. */
+	status?: string;
 	contexts: string;
 	projects: string;
 	tags: string;

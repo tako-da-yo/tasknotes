@@ -1,6 +1,7 @@
 import { App, Notice, setIcon, setTooltip, TFile } from "obsidian";
 import TaskNotesPlugin from "../main";
 import { TaskModal } from "./TaskModal";
+import type { TaskModalActionMenuContext } from "./taskModalActionMenus";
 import { TaskInfo } from "../types";
 import { sanitizeTags } from "../utils/helpers";
 import {
@@ -110,6 +111,8 @@ export class TaskCreationModal extends TaskModal {
 	private nlPreviewContainer: HTMLElement = undefined as unknown as HTMLElement;
 	private nlButtonContainer: HTMLElement = undefined as unknown as HTMLElement;
 	private nlpSuggest: NLPSuggest | null = null; // Will be replaced with CodeMirror autocomplete
+	// True once the status comes from the user, NLP or pre-populated values rather than defaults
+	private statusTouched = false;
 
 	// Track event listeners for cleanup
 	private eventListeners: Array<{
@@ -516,7 +519,10 @@ export class TaskCreationModal extends TaskModal {
 
 	private applyParsedData(parsed: NLParsedTaskData): void {
 		if (parsed.title) this.title = parsed.title;
-		if (parsed.status) this.status = parsed.status;
+		if (parsed.status) {
+			this.status = parsed.status;
+			this.statusTouched = true;
+		}
 		if (parsed.priority) this.priority = parsed.priority;
 
 		// Handle due date with time
@@ -605,6 +611,7 @@ export class TaskCreationModal extends TaskModal {
 		this.scheduledDate = formState.scheduledDate;
 		this.priority = formState.priority;
 		this.status = formState.status;
+		this.statusTouched = this.options.prePopulatedValues?.status !== undefined;
 		this.contexts = formState.contexts;
 		this.tags = formState.tags;
 		this.timeEstimate = formState.timeEstimate;
@@ -750,7 +757,7 @@ export class TaskCreationModal extends TaskModal {
 			dueDate: this.dueDate,
 			scheduledDate: this.scheduledDate,
 			priority: this.priority,
-			status: this.status,
+			status: this.statusTouched ? this.status : undefined,
 			contexts: this.contexts,
 			projects: this.projects,
 			tags: this.tags,
@@ -775,6 +782,17 @@ export class TaskCreationModal extends TaskModal {
 		}
 
 		return taskData;
+	}
+
+	protected getActionMenuContext(): TaskModalActionMenuContext {
+		const context = super.getActionMenuContext();
+		return {
+			...context,
+			setStatus: (value) => {
+				context.setStatus(value);
+				this.statusTouched = true;
+			},
+		};
 	}
 
 	// Override to prevent creating duplicate title input when NLP is enabled

@@ -9,6 +9,7 @@ import {
 } from "../../types";
 import type { TaskNotesSettings } from "../../types/settings";
 import { addDTSTARTToRecurrenceRule } from "../../core/recurrence";
+import { resolveCaptureStatus } from "../../core/captureStatus";
 import {
 	FilenameContext,
 	type TaskFilenameSettings,
@@ -84,6 +85,7 @@ type TaskCreationSettings = Pick<
 	| "inlineTaskConvertFolder"
 	| "tasksFolder"
 	| "googleCalendarExport"
+	| "triage"
 > &
 	TaskFilenameSettings;
 
@@ -144,7 +146,17 @@ export class TaskCreationService {
 				? this.deps.sanitizeTitleForFilename(rawTitle)
 				: title;
 			const priority = taskData.priority || runtime.settings.defaultTaskPriority;
-			const status = taskData.status || runtime.settings.defaultTaskStatus;
+			const status = resolveCaptureStatus({
+				explicitStatus: taskData.status,
+				due: taskData.due,
+				scheduled: taskData.scheduled,
+				defaultStatus: runtime.settings.defaultTaskStatus,
+				triage: runtime.settings.triage ?? {
+					inboxStatus: "",
+					somedayStatus: "",
+					captureToInbox: false,
+				},
+			});
 			const dateCreated = taskData.dateCreated || getCurrentTimestamp();
 			const dateModified = taskData.dateModified || getCurrentTimestamp();
 			const recurrence = taskData.recurrence || undefined;
