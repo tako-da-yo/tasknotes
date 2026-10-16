@@ -1,7 +1,7 @@
 import { normalizePath } from "obsidian";
 import { DEFAULT_NLP_TRIGGERS, DEFAULT_SETTINGS } from "./defaults";
 import { hasMissingMigratedSettings } from "./settingsMigration";
-import type { TaskCreationDefaults, TaskNotesSettings } from "../types/settings";
+import type { PlanningSettings, TaskCreationDefaults, TaskNotesSettings } from "../types/settings";
 import { initializeFieldConfig } from "../utils/fieldConfigDefaults";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 
@@ -199,6 +199,20 @@ function shouldMigrateParentNoteTaskCreationDefault(
 	);
 }
 
+// Copies nested arrays/objects so loaded settings never share references with DEFAULT_SETTINGS
+function buildPlanningSettings(
+	loadedPlanning: LoadedSettingsData["planning"] | undefined
+): PlanningSettings {
+	const merged: PlanningSettings = { ...DEFAULT_SETTINGS.planning, ...(loadedPlanning || {}) };
+	return {
+		...merged,
+		workHours: (merged.workHours ?? DEFAULT_SETTINGS.planning.workHours).map((day) =>
+			day ? { ...day } : null
+		),
+		busyCalendars: Array.isArray(merged.busyCalendars) ? [...merged.busyCalendars] : null,
+	};
+}
+
 function buildTaskCreationDefaults(
 	loadedDefaults: LoadedSettingsData["taskCreationDefaults"] | undefined
 ): TaskCreationDefaults {
@@ -245,7 +259,7 @@ export function buildSettingsFromLoadedData(data: LoadedSettingsData | null): Se
 			...(loadedData?.calendarViewSettings || {}),
 		},
 		triage: { ...DEFAULT_SETTINGS.triage, ...(loadedData?.triage || {}) },
-		planning: { ...DEFAULT_SETTINGS.planning, ...(loadedData?.planning || {}) },
+		planning: buildPlanningSettings(loadedData?.planning),
 		calibration: { ...DEFAULT_SETTINGS.calibration, ...(loadedData?.calibration || {}) },
 		commandFileMapping: {
 			...DEFAULT_SETTINGS.commandFileMapping,
