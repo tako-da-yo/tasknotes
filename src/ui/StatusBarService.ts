@@ -15,6 +15,7 @@ import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { getTodayString } from "../utils/dateUtils";
 import { formatTime } from "../utils/helpers";
 import { capacityStatusText, energyPrefix } from "./capacityText";
+import type { DayEnergy } from "../core/energyModel";
 import { openCapacityPopover } from "./CapacityPopover";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Services/StatusBarService" });
@@ -130,9 +131,20 @@ export class StatusBarService {
 		return !!this.plugin.energyService?.isActive();
 	}
 
-	/** The item carries capacity text, the battery level, or both. */
+	/** The item (capacity text and, when energy is active, the battery) is behind one setting. */
 	private isCapacityItemWanted(): boolean {
-		return this.showsCapacityText() || this.isEnergyActive();
+		return this.showsCapacityText();
+	}
+
+	/** Spoken form of the item, e.g. "Battery 40%, low. Today: 3h planned · 2h free". */
+	private capacityAriaLabel(energy: DayEnergy | null, capacityText: string | null): string {
+		const t = (key: string, params?: Record<string, string | number>) => this.plugin.i18n.translate(key, params);
+		const parts: string[] = [];
+		if (energy?.hasSignal) {
+			parts.push(t(energy.level === "low" ? "energy.statusAriaLow" : "energy.statusAria", { level: energy.projected }));
+		}
+		if (capacityText) parts.push(capacityText);
+		return parts.join(". ") || t("capacity.ariaLabel");
 	}
 
 	private registerCapacityRefresh(): void {
@@ -165,12 +177,11 @@ export class StatusBarService {
 		if (Platform.isMobile) return;
 		const seq = ++this.capacityUpdateSeq;
 
-		const showCapacity = this.showsCapacityText();
-		const energyActive = this.isEnergyActive();
-		if (!showCapacity && !energyActive) {
+		if (!this.isCapacityItemWanted()) {
 			if (this.capacityStatusBarElement) this.hideElement(this.capacityStatusBarElement);
 			return;
 		}
+		const energyActive = this.isEnergyActive();
 
 		this.ensureCapacityStatusBarElement();
 		// Subscribe lazily so nothing runs while the item is turned off.
@@ -182,7 +193,7 @@ export class StatusBarService {
 
 		try {
 			const today = getTodayString();
-			const capacityService = showCapacity ? this.plugin.capacityService : undefined;
+			const capacityService = this.plugin.capacityService;
 			const [capacity, energy] = await Promise.all([
 				capacityService ? capacityService.getDayCapacity(today) : Promise.resolve(null),
 				energyActive ? this.plugin.energyService.getDayEnergy(today) : Promise.resolve(null),
@@ -206,6 +217,7 @@ export class StatusBarService {
 			// With only the battery, drop the trailing separator.
 			const text = capacityText ? prefix + capacityText : prefix.replace(/ · $/, "");
 			el.setText(text);
+			el.setAttribute("aria-label", this.capacityAriaLabel(energy, capacityText));
 			el.toggleClass("is-over", !!capacityText && (capacity?.overByMinutes ?? 0) > 0);
 			el.toggleClass("is-low-energy", !!prefix && energy?.level === "low");
 			this.showElement(el);

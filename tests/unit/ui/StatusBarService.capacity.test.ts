@@ -22,7 +22,10 @@ function createPlugin(
 			showPomodoroInStatusBar: false,
 			planning: { showInStatusBar: opts.showInStatusBar ?? true },
 		},
-		i18n: { translate: (key: string) => key },
+		i18n: {
+			translate: (key: string, params: Record<string, string | number> = {}) =>
+				key.startsWith("energy.") ? `${key}${JSON.stringify(params)}` : key,
+		},
 		addStatusBarItem: jest.fn(() => document.createElement("div")),
 		registerInterval: jest.fn((id: number) => id),
 		capacityService: { getDayCapacity },
@@ -105,18 +108,58 @@ describe("StatusBarService capacity item", () => {
 		service.destroy();
 	});
 
-	it("shows only the battery when the capacity item is off but energy is active", async () => {
-		const { plugin, getDayCapacity, statusEl } = createPlugin({
-			showInStatusBar: false,
+	it("shows only the battery when nothing is planned but energy is active", async () => {
+		const { plugin, statusEl } = createPlugin({
+			plannedMinutes: 0,
 			energy: { projected: 10, level: "low", hasSignal: true },
 		});
 		const service = new StatusBarService(plugin as never);
 		service.initialize();
 		await flush();
-		expect(getDayCapacity).not.toHaveBeenCalled();
 		expect(statusEl()?.textContent).toBe("🪫10%");
 		expect(statusEl()?.classList.contains("is-low-energy")).toBe(true);
 		expect(isHidden(statusEl()!)).toBe(false);
+		service.destroy();
+	});
+
+	it("shows only the capacity text when energy is inactive", async () => {
+		const { plugin, statusEl } = createPlugin({ energy: null });
+		const service = new StatusBarService(plugin as never);
+		service.initialize();
+		await flush();
+		expect(statusEl()?.textContent).toBe("capacity.status");
+		expect(plugin.energyService.getDayEnergy).not.toHaveBeenCalled();
+		service.destroy();
+	});
+
+	it("builds the aria label from what is shown", async () => {
+		const { plugin, statusEl } = createPlugin({ energy: { projected: 10, level: "low", hasSignal: true } });
+		const service = new StatusBarService(plugin as never);
+		service.initialize();
+		await flush();
+		expect(statusEl()?.getAttribute("aria-label")).toBe('energy.statusAriaLow{"level":10}. capacity.status');
+		service.destroy();
+
+		const ok = createPlugin({ plannedMinutes: 0, energy: { projected: 55, level: "ok", hasSignal: true } });
+		const okService = new StatusBarService(ok.plugin as never);
+		okService.initialize();
+		await flush();
+		expect(ok.statusEl()?.getAttribute("aria-label")).toBe('energy.statusAria{"level":55}');
+		okService.destroy();
+	});
+
+	it("creates nothing when the status bar setting is off, even with energy active", async () => {
+		const { plugin } = createPlugin({
+			showInStatusBar: false,
+			energy: { projected: 10, level: "low", hasSignal: true },
+		});
+		const service = new StatusBarService(plugin as never);
+		service.initialize();
+		service.updateVisibility();
+		await flush();
+		expect(plugin.addStatusBarItem).not.toHaveBeenCalled();
+		expect(plugin.dayPlanService.onChange).not.toHaveBeenCalled();
+		expect(plugin.energyService.getDayEnergy).not.toHaveBeenCalled();
 		service.destroy();
 	});
 
@@ -144,12 +187,12 @@ describe("StatusBarService capacity item", () => {
 		service.destroy();
 	});
 
-	it("re-evaluates the gating when energy is turned on later", async () => {
-		const { plugin, statusEl } = createPlugin({ showInStatusBar: false, energy: null });
+	it("re-evaluates the battery when energy is turned on later", async () => {
+		const { plugin, statusEl } = createPlugin({ plannedMinutes: 0, energy: null });
 		const service = new StatusBarService(plugin as never);
 		service.initialize();
 		await flush();
-		expect(plugin.addStatusBarItem).not.toHaveBeenCalled();
+		expect(isHidden(statusEl()!)).toBe(true);
 
 		plugin.energyService.isActive.mockReturnValue(true);
 		plugin.energyService.getDayEnergy.mockResolvedValue({

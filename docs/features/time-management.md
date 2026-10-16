@@ -60,7 +60,7 @@ Daily capacity compares the time you have planned for a day with the free time y
 
 ### Status bar
 
-On desktop, the status bar shows `Today: 3h planned · 2h free`, with `· 1h over` added when planned time exceeds free time. On a day with no work hours it shows only `Today: 3h planned`. It is hidden when nothing is planned for today. Turn it off with **Show today's capacity in the status bar**.
+On desktop, the status bar shows `Today: 3h planned · 2h free`, with `· 1h over` added when planned time exceeds free time. On a day with no work hours it shows only `Today: 3h planned`. It is hidden when nothing is planned for today, unless it is showing today's [battery](#where-the-battery-shows-up). Turn it off with **Show today's capacity and battery in the status bar**.
 
 Click it to see today's tasks with their planned time, or open the Tasks base on its Today view with **Open today view**. When the [inbox](task-management.md#inbox-and-triage) is enabled, each task has a **Move to inbox** button. It sets the task's status to the inbox status and clears its scheduled date, and the popover updates with the new totals. The button is disabled for recurring tasks and for tasks whose due date is today, because those would still count today.
 
@@ -115,7 +115,7 @@ An item's energy kind comes from the same context as its calendar color: the fir
     ````
 
     An invalid date shows an error in place of the panel.
-- **Status bar**: on desktop, the daily capacity item starts with today's projected battery, for example `🔋60% · Today: 3h planned · 2h free`, or `🪫` when it is low. It is shown when the capacity text or energy is on. Clicking it shows today's energy panel above the capacity summary and task list.
+- **Status bar**: on desktop, the daily capacity item starts with today's projected battery, for example `🔋60% · Today: 3h planned · 2h free`, or `🪫` when it is low. When nothing is planned for today, it shows the battery alone. Both are turned on and off with **Show today's capacity and battery in the status bar**. Clicking it shows today's energy panel above the capacity summary and task list.
 
 When no context is Spark or Drain yet, the panel says so and links to the context settings. When **Show energy levels** is off, it says energy levels are turned off and links to the energy settings.
 

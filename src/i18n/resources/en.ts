@@ -739,7 +739,7 @@ export const en: TranslationTree = {
 				allDayBusy: "Count all-day events as busy",
 				defaultEstimate: "Default estimate for tasks without one (minutes)",
 				defaultEstimateDesc: "Leave empty to show them as unestimated instead.",
-				showInStatusBar: "Show today's capacity in the status bar",
+				showInStatusBar: "Show today's capacity and battery in the status bar",
 				warnOnOverbook: "Warn when a day becomes overbooked",
 				calibrationWindow: "Estimate calibration window (days)",
 				applyCalibration: "Use calibrated estimates for planning",
@@ -3752,6 +3752,8 @@ export const en: TranslationTree = {
 		glyph: {
 			aria: "Projected battery {level}%. {drain}h drain, {spark}h spark, {steady}h steady.",
 		},
+		statusAria: "Battery {level}%",
+		statusAriaLow: "Battery {level}%, low",
 		panel: {
 			title: "Energy",
 			now: "Now {level}%",

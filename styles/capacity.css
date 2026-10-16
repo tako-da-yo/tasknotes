@@ -12,7 +12,7 @@
 }
 
 .tn-capacity-status.is-low-energy {
-    color: var(--tn-energy-low);
+    color: var(--text-warning);
 }
 
 .tn-capacity-popover .tn-capacity-popover__energy {
