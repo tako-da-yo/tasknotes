@@ -113,9 +113,6 @@ drafts:
     - development/refactor-smoke-checks.md
     - development/runtime-api-query-contract.md
     - development/triage-and-capacity-spec.md
-    - development/plans/2026-10-15-inbox-triage.md
-    - development/plans/2026-10-15-calibration-capacity.md
-    - development/plans/2026-10-15-energy.md
     - examples/tasknotes-starter-note.md
     - examples/webhook-transforms/README.md
     - settings/advanced-settings.md
