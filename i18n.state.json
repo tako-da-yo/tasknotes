@@ -1312,6 +1312,13 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "550e06afd501e2f3b0a8a7c198ffd48f6722add9"
     },
+    "views.stats.cards.estimateAccuracy": null,
+    "views.stats.estimateAccuracy.headline": null,
+    "views.stats.estimateAccuracy.basis": null,
+    "views.stats.estimateAccuracy.notEnough": null,
+    "views.stats.estimateAccuracy.small": null,
+    "views.stats.estimateAccuracy.medium": null,
+    "views.stats.estimateAccuracy.large": null,
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "c667f1f22a05f7a3fde816af664758eb9240bcb1"
@@ -6508,6 +6515,8 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
+    "modals.task.estimateHint": null,
+    "modals.task.estimateHintUse": null,
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "e50663338266e1575304ce9dc1ed034e7b43a0c4"
@@ -10650,6 +10659,13 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "61b5eb44e0358039c7928be62475b69658e64ec1"
     },
+    "views.stats.cards.estimateAccuracy": null,
+    "views.stats.estimateAccuracy.headline": null,
+    "views.stats.estimateAccuracy.basis": null,
+    "views.stats.estimateAccuracy.notEnough": null,
+    "views.stats.estimateAccuracy.small": null,
+    "views.stats.estimateAccuracy.medium": null,
+    "views.stats.estimateAccuracy.large": null,
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "0e783f9dd49b856c8b58298414ed0ee934652e73"
@@ -15846,6 +15862,8 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
+    "modals.task.estimateHint": null,
+    "modals.task.estimateHintUse": null,
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "ebc06692e03e45d145d87ac1ef4be373b3d99bc6"
@@ -19988,6 +20006,13 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "c8bc2fd81b8939b0a4388892f42b49089bf5cc09"
     },
+    "views.stats.cards.estimateAccuracy": null,
+    "views.stats.estimateAccuracy.headline": null,
+    "views.stats.estimateAccuracy.basis": null,
+    "views.stats.estimateAccuracy.notEnough": null,
+    "views.stats.estimateAccuracy.small": null,
+    "views.stats.estimateAccuracy.medium": null,
+    "views.stats.estimateAccuracy.large": null,
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "1b018f86f2cae2df1a70e37a69cc41124105ca4e"
@@ -25184,6 +25209,8 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
+    "modals.task.estimateHint": null,
+    "modals.task.estimateHintUse": null,
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "ca4fbcca7935171240662a9f5e72455246c7ff13"
@@ -29326,6 +29353,13 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "a2d68b784fb281ebab38c92d29bf0f2402dcbf8a"
     },
+    "views.stats.cards.estimateAccuracy": null,
+    "views.stats.estimateAccuracy.headline": null,
+    "views.stats.estimateAccuracy.basis": null,
+    "views.stats.estimateAccuracy.notEnough": null,
+    "views.stats.estimateAccuracy.small": null,
+    "views.stats.estimateAccuracy.medium": null,
+    "views.stats.estimateAccuracy.large": null,
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "2b79c0b9423d706444ac2a504d6157f503834d4f"
@@ -34522,6 +34556,8 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
+    "modals.task.estimateHint": null,
+    "modals.task.estimateHintUse": null,
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "0a79b9ff685d4f2c176b92038dfc577acef0e2a7"
@@ -38664,6 +38700,13 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "c91208d4703f89310a79e48afae2a2e1064b8b5a"
     },
+    "views.stats.cards.estimateAccuracy": null,
+    "views.stats.estimateAccuracy.headline": null,
+    "views.stats.estimateAccuracy.basis": null,
+    "views.stats.estimateAccuracy.notEnough": null,
+    "views.stats.estimateAccuracy.small": null,
+    "views.stats.estimateAccuracy.medium": null,
+    "views.stats.estimateAccuracy.large": null,
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "9d9bf438ff1aa4be040a318fb253cfdb8f09cd26"
@@ -43860,6 +43903,8 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
+    "modals.task.estimateHint": null,
+    "modals.task.estimateHintUse": null,
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "bc3f4b2da6d55a970eb6f6ac06e0f6b36f2d4ce8"
@@ -48002,6 +48047,13 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "6caf6562d83b7e5e97c56f9f9644b5b966c6c082"
     },
+    "views.stats.cards.estimateAccuracy": null,
+    "views.stats.estimateAccuracy.headline": null,
+    "views.stats.estimateAccuracy.basis": null,
+    "views.stats.estimateAccuracy.notEnough": null,
+    "views.stats.estimateAccuracy.small": null,
+    "views.stats.estimateAccuracy.medium": null,
+    "views.stats.estimateAccuracy.large": null,
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "5920bbfe1d67a61e9d4b6249fdf75b6f73d7cfed"
@@ -53198,6 +53250,8 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
+    "modals.task.estimateHint": null,
+    "modals.task.estimateHintUse": null,
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "2dc981a4e9b1298fada6de3678bd0c91fa9bc276"
@@ -57340,6 +57394,13 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "0a90f1876a124c2cbf6dcb63c4f01d83cc4fc527"
     },
+    "views.stats.cards.estimateAccuracy": null,
+    "views.stats.estimateAccuracy.headline": null,
+    "views.stats.estimateAccuracy.basis": null,
+    "views.stats.estimateAccuracy.notEnough": null,
+    "views.stats.estimateAccuracy.small": null,
+    "views.stats.estimateAccuracy.medium": null,
+    "views.stats.estimateAccuracy.large": null,
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "2ff08344934d2f5c54e31d9346e380a747f8ac33"
@@ -62536,6 +62597,8 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
+    "modals.task.estimateHint": null,
+    "modals.task.estimateHintUse": null,
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "70d744f7368ad3bb20acba45f05c2e87934fa875"
@@ -66678,6 +66741,13 @@
       "source": "0bc83ca5e82607e3698710c73eb074854c147217",
       "translation": "49c2487c2992208e293b1b3b72e9fb00e64622bf"
     },
+    "views.stats.cards.estimateAccuracy": null,
+    "views.stats.estimateAccuracy.headline": null,
+    "views.stats.estimateAccuracy.basis": null,
+    "views.stats.estimateAccuracy.notEnough": null,
+    "views.stats.estimateAccuracy.small": null,
+    "views.stats.estimateAccuracy.medium": null,
+    "views.stats.estimateAccuracy.large": null,
     "views.stats.labels.tasks": {
       "source": "090ec5f560fc50377fcd95e5cda128e91b276e98",
       "translation": "3172b317f9fc809f3aee467c0446384de4cc9255"
@@ -71874,6 +71944,8 @@
       "source": "22d200f8670dbdb3e253a90eee5098477c95c23d",
       "translation": "22d200f8670dbdb3e253a90eee5098477c95c23d"
     },
+    "modals.task.estimateHint": null,
+    "modals.task.estimateHintUse": null,
     "modals.task.unsavedChanges.title": {
       "source": "29267269c048b5a9f836a97c23d40ba065c4b454",
       "translation": "3764741a21dc975acfbb79f4ed079c82885d03d3"

@@ -14,6 +14,7 @@ import TaskNotesPlugin from "../main";
 import { STATS_VIEW_TYPE, TaskInfo, EVENT_TASK_UPDATED } from "../types";
 import { calculateTotalTimeSpent, filterEmptyProjects } from "../utils/helpers";
 import { getTodayLocal } from "../utils/dateUtils";
+import { MIN_SAMPLES, type SizeBucket } from "../core/estimateCalibration";
 import { createTaskCard } from "../ui/TaskCard";
 import { convertInternalToUserProperties } from "../utils/propertyMapping";
 import { getProjectDisplayName, parseLinkToPath } from "../utils/linkUtils";
@@ -1071,6 +1072,8 @@ export class StatsView extends ItemView {
 			text: this.plugin.i18n.translate("views.stats.cards.timeTrackedEstimated"),
 		});
 
+		this.renderEstimateAccuracyCard(container);
+
 		// Total Tasks
 		const totalTasksCard = container.createDiv({
 			cls: "stats-overview-card stats-view__overview-card",
@@ -1122,6 +1125,61 @@ export class StatsView extends ItemView {
 			cls: "overview-label stats-view__overview-label",
 			text: this.plugin.i18n.translate("views.stats.cards.avgTimePerTask"),
 		});
+	}
+
+	private renderEstimateAccuracyCard(container: HTMLElement): void {
+		const t = (key: string, params?: Record<string, string | number>) =>
+			this.plugin.i18n.translate(key, params);
+		const result = this.plugin.estimateCalibrationService.getCalibration();
+		const formatFactor = (factor: number) => `${factor.toFixed(1)}×`;
+
+		const card = container.createDiv({
+			cls: "stats-overview-card stats-view__overview-card stats-view__estimate-card",
+		});
+		const value = card.createDiv({
+			cls: "overview-value stats-view__overview-value stats-view__estimate-headline",
+		});
+		card.createDiv({
+			cls: "overview-label stats-view__overview-label",
+			text: t("views.stats.cards.estimateAccuracy"),
+		});
+
+		if (!result.overall) {
+			value.textContent = t("views.stats.estimateAccuracy.notEnough", {
+				n: result.sampleCount,
+				min: MIN_SAMPLES,
+			});
+			return;
+		}
+
+		value.textContent = t("views.stats.estimateAccuracy.headline", {
+			factor: result.overall.factor.toFixed(1),
+		});
+		card.createDiv({
+			cls: "stats-view__estimate-basis",
+			text: t("views.stats.estimateAccuracy.basis", {
+				n: result.overall.n,
+				days: result.windowDays,
+			}),
+		});
+
+		const table = card.createEl("table", { cls: "stats-view__estimate-table" });
+		const tbody = table.createEl("tbody");
+		const addRow = (label: string, factor: number | null) => {
+			const row = tbody.createEl("tr");
+			row.createEl("td", { text: label });
+			row.createEl("td", { text: factor === null ? "—" : formatFactor(factor) });
+		};
+		const buckets: SizeBucket[] = ["small", "medium", "large"];
+		for (const bucket of buckets) {
+			addRow(
+				t(`views.stats.estimateAccuracy.${bucket}`),
+				result.bySize[bucket]?.factor ?? null
+			);
+		}
+		for (const [context, group] of Object.entries(result.byContext)) {
+			addRow(`@${context}`, group.factor);
+		}
 	}
 
 	private renderTimeRangeStats(container: HTMLElement, stats: TimeRangeStats) {

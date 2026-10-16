@@ -2,6 +2,7 @@ import { MarkdownView, Platform, addIcon } from "obsidian";
 import { EditorView } from "@codemirror/view";
 import type TaskNotesPlugin from "../main";
 import {
+	EVENT_DATA_CHANGED,
 	EVENT_TASK_UPDATED,
 	POMODORO_STATS_VIEW_TYPE,
 	POMODORO_VIEW_TYPE,
@@ -19,6 +20,7 @@ import { TaskService } from "../services/TaskService";
 import { FilterService } from "../services/FilterService";
 import { TaskStatsService } from "../services/TaskStatsService";
 import { TriageService } from "../services/TriageService";
+import { EstimateCalibrationService } from "../services/EstimateCalibrationService";
 import { getTodayString } from "../utils/dateUtils";
 import { ViewStateManager } from "../services/ViewStateManager";
 import { ProjectSubtasksService } from "../services/ProjectSubtasksService";
@@ -167,6 +169,18 @@ export async function initializeCoreServices(plugin: TaskNotesPlugin): Promise<v
 		saveSettings: () => plugin.saveSettings(),
 		today: () => getTodayString(),
 	});
+	plugin.estimateCalibrationService = new EstimateCalibrationService({
+		getTasks: () => plugin.cacheManager.getAllCachedTasks(),
+		isCompleted: (s) => plugin.statusManager.isCompletedStatus(s),
+		getSettings: () => plugin.settings,
+		today: () => getTodayString(),
+	});
+	plugin.registerEvent(
+		plugin.emitter.on(EVENT_TASK_UPDATED, () => plugin.estimateCalibrationService.invalidate())
+	);
+	plugin.registerEvent(
+		plugin.emitter.on(EVENT_DATA_CHANGED, () => plugin.estimateCalibrationService.invalidate())
+	);
 	plugin.viewStateManager = new ViewStateManager(plugin.app, plugin);
 	plugin.projectSubtasksService = new ProjectSubtasksService(plugin);
 	plugin.expandedProjectsService = new ExpandedProjectsService(plugin);

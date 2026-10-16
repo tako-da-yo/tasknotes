@@ -375,6 +375,34 @@
     line-height: 1.2;
 }
 
+/* Estimate accuracy card */
+.tasknotes-plugin .stats-view__estimate-headline {
+    font-size: var(--tn-font-size-lg);
+}
+
+.tasknotes-plugin .stats-view__estimate-basis {
+    font-size: var(--tn-font-size-sm);
+    color: var(--tn-text-muted);
+    margin-top: var(--tn-spacing-xs);
+}
+
+.tasknotes-plugin .stats-view__estimate-table {
+    width: 100%;
+    margin-top: var(--tn-spacing-sm);
+    font-size: var(--tn-font-size-sm);
+    border-collapse: collapse;
+}
+
+.tasknotes-plugin .stats-view__estimate-table td {
+    padding: 2px 0;
+    text-align: left;
+}
+
+.tasknotes-plugin .stats-view__estimate-table td:last-child {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
 /* Enhanced project items */
 .tasknotes-plugin .stats-view__project-item {
     background: var(--tn-background-secondary);

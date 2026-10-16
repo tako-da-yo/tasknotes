@@ -478,6 +478,15 @@ export const en: TranslationTree = {
 				completionRate: "Completion rate",
 				activeProjects: "Active projects",
 				avgTimePerTask: "Avg time per task",
+				estimateAccuracy: "Estimate accuracy",
+			},
+			estimateAccuracy: {
+				headline: "Tasks usually take {factor}× your estimate",
+				basis: "Median of {n} tasks, last {days} days",
+				notEnough: "Not enough tracked tasks yet ({n} of {min})",
+				small: "Up to 30 min",
+				medium: "30–120 min",
+				large: "Over 2 h",
 			},
 			labels: {
 				tasks: "Tasks",
@@ -2725,6 +2734,8 @@ export const en: TranslationTree = {
 			tagsPlaceholder: "tag1, tag2",
 			timeEstimateLabel: "Time estimate (minutes)",
 			timeEstimatePlaceholder: "30",
+			estimateHint: "Based on similar tasks, likely ~{duration}",
+			estimateHintUse: "Use",
 			unsavedChanges: {
 				title: "Unsaved changes",
 				message: "You have unsaved changes. Do you want to save them?",

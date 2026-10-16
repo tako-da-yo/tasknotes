@@ -24,10 +24,17 @@ export interface CreateTaskModalTextFieldOptions {
 	onChange: (value: string) => void;
 }
 
+export interface TaskModalEstimateHint {
+	text: string;
+	minutes: number;
+}
+
 export interface CreateTaskModalTimeEstimateFieldOptions {
 	container: HTMLElement;
 	value: number;
 	onChange: (value: number) => void;
+	/** Optional calibration hint shown under the input for the current estimate. */
+	hint?: (estimate: number) => TaskModalEstimateHint | null;
 }
 
 export function parseTaskModalTimeEstimate(value: string): number {
@@ -106,7 +113,9 @@ export function createTaskModalTimeEstimateField(
 			text.setPlaceholder(context.translate("modals.task.timeEstimatePlaceholder"))
 				.setValue(options.value.toString())
 				.onChange((value) => {
-					options.onChange(parseTaskModalTimeEstimate(value));
+					const estimate = parseTaskModalTimeEstimate(value);
+					options.onChange(estimate);
+					refresh(estimate);
 				});
 
 			inputEl = text.inputEl;
@@ -116,5 +125,28 @@ export function createTaskModalTimeEstimateField(
 	if (!inputEl) {
 		throw new Error("Failed to create time estimate input");
 	}
-	return inputEl;
+	const input: HTMLInputElement = inputEl;
+	const hintEl = options.hint ? options.container.createDiv({ cls: "tn-estimate-hint" }) : null;
+
+	function refresh(estimate: number): void {
+		if (!hintEl || !options.hint) return;
+		hintEl.empty();
+		const hint = options.hint(estimate);
+		if (!hint) return;
+		hintEl.createSpan({ text: hint.text });
+		const useEl = hintEl.createEl("a", {
+			cls: "tn-estimate-hint__use",
+			text: context.translate("modals.task.estimateHintUse"),
+			attr: { href: "#" },
+		});
+		useEl.addEventListener("click", (event) => {
+			event.preventDefault();
+			input.value = hint.minutes.toString();
+			options.onChange(hint.minutes);
+			refresh(hint.minutes);
+		});
+	}
+
+	refresh(options.value);
+	return input;
 }

@@ -1654,3 +1654,12 @@ body.is-mobile .tasknotes-plugin .task-project-item--task-card .task-project-rem
 .tn-context-picker__label--empty {
     color: var(--text-muted);
 }
+
+.tn-estimate-hint {
+    color: var(--text-muted);
+    font-size: var(--font-ui-small);
+}
+
+.tn-estimate-hint__use {
+    margin-left: var(--size-4-2);
+}

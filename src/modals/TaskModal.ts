@@ -14,7 +14,9 @@ import {
 	createTaskModalDetailsEditor,
 	destroyTaskModalDetailsEditor,
 } from "./taskModalDetailsEditor";
-import { splitFrontmatterAndBody } from "../utils/helpers";
+import { formatTime, splitFrontmatterAndBody } from "../utils/helpers";
+import { splitListPreservingLinksAndQuotes } from "../utils/stringSplit";
+import { shouldShowHint } from "../core/estimateCalibration";
 import { ProjectSelectModal } from "./ProjectSelectModal";
 import { TaskDependency, Reminder } from "../types";
 import { DEFAULT_DEPENDENCY_RELTYPE, formatDependencyLink } from "../utils/dependencyUtils";
@@ -45,6 +47,7 @@ import {
 	createTaskModalTagsField,
 	createTaskModalTimeEstimateField,
 	type TaskModalContextsControl,
+	type TaskModalEstimateHint,
 	type TaskModalMetadataFieldContext,
 } from "./taskModalMetadataFields";
 import {
@@ -795,7 +798,27 @@ export abstract class TaskModal extends Modal {
 			onChange: (value) => {
 				this.timeEstimate = value;
 			},
+			hint: (estimate) => this.getEstimateHint(estimate),
 		});
+	}
+
+	private getEstimateHint(estimate: number): TaskModalEstimateHint | null {
+		const svc = this.plugin.estimateCalibrationService;
+		if (!estimate || !svc) return null;
+		// Parse contexts the same way the contexts field does.
+		const task = {
+			timeEstimate: estimate,
+			contexts: this.contexts ? splitListPreservingLinksAndQuotes(this.contexts) : [],
+		};
+		const f = svc.factorFor(task);
+		if (!f || !shouldShowHint(f.factor)) return null;
+		const minutes = svc.calibratedMinutes(task) ?? estimate;
+		return {
+			text: this.plugin.i18n.translate("modals.task.estimateHint", {
+				duration: formatTime(minutes),
+			}),
+			minutes,
+		};
 	}
 
 	private getMetadataFieldContext(): TaskModalMetadataFieldContext {

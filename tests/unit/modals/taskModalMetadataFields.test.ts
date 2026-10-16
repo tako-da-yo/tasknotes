@@ -162,6 +162,41 @@ describe("taskModalMetadataFields", () => {
 		expect(onChange).toHaveBeenNthCalledWith(2, 0);
 	});
 
+	it("renders the estimate hint and applies it on Use", () => {
+		const context = createContext();
+		const container = document.createElement("div");
+		const onChange = jest.fn();
+		const input = createTaskModalTimeEstimateField(context, {
+			container,
+			value: 30,
+			onChange,
+			hint: () => ({ text: "likely ~45m", minutes: 45 }),
+		});
+		expect(container.querySelector(".tn-estimate-hint")?.textContent).toContain("likely ~45m");
+		(container.querySelector(".tn-estimate-hint__use") as HTMLElement).click();
+		expect(onChange).toHaveBeenCalledWith(45);
+		expect(input.value).toBe("45");
+	});
+
+	it("clears the estimate hint when the hint function returns null", () => {
+		const context = createContext();
+		const container = document.createElement("div");
+		const hint = jest.fn((estimate: number) =>
+			estimate === 30 ? { text: "likely ~45m", minutes: 45 } : null
+		);
+		createTaskModalTimeEstimateField(context, {
+			container,
+			value: 30,
+			onChange: jest.fn(),
+			hint,
+		});
+		expect(container.querySelector(".tn-estimate-hint__use")).not.toBeNull();
+		mockTextControls[0].onChangeCallback?.("60");
+		expect(hint).toHaveBeenLastCalledWith(60);
+		expect(container.querySelector(".tn-estimate-hint")?.textContent).toBe("");
+		expect(container.querySelector(".tn-estimate-hint__use")).toBeNull();
+	});
+
 	it("parses blank and invalid time estimates as zero", () => {
 		expect(parseTaskModalTimeEstimate("60")).toBe(60);
 		expect(parseTaskModalTimeEstimate("")).toBe(0);
