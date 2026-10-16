@@ -3,6 +3,7 @@ import {
 	TFile,
 	WorkspaceLeaf,
 	normalizePath,
+	parseYaml,
 } from "obsidian";
 import type TaskNotesPlugin from "../main";
 import {
@@ -13,11 +14,12 @@ import {
 } from "../types";
 import { RELEASE_NOTES_VIEW_TYPE } from "../views/ReleaseNotesView";
 import { showNotice } from "../ui/notifications";
+import { baseViewNames, baseViewSubpath } from "./baseViewTarget";
 
 type WorkspaceLeafLike = {
 	isDeferred?: boolean;
 	loadIfDeferred(): Promise<void>;
-	openFile?(file: TFile): Promise<void>;
+	openFile?(file: TFile, openState?: { eState?: Record<string, unknown> }): Promise<void>;
 	setViewState(state: { type: string; active?: boolean }): Promise<void>;
 	view?: {
 		file?: TFile;
@@ -125,7 +127,11 @@ export class WorkspaceNavigationService {
 		return match;
 	}
 
-	async openBasesFileForCommand(commandId: string): Promise<void> {
+	/**
+	 * Open the .base file mapped to a view command. With `viewName`, open it on
+	 * that view when the base has it; otherwise on the base's default view.
+	 */
+	async openBasesFileForCommand(commandId: string, viewName?: string): Promise<void> {
 		const filePath = this.plugin.settings.commandFileMapping[commandId];
 		if (!filePath) {
 			showNotice(`No file configured for command: ${commandId}`);
@@ -154,13 +160,29 @@ export class WorkspaceNavigationService {
 			return;
 		}
 
+		const subpath = viewName ? await this.resolveBaseViewSubpath(file, viewName) : undefined;
+		const openState = subpath ? { eState: { subpath } } : undefined;
+
 		const existingLeaf = this.findLeafForFile(normalizedPath);
 		if (existingLeaf) {
 			await this.revealLeafReady(existingLeaf);
+			if (openState && existingLeaf.openFile) {
+				await existingLeaf.openFile(file, openState);
+			}
 			return;
 		}
 
 		const leaf = this.plugin.app.workspace.getLeaf("tab");
-		await leaf.openFile(file);
+		await (openState ? leaf.openFile(file, openState) : leaf.openFile(file));
+	}
+
+	private async resolveBaseViewSubpath(file: TFile, viewName: string): Promise<string | undefined> {
+		try {
+			const content = await this.plugin.app.vault.cachedRead(file);
+			return baseViewSubpath(baseViewNames(parseYaml(content)), viewName);
+		} catch {
+			// An unreadable or invalid base still opens, on its default view.
+			return undefined;
+		}
 	}
 }

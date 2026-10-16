@@ -899,8 +899,8 @@ export default class TaskNotesPlugin extends Plugin {
 		return this.workspaceNavigationService.activateReleaseNotesView();
 	}
 
-	async openBasesFileForCommand(commandId: string): Promise<void> {
-		await this.workspaceNavigationService.openBasesFileForCommand(commandId);
+	async openBasesFileForCommand(commandId: string, viewName?: string): Promise<void> {
+		await this.workspaceNavigationService.openBasesFileForCommand(commandId, viewName);
 	}
 
 	/**

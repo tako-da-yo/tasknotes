@@ -7,6 +7,9 @@ import { capacityStatusText } from "./capacityText";
 
 const logger = createTaskNotesLogger({ tag: "UI/CapacityPopover" });
 
+/** Name of the Today view in the default Tasks base (defaultBasesFiles.ts). */
+const TODAY_VIEW_NAME = "Today";
+
 /**
  * Shows a day's capacity: planned tasks, unestimated count and shortcuts.
  *
@@ -107,7 +110,7 @@ class CapacityModal extends Modal {
 		});
 		openToday.addEventListener("click", () => {
 			this.closeAndNavigate();
-			void plugin.openBasesFileForCommand("open-tasks-view");
+			void plugin.openBasesFileForCommand("open-tasks-view", TODAY_VIEW_NAME);
 		});
 
 		if (plugin.triageService?.isInboxReady()) {
@@ -118,7 +121,7 @@ class CapacityModal extends Modal {
 			moveToInbox.addEventListener("click", () => {
 				this.closeAndNavigate();
 				void (async () => {
-					await plugin.openBasesFileForCommand("open-tasks-view");
+					await plugin.openBasesFileForCommand("open-tasks-view", TODAY_VIEW_NAME);
 					plugin.taskSelectionService?.enterSelectionMode();
 					new Notice(t("capacity.moveToInboxHint"));
 				})();
