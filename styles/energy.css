@@ -33,3 +33,50 @@ body {
 	width: var(--icon-xs);
 	height: var(--icon-xs);
 }
+
+/* Battery glyph on calendar days */
+.tn-energy-glyph {
+	position: relative;
+	display: inline-block;
+	width: 8px;
+	height: 14px;
+	margin-inline: var(--size-2-1);
+	border: 1px solid var(--text-muted);
+	border-radius: 2px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+/* Battery cap */
+.tn-energy-glyph::before {
+	content: "";
+	position: absolute;
+	top: -3px;
+	left: 2px;
+	width: 2px;
+	height: 2px;
+	background: var(--text-muted);
+}
+
+.tn-energy-glyph__fill {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: var(--tn-energy-level, 0%);
+	background: var(--tn-energy-ok);
+	border-radius: 0 0 1px 1px;
+}
+
+.tn-energy-glyph.is-low .tn-energy-glyph__fill {
+	background: var(--tn-energy-low);
+}
+
+.tn-energy-glyph.is-high .tn-energy-glyph__fill {
+	background: var(--tn-energy-high);
+}
+
+.tn-energy-glyph:focus-visible {
+	outline: 2px solid var(--interactive-accent);
+	outline-offset: 1px;
+}

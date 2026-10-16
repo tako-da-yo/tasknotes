@@ -756,6 +756,7 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "867134c8307a64ce7d8b6e9aadc9f6a2a380e9e0"
     },
+    "views.basesCalendar.settings.layout.showEnergy": null,
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "d34f9553ec975a87ab960269b275219393df0ed2"
@@ -9441,6 +9442,7 @@
     "energy.kinds.spark": null,
     "energy.kinds.steady": null,
     "energy.kinds.drain": null,
+    "energy.glyph.aria": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "b150630225f04f0591c9b0adf8a37b898e13660e"
@@ -10251,6 +10253,7 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "261dbe011184cfead1b62050ba9e12766979103e"
     },
+    "views.basesCalendar.settings.layout.showEnergy": null,
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "3d920acdfefface7c0a3247d2a44f2f6d5059ddb"
@@ -18936,6 +18939,7 @@
     "energy.kinds.spark": null,
     "energy.kinds.steady": null,
     "energy.kinds.drain": null,
+    "energy.glyph.aria": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "910b9ebed42ee2a4760c1c4e966692823860a70a"
@@ -19746,6 +19750,7 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "3682e667d989a4d7de57b6eb4a1021fa3f731d42"
     },
+    "views.basesCalendar.settings.layout.showEnergy": null,
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "ff3399ad04b443bff75aa18be67780f745d62940"
@@ -28431,6 +28436,7 @@
     "energy.kinds.spark": null,
     "energy.kinds.steady": null,
     "energy.kinds.drain": null,
+    "energy.glyph.aria": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "35b77098d76b8d1ee95044267700101ec88c1bb1"
@@ -29241,6 +29247,7 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "65c4dfd4853c39e856a2990a0fdafcfd61231dfd"
     },
+    "views.basesCalendar.settings.layout.showEnergy": null,
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "2bf95a23664ff28d7b96fdf8c50cf20961565416"
@@ -37926,6 +37933,7 @@
     "energy.kinds.spark": null,
     "energy.kinds.steady": null,
     "energy.kinds.drain": null,
+    "energy.glyph.aria": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "23719bfed0c991fb2aae79db4309ac01f28ffcbc"
@@ -38736,6 +38744,7 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "ce2f4b553c2cacdb36d743ef18075991aa2a5b6c"
     },
+    "views.basesCalendar.settings.layout.showEnergy": null,
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "2f538cd8ee044615e1f6926f0944510150f31b0f"
@@ -47421,6 +47430,7 @@
     "energy.kinds.spark": null,
     "energy.kinds.steady": null,
     "energy.kinds.drain": null,
+    "energy.glyph.aria": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "7de25a1dcc4d3273de20362c8d2c224d5f1f6701"
@@ -48231,6 +48241,7 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "eda3f6e02d9d4958eb538b5260a013bb75b599b3"
     },
+    "views.basesCalendar.settings.layout.showEnergy": null,
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "1d164e9ef48faf3bdb2e0172550fb512348f53ea"
@@ -56916,6 +56927,7 @@
     "energy.kinds.spark": null,
     "energy.kinds.steady": null,
     "energy.kinds.drain": null,
+    "energy.glyph.aria": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "0d8edb4d1f9516570fd5b251e583da381550faab"
@@ -57726,6 +57738,7 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "1c2f6e30f63a82584dc88702bac4dc913fbcfc05"
     },
+    "views.basesCalendar.settings.layout.showEnergy": null,
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "721ceb74578615cf952c38213f272ffcfd1cce1a"
@@ -66411,6 +66424,7 @@
     "energy.kinds.spark": null,
     "energy.kinds.steady": null,
     "energy.kinds.drain": null,
+    "energy.glyph.aria": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "dfb4e5d70cc1c58c27cda848580bcd3eb32c0ddc"
@@ -67221,6 +67235,7 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "d81915fea955be14ce3b3223342d5171cdd0112f"
     },
+    "views.basesCalendar.settings.layout.showEnergy": null,
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "1a0fdb388b2f6cd3cc91565d3e328a39a93f7192"
@@ -75906,6 +75921,7 @@
     "energy.kinds.spark": null,
     "energy.kinds.steady": null,
     "energy.kinds.drain": null,
+    "energy.glyph.aria": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "d0bf21c62dca9e612481363ab24acdcf3ada2526"

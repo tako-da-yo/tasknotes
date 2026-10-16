@@ -267,6 +267,7 @@ export const en: TranslationTree = {
 					dragDropResolutionPlaceholder: "HH:mm:ss (e.g., 00:05:00)",
 					weekStartsOn: "Week starts on",
 					showWeekNumbers: "Show week numbers",
+					showEnergy: "Show energy levels",
 					showNowIndicator: "Show now indicator",
 					showWeekends: "Show weekends",
 					showAllDaySlot: "Show all-day slot",
@@ -3746,6 +3747,9 @@ export const en: TranslationTree = {
 			spark: "Spark",
 			steady: "Steady",
 			drain: "Drain",
+		},
+		glyph: {
+			aria: "Projected battery {level}%. {drain}h drain, {spark}h spark, {steady}h steady.",
 		},
 	},
 	capacity: {

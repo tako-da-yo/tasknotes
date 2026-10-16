@@ -366,6 +366,12 @@ function buildCalendarDisplayOptions(
 			},
 			{
 				type: "toggle",
+				key: "showEnergy",
+				displayName: t("layout.showEnergy"),
+				default: true,
+			},
+			{
+				type: "toggle",
 				key: "showWeekends",
 				displayName: t("layout.showWeekends"),
 				default: calendarSettings.showWeekends,

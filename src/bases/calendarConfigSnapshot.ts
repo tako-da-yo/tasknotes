@@ -25,6 +25,7 @@ const CALENDAR_CONFIG_SNAPSHOT_KEYS = [
 	"snapDuration",
 	"firstDay",
 	"weekNumbers",
+	"showEnergy",
 	"nowIndicator",
 	"showWeekends",
 	"showAllDaySlot",

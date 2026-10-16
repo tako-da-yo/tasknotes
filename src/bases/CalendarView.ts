@@ -101,6 +101,7 @@ import { filterEmptyProjects, sanitizeForCssClass } from "../utils/helpers";
 import { processVaultFrontMatter } from "../services/VaultMutationService";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { datesTouched } from "../ui/overbookNotice";
+import { CalendarEnergyIndicators, toLocalDateRange } from "./calendarEnergyIndicator";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Bases/CalendarView" });
 
@@ -451,6 +452,9 @@ export class CalendarView extends BasesViewBase {
 	calendar: Calendar | null = null; // Made public for factory access
 	private calendarEl: HTMLElement | null = null;
 	private releaseCanvasTimeGridScaleCorrection: (() => void) | null = null;
+	private energyIndicators: CalendarEnergyIndicators | null = null;
+	private energyUnsubscribe: (() => void) | null = null;
+	private energyRefreshTimer: number | null = null;
 	private canvasZoomObserver: MutationObserver | null = null;
 	private currentTasks: TaskInfo[] = [];
 	private basesEntryByPath: Map<string, BasesEntryWithGetValue> = new Map(); // Map task path to Bases entry for enrichment
@@ -515,6 +519,7 @@ export class CalendarView extends BasesViewBase {
 		snapDuration: string;
 		firstDay: number;
 		weekNumbers: boolean;
+		showEnergy: boolean;
 		nowIndicator: boolean;
 		showWeekends: boolean;
 		showAllDaySlot: boolean;
@@ -589,6 +594,7 @@ export class CalendarView extends BasesViewBase {
 			scrollTime: this.validateTimeValue(calendarSettings.scrollTime, "08:00:00"),
 			firstDay: calendarSettings.firstDay,
 			weekNumbers: calendarSettings.weekNumbers,
+			showEnergy: true,
 			nowIndicator: calendarSettings.nowIndicator,
 			showWeekends: calendarSettings.showWeekends,
 			showAllDaySlot: true,
@@ -635,6 +641,55 @@ export class CalendarView extends BasesViewBase {
 		this.registerEvent(
 			this.plugin.emitter.on("settings-changed", () => this.calendar?.refetchEvents())
 		);
+		this.setupEnergyIndicators();
+	}
+
+	private setupEnergyIndicators(): void {
+		const energy = this.plugin.energyService;
+		if (!energy || this.energyIndicators) return;
+		this.energyIndicators = new CalendarEnergyIndicators({
+			energy,
+			t: (key, params) => this.plugin.i18n.translate(key, params),
+			// Task 6 adds the energy view; until then the glyph has no click action.
+			onClick: () => undefined,
+		});
+		this.energyUnsubscribe = energy.onChange(() => this.refreshEnergyIndicators());
+	}
+
+	/** The visible days as an inclusive range of local "yyyy-MM-dd" dates. */
+	private getEnergyRange(): { start: string; end: string } | null {
+		const view = this.calendar?.view;
+		if (!view) return null;
+		return toLocalDateRange(view.currentStart, view.currentEnd);
+	}
+
+	private refreshEnergyIndicators(): void {
+		const indicators = this.energyIndicators;
+		const range = this.getEnergyRange();
+		if (!indicators || !range) return;
+		indicators.refresh(range.start, range.end).catch((error: unknown) => {
+			tasknotesLogger.warn("Failed to refresh calendar energy indicators", {
+				category: "internal",
+				operation: "refresh-energy-indicators",
+				error,
+			});
+		});
+	}
+
+	/** Refresh after FullCalendar's mount pass has registered the day cells. */
+	private scheduleEnergyRefresh(): void {
+		if (!this.energyIndicators) return;
+		const win = this.containerEl.ownerDocument.defaultView || window;
+		if (this.energyRefreshTimer !== null) win.clearTimeout(this.energyRefreshTimer);
+		this.energyRefreshTimer = win.setTimeout(() => {
+			this.energyRefreshTimer = null;
+			this.refreshEnergyIndicators();
+		}, 0);
+	}
+
+	private registerEnergyHost(date: Date, host: HTMLElement): void {
+		if (!this.viewOptions.showEnergy) return;
+		this.energyIndicators?.register(format(date, "yyyy-MM-dd"), host);
 	}
 
 	/**
@@ -649,6 +704,7 @@ export class CalendarView extends BasesViewBase {
 
 	private destroyCalendarForRecreate(targetDate: Date | null): void {
 		this._recreateTargetDate = targetDate;
+		this.energyIndicators?.clear();
 		this.calendar?.destroy();
 		this.calendar = null;
 	}
@@ -1071,6 +1127,10 @@ export class CalendarView extends BasesViewBase {
 				"weekNumbers",
 				this.viewOptions.weekNumbers
 			);
+			this.viewOptions.showEnergy = this.getConfigOption(
+				"showEnergy",
+				this.viewOptions.showEnergy
+			);
 			this.viewOptions.nowIndicator = this.getConfigOption(
 				"nowIndicator",
 				this.viewOptions.nowIndicator
@@ -1400,6 +1460,13 @@ export class CalendarView extends BasesViewBase {
 				attachDailyNoteHeaderLink(arg.el, arg.date, arg.view.type, this.plugin, (date) =>
 					this.openDailyNoteFromDateLink(date)
 				);
+				if (arg.view.type.startsWith("timeGrid")) this.registerEnergyHost(arg.date, arg.el);
+			},
+			dayCellDidMount: (arg) => {
+				// Time-grid days show the glyph in the column header instead.
+				if (arg.view.type.startsWith("timeGrid")) return;
+				const host = arg.el.querySelector<HTMLElement>(".fc-daygrid-day-top");
+				if (host) this.registerEnergyHost(arg.date, host);
 			},
 			editable: true,
 			selectable: true,
@@ -1464,11 +1531,15 @@ export class CalendarView extends BasesViewBase {
 				this.scheduleDailyNoteHeaderLinkUpdate();
 				this.scheduleRefreshButtonIconUpdate();
 			},
-			datesSet: () => {
+			datesSet: (arg) => {
+				// datesSet fires after the new cells' didMount hooks, so prune rather than clear.
+				const range = toLocalDateRange(arg.view.currentStart, arg.view.currentEnd);
+				this.energyIndicators?.prune(range.start, range.end);
 				this.applyLayoutClasses();
 				this.scheduleTodayColumnWidthUpdate();
 				this.scheduleDailyNoteHeaderLinkUpdate();
 				this.scheduleRefreshButtonIconUpdate();
+				this.scheduleEnergyRefresh();
 			},
 		};
 
@@ -3178,6 +3249,17 @@ export class CalendarView extends BasesViewBase {
 		}
 
 		// Component.register() calls will be automatically cleaned up
+
+		this.energyUnsubscribe?.();
+		this.energyUnsubscribe = null;
+		if (this.energyRefreshTimer !== null) {
+			(this.containerEl.ownerDocument.defaultView || window).clearTimeout(
+				this.energyRefreshTimer
+			);
+			this.energyRefreshTimer = null;
+		}
+		this.energyIndicators?.clear();
+		this.energyIndicators = null;
 
 		if (this.calendar) {
 			this.calendar.destroy();
