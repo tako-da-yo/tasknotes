@@ -18,6 +18,8 @@ import { DependencyCache } from "../utils/DependencyCache";
 import { TaskService } from "../services/TaskService";
 import { FilterService } from "../services/FilterService";
 import { TaskStatsService } from "../services/TaskStatsService";
+import { TriageService } from "../services/TriageService";
+import { getTodayString } from "../utils/dateUtils";
 import { ViewStateManager } from "../services/ViewStateManager";
 import { ProjectSubtasksService } from "../services/ProjectSubtasksService";
 import { ExpandedProjectsService } from "../services/ExpandedProjectsService";
@@ -154,6 +156,17 @@ export async function initializeCoreServices(plugin: TaskNotesPlugin): Promise<v
 		plugin
 	);
 	plugin.taskStatsService = new TaskStatsService(plugin.cacheManager, plugin.statusManager);
+	plugin.triageService = new TriageService({
+		getTasks: () => plugin.cacheManager.getAllCachedTasks(),
+		updateTask: (task, updates) => plugin.taskService.updateTask(task, updates),
+		archiveTask: (task) => plugin.taskService.toggleArchive(task),
+		isCompleted: (s) => plugin.statusManager.isCompletedStatus(s),
+		firstCompletedStatus: () => plugin.statusManager.getCompletedStatuses()[0] ?? "done",
+		statusExists: (v) => !!plugin.statusManager.getStatusConfig(v),
+		getSettings: () => plugin.settings,
+		saveSettings: () => plugin.saveSettings(),
+		today: () => getTodayString(),
+	});
 	plugin.viewStateManager = new ViewStateManager(plugin.app, plugin);
 	plugin.projectSubtasksService = new ProjectSubtasksService(plugin);
 	plugin.expandedProjectsService = new ExpandedProjectsService(plugin);

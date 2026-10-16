@@ -45,6 +45,7 @@ import { PriorityManager } from "./services/PriorityManager";
 import { TaskService } from "./services/TaskService";
 import { FilterService } from "./services/FilterService";
 import { TaskStatsService } from "./services/TaskStatsService";
+import type { TriageService } from "./services/TriageService";
 import type { ViewPerformanceService } from "./services/ViewPerformanceService";
 import { AutoArchiveService } from "./services/AutoArchiveService";
 import { ViewStateManager } from "./services/ViewStateManager";
@@ -159,6 +160,7 @@ export default class TaskNotesPlugin extends Plugin {
 	taskService: TaskService;
 	filterService: FilterService;
 	taskStatsService: TaskStatsService;
+	triageService!: TriageService;
 	viewStateManager: ViewStateManager;
 	projectSubtasksService: ProjectSubtasksService;
 	expandedProjectsService: ExpandedProjectsService;
