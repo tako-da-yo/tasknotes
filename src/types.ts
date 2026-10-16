@@ -647,6 +647,29 @@ export interface PomodoroState {
 	currentSession?: PomodoroSession;
 	timeRemaining: number; // seconds
 	nextSessionType?: "work" | "short-break" | "long-break"; // What type of session to start next when no current session
+	plan?: FocusPlan; // The focus session being run, chunk by chunk
+}
+
+export interface FocusChunk {
+	type: "work" | "short-break" | "long-break";
+	minutes: number;
+	status: "pending" | "active" | "done" | "skipped";
+}
+
+/** What a focus session is for: a task, or a timeblock (optionally tracking its one attached task). */
+export type FocusSource =
+	| { kind: "task"; path: string }
+	| { kind: "timeblock"; date: string; id: string; taskPath?: string };
+
+/** A focus session: the planned time for a task or timeblock, split into chunks run in sequence. */
+export interface FocusPlan {
+	id: string;
+	source: FocusSource;
+	title: string;
+	energyKind: "spark" | "steady" | "drain";
+	plannedMinutes: number;
+	chunks: FocusChunk[];
+	current: number; // index of the active or next chunk
 }
 
 export interface PomodoroSessionHistory {

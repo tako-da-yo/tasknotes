@@ -278,6 +278,9 @@ export const DEFAULT_SETTINGS: TaskNotesSettings = {
 	pomodoroShortBreakDuration: 5,
 	pomodoroLongBreakDuration: 15,
 	pomodoroLongBreakInterval: 4,
+	focusSplitThreshold: 30,
+	focusDrainChunkMinutes: 20,
+	focusSparkChunkMinutes: 45,
 	pomodoroAutoStartBreaks: true,
 	pomodoroAutoStartWork: false,
 	pomodoroNotifications: true,
@@ -286,6 +289,7 @@ export const DEFAULT_SETTINGS: TaskNotesSettings = {
 	pomodoroStorageLocation: "plugin",
 	pomodoroMobileSidebar: "tab",
 	showPomodoroInStatusBar: true,
+	showInSystemTray: false,
 	// Editor defaults
 	enableTaskLinkOverlay: true,
 	disableOverlayOnAlias: false,

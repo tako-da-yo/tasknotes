@@ -1463,7 +1463,11 @@ export class CalendarView extends BasesViewBase {
 				attachDailyNoteHeaderLink(arg.el, arg.date, arg.view.type, this.plugin, (date) =>
 					this.openDailyNoteFromDateLink(date)
 				);
-				if (arg.view.type.startsWith("timeGrid")) this.registerEnergyHost(arg.date, arg.el);
+				if (arg.view.type.startsWith("timeGrid")) {
+					// Inside the header's inner wrapper, so the glyph sits beside the date, not below it.
+					const host = arg.el.querySelector<HTMLElement>(".fc-scrollgrid-sync-inner") ?? arg.el;
+					this.registerEnergyHost(arg.date, host);
+				}
 			},
 			dayCellDidMount: (arg) => {
 				// Time-grid days show the glyph in the column header instead. Disabled cells

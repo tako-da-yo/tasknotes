@@ -193,6 +193,10 @@ export interface TaskNotesSettings {
 	pomodoroShortBreakDuration: number; // minutes
 	pomodoroLongBreakDuration: number; // minutes
 	pomodoroLongBreakInterval: number; // after X pomodoros
+	showInSystemTray: boolean; // desktop: battery, timer and next event in the OS menu bar
+	focusSplitThreshold: number; // minutes; longer focus sessions are split into chunks
+	focusDrainChunkMinutes: number; // target chunk length for Drain work (Steady uses pomodoroWorkDuration)
+	focusSparkChunkMinutes: number; // target chunk length for Spark work
 	pomodoroAutoStartBreaks: boolean;
 	pomodoroAutoStartWork: boolean;
 	pomodoroNotifications: boolean;

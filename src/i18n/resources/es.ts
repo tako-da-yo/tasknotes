@@ -366,6 +366,18 @@ export const es: TranslationTree = {
 				paused: "{type} en pausa · quedan {time}",
 				breakReady: "{type} listo · {time} planificado"
 			},
+			focus: {
+				continue: "Continuar sesión",
+				end: "Terminar sesión",
+				skipChunk: "Saltar bloque",
+				meta: "Bloque {index} de {count} · Termina hacia las {endTime}",
+				kindAndTime: "{kind} · {minutes} min planificados",
+				barLabel: "Bloques de la sesión de enfoque",
+				workSegment: "Enfoque, {minutes} min",
+				breakSegment: "Descanso, {minutes} min",
+				upNext: "A continuación",
+				startOn: "Iniciar una sesión de enfoque en {title}",
+			},
 			timer: {
 				editLabel: "Editar duración del temporizador",
 				inputLabel: "Duración del temporizador"
@@ -591,6 +603,18 @@ export const es: TranslationTree = {
 					name: "Intervalo de descanso largo",
 					description: "Número de sesiones de trabajo antes de un descanso largo"
 				},
+				focusSplit: {
+					name: "Dividir sesiones de enfoque de más de",
+					description: "Minutos. La estimación de una tarea o un bloque de tiempo más largo se divide en bloques con descansos, que cuentan dentro del tiempo planificado.",
+				},
+				focusDrainChunk: {
+					name: "Duración de bloque «Desgaste»",
+					description: "Minutos objetivo de cada bloque de trabajo «Desgaste». El trabajo «Estable» usa la duración de trabajo.",
+				},
+				focusSparkChunk: {
+					name: "Duración de bloque «Chispa»",
+					description: "Minutos objetivo de cada bloque de trabajo «Chispa». Los bloques más largos dejan espacio para el flow.",
+				},
 				autoStartBreaks: {
 					name: "Auto-iniciar descansos",
 					description: "Iniciar automáticamente temporizadores de descanso después de sesiones de trabajo"
@@ -602,6 +626,10 @@ export const es: TranslationTree = {
 				notifications: {
 					name: "Notificaciones de Pomodoro",
 					description: "Mostrar notificaciones cuando terminen las sesiones de Pomodoro"
+				},
+				systemTray: {
+					name: "Mostrar en la barra de menús",
+					description: "Solo escritorio. Muestra la batería de hoy, el temporizador y el evento de calendario actual o siguiente en la barra de menús de macOS o en el área de notificación de Windows y Linux, con controles para el temporizador.",
 				},
 				mobileSidebar: {
 					name: "Barra lateral móvil",
@@ -2300,6 +2328,13 @@ export const es: TranslationTree = {
 			message: "TaskNotes {version} está disponible.",
 			action: "Abrir en plugins de la comunidad"
 		},
+		brokenTaskNote: {
+			message: "{name} tiene propiedades que TaskNotes no puede leer, así que no se muestra como tarea. Puede pasar cuando una sincronización combina dos versiones de la nota.",
+			repair: "Reparar",
+			open: "Abrir nota",
+			repaired: "{name} reparada.",
+			repairFailed: "No se pudo reparar {name}. Ábrela y corrige sus propiedades a mano.",
+		},
 		exportTasksFailed: "Error al exportar tareas como archivo ICS",
 		icsNoteCreatedSuccess: "Nota creada exitosamente",
 		icsCreationModalOpenFailed: "Error al abrir modal de creación",
@@ -2351,6 +2386,7 @@ export const es: TranslationTree = {
 		quickActionsCurrentTask: "Acciones rápidas para tarea actual",
 		goToTodayNote: "Ir a la nota de hoy",
 		startPomodoro: "Iniciar temporizador pomodoro",
+		startFocusSession: "Iniciar sesión de enfoque",
 		stopPomodoro: "Detener temporizador pomodoro",
 		pauseResumePomodoro: "Pausar/reanudar temporizador pomodoro",
 		refreshCache: "Actualizar caché",
@@ -2928,6 +2964,7 @@ export const es: TranslationTree = {
 			clearReminders: "Limpiar todos los recordatorios",
 			startTimeTracking: "Iniciar seguimiento de tiempo",
 			stopTimeTracking: "Detener seguimiento de tiempo",
+			startFocusSession: "Iniciar sesión de enfoque",
 			editTimeEntries: "Editar entradas de tiempo",
 			archive: "Archivar",
 			unarchive: "Desarchivar",
@@ -3142,6 +3179,7 @@ export const es: TranslationTree = {
 				paused: "Pomodoro pausado",
 				resumed: "Pomodoro reanudado",
 				stoppedAndReset: "Pomodoro detenido y reiniciado",
+				focusComplete: "Sesión de enfoque completada: {title}",
 				migrationSuccess: "{count} sesiones de pomodoro migradas exitosamente a notas diarias.",
 				migrationFailure: "Error al migrar datos de pomodoro. Por favor intenta de nuevo o revisa la consola para detalles."
 			}
@@ -3560,7 +3598,35 @@ export const es: TranslationTree = {
 			energy: "Energía",
 		},
 	},
+	tray: {
+		name: "TaskNotes",
+		battery: "Batería: {now} % ahora · {projected} % esta noche",
+		title: {
+			next: "Siguiente: {title} en {wait}",
+		},
+		pomodoro: {
+			work: "Enfoque · quedan {minutes} min",
+			break: "Descanso · quedan {minutes} min",
+			paused: "En pausa · quedan {minutes} min",
+			focus: "Sesión de enfoque: {title}",
+		},
+		event: {
+			now: "Ahora: {title} hasta las {end}",
+			next: "Siguiente: {title} a las {start} (en {wait})",
+		},
+		actions: {
+			pause: "Pausar",
+			resume: "Reanudar",
+			start: "Iniciar Pomodoro",
+			skip: "Saltar bloque",
+			stop: "Detener",
+			open: "Abrir Energía y enfoque",
+		},
+	},
 	energy: {
+		view: {
+			title: "Energía y enfoque",
+		},
 		kinds: {
 			spark: "Chispa",
 			steady: "Estable",
@@ -3585,6 +3651,7 @@ export const es: TranslationTree = {
 			lowBody: "Mueve una tarea de desgaste o añade algo que te dé chispa.",
 			showDrains: "Mostrar tareas de desgaste",
 			findSpark: "Buscar una chispa",
+			startFocus: "Iniciar una sesión de enfoque en {title}",
 			emptyTitle: "Aún no hay energía configurada",
 			emptyBody: "Marca contextos como chispa o desgaste para ver tu batería diaria.",
 			openSettings: "Abrir ajustes de contextos",

@@ -105,7 +105,7 @@ An item's energy kind comes from the same context as its calendar color: the fir
 ### Where the battery shows up
 
 - **Calendar view**: each day in month, week, day and year views shows a small battery whose fill is that day's projected level. Hover it to see the level and the hours of drain, spark and steady time, for example "Projected battery 60%. 2h drain, 1h spark, 0h steady." Days with no Spark or Drain time have no battery. Click it to open the energy panel for that day. Turn the batteries off for a view with its **Show energy levels** option.
-- **Energy panel**: run **Open energy panel** to open it in the right sidebar. Use the arrows to move between days and **Today** to come back. When it shows today, it moves on to the new day at midnight or when Obsidian wakes from sleep. For today it shows the level now (from items already done) and tonight's projected level; for other days it shows the projected level. Below that are the Spark, Steady and Drain hours with how many are done, the items with the biggest effect (drains first, then sparks), and, for today, the [daily capacity](#daily-capacity) line. When today or a later day is forecast to end below the low battery level, **Show drain tasks** lets you pick one of that day's open drain tasks and move it to **Tomorrow**, **This weekend** or **Next week** (the same choices as [inbox triage](task-management.md#triage-inbox)), or to a date you pick, and **Find a spark** lets you schedule an undated Spark task on that day.
+- **Energy panel**: run **Open energy panel** to open it in the right sidebar, below the [Pomodoro timer](#pomodoro-timer). Use the arrows to move between days and **Today** to come back. When it shows today, it moves on to the new day at midnight or when Obsidian wakes from sleep. For today it shows the level now (from items already done) and tonight's projected level; for other days it shows the projected level. Below that are the Spark, Steady and Drain hours with how many are done, the items with the biggest effect (drains first, then sparks) with a ▶ button on today's tasks and timeblocks that starts a [focus session](#focus-sessions), and, for today, the [daily capacity](#daily-capacity) line. When today or a later day is forecast to end below the low battery level, **Show drain tasks** lets you pick one of that day's open drain tasks and move it to **Tomorrow**, **This weekend** or **Next week** (the same choices as [inbox triage](task-management.md#triage-inbox)), or to a date you pick, and **Find a spark** lets you schedule an undated Spark task on that day.
 - **In notes**: a `tasknotes-energy` code block shows the same panel for one day, with the date above it when that day is not today. Without a `date:` line it shows the daily note's date, or today in other notes (moving on to the new day at midnight):
 
     ````markdown
@@ -116,14 +116,27 @@ An item's energy kind comes from the same context as its calendar color: the fir
 
     An invalid date shows an error in place of the panel.
 - **Status bar**: on desktop, the daily capacity item starts with today's projected battery, for example `🔋60% · Today: 3h planned · 2h free`, or `🪫` when it is low. When nothing is planned for today, it shows the battery alone. Both are turned on and off with **Show today's capacity and battery in the status bar**. Clicking it shows today's energy panel above the capacity summary and task list.
+- **Menu bar**: on desktop, turn on **Show in the menu bar** in the [Pomodoro settings](../settings/features.md#pomodoro-timer) to show today's projected battery, the Pomodoro timer, and what is on now and next in the macOS menu bar, for example `🔋41% · 🍅 12m 2/4 · ● Standup → 11:30 | Next: Write report in 25m`. The battery icon fills to the same level. The timer shows whole minutes left (⏸ when paused, ☕ during a break) and, during a [focus session](#focus-sessions), which chunk you are on. After it comes the calendar event, timeblock or timed task under way, with when it ends, then the next one to start today and how long until it starts. Tasks without a time, all-day events and Google working locations are left out. Click the icon for the full details and to pause, resume, skip a chunk, stop, or open the Energy & focus sidebar. On Windows and Linux the icon appears in the notification area, and the text is in its tooltip and menu.
 
 When no context is Spark or Drain yet, the panel says so and links to the context settings. When **Show energy levels** is off, it says energy levels are turned off and links to the energy settings.
 
 ## Pomodoro Timer
 
-TaskNotes also includes a Pomodoro timer, which is a tool for time management that uses a timer to break down work into intervals, separated by short breaks. The Pomodoro timer in TaskNotes has a dedicated view with controls to start, stop, and reset the timer.
+TaskNotes also includes a Pomodoro timer, which is a tool for time management that uses a timer to break down work into intervals, separated by short breaks. The timer is at the top of the **Energy & focus** sidebar, with controls to start, pause and stop it. See [Pomodoro and focus sessions](../views/pomodoro-view.md).
 
 When a task is associated with a Pomodoro session, TaskNotes starts a task tracker if none is already running. Pomodoro only stops trackers it created; a pre-existing manual tracker is left running. After sleep or a delayed timer tick, a completed Pomodoro-owned tracker ends at the session's intended completion time, rather than the wake-up time.
+
+### Focus sessions
+
+A focus session uses the time planned for a task or timeblock instead of a fixed timer:
+
+- **Task:** its time estimate minus the time already tracked on it. For a recurring task, only time tracked on today's instance counts.
+- **Timeblock:** from its start, or from now if it has already started, to its end. If the timeblock has exactly one attached task, time is tracked on that task.
+- **No planned time** (no estimate, nothing left of it, or a timeblock that has ended): one chunk of the work duration.
+
+Planned time of 30 minutes or less is one chunk. Longer sessions are split into chunks with breaks between them, and the breaks count inside the planned time, so a 90-minute estimate takes 90 minutes. Chunks aim for a length that depends on the item's [energy kind](#energy): 20 minutes for Drain, the work duration (25 minutes) for Steady and 45 minutes for Spark, so draining work comes in short pieces and work that gives energy leaves room for flow. For example, with 5-minute breaks, 100 minutes of Steady work is four chunks of about 21 minutes, and 75 minutes of Spark work is two chunks of 35 minutes. Every fourth break (the long break interval) is a long break. When energy levels are turned off, every item counts as Steady.
+
+When a chunk ends, the next one starts automatically, whatever the auto-start settings say. A session in progress survives restarting Obsidian on the same day. Change the split point and chunk lengths with **Split focus sessions longer than**, **Drain chunk length** and **Spark chunk length** in the [Pomodoro settings](../settings/features.md#pomodoro-timer).
 
 ## Productivity Analytics
 

@@ -113,6 +113,10 @@ describe("collectDayItems: events", () => {
 		] }));
 		expect(items.map((i) => [i.ref, i.responseStatus])).toEqual([["maybe", "tentative"]]);
 	});
+	it("carries the provider's event type", () => {
+		const [item] = collectDayItems(input({ events: [ev({ providerEventType: "workingLocation" })] }));
+		expect(item.eventType).toBe("workingLocation");
+	});
 });
 
 describe("collectDayItems: timeblocks", () => {

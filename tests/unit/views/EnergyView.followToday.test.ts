@@ -18,6 +18,15 @@ jest.mock("../../../src/bootstrap/energyPanelDeps", () => ({
 	}),
 }));
 
+// The focus timer above the energy panel is not under test here.
+jest.mock("../../../src/components/PomodoroPanel", () => ({
+	PomodoroPanel: class {
+		open = async () => undefined;
+		onResize = () => undefined;
+		refreshSuggestions = () => undefined;
+	},
+}));
+
 describe("EnergyView: following today", () => {
 	let today = "2026-10-15";
 	beforeEach(() => {
@@ -34,6 +43,7 @@ describe("EnergyView: following today", () => {
 		const view = new EnergyView({} as never, plugin as never);
 		// Obsidian's Component would track this; the mock only needs to accept it.
 		(view as unknown as { registerEvent: (r: unknown) => void }).registerEvent = () => undefined;
+		(view as unknown as { addChild: <T>(c: T) => T }).addChild = (c) => c;
 		return view;
 	};
 	const shownDate = (view: EnergyView) => (view as unknown as { panel: { getDate(): string } }).panel.getDate();

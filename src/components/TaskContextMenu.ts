@@ -55,6 +55,7 @@ import {
 } from "../ui/occurrenceNoteActions";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import type { UserMappedField } from "../types/settings";
+import { startFocusOnTask } from "../services/focusStart";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Components/TaskContextMenu" });
 
@@ -409,6 +410,16 @@ export class TaskContextMenu {
 					await plugin.startTimeTracking(task);
 				}
 				this.options.onUpdate?.();
+			});
+		});
+
+		// Focus session: the task's estimate split into chunks, in the energy & focus sidebar
+		this.menu.addItem((item) => {
+			item.setTitle(this.t("contextMenus.task.startFocusSession"));
+			item.setIcon("timer");
+			item.onClick(async () => {
+				await startFocusOnTask(plugin, task);
+				await plugin.activatePomodoroView();
 			});
 		});
 

@@ -35,6 +35,8 @@ import { ExpandedProjectsService } from "../services/ExpandedProjectsService";
 import { AutoArchiveService } from "../services/AutoArchiveService";
 import { DragDropManager } from "../utils/DragDropManager";
 import { StatusBarService } from "../ui/StatusBarService";
+import { SystemTrayService } from "../ui/SystemTrayService";
+import { BrokenTaskNoteService } from "../ui/BrokenTaskNoteService";
 import { NotificationService } from "../ui/NotificationService";
 import { ViewPerformanceService } from "../services/ViewPerformanceService";
 import { PomodoroView } from "../views/PomodoroView";
@@ -202,6 +204,8 @@ export async function initializeCoreServices(plugin: TaskNotesPlugin): Promise<v
 	plugin.taskSelectionService = new TaskSelectionService(plugin);
 	plugin.dragDropManager = new DragDropManager(plugin);
 	plugin.statusBarService = new StatusBarService(plugin);
+	plugin.systemTrayService = new SystemTrayService(plugin);
+	plugin.brokenTaskNoteService = new BrokenTaskNoteService(plugin);
 	plugin.notificationService = new NotificationService(plugin);
 	plugin.viewPerformanceService = new ViewPerformanceService(plugin);
 
@@ -484,6 +488,8 @@ export async function initializeAfterLayoutReady(plugin: TaskNotesPlugin): Promi
 		plugin.dependencyCache.initialize();
 		plugin.filterService.initialize();
 		plugin.statusBarService.initialize();
+		plugin.systemTrayService.updateVisibility();
+		plugin.brokenTaskNoteService.initialize();
 		await plugin.notificationService.initialize();
 		await plugin.warmupProjectIndexes();
 		await plugin.autoArchiveService.start();

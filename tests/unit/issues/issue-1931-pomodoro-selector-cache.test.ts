@@ -7,7 +7,7 @@ function readRepoFile(relativePath: string): string {
 
 describe("Issue #1931: Pomodoro task selector opens from cached task data", () => {
 	it("uses synchronous cached task paths instead of scanning every markdown file before opening", () => {
-		const source = readRepoFile("src/views/PomodoroView.ts");
+		const source = readRepoFile("src/components/PomodoroPanel.ts");
 
 		expect(source).toContain("getCachedUnarchivedPomodoroTasks");
 		expect(source).toContain("plugin.cacheManager.getAllTaskPaths()");
@@ -16,7 +16,7 @@ describe("Issue #1931: Pomodoro task selector opens from cached task data", () =
 	});
 
 	it("guards against stacked selector modals while the first one is still pending", () => {
-		const source = readRepoFile("src/views/PomodoroView.ts");
+		const source = readRepoFile("src/components/PomodoroPanel.ts");
 
 		expect(source).toContain("private isTaskSelectorOpen = false");
 		expect(source).toContain("if (this.isTaskSelectorOpen)");

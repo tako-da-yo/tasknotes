@@ -87,6 +87,8 @@ Most tracking issues come from overlapping sessions, interrupted shutdowns, or s
 
 Open the task file directly and validate frontmatter syntax. Quote values that include special characters, validate YAML if necessary, and restore from backup for severe corruption.
 
+When a task note's frontmatter can't be read at all, Obsidian ignores every property in it, so the task disappears from every view without an error. TaskNotes shows a notice naming the note when this happens to a note in the default tasks folder or one whose frontmatter still contains the task tag or identifying property. A common cause is the same line appearing twice, such as `endTime:` in a time entry, which a sync can leave behind when it merges two versions of a note. If removing a line that repeats the one above it makes the frontmatter readable again, the notice has a **Repair** button that does that; otherwise use **Open note** and fix the frontmatter by hand. Obsidian Sync's version history for the note shows when the change happened.
+
 ### Missing Task Properties
 
 **Symptoms**: Tasks missing expected properties or using default values unexpectedly

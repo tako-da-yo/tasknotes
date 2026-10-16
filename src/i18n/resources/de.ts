@@ -366,6 +366,18 @@ export const de: TranslationTree = {
 				paused: "{type} pausiert · {time} verbleibend",
 				breakReady: "{type} bereit · {time} geplant"
 			},
+			focus: {
+				continue: "Sitzung fortsetzen",
+				end: "Sitzung beenden",
+				skipChunk: "Abschnitt überspringen",
+				meta: "Abschnitt {index} von {count} · Endet gegen {endTime}",
+				kindAndTime: "{kind} · {minutes} Min. geplant",
+				barLabel: "Abschnitte der Fokussitzung",
+				workSegment: "Fokus, {minutes} Min.",
+				breakSegment: "Pause, {minutes} Min.",
+				upNext: "Als Nächstes",
+				startOn: "Fokussitzung für {title} starten",
+			},
 			timer: {
 				editLabel: "Timerdauer bearbeiten",
 				inputLabel: "Timerdauer"
@@ -591,6 +603,18 @@ export const de: TranslationTree = {
 					name: "Lange Pause Intervall",
 					description: "Anzahl der Arbeitssitzungen vor einer langen Pause"
 				},
+				focusSplit: {
+					name: "Fokussitzungen aufteilen, wenn länger als",
+					description: "Minuten. Eine Aufgabenschätzung oder ein Zeitblock, der länger ist, wird in Abschnitte mit Pausen aufgeteilt; die Pausen zählen zur geplanten Zeit.",
+				},
+				focusDrainChunk: {
+					name: "Abschnittslänge für „Energieräuber“",
+					description: "Angestrebte Minuten je Abschnitt für Arbeit der Art „Energieräuber“. Arbeit der Art „Gleichmäßig“ verwendet die Arbeitsdauer.",
+				},
+				focusSparkChunk: {
+					name: "Abschnittslänge für „Energiequelle“",
+					description: "Angestrebte Minuten je Abschnitt für Arbeit der Art „Energiequelle“. Längere Abschnitte lassen Raum für Flow.",
+				},
 				autoStartBreaks: {
 					name: "Pausen automatisch starten",
 					description: "Pausentimer nach Arbeitssitzungen automatisch starten"
@@ -602,6 +626,10 @@ export const de: TranslationTree = {
 				notifications: {
 					name: "Pomodoro-Benachrichtigungen",
 					description: "Benachrichtigungen anzeigen, wenn Pomodoro-Sitzungen enden"
+				},
+				systemTray: {
+					name: "In der Menüleiste anzeigen",
+					description: "Nur Desktop. Zeigt den heutigen Akku, den Timer und den aktuellen oder nächsten Kalendertermin in der macOS-Menüleiste oder im Infobereich von Windows und Linux, mit Steuerung für den Timer.",
 				},
 				mobileSidebar: {
 					name: "Mobile Seitenleiste",
@@ -2300,6 +2328,13 @@ export const de: TranslationTree = {
 			message: "TaskNotes {version} ist verfügbar.",
 			action: "In Community-Plugins öffnen"
 		},
+		brokenTaskNote: {
+			message: "{name} hat Eigenschaften, die TaskNotes nicht lesen kann, daher wird die Notiz nicht als Aufgabe angezeigt. Das kann passieren, wenn eine Synchronisierung zwei Versionen der Notiz zusammenführt.",
+			repair: "Reparieren",
+			open: "Notiz öffnen",
+			repaired: "{name} repariert.",
+			repairFailed: "{name} konnte nicht repariert werden. Öffne die Notiz und korrigiere ihre Eigenschaften von Hand.",
+		},
 		exportTasksFailed: "Export der Aufgaben als ICS-Datei fehlgeschlagen",
 		icsNoteCreatedSuccess: "Notiz erfolgreich erstellt",
 		icsCreationModalOpenFailed: "Erstellungsmodal konnte nicht geöffnet werden",
@@ -2351,6 +2386,7 @@ export const de: TranslationTree = {
 		quickActionsCurrentTask: "Schnellaktionen für aktuelle Aufgabe",
 		goToTodayNote: "Zu heutiger Notiz gehen",
 		startPomodoro: "Pomodoro-Timer starten",
+		startFocusSession: "Fokussitzung starten",
 		stopPomodoro: "Pomodoro-Timer stoppen",
 		pauseResumePomodoro: "Pomodoro-Timer pausieren/fortsetzen",
 		refreshCache: "Cache aktualisieren",
@@ -2928,6 +2964,7 @@ export const de: TranslationTree = {
 			clearReminders: "Alle Erinnerungen löschen",
 			startTimeTracking: "Zeiterfassung starten",
 			stopTimeTracking: "Zeiterfassung stoppen",
+			startFocusSession: "Fokussitzung starten",
 			editTimeEntries: "Zeiteinträge bearbeiten",
 			archive: "Archivieren",
 			unarchive: "Entarchivieren",
@@ -3142,6 +3179,7 @@ export const de: TranslationTree = {
 				paused: "Pomodoro pausiert",
 				resumed: "Pomodoro fortgesetzt",
 				stoppedAndReset: "Pomodoro gestoppt und zurückgesetzt",
+				focusComplete: "Fokussitzung abgeschlossen: {title}",
 				migrationSuccess: "{count} Pomodoro-Sitzungen erfolgreich zu täglichen Notizen migriert.",
 				migrationFailure: "Migration der Pomodoro-Daten fehlgeschlagen. Bitte versuche es erneut oder prüfe die Konsole für Details."
 			}
@@ -3560,7 +3598,35 @@ export const de: TranslationTree = {
 			energy: "Energie",
 		},
 	},
+	tray: {
+		name: "TaskNotes",
+		battery: "Akku jetzt {now} % · heute Abend {projected} %",
+		title: {
+			next: "Als Nächstes: {title} in {wait}",
+		},
+		pomodoro: {
+			work: "Fokus · noch {minutes} Min.",
+			break: "Pause · noch {minutes} Min.",
+			paused: "Angehalten · noch {minutes} Min.",
+			focus: "Fokussitzung: {title}",
+		},
+		event: {
+			now: "Jetzt: {title} bis {end}",
+			next: "Als Nächstes: {title} um {start} (in {wait})",
+		},
+		actions: {
+			pause: "Anhalten",
+			resume: "Fortsetzen",
+			start: "Pomodoro starten",
+			skip: "Abschnitt überspringen",
+			stop: "Stoppen",
+			open: "Energie & Fokus öffnen",
+		},
+	},
 	energy: {
+		view: {
+			title: "Energie & Fokus",
+		},
 		kinds: {
 			spark: "Energiequelle",
 			steady: "Gleichmäßig",
@@ -3585,6 +3651,7 @@ export const de: TranslationTree = {
 			lowBody: "Verschiebe eine Energieräuber-Aufgabe oder füge etwas hinzu, das dir Energie gibt.",
 			showDrains: "Energieräuber anzeigen",
 			findSpark: "Energiequelle finden",
+			startFocus: "Fokussitzung für {title} starten",
 			emptyTitle: "Noch keine Energie festgelegt",
 			emptyBody: "Markiere Kontexte als Energiequelle oder Energieräuber, um deinen täglichen Akkustand zu sehen.",
 			openSettings: "Kontexteinstellungen öffnen",

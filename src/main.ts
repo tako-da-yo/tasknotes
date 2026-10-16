@@ -59,6 +59,8 @@ import { formatDateForStorage, parseDateToLocal, getTodayLocal } from "./utils/d
 import { ICSSubscriptionService } from "./services/ICSSubscriptionService";
 import { ICSNoteService } from "./services/ICSNoteService";
 import { StatusBarService } from "./ui/StatusBarService";
+import type { SystemTrayService } from "./ui/SystemTrayService";
+import type { BrokenTaskNoteService } from "./ui/BrokenTaskNoteService";
 import { ProjectSubtasksService } from "./services/ProjectSubtasksService";
 import { ExpandedProjectsService } from "./services/ExpandedProjectsService";
 import { NotificationService } from "./ui/NotificationService";
@@ -203,6 +205,12 @@ export default class TaskNotesPlugin extends Plugin {
 
 	// Status bar service
 	statusBarService: StatusBarService;
+
+	// System menu bar / notification area item (desktop)
+	systemTrayService: SystemTrayService;
+
+	// Warns about task notes whose frontmatter cannot be parsed
+	brokenTaskNoteService: BrokenTaskNoteService;
 
 	// Notification service
 	notificationService: NotificationService;

@@ -366,6 +366,18 @@ export const fr: TranslationTree = {
 				paused: "{type} en pause · {time} restant",
 				breakReady: "{type} prêt · {time} prévu"
 			},
+			focus: {
+				continue: "Reprendre la session",
+				end: "Terminer la session",
+				skipChunk: "Passer le bloc",
+				meta: "Bloc {index} sur {count} · Fin vers {endTime}",
+				kindAndTime: "{kind} · {minutes} min prévues",
+				barLabel: "Blocs de la session de concentration",
+				workSegment: "Concentration, {minutes} min",
+				breakSegment: "Pause, {minutes} min",
+				upNext: "À suivre",
+				startOn: "Lancer une session de concentration sur {title}",
+			},
 			timer: {
 				editLabel: "Modifier la durée du minuteur",
 				inputLabel: "Durée du minuteur"
@@ -591,6 +603,18 @@ export const fr: TranslationTree = {
 					name: "Intervalle des pauses longues",
 					description: "Nombre de sessions de travail avant une pause longue"
 				},
+				focusSplit: {
+					name: "Découper les sessions de concentration de plus de",
+					description: "Minutes. L'estimation d'une tâche ou un bloc de temps plus long est découpé en blocs avec des pauses, comprises dans le temps prévu.",
+				},
+				focusDrainChunk: {
+					name: "Durée des blocs « Usure »",
+					description: "Minutes visées pour chaque bloc de travail « Usure ». Le travail « Stable » utilise la durée de travail.",
+				},
+				focusSparkChunk: {
+					name: "Durée des blocs « Étincelle »",
+					description: "Minutes visées pour chaque bloc de travail « Étincelle ». Des blocs plus longs laissent place au flow.",
+				},
 				autoStartBreaks: {
 					name: "Lancer automatiquement les pauses",
 					description: "Démarrer automatiquement les pauses après chaque session de travail"
@@ -602,6 +626,10 @@ export const fr: TranslationTree = {
 				notifications: {
 					name: "Notifications Pomodoro",
 					description: "Afficher une notification lorsque les sessions Pomodoro se terminent"
+				},
+				systemTray: {
+					name: "Afficher dans la barre des menus",
+					description: "Ordinateur uniquement. Affiche la batterie du jour, le minuteur et l'événement d'agenda en cours ou suivant dans la barre des menus de macOS ou la zone de notification de Windows et Linux, avec des commandes pour le minuteur.",
 				},
 				mobileSidebar: {
 					name: "Barre latérale mobile",
@@ -2300,6 +2328,13 @@ export const fr: TranslationTree = {
 			message: "TaskNotes {version} est disponible.",
 			action: "Ouvrir dans les plugins communautaires"
 		},
+		brokenTaskNote: {
+			message: "{name} a des propriétés que TaskNotes ne peut pas lire, elle n'est donc pas affichée comme tâche. Cela peut arriver quand une synchronisation fusionne deux versions de la note.",
+			repair: "Réparer",
+			open: "Ouvrir la note",
+			repaired: "{name} réparée.",
+			repairFailed: "Impossible de réparer {name}. Ouvrez-la et corrigez ses propriétés à la main.",
+		},
 		exportTasksFailed: "Échec de l'export des tâches au format ICS",
 		icsNoteCreatedSuccess: "Note créée avec succès",
 		icsCreationModalOpenFailed: "Échec de l'ouverture de la modale de création",
@@ -2351,6 +2386,7 @@ export const fr: TranslationTree = {
 		quickActionsCurrentTask: "Actions rapides pour la tâche courante",
 		goToTodayNote: "Aller à la note du jour",
 		startPomodoro: "Démarrer le minuteur Pomodoro",
+		startFocusSession: "Lancer une session de concentration",
 		stopPomodoro: "Arrêter le minuteur Pomodoro",
 		pauseResumePomodoro: "Mettre en pause/reprendre le minuteur Pomodoro",
 		refreshCache: "Actualiser le cache",
@@ -2928,6 +2964,7 @@ export const fr: TranslationTree = {
 			clearReminders: "Supprimer tous les rappels",
 			startTimeTracking: "Commencer le suivi du temps",
 			stopTimeTracking: "Arrêter le suivi du temps",
+			startFocusSession: "Lancer une session de concentration",
 			editTimeEntries: "Modifier les entrées de temps",
 			archive: "Archiver",
 			unarchive: "Désarchiver",
@@ -3142,6 +3179,7 @@ export const fr: TranslationTree = {
 				paused: "Pomodoro mis en pause",
 				resumed: "Pomodoro repris",
 				stoppedAndReset: "Pomodoro arrêté et remis à zéro",
+				focusComplete: "Session de concentration terminée : {title}",
 				migrationSuccess: "{count} sessions pomodoro migrées avec succès vers les notes quotidiennes.",
 				migrationFailure: "Échec de la migration des données pomodoro. Veuillez réessayer ou vérifier la console pour plus de détails."
 			}
@@ -3560,7 +3598,35 @@ export const fr: TranslationTree = {
 			energy: "Énergie",
 		},
 	},
+	tray: {
+		name: "TaskNotes",
+		battery: "Batterie : {now} % maintenant · {projected} % ce soir",
+		title: {
+			next: "Ensuite : {title} dans {wait}",
+		},
+		pomodoro: {
+			work: "Concentration · encore {minutes} min",
+			break: "Pause · encore {minutes} min",
+			paused: "En pause · encore {minutes} min",
+			focus: "Session de concentration : {title}",
+		},
+		event: {
+			now: "Maintenant : {title} jusqu'à {end}",
+			next: "Ensuite : {title} à {start} (dans {wait})",
+		},
+		actions: {
+			pause: "Mettre en pause",
+			resume: "Reprendre",
+			start: "Lancer un Pomodoro",
+			skip: "Passer le bloc",
+			stop: "Arrêter",
+			open: "Ouvrir Énergie et concentration",
+		},
+	},
 	energy: {
+		view: {
+			title: "Énergie et concentration",
+		},
 		kinds: {
 			spark: "Étincelle",
 			steady: "Stable",
@@ -3585,6 +3651,7 @@ export const fr: TranslationTree = {
 			lowBody: "Déplacez une tâche qui vous use, ou ajoutez quelque chose qui vous recharge.",
 			showDrains: "Afficher les tâches d'usure",
 			findSpark: "Trouver une étincelle",
+			startFocus: "Lancer une session de concentration sur {title}",
 			emptyTitle: "Aucune énergie définie pour l'instant",
 			emptyBody: "Marquez des contextes comme étincelle ou usure pour voir votre batterie quotidienne.",
 			openSettings: "Ouvrir les paramètres des contextes",

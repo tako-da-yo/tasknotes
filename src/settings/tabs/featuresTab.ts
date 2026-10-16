@@ -1,4 +1,4 @@
-import { Notice } from "obsidian";
+import { Notice, Platform } from "obsidian";
 import TaskNotesPlugin from "../../main";
 import {
 	createSettingGroup,
@@ -452,6 +452,55 @@ export function renderFeaturesTab(
 					})
 			);
 
+			// Focus sessions: how a task's estimate or a timeblock is split into chunks
+			group.addSetting(
+				(setting) =>
+					void configureNumberSetting(setting, {
+						name: translate("settings.features.pomodoro.focusSplit.name"),
+						desc: translate("settings.features.pomodoro.focusSplit.description"),
+						placeholder: "30",
+						min: 10,
+						max: 240,
+						getValue: () => plugin.settings.focusSplitThreshold,
+						setValue: async (value: number) => {
+							plugin.settings.focusSplitThreshold = value;
+							save();
+						},
+					})
+			);
+
+			group.addSetting(
+				(setting) =>
+					void configureNumberSetting(setting, {
+						name: translate("settings.features.pomodoro.focusDrainChunk.name"),
+						desc: translate("settings.features.pomodoro.focusDrainChunk.description"),
+						placeholder: "20",
+						min: 10,
+						max: 120,
+						getValue: () => plugin.settings.focusDrainChunkMinutes,
+						setValue: async (value: number) => {
+							plugin.settings.focusDrainChunkMinutes = value;
+							save();
+						},
+					})
+			);
+
+			group.addSetting(
+				(setting) =>
+					void configureNumberSetting(setting, {
+						name: translate("settings.features.pomodoro.focusSparkChunk.name"),
+						desc: translate("settings.features.pomodoro.focusSparkChunk.description"),
+						placeholder: "45",
+						min: 10,
+						max: 120,
+						getValue: () => plugin.settings.focusSparkChunkMinutes,
+						setValue: async (value: number) => {
+							plugin.settings.focusSparkChunkMinutes = value;
+							save();
+						},
+					})
+			);
+
 			group.addSetting(
 				(setting) =>
 					void configureToggleSetting(setting, {
@@ -504,6 +553,22 @@ export function renderFeaturesTab(
 						},
 					})
 			);
+
+			if (Platform.isDesktopApp) {
+				group.addSetting(
+					(setting) =>
+						void configureToggleSetting(setting, {
+							name: translate("settings.features.pomodoro.systemTray.name"),
+							desc: translate("settings.features.pomodoro.systemTray.description"),
+							getValue: () => plugin.settings.showInSystemTray,
+							setValue: async (value: boolean) => {
+								plugin.settings.showInSystemTray = value;
+								save();
+								plugin.systemTrayService?.updateVisibility();
+							},
+						})
+				);
+			}
 
 			group.addSetting(
 				(setting) =>

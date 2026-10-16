@@ -18,7 +18,11 @@ import {
 	EVENT_POMODORO_TICK,
 	TaskInfo,
 	IWebhookNotifier,
+	FocusPlan,
+	FocusSource,
 } from "../types";
+import type { EnergyKind } from "../types/settings";
+import { FocusPlanOptions, planFocusChunks } from "../core/focusPlan";
 import type { InterpolationValues, TranslationKey } from "../i18n";
 import { publishUserNotice } from "../core/userNotices";
 import { processVaultFrontMatter } from "./VaultMutationService";
@@ -225,6 +229,7 @@ export class PomodoroService {
 						this.state.isRunning = false;
 						this.state.nextSessionType = undefined;
 					}
+					this.state.plan = undefined;
 				}
 
 				// Validate current session
@@ -236,6 +241,7 @@ export class PomodoroService {
 
 					if (hoursSinceStart > 24) {
 						// Session is too old, clear it
+						this.state.plan = undefined;
 						this.state.currentSession = undefined;
 						this.state.isRunning = false;
 						this.state.timeRemaining = this.plugin.settings.pomodoroWorkDuration * 60;
@@ -243,10 +249,17 @@ export class PomodoroService {
 					}
 				}
 
-				// If no active session, reset timer to default duration
+				// If no active session, prepare the focus session's next chunk or the default timer
 				if (!this.state.currentSession) {
-					this.state.timeRemaining = this.plugin.settings.pomodoroWorkDuration * 60;
-					this.state.nextSessionType = undefined;
+					const chunk = this.state.plan?.chunks[this.state.plan.current];
+					if (chunk) {
+						this.state.timeRemaining = chunk.minutes * 60;
+						this.state.nextSessionType = chunk.type;
+					} else {
+						this.state.plan = undefined;
+						this.state.timeRemaining = this.plugin.settings.pomodoroWorkDuration * 60;
+						this.state.nextSessionType = undefined;
+					}
 				}
 			}
 		} catch (error) {
@@ -436,7 +449,7 @@ export class PomodoroService {
 		await this.startPomodoro(task, durationMinutes);
 	}
 
-	async startBreak(isLongBreak = false) {
+	async startBreak(isLongBreak = false, durationMinutes?: number) {
 		if (this.state.isRunning) {
 			publishUserNotice(this.plugin.emitter, this.translate("services.pomodoro.notices.timerAlreadyRunning"));
 			return;
@@ -448,10 +461,13 @@ export class PomodoroService {
 			return;
 		}
 
-		// Validate duration settings
-		const duration = isLongBreak
-			? Math.max(1, Math.min(60, this.plugin.settings.pomodoroLongBreakDuration))
-			: Math.max(1, Math.min(30, this.plugin.settings.pomodoroShortBreakDuration));
+		// Validate duration settings; a focus session's break brings its own length
+		const duration =
+			durationMinutes !== undefined
+				? clampPomodoroDurationSeconds(durationMinutes * 60) / 60
+				: isLongBreak
+					? Math.max(1, Math.min(60, this.plugin.settings.pomodoroLongBreakDuration))
+					: Math.max(1, Math.min(30, this.plugin.settings.pomodoroShortBreakDuration));
 
 		const sessionStartTime = getCurrentTimestamp();
 		const session: PomodoroSession = {
@@ -583,8 +599,13 @@ export class PomodoroService {
 		publishUserNotice(this.plugin.emitter, this.translate("services.pomodoro.notices.resumed"));
 	}
 
-	async stopPomodoro() {
+	/**
+	 * Stop the current session. Stopping ends the focus session too, unless `keepPlan`
+	 * (used to skip one chunk); `quiet` leaves out the stopped notice.
+	 */
+	async stopPomodoro(options: { keepPlan?: boolean; quiet?: boolean } = {}) {
 		if (!this.state.currentSession) {
+			if (!options.keepPlan && this.state.plan) await this.endFocusPlan();
 			return;
 		}
 
@@ -660,6 +681,7 @@ export class PomodoroService {
 		// Reset to default work duration
 		this.state.timeRemaining = this.plugin.settings.pomodoroWorkDuration * 60;
 		this.state.nextSessionType = undefined;
+		if (!options.keepPlan) this.state.plan = undefined;
 
 		await this.saveState();
 
@@ -669,12 +691,127 @@ export class PomodoroService {
 			session: this.state.currentSession,
 		});
 
-		if (wasRunning) {
+		if (wasRunning && !options.quiet) {
 			publishUserNotice(this.plugin.emitter, this.translate("services.pomodoro.notices.stoppedAndReset"));
 		}
 	}
 
+	focusPlanOptions(): FocusPlanOptions {
+		const s = this.plugin.settings;
+		return {
+			splitThreshold: s.focusSplitThreshold,
+			chunkMinutes: { drain: s.focusDrainChunkMinutes, steady: s.pomodoroWorkDuration, spark: s.focusSparkChunkMinutes },
+			shortBreak: s.pomodoroShortBreakDuration,
+			longBreak: s.pomodoroLongBreakDuration,
+			longBreakInterval: s.pomodoroLongBreakInterval,
+		};
+	}
+
+	getFocusPlan(): FocusPlan | undefined {
+		return this.state.plan;
+	}
+
+	/**
+	 * Start a focus session: split `plannedMinutes` into chunks and run them in sequence.
+	 * Without planned time it is one chunk of the work duration.
+	 */
+	async startFocus(input: {
+		source: FocusSource;
+		title: string;
+		energyKind: EnergyKind;
+		plannedMinutes: number | null;
+	}): Promise<void> {
+		if (this.state.isRunning) {
+			publishUserNotice(this.plugin.emitter, this.translate("services.pomodoro.notices.alreadyRunning"));
+			return;
+		}
+		if (this.state.currentSession) {
+			publishUserNotice(this.plugin.emitter, this.translate("services.pomodoro.notices.resumeCurrentSession"));
+			return;
+		}
+		const planned = input.plannedMinutes ?? this.plugin.settings.pomodoroWorkDuration;
+		const chunks = planFocusChunks(planned, input.energyKind, this.focusPlanOptions());
+		if (chunks.length === 0) return;
+		this.state.plan = {
+			id: Date.now().toString(),
+			source: input.source,
+			title: input.title,
+			energyKind: input.energyKind,
+			plannedMinutes: planned,
+			chunks,
+			current: 0,
+		};
+		await this.startPlanChunk();
+	}
+
+	/** Start whatever comes next: resume a paused session, the focus session's next chunk, or the prepared timer. */
+	async startNext(task?: TaskInfo): Promise<void> {
+		if (this.state.currentSession && !this.state.isRunning) {
+			await this.resumePomodoro();
+		} else if (this.state.plan) {
+			await this.startPlanChunk();
+		} else if (this.state.nextSessionType === "short-break") {
+			await this.startBreak(false);
+		} else if (this.state.nextSessionType === "long-break") {
+			await this.startBreak(true);
+		} else if (task) {
+			await this.startPomodoro(task);
+		} else {
+			await this.startPomodoroWithLastSelectedTask();
+		}
+	}
+
+	/** End the current chunk of a focus session (if any is running) and start the next. */
+	async skipFocusChunk(): Promise<void> {
+		const plan = this.state.plan;
+		if (!plan) return;
+		if (this.state.currentSession) await this.stopPomodoro({ keepPlan: true, quiet: true });
+		const chunk = plan.chunks[plan.current];
+		if (chunk) chunk.status = "skipped";
+		plan.current++;
+		if (plan.current >= plan.chunks.length) {
+			await this.endFocusPlan();
+			return;
+		}
+		await this.startPlanChunk();
+	}
+
+	/** Drop the focus session and return to the default work timer. */
+	private async endFocusPlan(): Promise<void> {
+		this.state.plan = undefined;
+		this.state.timeRemaining = this.plugin.settings.pomodoroWorkDuration * 60;
+		this.state.nextSessionType = undefined;
+		await this.saveState();
+		this.plugin.emitter.trigger(EVENT_POMODORO_TICK, {
+			timeRemaining: this.state.timeRemaining,
+			session: this.state.currentSession,
+		});
+	}
+
+	private focusTaskPath(plan: FocusPlan): string | undefined {
+		return plan.source.kind === "task" ? plan.source.path : plan.source.taskPath;
+	}
+
+	private async startPlanChunk(): Promise<void> {
+		const plan = this.state.plan;
+		const chunk = plan?.chunks[plan.current];
+		if (!plan || !chunk || this.state.isRunning || this.state.currentSession) return;
+		chunk.status = "active";
+		if (chunk.type === "work") {
+			const path = this.focusTaskPath(plan);
+			const task = path ? await this.plugin.cacheManager.getTaskInfo(path) : null;
+			await this.startPomodoro(task ?? undefined, chunk.minutes);
+		} else {
+			await this.startBreak(chunk.type === "long-break", chunk.minutes);
+		}
+	}
+
 	async skipBreak(): Promise<void> {
+		if (this.state.plan) {
+			const chunk = this.state.plan.chunks[this.state.plan.current];
+			if (chunk && chunk.type !== "work") await this.skipFocusChunk();
+			return;
+		}
 		if (
 			this.state.currentSession ||
 			(this.state.nextSessionType !== "short-break" &&
@@ -906,9 +1043,19 @@ export class PomodoroService {
 
 		// Daily note update is now handled by addSessionToHistory method
 
+		// A focus session decides what comes next; otherwise session history does.
+		const plan = this.state.plan;
+		const nextChunk = plan ? plan.chunks[plan.current + 1] : undefined;
+		if (plan) {
+			const done = plan.chunks[plan.current];
+			if (done) done.status = "done";
+		}
+
 		// Determine next session based on session history
 		let shouldTakeLongBreak = false;
-		if (session.type === "work") {
+		if (plan) {
+			shouldTakeLongBreak = nextChunk?.type === "long-break";
+		} else if (session.type === "work") {
 			try {
 				const stats = await this.getTodayStats();
 				// Add 1 to account for the current session that will be added to history
@@ -931,8 +1078,9 @@ export class PomodoroService {
 		// Emit completion event
 		this.plugin.emitter.trigger(EVENT_POMODORO_COMPLETE, {
 			session,
-			nextType:
-				session.type === "work"
+			nextType: plan
+				? (nextChunk?.type ?? "work")
+				: session.type === "work"
 					? shouldTakeLongBreak
 						? "long-break"
 						: "short-break"
@@ -955,12 +1103,16 @@ export class PomodoroService {
 			}
 		}
 
-		const message = session.type === "work" ? `🍅 Pomodoro completed!` : "☕ Break completed!";
-		const body =
-			session.type === "work"
-				? `Time for a ${shouldTakeLongBreak ? "long break 💤" : "short break ☕"}`
-				: "Ready for the next pomodoro?";
-		this.showPomodoroNotification(message, { body });
+		if (plan && !nextChunk) {
+			this.showPomodoroNotification(this.translate("services.pomodoro.notices.focusComplete", { title: plan.title }));
+		} else if (!plan || session.type === "work") {
+			const message = session.type === "work" ? `🍅 Pomodoro completed!` : "☕ Break completed!";
+			const body =
+				session.type === "work"
+					? `Time for a ${shouldTakeLongBreak ? "long break 💤" : "short break ☕"}`
+					: "Ready for the next pomodoro?";
+			this.showPomodoroNotification(message, { body });
+		}
 
 		// Play sound if enabled
 		if (this.plugin.settings.pomodoroSoundEnabled) {
@@ -972,7 +1124,23 @@ export class PomodoroService {
 		this.state.isRunning = false;
 
 		// Set up appropriate timer for next session
-		if (session.type === "work") {
+		if (plan) {
+			if (nextChunk) {
+				// A focus session runs its chunks in sequence, whatever the auto-start settings.
+				plan.current++;
+				this.state.timeRemaining = nextChunk.minutes * 60;
+				this.state.nextSessionType = nextChunk.type;
+				const timeout = window.setTimeout(() => {
+					this.cleanupTimeouts.delete(timeout);
+					void this.startPlanChunk();
+				}, 1000);
+				this.cleanupTimeouts.add(timeout);
+			} else {
+				this.state.plan = undefined;
+				this.state.timeRemaining = this.plugin.settings.pomodoroWorkDuration * 60;
+				this.state.nextSessionType = undefined;
+			}
+		} else if (session.type === "work") {
 			// After work session, prepare break timer
 			const breakDuration = shouldTakeLongBreak
 				? this.plugin.settings.pomodoroLongBreakDuration

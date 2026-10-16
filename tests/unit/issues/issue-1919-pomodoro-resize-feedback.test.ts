@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { resolvePomodoroLayoutSize } from "../../../src/views/PomodoroView";
+import { resolvePomodoroLayoutSize } from "../../../src/components/PomodoroPanel";
 
 const repoRoot = path.resolve(__dirname, "../../..");
 
@@ -27,10 +27,10 @@ describe("Issue #1919 - Pomodoro resize feedback", () => {
 		).toEqual({ width: 320, height: 428 });
 	});
 
-	it("observes the stable view content element rather than the resized Pomodoro element", () => {
-		const source = readRepoFile("src/views/PomodoroView.ts");
+	it("observes the stable host layout element rather than the resized Pomodoro element", () => {
+		const source = readRepoFile("src/components/PomodoroPanel.ts");
 
-		expect(source).toContain("this.resizeObserver.observe(this.contentEl);");
+		expect(source).toContain("this.resizeObserver.observe(this.layoutEl);");
 		expect(source).not.toContain("this.resizeObserver.observe(pomodoroContainer);");
 	});
 

@@ -98,3 +98,10 @@
     background: var(--background-modifier-hover);
     color: var(--text-normal);
 }
+
+/* Notice for a task note whose properties can't be read: Repair and Open note */
+.tn-broken-task-note__actions {
+	display: flex;
+	gap: var(--size-2-3);
+	margin-top: var(--size-2-3);
+}

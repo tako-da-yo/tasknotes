@@ -988,6 +988,46 @@
       "source": "7db1ec1cf1c195406d4485263cbca986500a6fb4",
       "translation": "eaa2388aebac80b653f25a4e66eee4992811fafb"
     },
+    "views.pomodoro.focus.continue": {
+      "source": "97f895731b079aab789c766f3c1bdc956ab1a0fb",
+      "translation": "056760ce414ea5d74fb2e35bc1ec38af8c6e005d"
+    },
+    "views.pomodoro.focus.end": {
+      "source": "8c0f4c33002985c287a7b6e2c4b0e97c7b434476",
+      "translation": "bc6912d6f268777019d4fd09252c42ce4154a5a3"
+    },
+    "views.pomodoro.focus.skipChunk": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "db5a55b6f0952fc8e99a77fcffaa86c2b48f50e2"
+    },
+    "views.pomodoro.focus.meta": {
+      "source": "0c3231091bffc0eebc93e3d6a5fa4610ac7e6c8d",
+      "translation": "20e6bd26eef0d40e55c3a0d5c617bee5270479a6"
+    },
+    "views.pomodoro.focus.kindAndTime": {
+      "source": "12d6d70772958e50b3e900a291ce672f9a111a96",
+      "translation": "c025988399bff9b51824bce17557238b92bcc080"
+    },
+    "views.pomodoro.focus.barLabel": {
+      "source": "7ab0385a080d9b37178b8d1103f423086c946242",
+      "translation": "0934dc4bf8209dcd58bf750abf8e2edf6b003c9d"
+    },
+    "views.pomodoro.focus.workSegment": {
+      "source": "1ab35524470669b0feded0bff20f69a8c8042994",
+      "translation": "4aae36844555c88ccb2ca55ba31f4f23b34fd397"
+    },
+    "views.pomodoro.focus.breakSegment": {
+      "source": "735ebb2a767503201467253a32c834d0db912889",
+      "translation": "2a3f8ec3c708974a7506cccd90944f3026572f8b"
+    },
+    "views.pomodoro.focus.upNext": {
+      "source": "567bfc4dad37a671f5c913a3840b4f7dbe2f6633",
+      "translation": "e70edf60c1c09f8d613ea5e9f106f0d982eb6faa"
+    },
+    "views.pomodoro.focus.startOn": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "c97cff4b32a23d874d97d1e07fc1a16fdd7d93d5"
+    },
     "views.pomodoro.timer.editLabel": {
       "source": "fa34a26449e0fc61c8aa0a7bac16428da72c49a6",
       "translation": "211d9f026e843730eb1f96b89e7ea6d91e2ec534"
@@ -1584,6 +1624,30 @@
       "source": "bf3976c0c315da7c17c77baa386c0c7b81a45350",
       "translation": "8c3d7a46f7f65f22215efab80bd43608271e5a65"
     },
+    "settings.features.pomodoro.focusSplit.name": {
+      "source": "33d4f9e2d7cb115ac67e57a46204c41a6d4e4104",
+      "translation": "025ee86d3f23fc18282551e5e6a60fe5177b96ac"
+    },
+    "settings.features.pomodoro.focusSplit.description": {
+      "source": "73a6276da597c21a5ed74e2b03997384263374b6",
+      "translation": "088796f40108d033d57b363591f4ca56450a7c95"
+    },
+    "settings.features.pomodoro.focusDrainChunk.name": {
+      "source": "aa01cd042b0f706a4f439680d10764208b3589bb",
+      "translation": "17dabbf339ef4d4840483bc2c011e716fae5144f"
+    },
+    "settings.features.pomodoro.focusDrainChunk.description": {
+      "source": "26907c7256bfc5167b8cae0f616d6c59fe67464b",
+      "translation": "8dda52f539b4806c3dc687a233367700d3404bdd"
+    },
+    "settings.features.pomodoro.focusSparkChunk.name": {
+      "source": "c1fbd93d8097dc9eee30e13230f61e719acb6e2f",
+      "translation": "7073b622d5e404be708a4f4ae02d6fddb38a07ac"
+    },
+    "settings.features.pomodoro.focusSparkChunk.description": {
+      "source": "a160c054dc72949a1e38a9aceccc9139ab7ac87f",
+      "translation": "fa59fb30fd0997e8e78b20ad787c84b9dd2eeee5"
+    },
     "settings.features.pomodoro.autoStartBreaks.name": {
       "source": "a635d295160dd1655d45102f4b9125f2b40eb7c8",
       "translation": "04662c2f5c2790e2b0c75cf6011552ee0baf9579"
@@ -1615,6 +1679,14 @@
     "settings.features.pomodoro.statusBar.description": {
       "source": "6632734a0446296457882d997c4240953d42e90e",
       "translation": "94aa07cff9cd13c2b2d3ae5e8100d4adc298e8f9"
+    },
+    "settings.features.pomodoro.systemTray.name": {
+      "source": "8cc5a5aacc3b6d30d623e7655f3935117e92cd63",
+      "translation": "1eafc302e240adbf0a8a884d99e3dc1c6a2e57e1"
+    },
+    "settings.features.pomodoro.systemTray.description": {
+      "source": "de7bcb2d1c0cda211dab2e65a5ec72fdb4223fbe",
+      "translation": "5ad57351c437888b6d4172198a16bbffcef0ac3a"
     },
     "settings.features.pomodoro.mobileSidebar.name": {
       "source": "c52589b57978be41d72d5771769ee590bdcb94fd",
@@ -5616,6 +5688,26 @@
       "source": "f296ebac414af3e7c7fc9229a7c7a1e575680fd8",
       "translation": "4297452c1a2d3753f94f77581d1cccff462dead0"
     },
+    "notices.brokenTaskNote.message": {
+      "source": "a5d92b6824bc8119e0cd093b27577d1e5868d154",
+      "translation": "bd7551ae451f1317bf6eca44a454d6821bcd3a1a"
+    },
+    "notices.brokenTaskNote.repair": {
+      "source": "5f60b1c2e60520c1f682899a32ca18639a5431e4",
+      "translation": "a952896918d78526932c1957bfdeaf90479f1474"
+    },
+    "notices.brokenTaskNote.open": {
+      "source": "c66a827e3397b1e4eb14c164a586dbd77b36e8bc",
+      "translation": "8900a5ce62d1d63c208721c25b94aa4cf6a6f086"
+    },
+    "notices.brokenTaskNote.repaired": {
+      "source": "41f8e3a83f7be4391a5631d00a22f16af899ebeb",
+      "translation": "f4ffb2be42a3857e552f0568cf634aaa38a0c142"
+    },
+    "notices.brokenTaskNote.repairFailed": {
+      "source": "711d614c8cfe7184f45be4cd1c3475f39c6ad615",
+      "translation": "6ce6dc7ec846f6d0c9f97a3ca3c717ab706051f8"
+    },
     "notices.exportTasksFailed": {
       "source": "91fa8ddb011b35634762b9184731cd9d6893b139",
       "translation": "be1d117c7288cb32621ccbdad460b7b6794e7b32"
@@ -5835,6 +5927,10 @@
     "commands.startPomodoro": {
       "source": "25e76891a0a193d6ed557825c676d0f0ea5df224",
       "translation": "12f3e179f7a94eece25f169100d9987ca1909bf6"
+    },
+    "commands.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "3c249a53abfd34bdb423f3ac8b2568e59f22619c"
     },
     "commands.stopPomodoro": {
       "source": "99016dfa5f535187921dc4e436a1e2c78433ed96",
@@ -7516,6 +7612,10 @@
       "source": "d830f5133dafe2f2c8325d37811c4901efa364a8",
       "translation": "7dd15cf100c113d3591dd0780e0351e7e971ffca"
     },
+    "contextMenus.task.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "3c249a53abfd34bdb423f3ac8b2568e59f22619c"
+    },
     "contextMenus.task.editTimeEntries": {
       "source": "044bfa90e00ea74d25f639ff66875ecb01a70ae4",
       "translation": "d05ab53d8e536f214aba8e5a401feada17a260fc"
@@ -8191,6 +8291,10 @@
     "services.pomodoro.notices.stoppedAndReset": {
       "source": "9497d9853ceef0809901925808aebd85893ecdbb",
       "translation": "ae8b668926b2eb3bce1d5fe0f355c7a75828b63d"
+    },
+    "services.pomodoro.notices.focusComplete": {
+      "source": "870bb9d47169d745fc8fff34f3be31733c7e93a2",
+      "translation": "6dbd2963fbf373c5d7f9dad37ef9be01a398631c"
     },
     "services.pomodoro.notices.migrationSuccess": {
       "source": "f9e068b4726209f715cfc3349fab68cac236d7fa",
@@ -9476,6 +9580,70 @@
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "51344b63032c35433ee22a213870de84be155e92"
     },
+    "tray.name": {
+      "source": "6458145fdd07ad08ff52a2e72d531588936bdca6",
+      "translation": "6458145fdd07ad08ff52a2e72d531588936bdca6"
+    },
+    "tray.battery": {
+      "source": "8d4909017d7456cf3b9d767eaae8a7a2f320bdbf",
+      "translation": "6613ca2dffc8a80f064f6d387e26a4364651380a"
+    },
+    "tray.title.next": {
+      "source": "6c211f2713fa705c68ea2113903f2c30d60f1144",
+      "translation": "365033dc8d9a212d166c94334a3019afef435ad3"
+    },
+    "tray.pomodoro.work": {
+      "source": "262bfb8d25e7b6b121868fa1dfb879cdc764bb1f",
+      "translation": "de91d6c06d7922417c7ff7ed1b93c121dacf1a73"
+    },
+    "tray.pomodoro.break": {
+      "source": "84c70c73794236a6421eaf1ce9a5f78a8813c05c",
+      "translation": "915a6f4b40694b4d6717e1050a29361778bdff7b"
+    },
+    "tray.pomodoro.paused": {
+      "source": "371fc0b011ab67f2c279a7e5a2a8d73264517b34",
+      "translation": "088f485e9e6ee15d85a38ef3e1019278e88837c5"
+    },
+    "tray.pomodoro.focus": {
+      "source": "3b7fd7be1918e378bcb3605e33d430ca49b58a1f",
+      "translation": "bef6c677cf5e91120cc943370f669e6c4c3b0dc0"
+    },
+    "tray.event.now": {
+      "source": "441c891271070fddc95366a2da79676d5ae142b9",
+      "translation": "b223ab901c9844022cd690361c967e4320d58caf"
+    },
+    "tray.event.next": {
+      "source": "d85e899328ea045ef01641c2413041d9723b5b6a",
+      "translation": "2f91debeb139d70547e5aecb12779bd409e336a2"
+    },
+    "tray.actions.pause": {
+      "source": "781961bc81c25697841ecce5d4d9dad9f6b261c6",
+      "translation": "55ba4638ca8c21e48b6ae1e7dd31a1be8d004f7d"
+    },
+    "tray.actions.resume": {
+      "source": "b3bd0b5a70497bec4a02b7eb1cb0d4f37eb71a2a",
+      "translation": "b992fad8d1ab3b05692ec73246090edf520b1256"
+    },
+    "tray.actions.start": {
+      "source": "b5924c20fa7da66235c95fdded5c9529a11a4a73",
+      "translation": "fcd0b72662daec96e9a5a24e43ce54fb02610003"
+    },
+    "tray.actions.skip": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "db5a55b6f0952fc8e99a77fcffaa86c2b48f50e2"
+    },
+    "tray.actions.stop": {
+      "source": "9e253470c876ee6d5c720eb777aeb82d4c26e28f",
+      "translation": "e24261dccbbc207029a23476b6fa2a62ffedbe58"
+    },
+    "tray.actions.open": {
+      "source": "eb7a3b92fad43da4b313ce3dff66290b03342744",
+      "translation": "e86013b680528e68669701107e5354426da4a94c"
+    },
+    "energy.view.title": {
+      "source": "84e737b5a50dfca2c182a9ef9e0ba5d376f30330",
+      "translation": "dd842eb2d9afd920263a9f6117c06dc2ad89d77f"
+    },
     "energy.kinds.spark": {
       "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
       "translation": "84e93878d197ceb04bb95629f763e366bff83324"
@@ -9551,6 +9719,10 @@
     "energy.panel.findSpark": {
       "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
       "translation": "ea403053d8cfd73f01524031e70a725121d6fb59"
+    },
+    "energy.panel.startFocus": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "c97cff4b32a23d874d97d1e07fc1a16fdd7d93d5"
     },
     "energy.panel.emptyTitle": {
       "source": "1310f875993b121823753fcd42c63176d6e92ac4",
@@ -10654,6 +10826,46 @@
       "source": "7db1ec1cf1c195406d4485263cbca986500a6fb4",
       "translation": "ee10a31f2bd6f9ca39b53a9d3c68f35f67dd7e1f"
     },
+    "views.pomodoro.focus.continue": {
+      "source": "97f895731b079aab789c766f3c1bdc956ab1a0fb",
+      "translation": "95147cf605afa32ab80605ac7951d673bb92bc25"
+    },
+    "views.pomodoro.focus.end": {
+      "source": "8c0f4c33002985c287a7b6e2c4b0e97c7b434476",
+      "translation": "60aa2f50269338496c99702628b366fff9067276"
+    },
+    "views.pomodoro.focus.skipChunk": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "2556445df1377bfab3df61284bf33d5bc57a626d"
+    },
+    "views.pomodoro.focus.meta": {
+      "source": "0c3231091bffc0eebc93e3d6a5fa4610ac7e6c8d",
+      "translation": "717c530ff34c12111965fb0b62ab44c071b6e27b"
+    },
+    "views.pomodoro.focus.kindAndTime": {
+      "source": "12d6d70772958e50b3e900a291ce672f9a111a96",
+      "translation": "3439d8adc42510ee4aaaf3499c897c2856df03cd"
+    },
+    "views.pomodoro.focus.barLabel": {
+      "source": "7ab0385a080d9b37178b8d1103f423086c946242",
+      "translation": "f5dc3454ab115f58b4a9594fe6fc0bbd921eac60"
+    },
+    "views.pomodoro.focus.workSegment": {
+      "source": "1ab35524470669b0feded0bff20f69a8c8042994",
+      "translation": "adc49f63fde158ed36c43b42b71ac175d9c6bc00"
+    },
+    "views.pomodoro.focus.breakSegment": {
+      "source": "735ebb2a767503201467253a32c834d0db912889",
+      "translation": "7a2b2ef7d6cc678add1c49793b37c06b47cb5952"
+    },
+    "views.pomodoro.focus.upNext": {
+      "source": "567bfc4dad37a671f5c913a3840b4f7dbe2f6633",
+      "translation": "0d36b04ff0680c159f811b53b7c007b0251107fe"
+    },
+    "views.pomodoro.focus.startOn": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "40ee25c7f00a197850c25bd39bbd0e141b6b3874"
+    },
     "views.pomodoro.timer.editLabel": {
       "source": "fa34a26449e0fc61c8aa0a7bac16428da72c49a6",
       "translation": "2ba7d5af865985b6390f9132ff8c3380aa2d03b6"
@@ -11250,6 +11462,30 @@
       "source": "bf3976c0c315da7c17c77baa386c0c7b81a45350",
       "translation": "6d5eccd7f0d52a524951d3a8858279b588c19085"
     },
+    "settings.features.pomodoro.focusSplit.name": {
+      "source": "33d4f9e2d7cb115ac67e57a46204c41a6d4e4104",
+      "translation": "bfa296827fb83a9a9a3866d3f7bfff37aaf774eb"
+    },
+    "settings.features.pomodoro.focusSplit.description": {
+      "source": "73a6276da597c21a5ed74e2b03997384263374b6",
+      "translation": "d970e670270094a5bc8e40c782f4e536701b46ba"
+    },
+    "settings.features.pomodoro.focusDrainChunk.name": {
+      "source": "aa01cd042b0f706a4f439680d10764208b3589bb",
+      "translation": "ff1fde689ba2260881c5538d56f4cf0cff23b2b5"
+    },
+    "settings.features.pomodoro.focusDrainChunk.description": {
+      "source": "26907c7256bfc5167b8cae0f616d6c59fe67464b",
+      "translation": "437e6f863c9a50825919ecede0b2defba9e7b594"
+    },
+    "settings.features.pomodoro.focusSparkChunk.name": {
+      "source": "c1fbd93d8097dc9eee30e13230f61e719acb6e2f",
+      "translation": "90f535e4ec68bdf1b2352cb62479a8d3e65393a4"
+    },
+    "settings.features.pomodoro.focusSparkChunk.description": {
+      "source": "a160c054dc72949a1e38a9aceccc9139ab7ac87f",
+      "translation": "e3d1be9fe6b4f08df34b592cc1f089f5a40c5266"
+    },
     "settings.features.pomodoro.autoStartBreaks.name": {
       "source": "a635d295160dd1655d45102f4b9125f2b40eb7c8",
       "translation": "a2c546c63339a994166b5ac3b6429d191e8546c2"
@@ -11281,6 +11517,14 @@
     "settings.features.pomodoro.statusBar.description": {
       "source": "6632734a0446296457882d997c4240953d42e90e",
       "translation": "8e806599c9ecb54b87c216ab33de1bfa2ffab921"
+    },
+    "settings.features.pomodoro.systemTray.name": {
+      "source": "8cc5a5aacc3b6d30d623e7655f3935117e92cd63",
+      "translation": "5eb744477bdeb2e2d1f786d5cda4fbed9adb4421"
+    },
+    "settings.features.pomodoro.systemTray.description": {
+      "source": "de7bcb2d1c0cda211dab2e65a5ec72fdb4223fbe",
+      "translation": "156dbf1ae98d01f17376e32cba6cfc835ecaf722"
     },
     "settings.features.pomodoro.mobileSidebar.name": {
       "source": "c52589b57978be41d72d5771769ee590bdcb94fd",
@@ -15282,6 +15526,26 @@
       "source": "f296ebac414af3e7c7fc9229a7c7a1e575680fd8",
       "translation": "072829bb16fc15f831c7e7afbff02d195be1aace"
     },
+    "notices.brokenTaskNote.message": {
+      "source": "a5d92b6824bc8119e0cd093b27577d1e5868d154",
+      "translation": "81252b6aa64ad112aa42ef89ec45c81fe236f3e5"
+    },
+    "notices.brokenTaskNote.repair": {
+      "source": "5f60b1c2e60520c1f682899a32ca18639a5431e4",
+      "translation": "d9f5855aae35cc80dc4c52210e327ee84fba0de0"
+    },
+    "notices.brokenTaskNote.open": {
+      "source": "c66a827e3397b1e4eb14c164a586dbd77b36e8bc",
+      "translation": "2d6cf3e7bad0c3338506f40082c06414bd8922fc"
+    },
+    "notices.brokenTaskNote.repaired": {
+      "source": "41f8e3a83f7be4391a5631d00a22f16af899ebeb",
+      "translation": "4b78dba32facfd4d00891213d3e564f61f5dd38d"
+    },
+    "notices.brokenTaskNote.repairFailed": {
+      "source": "711d614c8cfe7184f45be4cd1c3475f39c6ad615",
+      "translation": "854430cf1a3699d7ec812fd54e23a8fd05f40789"
+    },
     "notices.exportTasksFailed": {
       "source": "91fa8ddb011b35634762b9184731cd9d6893b139",
       "translation": "fa4a91e0206980bc84695604a6e06b8958eb8629"
@@ -15501,6 +15765,10 @@
     "commands.startPomodoro": {
       "source": "25e76891a0a193d6ed557825c676d0f0ea5df224",
       "translation": "e9a2c3474bac7062575be44fcbdb4206e1034ea7"
+    },
+    "commands.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "bd7ec9f6e127ea0ec2d8b213b2305102039a8c57"
     },
     "commands.stopPomodoro": {
       "source": "99016dfa5f535187921dc4e436a1e2c78433ed96",
@@ -17182,6 +17450,10 @@
       "source": "d830f5133dafe2f2c8325d37811c4901efa364a8",
       "translation": "6f7c4cfa80f27e0a76d0804edf762dd302da70af"
     },
+    "contextMenus.task.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "bd7ec9f6e127ea0ec2d8b213b2305102039a8c57"
+    },
     "contextMenus.task.editTimeEntries": {
       "source": "044bfa90e00ea74d25f639ff66875ecb01a70ae4",
       "translation": "acdf52fa23f83feef3714795ba9d6387812abb53"
@@ -17857,6 +18129,10 @@
     "services.pomodoro.notices.stoppedAndReset": {
       "source": "9497d9853ceef0809901925808aebd85893ecdbb",
       "translation": "550be0dbbcbbfed0cce3074b6e23de003d376862"
+    },
+    "services.pomodoro.notices.focusComplete": {
+      "source": "870bb9d47169d745fc8fff34f3be31733c7e93a2",
+      "translation": "ad4760af73a70ad9508006cbf03f1ec6faa9b882"
     },
     "services.pomodoro.notices.migrationSuccess": {
       "source": "f9e068b4726209f715cfc3349fab68cac236d7fa",
@@ -19142,6 +19418,70 @@
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "0ac5b9db1d9be8414ca4daefdc7a47fd5ffeae73"
     },
+    "tray.name": {
+      "source": "6458145fdd07ad08ff52a2e72d531588936bdca6",
+      "translation": "6458145fdd07ad08ff52a2e72d531588936bdca6"
+    },
+    "tray.battery": {
+      "source": "8d4909017d7456cf3b9d767eaae8a7a2f320bdbf",
+      "translation": "c770bba9e6e7043409dbf386ebb7ddaf36c14818"
+    },
+    "tray.title.next": {
+      "source": "6c211f2713fa705c68ea2113903f2c30d60f1144",
+      "translation": "38023895282024accecae497d75d8b6df0152fdb"
+    },
+    "tray.pomodoro.work": {
+      "source": "262bfb8d25e7b6b121868fa1dfb879cdc764bb1f",
+      "translation": "7b8554092461685181a4b2843fcc2bfe5f7cf444"
+    },
+    "tray.pomodoro.break": {
+      "source": "84c70c73794236a6421eaf1ce9a5f78a8813c05c",
+      "translation": "4b12cef99b4616516d1039bbdb1f9ee4567a364f"
+    },
+    "tray.pomodoro.paused": {
+      "source": "371fc0b011ab67f2c279a7e5a2a8d73264517b34",
+      "translation": "ff25381138cb09aa7425d03880d87b90920af913"
+    },
+    "tray.pomodoro.focus": {
+      "source": "3b7fd7be1918e378bcb3605e33d430ca49b58a1f",
+      "translation": "33211e33ecbc41a6557d86d4b06103ad7ad3ed9b"
+    },
+    "tray.event.now": {
+      "source": "441c891271070fddc95366a2da79676d5ae142b9",
+      "translation": "fba8c7866ce00b4c39d8844209686d6221e8f231"
+    },
+    "tray.event.next": {
+      "source": "d85e899328ea045ef01641c2413041d9723b5b6a",
+      "translation": "2121c5f0d4d05d646e6b5c6918b7a61d86ad0039"
+    },
+    "tray.actions.pause": {
+      "source": "781961bc81c25697841ecce5d4d9dad9f6b261c6",
+      "translation": "8e0f5ed9908b61c5a8f33dbddef0560d67d2a97c"
+    },
+    "tray.actions.resume": {
+      "source": "b3bd0b5a70497bec4a02b7eb1cb0d4f37eb71a2a",
+      "translation": "3eb70c0b4273772708f89bd93e407eddd2f5539c"
+    },
+    "tray.actions.start": {
+      "source": "b5924c20fa7da66235c95fdded5c9529a11a4a73",
+      "translation": "c34df107b9d510b645452768d1835460ba2337dd"
+    },
+    "tray.actions.skip": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "2556445df1377bfab3df61284bf33d5bc57a626d"
+    },
+    "tray.actions.stop": {
+      "source": "9e253470c876ee6d5c720eb777aeb82d4c26e28f",
+      "translation": "ef187497c36ae2a2c700ac09ccb55a3ac3dbba86"
+    },
+    "tray.actions.open": {
+      "source": "eb7a3b92fad43da4b313ce3dff66290b03342744",
+      "translation": "4b14dd67b10a2b2fec8188da30cab0675324381a"
+    },
+    "energy.view.title": {
+      "source": "84e737b5a50dfca2c182a9ef9e0ba5d376f30330",
+      "translation": "75f0fcfa221c7f2c841df31bc734af2bbbbc8f74"
+    },
     "energy.kinds.spark": {
       "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
       "translation": "8136ab20e7714ab8932150c9356734ba7d9f7dc3"
@@ -19217,6 +19557,10 @@
     "energy.panel.findSpark": {
       "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
       "translation": "124c609e107642398dd3c5f051fa0bc87f9ff03c"
+    },
+    "energy.panel.startFocus": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "40ee25c7f00a197850c25bd39bbd0e141b6b3874"
     },
     "energy.panel.emptyTitle": {
       "source": "1310f875993b121823753fcd42c63176d6e92ac4",
@@ -20320,6 +20664,46 @@
       "source": "7db1ec1cf1c195406d4485263cbca986500a6fb4",
       "translation": "1854e63ea71c746d5164ae9d8622b19d9ed6e7d0"
     },
+    "views.pomodoro.focus.continue": {
+      "source": "97f895731b079aab789c766f3c1bdc956ab1a0fb",
+      "translation": "bd77b19a197be060d7c783edf5aa53cecdf8fbda"
+    },
+    "views.pomodoro.focus.end": {
+      "source": "8c0f4c33002985c287a7b6e2c4b0e97c7b434476",
+      "translation": "a04031941c31926ca99ac3d3722c3f227ad8ea36"
+    },
+    "views.pomodoro.focus.skipChunk": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "baa6bc741555df4cb6142278213d24d66fb167de"
+    },
+    "views.pomodoro.focus.meta": {
+      "source": "0c3231091bffc0eebc93e3d6a5fa4610ac7e6c8d",
+      "translation": "3f9b3df864e855b1748f2ec38f9fad41c6d48858"
+    },
+    "views.pomodoro.focus.kindAndTime": {
+      "source": "12d6d70772958e50b3e900a291ce672f9a111a96",
+      "translation": "962eed0409d8d18c7e7f37df010f28becc7a07a1"
+    },
+    "views.pomodoro.focus.barLabel": {
+      "source": "7ab0385a080d9b37178b8d1103f423086c946242",
+      "translation": "f5cc160a5de4ee5fe14e36a059ab478f913e7014"
+    },
+    "views.pomodoro.focus.workSegment": {
+      "source": "1ab35524470669b0feded0bff20f69a8c8042994",
+      "translation": "1ecfade0b4eb06f7de39cafc1bdcdd4e8ecdbf0c"
+    },
+    "views.pomodoro.focus.breakSegment": {
+      "source": "735ebb2a767503201467253a32c834d0db912889",
+      "translation": "f8ad8502936414f0d6e89325642217e40fb90e81"
+    },
+    "views.pomodoro.focus.upNext": {
+      "source": "567bfc4dad37a671f5c913a3840b4f7dbe2f6633",
+      "translation": "f47e7e5b35b6547cb4da9b498e442a91ce1d565d"
+    },
+    "views.pomodoro.focus.startOn": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "6f9866a152ab4c7f4fb4a4b116ed178df0064d87"
+    },
     "views.pomodoro.timer.editLabel": {
       "source": "fa34a26449e0fc61c8aa0a7bac16428da72c49a6",
       "translation": "2a2b223337f5273a97a9f975eaebd5a9e16ff649"
@@ -20916,6 +21300,30 @@
       "source": "bf3976c0c315da7c17c77baa386c0c7b81a45350",
       "translation": "963e0ed1239f585791e455d4c1026ffe9dbf0437"
     },
+    "settings.features.pomodoro.focusSplit.name": {
+      "source": "33d4f9e2d7cb115ac67e57a46204c41a6d4e4104",
+      "translation": "37dcad29ee37612983e684fb9950bda908aa01ba"
+    },
+    "settings.features.pomodoro.focusSplit.description": {
+      "source": "73a6276da597c21a5ed74e2b03997384263374b6",
+      "translation": "4e6e6eadb1473fff14e1e5cf2c621e688530adcf"
+    },
+    "settings.features.pomodoro.focusDrainChunk.name": {
+      "source": "aa01cd042b0f706a4f439680d10764208b3589bb",
+      "translation": "cf1e0256aedc9a2bb93a0099c9fe0e3d7dc6d6d9"
+    },
+    "settings.features.pomodoro.focusDrainChunk.description": {
+      "source": "26907c7256bfc5167b8cae0f616d6c59fe67464b",
+      "translation": "e9840ec5cbd475fdaf0efdf02a7f511c51902ce3"
+    },
+    "settings.features.pomodoro.focusSparkChunk.name": {
+      "source": "c1fbd93d8097dc9eee30e13230f61e719acb6e2f",
+      "translation": "bcd47540cbe5d919aa9322310e4d72a15c9a3896"
+    },
+    "settings.features.pomodoro.focusSparkChunk.description": {
+      "source": "a160c054dc72949a1e38a9aceccc9139ab7ac87f",
+      "translation": "b78abe9288f77c3d1ff50cf6cdc91add04120e9b"
+    },
     "settings.features.pomodoro.autoStartBreaks.name": {
       "source": "a635d295160dd1655d45102f4b9125f2b40eb7c8",
       "translation": "2a6d5ee7040666532014c458aaa6a32e3c9a4ffa"
@@ -20947,6 +21355,14 @@
     "settings.features.pomodoro.statusBar.description": {
       "source": "6632734a0446296457882d997c4240953d42e90e",
       "translation": "db37daa659397767680af8dd2db08d4103909fe2"
+    },
+    "settings.features.pomodoro.systemTray.name": {
+      "source": "8cc5a5aacc3b6d30d623e7655f3935117e92cd63",
+      "translation": "02f6543f3b33230b63b8dc7290cf7990c9bee443"
+    },
+    "settings.features.pomodoro.systemTray.description": {
+      "source": "de7bcb2d1c0cda211dab2e65a5ec72fdb4223fbe",
+      "translation": "b9336f3faaa7ef9062335cf100c72f75ae4349d9"
     },
     "settings.features.pomodoro.mobileSidebar.name": {
       "source": "c52589b57978be41d72d5771769ee590bdcb94fd",
@@ -24948,6 +25364,26 @@
       "source": "f296ebac414af3e7c7fc9229a7c7a1e575680fd8",
       "translation": "db164b21a9bda0cc8814e6ba9a9e297af58e7584"
     },
+    "notices.brokenTaskNote.message": {
+      "source": "a5d92b6824bc8119e0cd093b27577d1e5868d154",
+      "translation": "e1d89c88b879688cf59cbd1f45cbcd7baf2651c4"
+    },
+    "notices.brokenTaskNote.repair": {
+      "source": "5f60b1c2e60520c1f682899a32ca18639a5431e4",
+      "translation": "00861172bdf24723620f1e493e09d014607ba385"
+    },
+    "notices.brokenTaskNote.open": {
+      "source": "c66a827e3397b1e4eb14c164a586dbd77b36e8bc",
+      "translation": "f47a838c44c3bfe8fc77c6641ee54f23033c38a3"
+    },
+    "notices.brokenTaskNote.repaired": {
+      "source": "41f8e3a83f7be4391a5631d00a22f16af899ebeb",
+      "translation": "c091f51be245030842760263b9bed98af560ca13"
+    },
+    "notices.brokenTaskNote.repairFailed": {
+      "source": "711d614c8cfe7184f45be4cd1c3475f39c6ad615",
+      "translation": "81a22b03cf63b09a6f5191cb7cd0ba1f296f816d"
+    },
     "notices.exportTasksFailed": {
       "source": "91fa8ddb011b35634762b9184731cd9d6893b139",
       "translation": "ff30240ef05c53aeda0d7d10e7a2fa0f55c09a30"
@@ -25167,6 +25603,10 @@
     "commands.startPomodoro": {
       "source": "25e76891a0a193d6ed557825c676d0f0ea5df224",
       "translation": "1a7d0030d0359cebf0da9348bfcd872bdf72445d"
+    },
+    "commands.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "7dd1375157941746ef5d0629116dd92c89411f5a"
     },
     "commands.stopPomodoro": {
       "source": "99016dfa5f535187921dc4e436a1e2c78433ed96",
@@ -26848,6 +27288,10 @@
       "source": "d830f5133dafe2f2c8325d37811c4901efa364a8",
       "translation": "2e3435178495aae88e66b4d53b3efcd85e107e19"
     },
+    "contextMenus.task.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "7dd1375157941746ef5d0629116dd92c89411f5a"
+    },
     "contextMenus.task.editTimeEntries": {
       "source": "044bfa90e00ea74d25f639ff66875ecb01a70ae4",
       "translation": "89c4dcc88aea6d1ae009c09a60be59da6991014b"
@@ -27523,6 +27967,10 @@
     "services.pomodoro.notices.stoppedAndReset": {
       "source": "9497d9853ceef0809901925808aebd85893ecdbb",
       "translation": "8b7b918bba4d5578416efddb5f07b52c71964360"
+    },
+    "services.pomodoro.notices.focusComplete": {
+      "source": "870bb9d47169d745fc8fff34f3be31733c7e93a2",
+      "translation": "869fe7e744b1a17f9de4b3c29c243c289b326c1f"
     },
     "services.pomodoro.notices.migrationSuccess": {
       "source": "f9e068b4726209f715cfc3349fab68cac236d7fa",
@@ -28808,6 +29256,70 @@
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "56b1baa1548790c0a4ff476dacc7b7a2f4fe2b92"
     },
+    "tray.name": {
+      "source": "6458145fdd07ad08ff52a2e72d531588936bdca6",
+      "translation": "6458145fdd07ad08ff52a2e72d531588936bdca6"
+    },
+    "tray.battery": {
+      "source": "8d4909017d7456cf3b9d767eaae8a7a2f320bdbf",
+      "translation": "997c7a8dc8b71b72aeba4f3ddf6602cda3897c3f"
+    },
+    "tray.title.next": {
+      "source": "6c211f2713fa705c68ea2113903f2c30d60f1144",
+      "translation": "e9221b5b38b9c5996838e43289cab104e0b9caf9"
+    },
+    "tray.pomodoro.work": {
+      "source": "262bfb8d25e7b6b121868fa1dfb879cdc764bb1f",
+      "translation": "e24e3a29f8dfbb2fd231e7079dd65089282cc059"
+    },
+    "tray.pomodoro.break": {
+      "source": "84c70c73794236a6421eaf1ce9a5f78a8813c05c",
+      "translation": "bf6a3176613e083184929288d508fb20180fd135"
+    },
+    "tray.pomodoro.paused": {
+      "source": "371fc0b011ab67f2c279a7e5a2a8d73264517b34",
+      "translation": "9de6d8522687b5ebaa2e9ea8eccac03d614e7b13"
+    },
+    "tray.pomodoro.focus": {
+      "source": "3b7fd7be1918e378bcb3605e33d430ca49b58a1f",
+      "translation": "678f248a13534a359bd124445173416324ddcf9b"
+    },
+    "tray.event.now": {
+      "source": "441c891271070fddc95366a2da79676d5ae142b9",
+      "translation": "fc46b07138a6cd8dd361a4ffdc601afee0df0138"
+    },
+    "tray.event.next": {
+      "source": "d85e899328ea045ef01641c2413041d9723b5b6a",
+      "translation": "6749d38e9e44863ba7ec702a8bd42546631e4035"
+    },
+    "tray.actions.pause": {
+      "source": "781961bc81c25697841ecce5d4d9dad9f6b261c6",
+      "translation": "4515da4ba5caa4f3e85f587a43b4a88de5237724"
+    },
+    "tray.actions.resume": {
+      "source": "b3bd0b5a70497bec4a02b7eb1cb0d4f37eb71a2a",
+      "translation": "1c56710b73fa3b9ade05c1747e1fc760ebbb5fdd"
+    },
+    "tray.actions.start": {
+      "source": "b5924c20fa7da66235c95fdded5c9529a11a4a73",
+      "translation": "5fa5cf46b1844c94e8fcb2eb3fb4d517d0c0384d"
+    },
+    "tray.actions.skip": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "baa6bc741555df4cb6142278213d24d66fb167de"
+    },
+    "tray.actions.stop": {
+      "source": "9e253470c876ee6d5c720eb777aeb82d4c26e28f",
+      "translation": "1b1cd217cdb7add8122cf04eb99b7958a23af8af"
+    },
+    "tray.actions.open": {
+      "source": "eb7a3b92fad43da4b313ce3dff66290b03342744",
+      "translation": "0788347dab0946bf09f39cd9e47f483aea716b71"
+    },
+    "energy.view.title": {
+      "source": "84e737b5a50dfca2c182a9ef9e0ba5d376f30330",
+      "translation": "94e492fcea324d38987e19775022b400212ca17a"
+    },
     "energy.kinds.spark": {
       "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
       "translation": "ba32cdb0a07ff72babf5d47daec3a4cda64a26af"
@@ -28883,6 +29395,10 @@
     "energy.panel.findSpark": {
       "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
       "translation": "ce8194dada0fed49940234fee7d4af9d3048a119"
+    },
+    "energy.panel.startFocus": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "6f9866a152ab4c7f4fb4a4b116ed178df0064d87"
     },
     "energy.panel.emptyTitle": {
       "source": "1310f875993b121823753fcd42c63176d6e92ac4",
@@ -29986,6 +30502,46 @@
       "source": "7db1ec1cf1c195406d4485263cbca986500a6fb4",
       "translation": "8e367599228a5e340d84d26ac0711e683fda18a5"
     },
+    "views.pomodoro.focus.continue": {
+      "source": "97f895731b079aab789c766f3c1bdc956ab1a0fb",
+      "translation": "0f808482d35852a61844e1d66d59a06570fe6321"
+    },
+    "views.pomodoro.focus.end": {
+      "source": "8c0f4c33002985c287a7b6e2c4b0e97c7b434476",
+      "translation": "e6440859663127bd3826d666ec812935d1c66b8a"
+    },
+    "views.pomodoro.focus.skipChunk": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "7a9b01f8c092821d72254f515a260c71d64d2996"
+    },
+    "views.pomodoro.focus.meta": {
+      "source": "0c3231091bffc0eebc93e3d6a5fa4610ac7e6c8d",
+      "translation": "fc52b5ca714fb27f05535dc3fe7c3415b6f45566"
+    },
+    "views.pomodoro.focus.kindAndTime": {
+      "source": "12d6d70772958e50b3e900a291ce672f9a111a96",
+      "translation": "4266faa1b63156ddd985dec5b7d193e8979dd730"
+    },
+    "views.pomodoro.focus.barLabel": {
+      "source": "7ab0385a080d9b37178b8d1103f423086c946242",
+      "translation": "9367cf8848a60246a0235bac9b866c497e3ed362"
+    },
+    "views.pomodoro.focus.workSegment": {
+      "source": "1ab35524470669b0feded0bff20f69a8c8042994",
+      "translation": "d1d5723812fa732ce93de557896254d1f9beb96d"
+    },
+    "views.pomodoro.focus.breakSegment": {
+      "source": "735ebb2a767503201467253a32c834d0db912889",
+      "translation": "7804b112d4f26b73ba420b636c1f3621474656c2"
+    },
+    "views.pomodoro.focus.upNext": {
+      "source": "567bfc4dad37a671f5c913a3840b4f7dbe2f6633",
+      "translation": "8e88734019a5a8dc5fd552c86f20196d03a98c98"
+    },
+    "views.pomodoro.focus.startOn": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "6dc438146cb1aaeca2d2aae3244eeec3d158778c"
+    },
     "views.pomodoro.timer.editLabel": {
       "source": "fa34a26449e0fc61c8aa0a7bac16428da72c49a6",
       "translation": "83d515c701cc93688f01a7fee763bcaac2c073fa"
@@ -30582,6 +31138,30 @@
       "source": "bf3976c0c315da7c17c77baa386c0c7b81a45350",
       "translation": "bb1b62fbe3a6eabbc0ed4664506a230f670c65da"
     },
+    "settings.features.pomodoro.focusSplit.name": {
+      "source": "33d4f9e2d7cb115ac67e57a46204c41a6d4e4104",
+      "translation": "4ea06cdc59093f376452b290480915cedf0deb23"
+    },
+    "settings.features.pomodoro.focusSplit.description": {
+      "source": "73a6276da597c21a5ed74e2b03997384263374b6",
+      "translation": "a36ad91264bdb8c269dfdc8b53e17385342204ba"
+    },
+    "settings.features.pomodoro.focusDrainChunk.name": {
+      "source": "aa01cd042b0f706a4f439680d10764208b3589bb",
+      "translation": "d16991693ca36701cbb450a61ec5ccef05e25359"
+    },
+    "settings.features.pomodoro.focusDrainChunk.description": {
+      "source": "26907c7256bfc5167b8cae0f616d6c59fe67464b",
+      "translation": "8fcd1d5f046f49ec69c64a5f86ba3ea1c54c5bec"
+    },
+    "settings.features.pomodoro.focusSparkChunk.name": {
+      "source": "c1fbd93d8097dc9eee30e13230f61e719acb6e2f",
+      "translation": "2d016eb59d16e7a5721e8bbd52d6c28da987edb0"
+    },
+    "settings.features.pomodoro.focusSparkChunk.description": {
+      "source": "a160c054dc72949a1e38a9aceccc9139ab7ac87f",
+      "translation": "a3946658366c94a737d395151389939f0378fb95"
+    },
     "settings.features.pomodoro.autoStartBreaks.name": {
       "source": "a635d295160dd1655d45102f4b9125f2b40eb7c8",
       "translation": "9b3c9162bcc674d6e8311e960eec2964e6633079"
@@ -30613,6 +31193,14 @@
     "settings.features.pomodoro.statusBar.description": {
       "source": "6632734a0446296457882d997c4240953d42e90e",
       "translation": "2afde60376d7aecd34e6ed29032325b73063fcb5"
+    },
+    "settings.features.pomodoro.systemTray.name": {
+      "source": "8cc5a5aacc3b6d30d623e7655f3935117e92cd63",
+      "translation": "97a9deb5a797957d96978297673eb8eeed4771b8"
+    },
+    "settings.features.pomodoro.systemTray.description": {
+      "source": "de7bcb2d1c0cda211dab2e65a5ec72fdb4223fbe",
+      "translation": "66db1507cabe4d58837aa8856e74ca45ce1bf5e5"
     },
     "settings.features.pomodoro.mobileSidebar.name": {
       "source": "c52589b57978be41d72d5771769ee590bdcb94fd",
@@ -34614,6 +35202,26 @@
       "source": "f296ebac414af3e7c7fc9229a7c7a1e575680fd8",
       "translation": "8e0be8f26f3711205a45f2d1b196a673be8e594a"
     },
+    "notices.brokenTaskNote.message": {
+      "source": "a5d92b6824bc8119e0cd093b27577d1e5868d154",
+      "translation": "f1470b03e5b7ad0d939e11d01bd9f0cf15425f83"
+    },
+    "notices.brokenTaskNote.repair": {
+      "source": "5f60b1c2e60520c1f682899a32ca18639a5431e4",
+      "translation": "6fcf246122375aaf816bbe1239e1537d54e8a016"
+    },
+    "notices.brokenTaskNote.open": {
+      "source": "c66a827e3397b1e4eb14c164a586dbd77b36e8bc",
+      "translation": "93a2030f67a83383bacfb6529030f04343354ab0"
+    },
+    "notices.brokenTaskNote.repaired": {
+      "source": "41f8e3a83f7be4391a5631d00a22f16af899ebeb",
+      "translation": "dab9da96bbb8caa9358d94bfe5e98a78b33970a3"
+    },
+    "notices.brokenTaskNote.repairFailed": {
+      "source": "711d614c8cfe7184f45be4cd1c3475f39c6ad615",
+      "translation": "a986cabbd1740805253c325d614b4eca70deb8d3"
+    },
     "notices.exportTasksFailed": {
       "source": "91fa8ddb011b35634762b9184731cd9d6893b139",
       "translation": "3e63ebd6fdf480923d7665253abe9ed6d5800f9d"
@@ -34833,6 +35441,10 @@
     "commands.startPomodoro": {
       "source": "25e76891a0a193d6ed557825c676d0f0ea5df224",
       "translation": "c80ef162d8d2cdf83ad293e98e15b3684d0e1d68"
+    },
+    "commands.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "cd22b31d60a48f603b42825cf911be9e422e14b7"
     },
     "commands.stopPomodoro": {
       "source": "99016dfa5f535187921dc4e436a1e2c78433ed96",
@@ -36514,6 +37126,10 @@
       "source": "d830f5133dafe2f2c8325d37811c4901efa364a8",
       "translation": "b7a7fcd85f743deac1f56129c5e23279dcbb2ed6"
     },
+    "contextMenus.task.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "cd22b31d60a48f603b42825cf911be9e422e14b7"
+    },
     "contextMenus.task.editTimeEntries": {
       "source": "044bfa90e00ea74d25f639ff66875ecb01a70ae4",
       "translation": "49dd3c76c8d6483811cc0e92ba0b3646e8661236"
@@ -37189,6 +37805,10 @@
     "services.pomodoro.notices.stoppedAndReset": {
       "source": "9497d9853ceef0809901925808aebd85893ecdbb",
       "translation": "f14d6f30bbf12e618b511ba831b3bb3b3b05849c"
+    },
+    "services.pomodoro.notices.focusComplete": {
+      "source": "870bb9d47169d745fc8fff34f3be31733c7e93a2",
+      "translation": "492ba944dae883478727fcfc32ff172d69584480"
     },
     "services.pomodoro.notices.migrationSuccess": {
       "source": "f9e068b4726209f715cfc3349fab68cac236d7fa",
@@ -38474,6 +39094,70 @@
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "578325b56bfa62d16ea07c1e3c3021ca5c7c6fe0"
     },
+    "tray.name": {
+      "source": "6458145fdd07ad08ff52a2e72d531588936bdca6",
+      "translation": "6458145fdd07ad08ff52a2e72d531588936bdca6"
+    },
+    "tray.battery": {
+      "source": "8d4909017d7456cf3b9d767eaae8a7a2f320bdbf",
+      "translation": "f8a5dd0c7812fe19fefd7c5ce4bb277f0ea1e218"
+    },
+    "tray.title.next": {
+      "source": "6c211f2713fa705c68ea2113903f2c30d60f1144",
+      "translation": "efac8e7efb1e8341585405845ab445626f320bb1"
+    },
+    "tray.pomodoro.work": {
+      "source": "262bfb8d25e7b6b121868fa1dfb879cdc764bb1f",
+      "translation": "5fe6adf79a9f19bd392ef96041288f9844c52402"
+    },
+    "tray.pomodoro.break": {
+      "source": "84c70c73794236a6421eaf1ce9a5f78a8813c05c",
+      "translation": "9b255b6d6b4aaecc240f7bb4e9e09273b41d6faa"
+    },
+    "tray.pomodoro.paused": {
+      "source": "371fc0b011ab67f2c279a7e5a2a8d73264517b34",
+      "translation": "58e23658bf801f926f448b15bad3ae56db6c5366"
+    },
+    "tray.pomodoro.focus": {
+      "source": "3b7fd7be1918e378bcb3605e33d430ca49b58a1f",
+      "translation": "5c17b451361c01219bf3bd9e885c8f7771131110"
+    },
+    "tray.event.now": {
+      "source": "441c891271070fddc95366a2da79676d5ae142b9",
+      "translation": "ba7ab629b78c0d4d56747e5a955feab57ec653d0"
+    },
+    "tray.event.next": {
+      "source": "d85e899328ea045ef01641c2413041d9723b5b6a",
+      "translation": "dab454eca93afd5cafbb726103bf989d240c55e9"
+    },
+    "tray.actions.pause": {
+      "source": "781961bc81c25697841ecce5d4d9dad9f6b261c6",
+      "translation": "21941967f1cfe7e60b8714317f2bde357ba5f258"
+    },
+    "tray.actions.resume": {
+      "source": "b3bd0b5a70497bec4a02b7eb1cb0d4f37eb71a2a",
+      "translation": "cde3eb972d179a1a0574fc0867033ec4a0d94417"
+    },
+    "tray.actions.start": {
+      "source": "b5924c20fa7da66235c95fdded5c9529a11a4a73",
+      "translation": "58e3e6b03ebb2cdaed087ed533a58f36a3123aec"
+    },
+    "tray.actions.skip": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "7a9b01f8c092821d72254f515a260c71d64d2996"
+    },
+    "tray.actions.stop": {
+      "source": "9e253470c876ee6d5c720eb777aeb82d4c26e28f",
+      "translation": "a17f70a8d3d66e1465ecacc36b935ea28714fcf3"
+    },
+    "tray.actions.open": {
+      "source": "eb7a3b92fad43da4b313ce3dff66290b03342744",
+      "translation": "13a484c731345335b709fd4c39199fe96f26bf34"
+    },
+    "energy.view.title": {
+      "source": "84e737b5a50dfca2c182a9ef9e0ba5d376f30330",
+      "translation": "53c49e5743e7194c80c402de9806dfcebb65c813"
+    },
     "energy.kinds.spark": {
       "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
       "translation": "5564fa0228e0176e110d8b39e3577a5aae5f048f"
@@ -38549,6 +39233,10 @@
     "energy.panel.findSpark": {
       "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
       "translation": "45386c07725a66c9dd4d30a9a16ab430492fa4e6"
+    },
+    "energy.panel.startFocus": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "6dc438146cb1aaeca2d2aae3244eeec3d158778c"
     },
     "energy.panel.emptyTitle": {
       "source": "1310f875993b121823753fcd42c63176d6e92ac4",
@@ -39652,6 +40340,46 @@
       "source": "7db1ec1cf1c195406d4485263cbca986500a6fb4",
       "translation": "7281c9f20eb843778b47fdbc0df0eea48e914d74"
     },
+    "views.pomodoro.focus.continue": {
+      "source": "97f895731b079aab789c766f3c1bdc956ab1a0fb",
+      "translation": "5dd0e4b4be40a5b88d4e1248ef02d33a0754e59e"
+    },
+    "views.pomodoro.focus.end": {
+      "source": "8c0f4c33002985c287a7b6e2c4b0e97c7b434476",
+      "translation": "c4cf998e9a0a48774c6053fbff4fdd2e876392de"
+    },
+    "views.pomodoro.focus.skipChunk": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "0c5bda442d491a4ca3714c46845b1235ee2b51a1"
+    },
+    "views.pomodoro.focus.meta": {
+      "source": "0c3231091bffc0eebc93e3d6a5fa4610ac7e6c8d",
+      "translation": "c2413459b2b9b0b74a6b2cf35182a4e8e424255d"
+    },
+    "views.pomodoro.focus.kindAndTime": {
+      "source": "12d6d70772958e50b3e900a291ce672f9a111a96",
+      "translation": "c920feddf6294f91a43cfa3ec4b699791f87b3ce"
+    },
+    "views.pomodoro.focus.barLabel": {
+      "source": "7ab0385a080d9b37178b8d1103f423086c946242",
+      "translation": "b35074f74d83270d240ed924fcb2fce15c4b86ac"
+    },
+    "views.pomodoro.focus.workSegment": {
+      "source": "1ab35524470669b0feded0bff20f69a8c8042994",
+      "translation": "1266884b8d7b36358aaf5acca26828d3bf4496f8"
+    },
+    "views.pomodoro.focus.breakSegment": {
+      "source": "735ebb2a767503201467253a32c834d0db912889",
+      "translation": "a82287a6de6b2728cde90f5d2ccea07fb1dc8e7a"
+    },
+    "views.pomodoro.focus.upNext": {
+      "source": "567bfc4dad37a671f5c913a3840b4f7dbe2f6633",
+      "translation": "0a9fa0e1b3696ad59ab95502a58a07c316f8b8b3"
+    },
+    "views.pomodoro.focus.startOn": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "47a5d3e7a38bdc83faca7cf5beb03ef52bf4b1e6"
+    },
     "views.pomodoro.timer.editLabel": {
       "source": "fa34a26449e0fc61c8aa0a7bac16428da72c49a6",
       "translation": "2debc79cf27644cfe0b942e8978d41547402f936"
@@ -40248,6 +40976,30 @@
       "source": "bf3976c0c315da7c17c77baa386c0c7b81a45350",
       "translation": "e1945eece81021f232d5ba6aeb25ebebcc6965b5"
     },
+    "settings.features.pomodoro.focusSplit.name": {
+      "source": "33d4f9e2d7cb115ac67e57a46204c41a6d4e4104",
+      "translation": "9a6ee5e0e2a092d86632c0ca86d454339733842b"
+    },
+    "settings.features.pomodoro.focusSplit.description": {
+      "source": "73a6276da597c21a5ed74e2b03997384263374b6",
+      "translation": "9da311d682b3efd3ff3a880f3c2700ac718c02f6"
+    },
+    "settings.features.pomodoro.focusDrainChunk.name": {
+      "source": "aa01cd042b0f706a4f439680d10764208b3589bb",
+      "translation": "f1b154195014c7a07ece280440f5ee9f9d8c4daa"
+    },
+    "settings.features.pomodoro.focusDrainChunk.description": {
+      "source": "26907c7256bfc5167b8cae0f616d6c59fe67464b",
+      "translation": "507c108043ee007cff698d79864ddb8be8749bc9"
+    },
+    "settings.features.pomodoro.focusSparkChunk.name": {
+      "source": "c1fbd93d8097dc9eee30e13230f61e719acb6e2f",
+      "translation": "ee57fd4d153e584842dbea228fb7d0e25530068f"
+    },
+    "settings.features.pomodoro.focusSparkChunk.description": {
+      "source": "a160c054dc72949a1e38a9aceccc9139ab7ac87f",
+      "translation": "a83b2c5bc658e99aeff8b1f4486be87102755f85"
+    },
     "settings.features.pomodoro.autoStartBreaks.name": {
       "source": "a635d295160dd1655d45102f4b9125f2b40eb7c8",
       "translation": "d2e9530347346ca379ec23a83085e8b9da9bde95"
@@ -40279,6 +41031,14 @@
     "settings.features.pomodoro.statusBar.description": {
       "source": "6632734a0446296457882d997c4240953d42e90e",
       "translation": "0e0eed1040a467522b81499c0100dc3f92879b0c"
+    },
+    "settings.features.pomodoro.systemTray.name": {
+      "source": "8cc5a5aacc3b6d30d623e7655f3935117e92cd63",
+      "translation": "7dc479fc2bed43489659f17a1325d4d4b422b67e"
+    },
+    "settings.features.pomodoro.systemTray.description": {
+      "source": "de7bcb2d1c0cda211dab2e65a5ec72fdb4223fbe",
+      "translation": "16cf7c476044977e6754267c17e9ccd4d0272119"
     },
     "settings.features.pomodoro.mobileSidebar.name": {
       "source": "c52589b57978be41d72d5771769ee590bdcb94fd",
@@ -44280,6 +45040,26 @@
       "source": "f296ebac414af3e7c7fc9229a7c7a1e575680fd8",
       "translation": "7b81a2e377fe106ca413c8041ab6ab4bc8a7c0b9"
     },
+    "notices.brokenTaskNote.message": {
+      "source": "a5d92b6824bc8119e0cd093b27577d1e5868d154",
+      "translation": "fbfee4bba3c8663eddebe3e47020a46eee520c90"
+    },
+    "notices.brokenTaskNote.repair": {
+      "source": "5f60b1c2e60520c1f682899a32ca18639a5431e4",
+      "translation": "278e3534729ba1dbcc6ba796527ea37346178db2"
+    },
+    "notices.brokenTaskNote.open": {
+      "source": "c66a827e3397b1e4eb14c164a586dbd77b36e8bc",
+      "translation": "599ac84efb821be993619bf32459e9e417a39c2b"
+    },
+    "notices.brokenTaskNote.repaired": {
+      "source": "41f8e3a83f7be4391a5631d00a22f16af899ebeb",
+      "translation": "9d4de8f5d6ef3047ef0067cbb60074c343021bea"
+    },
+    "notices.brokenTaskNote.repairFailed": {
+      "source": "711d614c8cfe7184f45be4cd1c3475f39c6ad615",
+      "translation": "89cd1fcccb5ba8be74aaa6c7eee63a04228aba00"
+    },
     "notices.exportTasksFailed": {
       "source": "91fa8ddb011b35634762b9184731cd9d6893b139",
       "translation": "548a8e23cb9e337dfca9e191bf4a600eeff61e4a"
@@ -44499,6 +45279,10 @@
     "commands.startPomodoro": {
       "source": "25e76891a0a193d6ed557825c676d0f0ea5df224",
       "translation": "3b516f98a613a89272d3819912e867bd603f9a9d"
+    },
+    "commands.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "46dbfd2e66a07ca1e1fa1fd8acd651b45c829103"
     },
     "commands.stopPomodoro": {
       "source": "99016dfa5f535187921dc4e436a1e2c78433ed96",
@@ -46180,6 +46964,10 @@
       "source": "d830f5133dafe2f2c8325d37811c4901efa364a8",
       "translation": "1649b8cfa61018bc5de689ea4aed3b6368a63afa"
     },
+    "contextMenus.task.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "46dbfd2e66a07ca1e1fa1fd8acd651b45c829103"
+    },
     "contextMenus.task.editTimeEntries": {
       "source": "044bfa90e00ea74d25f639ff66875ecb01a70ae4",
       "translation": "1ba60324883dac5f9d78a60b1c483b2a095f396e"
@@ -46855,6 +47643,10 @@
     "services.pomodoro.notices.stoppedAndReset": {
       "source": "9497d9853ceef0809901925808aebd85893ecdbb",
       "translation": "9a3d7eb84c710c9c1046871bfb5df2f3587b65d2"
+    },
+    "services.pomodoro.notices.focusComplete": {
+      "source": "870bb9d47169d745fc8fff34f3be31733c7e93a2",
+      "translation": "ec380e4161f31734a670fc1fda054f1d6e49e195"
     },
     "services.pomodoro.notices.migrationSuccess": {
       "source": "f9e068b4726209f715cfc3349fab68cac236d7fa",
@@ -48140,6 +48932,70 @@
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "7154da110a18388a66eb99086c2d096502c4b439"
     },
+    "tray.name": {
+      "source": "6458145fdd07ad08ff52a2e72d531588936bdca6",
+      "translation": "6458145fdd07ad08ff52a2e72d531588936bdca6"
+    },
+    "tray.battery": {
+      "source": "8d4909017d7456cf3b9d767eaae8a7a2f320bdbf",
+      "translation": "97b214a2be7a4fed4c393ebf0f5acf01a8949066"
+    },
+    "tray.title.next": {
+      "source": "6c211f2713fa705c68ea2113903f2c30d60f1144",
+      "translation": "7c21b139091c5e3a716208aa8027115bae1596c5"
+    },
+    "tray.pomodoro.work": {
+      "source": "262bfb8d25e7b6b121868fa1dfb879cdc764bb1f",
+      "translation": "f47dbd47305fc936ecf8b7c6d02c7165cb162a81"
+    },
+    "tray.pomodoro.break": {
+      "source": "84c70c73794236a6421eaf1ce9a5f78a8813c05c",
+      "translation": "30e477601a9bdb9808b6d83dc4594afb84c2a073"
+    },
+    "tray.pomodoro.paused": {
+      "source": "371fc0b011ab67f2c279a7e5a2a8d73264517b34",
+      "translation": "7a12fef4f9e9b7086e94accc903aaa5efff43033"
+    },
+    "tray.pomodoro.focus": {
+      "source": "3b7fd7be1918e378bcb3605e33d430ca49b58a1f",
+      "translation": "448c5d0fa7f6b536985c13ef22ca17b9880bdb29"
+    },
+    "tray.event.now": {
+      "source": "441c891271070fddc95366a2da79676d5ae142b9",
+      "translation": "f9653390868e50fefadd3008744cfa51d35c919b"
+    },
+    "tray.event.next": {
+      "source": "d85e899328ea045ef01641c2413041d9723b5b6a",
+      "translation": "c28867f9c0180b6cd08c0c3ccf3b863260608f76"
+    },
+    "tray.actions.pause": {
+      "source": "781961bc81c25697841ecce5d4d9dad9f6b261c6",
+      "translation": "3b69928d3bd0e4b629b994df956438395e3f050c"
+    },
+    "tray.actions.resume": {
+      "source": "b3bd0b5a70497bec4a02b7eb1cb0d4f37eb71a2a",
+      "translation": "565e201fc019e89ddec18e92b8736571e4e96b5b"
+    },
+    "tray.actions.start": {
+      "source": "b5924c20fa7da66235c95fdded5c9529a11a4a73",
+      "translation": "3ba0cd76e367ea4e19e81bc7261e640bd8ad075c"
+    },
+    "tray.actions.skip": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "0c5bda442d491a4ca3714c46845b1235ee2b51a1"
+    },
+    "tray.actions.stop": {
+      "source": "9e253470c876ee6d5c720eb777aeb82d4c26e28f",
+      "translation": "9cb606b22df444f3f848c0330a6be98325e199f1"
+    },
+    "tray.actions.open": {
+      "source": "eb7a3b92fad43da4b313ce3dff66290b03342744",
+      "translation": "e55c7661f25bef171e3d48651a00b318fbbca6a5"
+    },
+    "energy.view.title": {
+      "source": "84e737b5a50dfca2c182a9ef9e0ba5d376f30330",
+      "translation": "ee372940ebae06e1dce9b787514e1a9f87b30a2c"
+    },
     "energy.kinds.spark": {
       "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
       "translation": "b03617ef2f8ba4b54cc806eb23dd5660a7092ec2"
@@ -48215,6 +49071,10 @@
     "energy.panel.findSpark": {
       "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
       "translation": "77784c96d86326616048e41b9e6e14efde5633e8"
+    },
+    "energy.panel.startFocus": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "47a5d3e7a38bdc83faca7cf5beb03ef52bf4b1e6"
     },
     "energy.panel.emptyTitle": {
       "source": "1310f875993b121823753fcd42c63176d6e92ac4",
@@ -49318,6 +50178,46 @@
       "source": "7db1ec1cf1c195406d4485263cbca986500a6fb4",
       "translation": "c3f77406ac32b010062b1d4ef1f3f28a36564f76"
     },
+    "views.pomodoro.focus.continue": {
+      "source": "97f895731b079aab789c766f3c1bdc956ab1a0fb",
+      "translation": "134cd6dbe89af8306b237f919371ca25d3cfcd62"
+    },
+    "views.pomodoro.focus.end": {
+      "source": "8c0f4c33002985c287a7b6e2c4b0e97c7b434476",
+      "translation": "9d99b6a6ac41b30aebc2a84817ce8ca95a38e6c1"
+    },
+    "views.pomodoro.focus.skipChunk": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "3e63289a44571df7b19759924aaccfad52683ff6"
+    },
+    "views.pomodoro.focus.meta": {
+      "source": "0c3231091bffc0eebc93e3d6a5fa4610ac7e6c8d",
+      "translation": "6b711c5fa6397e7e6519645fc4a67b5dab12116e"
+    },
+    "views.pomodoro.focus.kindAndTime": {
+      "source": "12d6d70772958e50b3e900a291ce672f9a111a96",
+      "translation": "3fc3c62006290e85913b17772699dbf76d448b55"
+    },
+    "views.pomodoro.focus.barLabel": {
+      "source": "7ab0385a080d9b37178b8d1103f423086c946242",
+      "translation": "b04d9978951d70928210586a8a51d0967d0138a8"
+    },
+    "views.pomodoro.focus.workSegment": {
+      "source": "1ab35524470669b0feded0bff20f69a8c8042994",
+      "translation": "a0d4de186e22cfd43a58dea8eae1a0e02b15d9e7"
+    },
+    "views.pomodoro.focus.breakSegment": {
+      "source": "735ebb2a767503201467253a32c834d0db912889",
+      "translation": "dbc554bdf8c8474c38cdd024276bac69fdd55053"
+    },
+    "views.pomodoro.focus.upNext": {
+      "source": "567bfc4dad37a671f5c913a3840b4f7dbe2f6633",
+      "translation": "db7b597c0c4e16d780edd43c035d599870c6353c"
+    },
+    "views.pomodoro.focus.startOn": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "93e4973662a064370dec8c5db53ca80a927fb1f7"
+    },
     "views.pomodoro.timer.editLabel": {
       "source": "fa34a26449e0fc61c8aa0a7bac16428da72c49a6",
       "translation": "3ba2430c509cd42a6adae7769b7f17b8d686988f"
@@ -49914,6 +50814,30 @@
       "source": "bf3976c0c315da7c17c77baa386c0c7b81a45350",
       "translation": "6cd1c895ee29bcb8bf8268253a9df39c908abd0c"
     },
+    "settings.features.pomodoro.focusSplit.name": {
+      "source": "33d4f9e2d7cb115ac67e57a46204c41a6d4e4104",
+      "translation": "8c92e60d546528299285155ff966cbb5fe90431e"
+    },
+    "settings.features.pomodoro.focusSplit.description": {
+      "source": "73a6276da597c21a5ed74e2b03997384263374b6",
+      "translation": "e90435611ff8fb9745d162b4f139e308ca53fcac"
+    },
+    "settings.features.pomodoro.focusDrainChunk.name": {
+      "source": "aa01cd042b0f706a4f439680d10764208b3589bb",
+      "translation": "417298e05558d2d6d677a0426e8a97f2c05f138a"
+    },
+    "settings.features.pomodoro.focusDrainChunk.description": {
+      "source": "26907c7256bfc5167b8cae0f616d6c59fe67464b",
+      "translation": "069092415ad16d3ed70e3971f3577cc156d7dde0"
+    },
+    "settings.features.pomodoro.focusSparkChunk.name": {
+      "source": "c1fbd93d8097dc9eee30e13230f61e719acb6e2f",
+      "translation": "00a8100367633566e620aa02976588fb58f88fae"
+    },
+    "settings.features.pomodoro.focusSparkChunk.description": {
+      "source": "a160c054dc72949a1e38a9aceccc9139ab7ac87f",
+      "translation": "a8950ca8aa444ef6fb70a37f3574265b49ad5acc"
+    },
     "settings.features.pomodoro.autoStartBreaks.name": {
       "source": "a635d295160dd1655d45102f4b9125f2b40eb7c8",
       "translation": "a51db5166701074cd72039991b3a4278f51645bf"
@@ -49945,6 +50869,14 @@
     "settings.features.pomodoro.statusBar.description": {
       "source": "6632734a0446296457882d997c4240953d42e90e",
       "translation": "fb29d4ed959a80f38709aafdccd86a141b0106a9"
+    },
+    "settings.features.pomodoro.systemTray.name": {
+      "source": "8cc5a5aacc3b6d30d623e7655f3935117e92cd63",
+      "translation": "48893301dd238e20e3160cec9a0974c72ce3e88d"
+    },
+    "settings.features.pomodoro.systemTray.description": {
+      "source": "de7bcb2d1c0cda211dab2e65a5ec72fdb4223fbe",
+      "translation": "7d849fbbb606fd7210edb9f3ebfd41067fc1e3fb"
     },
     "settings.features.pomodoro.mobileSidebar.name": {
       "source": "c52589b57978be41d72d5771769ee590bdcb94fd",
@@ -53946,6 +54878,26 @@
       "source": "f296ebac414af3e7c7fc9229a7c7a1e575680fd8",
       "translation": "b79842d6e84ce90845fe2fafa8a6988bcd267b09"
     },
+    "notices.brokenTaskNote.message": {
+      "source": "a5d92b6824bc8119e0cd093b27577d1e5868d154",
+      "translation": "732cd428e0d5e4c2fb8402b86a15aea33b721a46"
+    },
+    "notices.brokenTaskNote.repair": {
+      "source": "5f60b1c2e60520c1f682899a32ca18639a5431e4",
+      "translation": "d9f5855aae35cc80dc4c52210e327ee84fba0de0"
+    },
+    "notices.brokenTaskNote.open": {
+      "source": "c66a827e3397b1e4eb14c164a586dbd77b36e8bc",
+      "translation": "2d6cf3e7bad0c3338506f40082c06414bd8922fc"
+    },
+    "notices.brokenTaskNote.repaired": {
+      "source": "41f8e3a83f7be4391a5631d00a22f16af899ebeb",
+      "translation": "4b78dba32facfd4d00891213d3e564f61f5dd38d"
+    },
+    "notices.brokenTaskNote.repairFailed": {
+      "source": "711d614c8cfe7184f45be4cd1c3475f39c6ad615",
+      "translation": "e431417c2bb6b5c9b927688ae991ee142c63c410"
+    },
     "notices.exportTasksFailed": {
       "source": "91fa8ddb011b35634762b9184731cd9d6893b139",
       "translation": "46f0764db400589f1fd2f1e6027f1f0a19c058cd"
@@ -54165,6 +55117,10 @@
     "commands.startPomodoro": {
       "source": "25e76891a0a193d6ed557825c676d0f0ea5df224",
       "translation": "e9a2c3474bac7062575be44fcbdb4206e1034ea7"
+    },
+    "commands.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "b301037e9569f363e31d47ca3a6f04705e387d7c"
     },
     "commands.stopPomodoro": {
       "source": "99016dfa5f535187921dc4e436a1e2c78433ed96",
@@ -55846,6 +56802,10 @@
       "source": "d830f5133dafe2f2c8325d37811c4901efa364a8",
       "translation": "7064e3f609164103cd99ba7258b78a77e2eb1bad"
     },
+    "contextMenus.task.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "b301037e9569f363e31d47ca3a6f04705e387d7c"
+    },
     "contextMenus.task.editTimeEntries": {
       "source": "044bfa90e00ea74d25f639ff66875ecb01a70ae4",
       "translation": "42784e11452fcd0ad7643aeaa90cf5ddef47ef4c"
@@ -56521,6 +57481,10 @@
     "services.pomodoro.notices.stoppedAndReset": {
       "source": "9497d9853ceef0809901925808aebd85893ecdbb",
       "translation": "cc1e214479eafbcd7083fdfa77bdc1f70ec89d6b"
+    },
+    "services.pomodoro.notices.focusComplete": {
+      "source": "870bb9d47169d745fc8fff34f3be31733c7e93a2",
+      "translation": "d0ea37526ce269416239be9d73819b01e010263a"
     },
     "services.pomodoro.notices.migrationSuccess": {
       "source": "f9e068b4726209f715cfc3349fab68cac236d7fa",
@@ -57806,6 +58770,70 @@
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "f41aa7a3294ffe47a5be7cc93e17696055fbe800"
     },
+    "tray.name": {
+      "source": "6458145fdd07ad08ff52a2e72d531588936bdca6",
+      "translation": "6458145fdd07ad08ff52a2e72d531588936bdca6"
+    },
+    "tray.battery": {
+      "source": "8d4909017d7456cf3b9d767eaae8a7a2f320bdbf",
+      "translation": "2fd23f440097f8144ca4ceb54e1e886f45eaf71a"
+    },
+    "tray.title.next": {
+      "source": "6c211f2713fa705c68ea2113903f2c30d60f1144",
+      "translation": "852f404fd0818a737e04a1a0068a361073743481"
+    },
+    "tray.pomodoro.work": {
+      "source": "262bfb8d25e7b6b121868fa1dfb879cdc764bb1f",
+      "translation": "6f1f43dbb4854665d165daf57ec55459595c83c2"
+    },
+    "tray.pomodoro.break": {
+      "source": "84c70c73794236a6421eaf1ce9a5f78a8813c05c",
+      "translation": "69f2e0687a71a24f832c7b3fe4fb349800e2bef2"
+    },
+    "tray.pomodoro.paused": {
+      "source": "371fc0b011ab67f2c279a7e5a2a8d73264517b34",
+      "translation": "5085b8c73a62b3065f0e0d58d4de5cf7f899351f"
+    },
+    "tray.pomodoro.focus": {
+      "source": "3b7fd7be1918e378bcb3605e33d430ca49b58a1f",
+      "translation": "74e0a767ec6c7d7c9a1c0ea3594ed1d47da951e1"
+    },
+    "tray.event.now": {
+      "source": "441c891271070fddc95366a2da79676d5ae142b9",
+      "translation": "a5943360f632c41a2c463898fa0ceb691b8c36a6"
+    },
+    "tray.event.next": {
+      "source": "d85e899328ea045ef01641c2413041d9723b5b6a",
+      "translation": "76c8785cf2f3cafd73c30ed25b8b4569c774a6c5"
+    },
+    "tray.actions.pause": {
+      "source": "781961bc81c25697841ecce5d4d9dad9f6b261c6",
+      "translation": "8e0f5ed9908b61c5a8f33dbddef0560d67d2a97c"
+    },
+    "tray.actions.resume": {
+      "source": "b3bd0b5a70497bec4a02b7eb1cb0d4f37eb71a2a",
+      "translation": "daaa725a1432d3f10f6285bb582a1befc0d9d08a"
+    },
+    "tray.actions.start": {
+      "source": "b5924c20fa7da66235c95fdded5c9529a11a4a73",
+      "translation": "c34df107b9d510b645452768d1835460ba2337dd"
+    },
+    "tray.actions.skip": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "3e63289a44571df7b19759924aaccfad52683ff6"
+    },
+    "tray.actions.stop": {
+      "source": "9e253470c876ee6d5c720eb777aeb82d4c26e28f",
+      "translation": "af45a0df2311dfe903ddbda67ab221cde638f410"
+    },
+    "tray.actions.open": {
+      "source": "eb7a3b92fad43da4b313ce3dff66290b03342744",
+      "translation": "d7303c037e014b8e7b100b360cce42791e533c9d"
+    },
+    "energy.view.title": {
+      "source": "84e737b5a50dfca2c182a9ef9e0ba5d376f30330",
+      "translation": "abdefef10e971fa76b85fa618ac922bdbd9aa493"
+    },
     "energy.kinds.spark": {
       "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
       "translation": "1068d20824fb4071e1003a929efd5d6e480171b1"
@@ -57881,6 +58909,10 @@
     "energy.panel.findSpark": {
       "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
       "translation": "6bdfef7efe65c72f7b3375850baea7c715846e1c"
+    },
+    "energy.panel.startFocus": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "93e4973662a064370dec8c5db53ca80a927fb1f7"
     },
     "energy.panel.emptyTitle": {
       "source": "1310f875993b121823753fcd42c63176d6e92ac4",
@@ -58984,6 +60016,46 @@
       "source": "7db1ec1cf1c195406d4485263cbca986500a6fb4",
       "translation": "dc68ed00e6bfbb436751a0063d739e16bc34cc8a"
     },
+    "views.pomodoro.focus.continue": {
+      "source": "97f895731b079aab789c766f3c1bdc956ab1a0fb",
+      "translation": "6e5852dc1b4a33844f13cb938e6031c1c3751b3c"
+    },
+    "views.pomodoro.focus.end": {
+      "source": "8c0f4c33002985c287a7b6e2c4b0e97c7b434476",
+      "translation": "f439ccf0cbff14764bdadd54c870c5d48cf8b4d5"
+    },
+    "views.pomodoro.focus.skipChunk": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "f4f34092fb2257faab88c2ac2ce67e602fe5c454"
+    },
+    "views.pomodoro.focus.meta": {
+      "source": "0c3231091bffc0eebc93e3d6a5fa4610ac7e6c8d",
+      "translation": "1bb0fdad59c3eac898453c0479b9173983a1b467"
+    },
+    "views.pomodoro.focus.kindAndTime": {
+      "source": "12d6d70772958e50b3e900a291ce672f9a111a96",
+      "translation": "cf5a49c43013917c3bf730c0433c76f15c24acb2"
+    },
+    "views.pomodoro.focus.barLabel": {
+      "source": "7ab0385a080d9b37178b8d1103f423086c946242",
+      "translation": "902588ab351d7aca7166a9d274b1db9f8f27a564"
+    },
+    "views.pomodoro.focus.workSegment": {
+      "source": "1ab35524470669b0feded0bff20f69a8c8042994",
+      "translation": "b3cbb2ac8bc8da84f0a25b4848e584d4c481d30b"
+    },
+    "views.pomodoro.focus.breakSegment": {
+      "source": "735ebb2a767503201467253a32c834d0db912889",
+      "translation": "d4f9ec61b417523498f8102ae7c4d84a4e4d7116"
+    },
+    "views.pomodoro.focus.upNext": {
+      "source": "567bfc4dad37a671f5c913a3840b4f7dbe2f6633",
+      "translation": "9c714cf25e2c2da31a39d306b64f7754f4780db6"
+    },
+    "views.pomodoro.focus.startOn": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "12a5ee70b409120f8abfccc87bd7c27d8ae7c7a4"
+    },
     "views.pomodoro.timer.editLabel": {
       "source": "fa34a26449e0fc61c8aa0a7bac16428da72c49a6",
       "translation": "16a57d65742e9fcd8493542f136b17f9d88047dc"
@@ -59580,6 +60652,30 @@
       "source": "bf3976c0c315da7c17c77baa386c0c7b81a45350",
       "translation": "9cca114a9df5c1d472898708f2597191d004461b"
     },
+    "settings.features.pomodoro.focusSplit.name": {
+      "source": "33d4f9e2d7cb115ac67e57a46204c41a6d4e4104",
+      "translation": "ea53b9cfffcc9986088ae363facbf3d82afe1dd2"
+    },
+    "settings.features.pomodoro.focusSplit.description": {
+      "source": "73a6276da597c21a5ed74e2b03997384263374b6",
+      "translation": "c3980cc019d2a9d35dd0a366d5dabacd4d6d96cf"
+    },
+    "settings.features.pomodoro.focusDrainChunk.name": {
+      "source": "aa01cd042b0f706a4f439680d10764208b3589bb",
+      "translation": "47e317a5a034c004b57e35d458705ef6db4226bb"
+    },
+    "settings.features.pomodoro.focusDrainChunk.description": {
+      "source": "26907c7256bfc5167b8cae0f616d6c59fe67464b",
+      "translation": "0ddc218958a1d191cf0637056d63973a9375f152"
+    },
+    "settings.features.pomodoro.focusSparkChunk.name": {
+      "source": "c1fbd93d8097dc9eee30e13230f61e719acb6e2f",
+      "translation": "0034eec3b30cd6a05a4984511e6bf67163faa605"
+    },
+    "settings.features.pomodoro.focusSparkChunk.description": {
+      "source": "a160c054dc72949a1e38a9aceccc9139ab7ac87f",
+      "translation": "8e1ac6d54b76dccaec1d2381f915e28430906955"
+    },
     "settings.features.pomodoro.autoStartBreaks.name": {
       "source": "a635d295160dd1655d45102f4b9125f2b40eb7c8",
       "translation": "d49d8f08621dac578923f995f66b2c0e44227fbd"
@@ -59611,6 +60707,14 @@
     "settings.features.pomodoro.statusBar.description": {
       "source": "6632734a0446296457882d997c4240953d42e90e",
       "translation": "d2c129207f663cff0bd4ef7f98936bdb46610b96"
+    },
+    "settings.features.pomodoro.systemTray.name": {
+      "source": "8cc5a5aacc3b6d30d623e7655f3935117e92cd63",
+      "translation": "ed240ff7167c220176700326d15736bdfd24440e"
+    },
+    "settings.features.pomodoro.systemTray.description": {
+      "source": "de7bcb2d1c0cda211dab2e65a5ec72fdb4223fbe",
+      "translation": "e037f01cccca21c6d07f3121f0b75237874aa250"
     },
     "settings.features.pomodoro.mobileSidebar.name": {
       "source": "c52589b57978be41d72d5771769ee590bdcb94fd",
@@ -63612,6 +64716,26 @@
       "source": "f296ebac414af3e7c7fc9229a7c7a1e575680fd8",
       "translation": "acc03611762474332017ac2712f9da118f8b8608"
     },
+    "notices.brokenTaskNote.message": {
+      "source": "a5d92b6824bc8119e0cd093b27577d1e5868d154",
+      "translation": "dc5f18da490d7ee4a1525897428006163e12b460"
+    },
+    "notices.brokenTaskNote.repair": {
+      "source": "5f60b1c2e60520c1f682899a32ca18639a5431e4",
+      "translation": "9b1c9a021678369ff91841a76d756abf67029632"
+    },
+    "notices.brokenTaskNote.open": {
+      "source": "c66a827e3397b1e4eb14c164a586dbd77b36e8bc",
+      "translation": "a3c3a40c185e5e7d9e0325b731dfa73e148c3adc"
+    },
+    "notices.brokenTaskNote.repaired": {
+      "source": "41f8e3a83f7be4391a5631d00a22f16af899ebeb",
+      "translation": "957de51e1f62e124fc3481079c4281cadbce5096"
+    },
+    "notices.brokenTaskNote.repairFailed": {
+      "source": "711d614c8cfe7184f45be4cd1c3475f39c6ad615",
+      "translation": "dd44041056ef4b586367f315126042315287b048"
+    },
     "notices.exportTasksFailed": {
       "source": "91fa8ddb011b35634762b9184731cd9d6893b139",
       "translation": "88288bd1c8c2c7d132cb4142f35f1f66864db850"
@@ -63831,6 +64955,10 @@
     "commands.startPomodoro": {
       "source": "25e76891a0a193d6ed557825c676d0f0ea5df224",
       "translation": "fbe63a30ce967e4ba232e5b78bdbdc68ee651cca"
+    },
+    "commands.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "74dba1f9c2ad785e1975e4acd99aa9c2e91e899b"
     },
     "commands.stopPomodoro": {
       "source": "99016dfa5f535187921dc4e436a1e2c78433ed96",
@@ -65512,6 +66640,10 @@
       "source": "d830f5133dafe2f2c8325d37811c4901efa364a8",
       "translation": "12c05320d1931451f474bc0fe7407052cac687f1"
     },
+    "contextMenus.task.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "74dba1f9c2ad785e1975e4acd99aa9c2e91e899b"
+    },
     "contextMenus.task.editTimeEntries": {
       "source": "044bfa90e00ea74d25f639ff66875ecb01a70ae4",
       "translation": "ba9aa54071de4fbc03d9707ef9fe30bcc4d750c4"
@@ -66187,6 +67319,10 @@
     "services.pomodoro.notices.stoppedAndReset": {
       "source": "9497d9853ceef0809901925808aebd85893ecdbb",
       "translation": "a6151d795c10544a6f8d15614632d45c3f0c2d9c"
+    },
+    "services.pomodoro.notices.focusComplete": {
+      "source": "870bb9d47169d745fc8fff34f3be31733c7e93a2",
+      "translation": "37d750e55683691aea660a9e98cabf21a1562e97"
     },
     "services.pomodoro.notices.migrationSuccess": {
       "source": "f9e068b4726209f715cfc3349fab68cac236d7fa",
@@ -67472,6 +68608,70 @@
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "f561c6b678d4450cfbab4700dcc6e39cae3a9d5c"
     },
+    "tray.name": {
+      "source": "6458145fdd07ad08ff52a2e72d531588936bdca6",
+      "translation": "6458145fdd07ad08ff52a2e72d531588936bdca6"
+    },
+    "tray.battery": {
+      "source": "8d4909017d7456cf3b9d767eaae8a7a2f320bdbf",
+      "translation": "b0088e53ba093c8d3b6af6acaa7a5520d7b9104c"
+    },
+    "tray.title.next": {
+      "source": "6c211f2713fa705c68ea2113903f2c30d60f1144",
+      "translation": "175b37143f3f52b6c1a44eac52c59ab52f15cebb"
+    },
+    "tray.pomodoro.work": {
+      "source": "262bfb8d25e7b6b121868fa1dfb879cdc764bb1f",
+      "translation": "82694199c18acc6fd98138a3e400a6a9c7747b30"
+    },
+    "tray.pomodoro.break": {
+      "source": "84c70c73794236a6421eaf1ce9a5f78a8813c05c",
+      "translation": "c986fb4bc5d4e1092e3f5653929cf9902de3bc4f"
+    },
+    "tray.pomodoro.paused": {
+      "source": "371fc0b011ab67f2c279a7e5a2a8d73264517b34",
+      "translation": "1856a39b90e1b3652994a9c6b17e70504285b681"
+    },
+    "tray.pomodoro.focus": {
+      "source": "3b7fd7be1918e378bcb3605e33d430ca49b58a1f",
+      "translation": "19cdc548d125011d6d103b18575f7b260b55f1c7"
+    },
+    "tray.event.now": {
+      "source": "441c891271070fddc95366a2da79676d5ae142b9",
+      "translation": "7f54b8662e354df6efd157243fe4df9946e4bccc"
+    },
+    "tray.event.next": {
+      "source": "d85e899328ea045ef01641c2413041d9723b5b6a",
+      "translation": "52324439f97e7d9f62f5a7cad17566374f1f2684"
+    },
+    "tray.actions.pause": {
+      "source": "781961bc81c25697841ecce5d4d9dad9f6b261c6",
+      "translation": "03498e395a43a3d361e3927bdc2f867c756b625b"
+    },
+    "tray.actions.resume": {
+      "source": "b3bd0b5a70497bec4a02b7eb1cb0d4f37eb71a2a",
+      "translation": "3f75368ab95890bbc78ceb0a4160a5fb88b3f94d"
+    },
+    "tray.actions.start": {
+      "source": "b5924c20fa7da66235c95fdded5c9529a11a4a73",
+      "translation": "b9446b2f34d1f405f39dc9847867b45b87a213b0"
+    },
+    "tray.actions.skip": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "f4f34092fb2257faab88c2ac2ce67e602fe5c454"
+    },
+    "tray.actions.stop": {
+      "source": "9e253470c876ee6d5c720eb777aeb82d4c26e28f",
+      "translation": "d4f447c13032dc1044a7ef37f616fc085b8d75ef"
+    },
+    "tray.actions.open": {
+      "source": "eb7a3b92fad43da4b313ce3dff66290b03342744",
+      "translation": "da19018e8a146d46fb0572d87e73a6462ccc732f"
+    },
+    "energy.view.title": {
+      "source": "84e737b5a50dfca2c182a9ef9e0ba5d376f30330",
+      "translation": "f1d1ab813dda76aefa5f01941670ad98fb2d6e34"
+    },
     "energy.kinds.spark": {
       "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
       "translation": "e2db477b89ddb92f80222fb56d7f27c3c1a0d34f"
@@ -67547,6 +68747,10 @@
     "energy.panel.findSpark": {
       "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
       "translation": "aa963202d18ab97e27a232d7408d226b40ae8ca5"
+    },
+    "energy.panel.startFocus": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "12a5ee70b409120f8abfccc87bd7c27d8ae7c7a4"
     },
     "energy.panel.emptyTitle": {
       "source": "1310f875993b121823753fcd42c63176d6e92ac4",
@@ -68650,6 +69854,46 @@
       "source": "7db1ec1cf1c195406d4485263cbca986500a6fb4",
       "translation": "d41d00541e4fec191980d4c5677ac4ca3040b0f7"
     },
+    "views.pomodoro.focus.continue": {
+      "source": "97f895731b079aab789c766f3c1bdc956ab1a0fb",
+      "translation": "25f724cbf484a2fb705ea438bbd75c2e52724ee5"
+    },
+    "views.pomodoro.focus.end": {
+      "source": "8c0f4c33002985c287a7b6e2c4b0e97c7b434476",
+      "translation": "92399078c44d5262bdb65245060557f84037fb2a"
+    },
+    "views.pomodoro.focus.skipChunk": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "e6ae36d31b3a920532ef8508c5ac190b237bd289"
+    },
+    "views.pomodoro.focus.meta": {
+      "source": "0c3231091bffc0eebc93e3d6a5fa4610ac7e6c8d",
+      "translation": "aa4660fd4b12127b57d56526941ec0288a2e7735"
+    },
+    "views.pomodoro.focus.kindAndTime": {
+      "source": "12d6d70772958e50b3e900a291ce672f9a111a96",
+      "translation": "57deec63ce3c1b7011140840a32ccd33c4a8856c"
+    },
+    "views.pomodoro.focus.barLabel": {
+      "source": "7ab0385a080d9b37178b8d1103f423086c946242",
+      "translation": "875af9f7b97e8459171e60ee96b43fb3ce2ddef2"
+    },
+    "views.pomodoro.focus.workSegment": {
+      "source": "1ab35524470669b0feded0bff20f69a8c8042994",
+      "translation": "820aae273b0962c60ac2a2dd4c058670f36a42a8"
+    },
+    "views.pomodoro.focus.breakSegment": {
+      "source": "735ebb2a767503201467253a32c834d0db912889",
+      "translation": "047a329170b955953c22a3d97b30a6e0f0dbefc9"
+    },
+    "views.pomodoro.focus.upNext": {
+      "source": "567bfc4dad37a671f5c913a3840b4f7dbe2f6633",
+      "translation": "997fc05c121ed68f2795d528a481e6a9ace2934d"
+    },
+    "views.pomodoro.focus.startOn": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "95fc8f5af09667dce94c8436df0b03f166cc8cc7"
+    },
     "views.pomodoro.timer.editLabel": {
       "source": "fa34a26449e0fc61c8aa0a7bac16428da72c49a6",
       "translation": "f70b14aacbf2c28bc71e5d3dcc79956596eb727b"
@@ -69246,6 +70490,30 @@
       "source": "bf3976c0c315da7c17c77baa386c0c7b81a45350",
       "translation": "392aeb75a953e01014d5ad35c6a160e73902b628"
     },
+    "settings.features.pomodoro.focusSplit.name": {
+      "source": "33d4f9e2d7cb115ac67e57a46204c41a6d4e4104",
+      "translation": "0613fe1c63d0d48d1786521ce520cd855c2f132a"
+    },
+    "settings.features.pomodoro.focusSplit.description": {
+      "source": "73a6276da597c21a5ed74e2b03997384263374b6",
+      "translation": "25b7f77ad31ea0551d2030679234a09f8731511a"
+    },
+    "settings.features.pomodoro.focusDrainChunk.name": {
+      "source": "aa01cd042b0f706a4f439680d10764208b3589bb",
+      "translation": "88e5e21b35d812641ccdc0d82abd84057f0a89c4"
+    },
+    "settings.features.pomodoro.focusDrainChunk.description": {
+      "source": "26907c7256bfc5167b8cae0f616d6c59fe67464b",
+      "translation": "9e4516668847dd8c27ebdcb14c8f7df5c36a766c"
+    },
+    "settings.features.pomodoro.focusSparkChunk.name": {
+      "source": "c1fbd93d8097dc9eee30e13230f61e719acb6e2f",
+      "translation": "75fe66810878d62c856b20b6a43b391d05da3d9c"
+    },
+    "settings.features.pomodoro.focusSparkChunk.description": {
+      "source": "a160c054dc72949a1e38a9aceccc9139ab7ac87f",
+      "translation": "9339c76720bf25679b12243440839855ca32b83a"
+    },
     "settings.features.pomodoro.autoStartBreaks.name": {
       "source": "a635d295160dd1655d45102f4b9125f2b40eb7c8",
       "translation": "2ef5ec1dcfd1db717afe49d2ac3076f1e78d0bdf"
@@ -69277,6 +70545,14 @@
     "settings.features.pomodoro.statusBar.description": {
       "source": "6632734a0446296457882d997c4240953d42e90e",
       "translation": "70b8da77b742d7132a808f11dfdbd07b81a12e96"
+    },
+    "settings.features.pomodoro.systemTray.name": {
+      "source": "8cc5a5aacc3b6d30d623e7655f3935117e92cd63",
+      "translation": "a0a3bf94edf936bb877edc73162465459c8e3e18"
+    },
+    "settings.features.pomodoro.systemTray.description": {
+      "source": "de7bcb2d1c0cda211dab2e65a5ec72fdb4223fbe",
+      "translation": "225f719497f0c7242449f4abbe79a0be42fe47e0"
     },
     "settings.features.pomodoro.mobileSidebar.name": {
       "source": "c52589b57978be41d72d5771769ee590bdcb94fd",
@@ -73278,6 +74554,26 @@
       "source": "f296ebac414af3e7c7fc9229a7c7a1e575680fd8",
       "translation": "56e74474ce6e35866bb553583018580f2d401668"
     },
+    "notices.brokenTaskNote.message": {
+      "source": "a5d92b6824bc8119e0cd093b27577d1e5868d154",
+      "translation": "640f0a9baaeb6d6774490c298058fbad014abff8"
+    },
+    "notices.brokenTaskNote.repair": {
+      "source": "5f60b1c2e60520c1f682899a32ca18639a5431e4",
+      "translation": "590253af48ccc23c487c68fe30eec0319d333b59"
+    },
+    "notices.brokenTaskNote.open": {
+      "source": "c66a827e3397b1e4eb14c164a586dbd77b36e8bc",
+      "translation": "5d5e0b109fca052dd0b23a26348b565f97a64fd3"
+    },
+    "notices.brokenTaskNote.repaired": {
+      "source": "41f8e3a83f7be4391a5631d00a22f16af899ebeb",
+      "translation": "c18c5e0233cd13c684930f7815e6afb5b9225bf7"
+    },
+    "notices.brokenTaskNote.repairFailed": {
+      "source": "711d614c8cfe7184f45be4cd1c3475f39c6ad615",
+      "translation": "2460668ee19bc7b7edd305ff2ba7cc80bd20d17f"
+    },
     "notices.exportTasksFailed": {
       "source": "91fa8ddb011b35634762b9184731cd9d6893b139",
       "translation": "c3a29dbddca78f347cb9ce8a8d9ecb61468d6865"
@@ -73497,6 +74793,10 @@
     "commands.startPomodoro": {
       "source": "25e76891a0a193d6ed557825c676d0f0ea5df224",
       "translation": "6579a1d04acca3a5af6d1d8d14f3a97ef1f78a93"
+    },
+    "commands.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "1a7b0b84a1303a48396d4d5f6f7759b524dd6f22"
     },
     "commands.stopPomodoro": {
       "source": "99016dfa5f535187921dc4e436a1e2c78433ed96",
@@ -75178,6 +76478,10 @@
       "source": "d830f5133dafe2f2c8325d37811c4901efa364a8",
       "translation": "132eb78a487e35cdcb6ab2d81ff6e60139998d57"
     },
+    "contextMenus.task.startFocusSession": {
+      "source": "d5ea12a8d01587e50dfb9f6f295d4f3908309c73",
+      "translation": "1a7b0b84a1303a48396d4d5f6f7759b524dd6f22"
+    },
     "contextMenus.task.editTimeEntries": {
       "source": "044bfa90e00ea74d25f639ff66875ecb01a70ae4",
       "translation": "2d3a8fc1c581ab92350d1e938b820f7b9b4bc379"
@@ -75853,6 +77157,10 @@
     "services.pomodoro.notices.stoppedAndReset": {
       "source": "9497d9853ceef0809901925808aebd85893ecdbb",
       "translation": "c62cff26f00bf12b2ffe7d5b1274750c637ff2a8"
+    },
+    "services.pomodoro.notices.focusComplete": {
+      "source": "870bb9d47169d745fc8fff34f3be31733c7e93a2",
+      "translation": "db29ad965385e6edd170530c57ed437cba211361"
     },
     "services.pomodoro.notices.migrationSuccess": {
       "source": "f9e068b4726209f715cfc3349fab68cac236d7fa",
@@ -77138,6 +78446,70 @@
       "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
       "translation": "6e01538b7fa565c8239fc94475d3a2209e547b0a"
     },
+    "tray.name": {
+      "source": "6458145fdd07ad08ff52a2e72d531588936bdca6",
+      "translation": "6458145fdd07ad08ff52a2e72d531588936bdca6"
+    },
+    "tray.battery": {
+      "source": "8d4909017d7456cf3b9d767eaae8a7a2f320bdbf",
+      "translation": "801c867c65a6e9cc3a3c6c0740ede60eb96f1867"
+    },
+    "tray.title.next": {
+      "source": "6c211f2713fa705c68ea2113903f2c30d60f1144",
+      "translation": "e832b7c572c8fdf1217bf2c76b7ab4251f439205"
+    },
+    "tray.pomodoro.work": {
+      "source": "262bfb8d25e7b6b121868fa1dfb879cdc764bb1f",
+      "translation": "66140467b55ab6da6a7bf5e84c70277f3a2bed4f"
+    },
+    "tray.pomodoro.break": {
+      "source": "84c70c73794236a6421eaf1ce9a5f78a8813c05c",
+      "translation": "16e421ef6ab00240a5f6690d0c28d3f1ed16aa64"
+    },
+    "tray.pomodoro.paused": {
+      "source": "371fc0b011ab67f2c279a7e5a2a8d73264517b34",
+      "translation": "630071ed99599be46e5b23e2b629a87cd2d0cbba"
+    },
+    "tray.pomodoro.focus": {
+      "source": "3b7fd7be1918e378bcb3605e33d430ca49b58a1f",
+      "translation": "638924114bae41fc6ad6c89200cc9317606fdc7e"
+    },
+    "tray.event.now": {
+      "source": "441c891271070fddc95366a2da79676d5ae142b9",
+      "translation": "d835715acb3127956206d8f131f1650ab7afb17f"
+    },
+    "tray.event.next": {
+      "source": "d85e899328ea045ef01641c2413041d9723b5b6a",
+      "translation": "1d1258ca53cf44e937e30105462ff4e404ff2fd0"
+    },
+    "tray.actions.pause": {
+      "source": "781961bc81c25697841ecce5d4d9dad9f6b261c6",
+      "translation": "130448bce6758f08e0765831a45edd9dfb5f34f1"
+    },
+    "tray.actions.resume": {
+      "source": "b3bd0b5a70497bec4a02b7eb1cb0d4f37eb71a2a",
+      "translation": "1fc1afc5c55ed8c0cc28f99715b53cace4c37228"
+    },
+    "tray.actions.start": {
+      "source": "b5924c20fa7da66235c95fdded5c9529a11a4a73",
+      "translation": "221ef2623b20e5e99ec2b6143a6dc482345df503"
+    },
+    "tray.actions.skip": {
+      "source": "d60d89cb7594452d8501b1b29dfb49a306362223",
+      "translation": "e6ae36d31b3a920532ef8508c5ac190b237bd289"
+    },
+    "tray.actions.stop": {
+      "source": "9e253470c876ee6d5c720eb777aeb82d4c26e28f",
+      "translation": "a17f70a8d3d66e1465ecacc36b935ea28714fcf3"
+    },
+    "tray.actions.open": {
+      "source": "eb7a3b92fad43da4b313ce3dff66290b03342744",
+      "translation": "380f40c56cbc97083d3ecbd1910201713d24011f"
+    },
+    "energy.view.title": {
+      "source": "84e737b5a50dfca2c182a9ef9e0ba5d376f30330",
+      "translation": "fbdb131b4cc789e6b743b14fa014839cc73b851f"
+    },
     "energy.kinds.spark": {
       "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
       "translation": "40ce893d1b060fb3e2c866d745b78cf8e61ff48a"
@@ -77213,6 +78585,10 @@
     "energy.panel.findSpark": {
       "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
       "translation": "81c3af9854b88bfff585614833d066839b47722d"
+    },
+    "energy.panel.startFocus": {
+      "source": "35eee2f962944d193cdbb6c15e90e5dec23f1379",
+      "translation": "95fc8f5af09667dce94c8436df0b03f166cc8cc7"
     },
     "energy.panel.emptyTitle": {
       "source": "1310f875993b121823753fcd42c63176d6e92ac4",

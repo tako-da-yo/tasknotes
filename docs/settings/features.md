@@ -27,6 +27,8 @@ Wrap text in double quotes, single quotes, or backticks to keep it as literal ti
 
 Pomodoro settings control interval lengths, long-break cadence, optional auto-start behavior, and end-of-session notifications/sound. **Pomodoro data storage** chooses whether history is kept in plugin data or daily notes.
 
+[Focus sessions](../features/time-management.md#focus-sessions) use three more settings here. **Split focus sessions longer than** (30 minutes by default) is the longest planned time that runs as one chunk. **Drain chunk length** (20 minutes) and **Spark chunk length** (45 minutes) are the chunk lengths aimed for with Drain and Spark work; Steady work uses the work duration. **Mobile sidebar** chooses where the Energy & focus sidebar opens on mobile. **Show in the menu bar** (desktop, off by default) adds today's battery, the timer, and the event, timeblock or timed task on now and next to the macOS menu bar or the Windows and Linux notification area; see [Menu bar](../features/time-management.md#energy).
+
 ## Notifications
 
 Use this section to enable reminders globally, choose whether notices are shown in-app or through system notifications, and optionally play a built-in reminder sound with its own volume control.

@@ -7,6 +7,9 @@ import { InboxTriageModal } from "../modals/InboxTriageModal";
 import { runFreshStartFlow, runUndoFreshStart } from "./freshStartFlow";
 import { openCapacityPopover } from "../ui/CapacityPopover";
 import { getTodayString } from "../utils/dateUtils";
+import { getCachedUnarchivedPomodoroTasks } from "../components/PomodoroPanel";
+import { openTaskSelector } from "../modals/TaskSelectorWithCreateModal";
+import { startFocusOnTask } from "../services/focusStart";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Commands/TaskNotesCommands" });
 
@@ -203,19 +206,28 @@ export function createTaskNotesCommandDefinitions(
 			id: "start-pomodoro",
 			nameKey: "commands.startPomodoro",
 			callback: async (ctx) => {
-				const state = ctx.pomodoroService.getState();
-				if (state.currentSession && !state.isRunning) {
-					await ctx.pomodoroService.resumePomodoro();
+				// Resumes, continues a focus session, or starts the prepared timer.
+				await ctx.pomodoroService.startNext();
+			},
+		},
+		{
+			id: "start-focus-session",
+			nameKey: "commands.startFocusSession",
+			callback: (ctx) => {
+				const tasks = getCachedUnarchivedPomodoroTasks(ctx);
+				if (tasks.length === 0) {
+					new Notice(ctx.i18n.translate("views.pomodoro.notices.noTasks"));
 					return;
 				}
-
-				if (state.nextSessionType === "short-break") {
-					await ctx.pomodoroService.startBreak(false);
-				} else if (state.nextSessionType === "long-break") {
-					await ctx.pomodoroService.startBreak(true);
-				} else {
-					await ctx.pomodoroService.startPomodoroWithLastSelectedTask();
-				}
+				openTaskSelector(
+					ctx,
+					tasks,
+					(task) => {
+						if (!task) return;
+						void startFocusOnTask(ctx, task).then(() => ctx.activatePomodoroView());
+					},
+					{ targetDate: new Date() }
+				);
 			},
 		},
 		{

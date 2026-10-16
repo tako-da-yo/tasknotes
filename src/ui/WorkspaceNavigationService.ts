@@ -10,7 +10,6 @@ import {
 	AGENDA_VIEW_TYPE,
 	ENERGY_VIEW_TYPE,
 	POMODORO_STATS_VIEW_TYPE,
-	POMODORO_VIEW_TYPE,
 	STATS_VIEW_TYPE,
 } from "../types";
 import { RELEASE_NOTES_VIEW_TYPE } from "../views/ReleaseNotesView";
@@ -69,40 +68,23 @@ export class WorkspaceNavigationService {
 		return this.activateView(AGENDA_VIEW_TYPE);
 	}
 
+	/** The Pomodoro timer lives in the energy & focus sidebar. */
 	async activatePomodoroView(): Promise<WorkspaceLeaf> {
-		if (Platform.isMobile && this.plugin.settings.pomodoroMobileSidebar !== "tab") {
-			const { workspace } = this.plugin.app;
-			let leaf = this.getLeafOfType(POMODORO_VIEW_TYPE);
-
-			if (!leaf) {
-				const sidebarLeaf =
-					this.plugin.settings.pomodoroMobileSidebar === "left"
-						? workspace.getLeftLeaf(false)
-						: workspace.getRightLeaf(false);
-
-				if (sidebarLeaf) {
-					leaf = sidebarLeaf;
-					await leaf.setViewState({
-						type: POMODORO_VIEW_TYPE,
-						active: true,
-					});
-				} else {
-					return this.activateView(POMODORO_VIEW_TYPE);
-				}
-			}
-
-			await this.revealLeafReady(leaf);
-			return leaf as WorkspaceLeaf;
-		}
-
-		return this.activateView(POMODORO_VIEW_TYPE);
+		return this.activateEnergyView();
 	}
 
-	/** Reveal (or create) the energy view in the right sidebar, optionally showing `date`. */
+	/**
+	 * Reveal (or create) the energy & focus view, optionally showing `date`: in the right
+	 * sidebar, or on mobile where the Pomodoro mobile setting says.
+	 */
 	async activateEnergyView(date?: string): Promise<WorkspaceLeaf> {
+		const { workspace } = this.plugin.app;
 		let leaf = this.getLeafOfType(ENERGY_VIEW_TYPE);
 		if (!leaf) {
-			const sidebarLeaf = this.plugin.app.workspace.getRightLeaf(false);
+			const placement = Platform.isMobile ? this.plugin.settings.pomodoroMobileSidebar : "right";
+			if (placement === "tab") return this.activateEnergyViewInTab(date);
+			const sidebarLeaf =
+				placement === "left" ? workspace.getLeftLeaf(false) : workspace.getRightLeaf(false);
 			if (!sidebarLeaf) return this.activateEnergyViewInTab(date);
 			leaf = sidebarLeaf;
 			await leaf.setViewState({ type: ENERGY_VIEW_TYPE, active: true });

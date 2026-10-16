@@ -14,6 +14,8 @@ export interface EnergyPanelDeps {
 	/** Task title, event title or timeblock title. */
 	titleOf(item: DayItem): string;
 	openItem(item: DayItem): void;
+	/** Start a focus session on a task or timeblock; without it no start button is shown. */
+	startFocus?(item: DayItem): void;
 	showDrainTasks(date: string, contributions: EnergyContribution[]): void;
 	/** Offer undated spark tasks to schedule on `date` (the panel's date). */
 	findSpark(date: string): void;
@@ -176,6 +178,15 @@ export class EnergyPanel {
 				});
 				btn.addEventListener("click", () => this.deps.openItem(c.item));
 				li.createSpan({ cls: "tn-energy-panel__points", text: formatPoints(c.points) });
+				const startFocus = this.deps.startFocus;
+				if (startFocus && isToday && c.item.kind !== "event" && !c.item.done) {
+					const play = li.createEl("button", {
+						cls: "clickable-icon tn-energy-panel__focus",
+						attr: { "aria-label": t("energy.panel.startFocus", { title: this.deps.titleOf(c.item) }) },
+					});
+					setIcon(play, "play");
+					play.addEventListener("click", () => startFocus(c.item));
+				}
 			}
 		}
 		if (e.assumedSizeCount > 0) {

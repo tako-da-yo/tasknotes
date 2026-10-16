@@ -366,6 +366,18 @@ export const ja: TranslationTree = {
 				paused: "{type} 一時停止中 · 残り {time}",
 				breakReady: "{type} 準備完了 · {time} 予定"
 			},
+			focus: {
+				continue: "セッションを続ける",
+				end: "セッションを終了",
+				skipChunk: "チャンクをスキップ",
+				meta: "チャンク {index}/{count} · {endTime} 頃に終了",
+				kindAndTime: "{kind} · {minutes} 分の予定",
+				barLabel: "フォーカスセッションのチャンク",
+				workSegment: "フォーカス {minutes} 分",
+				breakSegment: "休憩 {minutes} 分",
+				upNext: "次の候補",
+				startOn: "{title} でフォーカスセッションを開始",
+			},
 			timer: {
 				editLabel: "タイマー時間を編集",
 				inputLabel: "タイマー時間"
@@ -591,6 +603,18 @@ export const ja: TranslationTree = {
 					name: "長い休憩間隔",
 					description: "長い休憩前の作業セッション数"
 				},
+				focusSplit: {
+					name: "フォーカスセッションを分割する長さ",
+					description: "分。これより長いタスクの見積もりやタイムブロックは、休憩を挟んだチャンクに分割されます。休憩は予定時間に含まれます。",
+				},
+				focusDrainChunk: {
+					name: "「消耗」のチャンクの長さ",
+					description: "「消耗」の作業の各チャンクの目標分数。「安定」の作業は作業時間を使います。",
+				},
+				focusSparkChunk: {
+					name: "「充電」のチャンクの長さ",
+					description: "「充電」の作業の各チャンクの目標分数。長めのチャンクはフローの余地を残します。",
+				},
 				autoStartBreaks: {
 					name: "自動休憩開始",
 					description: "作業セッション後に休憩タイマーを自動開始"
@@ -602,6 +626,10 @@ export const ja: TranslationTree = {
 				notifications: {
 					name: "ポモドーロ通知",
 					description: "ポモドーロセッション終了時に通知を表示"
+				},
+				systemTray: {
+					name: "メニューバーに表示",
+					description: "デスクトップのみ。今日のバッテリー、タイマー、現在または次のカレンダーイベントを macOS のメニューバー、または Windows と Linux の通知領域に表示し、タイマーを操作できます。",
 				},
 				mobileSidebar: {
 					name: "モバイルサイドバー",
@@ -2300,6 +2328,13 @@ export const ja: TranslationTree = {
 			message: "TaskNotes {version} が利用可能です。",
 			action: "コミュニティプラグインで開く"
 		},
+		brokenTaskNote: {
+			message: "{name} のプロパティを TaskNotes が読み取れないため、タスクとして表示されません。同期でノートの 2 つのバージョンが統合されたときに起こることがあります。",
+			repair: "修復",
+			open: "ノートを開く",
+			repaired: "{name} を修復しました。",
+			repairFailed: "{name} を修復できませんでした。ノートを開いてプロパティを手動で直してください。",
+		},
 		exportTasksFailed: "タスクのICSファイルエクスポートに失敗しました",
 		icsNoteCreatedSuccess: "ノートが正常に作成されました",
 		icsCreationModalOpenFailed: "作成モーダルを開けませんでした",
@@ -2351,6 +2386,7 @@ export const ja: TranslationTree = {
 		quickActionsCurrentTask: "現在のタスクのクイックアクション",
 		goToTodayNote: "今日のノートに移動",
 		startPomodoro: "ポモドーロタイマーを開始",
+		startFocusSession: "フォーカスセッションを開始",
 		stopPomodoro: "ポモドーロタイマーを停止",
 		pauseResumePomodoro: "ポモドーロタイマーを一時停止/再開",
 		refreshCache: "キャッシュを更新",
@@ -2928,6 +2964,7 @@ export const ja: TranslationTree = {
 			clearReminders: "すべてのリマインダーをクリア",
 			startTimeTracking: "時間追跡を開始",
 			stopTimeTracking: "時間追跡を停止",
+			startFocusSession: "フォーカスセッションを開始",
 			editTimeEntries: "時間エントリを編集",
 			archive: "アーカイブ",
 			unarchive: "アーカイブ解除",
@@ -3142,6 +3179,7 @@ export const ja: TranslationTree = {
 				paused: "ポモドーロが一時停止されました",
 				resumed: "ポモドーロが再開されました",
 				stoppedAndReset: "ポモドーロが停止およびリセットされました",
+				focusComplete: "フォーカスセッション完了：{title}",
 				migrationSuccess: "{count}件のポモドーロセッションがデイリーノートに正常に移行されました。",
 				migrationFailure: "ポモドーロデータの移行に失敗しました。再試行するか、詳細についてはコンソールを確認してください。"
 			}
@@ -3560,7 +3598,35 @@ export const ja: TranslationTree = {
 			energy: "エネルギー",
 		},
 	},
+	tray: {
+		name: "TaskNotes",
+		battery: "バッテリー 現在 {now}% · 今夜 {projected}%",
+		title: {
+			next: "次：{title}（あと {wait}）",
+		},
+		pomodoro: {
+			work: "フォーカス · 残り {minutes} 分",
+			break: "休憩 · 残り {minutes} 分",
+			paused: "一時停止中 · 残り {minutes} 分",
+			focus: "フォーカスセッション：{title}",
+		},
+		event: {
+			now: "現在：{title}（{end} まで）",
+			next: "次：{title}（{start}、あと {wait}）",
+		},
+		actions: {
+			pause: "一時停止",
+			resume: "再開",
+			start: "ポモドーロを開始",
+			skip: "チャンクをスキップ",
+			stop: "停止",
+			open: "エネルギーとフォーカスを開く",
+		},
+	},
 	energy: {
+		view: {
+			title: "エネルギーとフォーカス",
+		},
 		kinds: {
 			spark: "充電",
 			steady: "安定",
@@ -3585,6 +3651,7 @@ export const ja: TranslationTree = {
 			lowBody: "消耗するタスクを移動するか、充電になることを追加しましょう。",
 			showDrains: "消耗タスクを表示",
 			findSpark: "充電タスクを探す",
+			startFocus: "{title} でフォーカスセッションを開始",
 			emptyTitle: "エネルギーはまだ設定されていません",
 			emptyBody: "コンテキストを充電または消耗に設定すると、1日のバッテリーが表示されます。",
 			openSettings: "コンテキスト設定を開く",

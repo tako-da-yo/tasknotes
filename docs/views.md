@@ -21,7 +21,7 @@ When you want workflow by status, [Kanban View](views/kanban-view.md) organizes 
 
 These views support time management and work tracking.
 
-[Pomodoro View](views/pomodoro-view.md) supports focused intervals directly inside Obsidian, and [Pomodoro Stats View](views/pomodoro-view.md#pomodoro-stats-view) summarizes completed sessions so you can see pace and consistency over time.
+The [Pomodoro timer](views/pomodoro-view.md), at the top of the Energy & focus sidebar, supports focused intervals and focus sessions that split a task or timeblock into chunks, and [Pomodoro Stats View](views/pomodoro-view.md#pomodoro-stats-view) summarizes completed sessions so you can see pace and consistency over time.
 
 ![Pomodoro view](assets/feature-pomodoro-timer.png)
 

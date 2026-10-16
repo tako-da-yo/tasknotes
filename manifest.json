@@ -1,7 +1,7 @@
 {
 	"id": "tasknotes",
 	"name": "TaskNotes",
-	"version": "5.2.12",
+	"version": "5.3.0",
 	"minAppVersion": "1.12.2",
 	"description": "Note-based task management with calendar, pomodoro and time-tracking integration.",
 	"author": "TakoTako",

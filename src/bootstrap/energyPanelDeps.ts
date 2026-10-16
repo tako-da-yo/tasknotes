@@ -8,6 +8,7 @@ import { DateTimePickerModal } from "../modals/DateTimePickerModal";
 import { EnergyRescheduleModal, EnergyTaskSuggestModal, drainRescheduleOptions } from "../modals/EnergyTaskSuggestModal";
 import { capacityStatusText } from "../ui/capacityText";
 import { showNotice } from "../ui/notifications";
+import { startFocusOnItem } from "../services/focusStart";
 import { resolveContext } from "../utils/contextColors";
 import { getTodayLocal, getTodayString } from "../utils/dateUtils";
 import { formatTime } from "../utils/helpers";
@@ -78,6 +79,11 @@ export function createEnergyPanelDeps(plugin: TaskNotesPlugin): EnergyPanelDeps 
 					? plugin.app.workspace.openLinkText(item.ref, "")
 					: plugin.openBasesFileForCommand("open-advanced-calendar-view");
 			open.catch((error) => logActionError("energy-panel-open-item", error));
+		},
+		startFocus: (item) => {
+			startFocusOnItem(plugin, item)
+				.then(() => plugin.activatePomodoroView())
+				.catch((error) => logActionError("energy-panel-start-focus", error));
 		},
 		showDrainTasks: (date, contributions) => {
 			const seen = new Set<string>();

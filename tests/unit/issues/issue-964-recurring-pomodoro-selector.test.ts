@@ -78,7 +78,7 @@ describe("Issue #964: recurring Pomodoro selector status", () => {
 
 	it("uses instance-aware status in the selector and Pomodoro task card", () => {
 		const selectorSource = readRepoFile("src/modals/TaskSelectorWithCreateModal.ts");
-		const pomodoroViewSource = readRepoFile("src/views/PomodoroView.ts");
+		const pomodoroViewSource = readRepoFile("src/components/PomodoroPanel.ts");
 		const pomodoroServiceSource = readRepoFile("src/services/PomodoroService.ts");
 
 		expect(selectorSource).toContain("isTaskInstanceCompleted(");

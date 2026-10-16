@@ -21,13 +21,13 @@ describe("Issue #2006: Pomodoro projected end time", () => {
 	it("renders the running meta with a finish-time placeholder", () => {
 		expect(en.views.pomodoro.meta.running).toBe("{time} left · Ends at {endTime}");
 
-		const source = readRepoFile("src/views/PomodoroView.ts");
+		const source = readRepoFile("src/components/PomodoroPanel.ts");
 		expect(source).toContain("getProjectedPomodoroEndTimeMs(state.timeRemaining, nowMs)");
 		expect(source).toContain("views.pomodoro.meta.running");
 	});
 
 	it("refreshes session metadata after timer duration adjustments", () => {
-		const source = readRepoFile("src/views/PomodoroView.ts");
+		const source = readRepoFile("src/components/PomodoroPanel.ts");
 		const adjustSessionTimeBody =
 			source.match(/private adjustSessionTime\(seconds: number\)[\s\S]*?\n\t}\n/)?.[0] ?? "";
 

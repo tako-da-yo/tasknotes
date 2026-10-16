@@ -1,6 +1,5 @@
-import { PomodoroView } from "../../../src/views/PomodoroView";
+import { PomodoroPanel } from "../../../src/components/PomodoroPanel";
 import { EVENT_POMODORO_TICK, PomodoroState } from "../../../src/types";
-import type { WorkspaceLeaf } from "obsidian";
 
 // Exercise the real event handlers and DOM updates without mounting Obsidian's workspace.
 type ViewInternals = {
@@ -61,12 +60,11 @@ function fixture() {
 		},
 		pomodoroService: { getState: () => ({ ...state }) },
 	};
-	const view = new PomodoroView(
-		{} as WorkspaceLeaf,
-		plugin as unknown as ConstructorParameters<typeof PomodoroView>[1]
-	);
 	const content = document.createElement("div");
-	Object.defineProperty(view, "contentEl", { value: content });
+	const view = new PomodoroPanel(
+		content,
+		plugin as unknown as ConstructorParameters<typeof PomodoroPanel>[1]
+	);
 	Object.defineProperty(content, "isShown", { value: () => visible });
 	const root = document.createElement("div");
 	root.className = "pomodoro-view";
@@ -240,7 +238,7 @@ describe("Issue #2356: economical Pomodoro rendering", () => {
 		internals.setupResizeHandling();
 		workspaceCallbacks.get("layout-change")?.();
 		const layout = jest.spyOn(internals, "updateResponsiveLayout");
-		await view.onClose();
+		view.close();
 		jest.runOnlyPendingTimers();
 		workspaceCallbacks.get("active-leaf-change")?.(); // A queued callback after disposal is harmless.
 		expect(layout).not.toHaveBeenCalled();
@@ -275,7 +273,7 @@ describe("Issue #2356: economical Pomodoro rendering", () => {
 		view.onResize();
 		expect(clearOldTimer).toHaveBeenCalledTimes(1);
 		expect(jest.getTimerCount()).toBe(0);
-		await view.onClose();
+		view.close();
 		iframe.remove();
 	});
 
@@ -294,7 +292,7 @@ describe("Issue #2356: economical Pomodoro rendering", () => {
 		view.onResize();
 		expect(internals.timerDisplay.textContent).toBe("02:00");
 		expect(root.classList.contains("pomodoro-view--very-narrow")).toBe(true);
-		await view.onClose();
+		view.close();
 	});
 
 	it("does not render or install observers if closed while waiting for plugin readiness", async () => {
@@ -308,8 +306,8 @@ describe("Issue #2356: economical Pomodoro rendering", () => {
 		);
 		const render = jest.spyOn(view, "render").mockResolvedValue();
 		const setup = jest.spyOn(internals, "setupResizeHandling");
-		const opening = view.onOpen();
-		await view.onClose();
+		const opening = view.open();
+		view.close();
 		ready();
 		await opening;
 		expect(render).not.toHaveBeenCalled();

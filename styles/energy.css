@@ -40,6 +40,23 @@ body {
 	height: var(--icon-xs);
 }
 
+/*
+ * Fill colour blends gradually with the level: low at 0%, ok at 50%, high at 100%.
+ * Declared on the fill elements so --tn-energy-level resolves where it is set.
+ */
+.tn-energy-glyph__fill,
+.tn-energy-gauge__fill {
+	--tn-energy-fill: color-mix(
+		in oklab,
+		color-mix(
+			in oklab,
+			var(--tn-energy-high) clamp(20%, (var(--tn-energy-level, 0%) - 50%) * 2, 100%),
+			var(--tn-energy-ok)
+		) clamp(0%, var(--tn-energy-level, 20%) * 2, 100%),
+		var(--tn-energy-low)
+	);
+}
+
 /* Battery glyph on calendar days */
 /* A battery lying on its side: cap on the left, charging from the right edge towards the cap */
 .tn-energy-glyph {
@@ -51,19 +68,31 @@ body {
 	width: 30px;
 	height: 14px;
 	margin-inline: var(--size-2-2) var(--size-2-1);
-	border: 1px solid var(--text-muted);
+	border: 2px solid var(--text-muted);
 	border-radius: 3px;
 	vertical-align: middle;
 	cursor: pointer;
+}
+
+/* Beside the date: time-grid column headers and day-grid cells (whose top row is reversed) */
+.fc-col-header-cell .fc-scrollgrid-sync-inner.tn-energy-host {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.fc-daygrid-day-top > .tn-energy-glyph {
+	order: -1;
+	align-self: center;
 }
 
 /* Battery cap */
 .tn-energy-glyph::before {
 	content: "";
 	position: absolute;
-	top: 3px;
-	left: -3px;
-	width: 2px;
+	top: 2px;
+	left: -4px;
+	width: 3px;
 	height: 6px;
 	border-radius: 1px 0 0 1px;
 	background: var(--text-muted);
@@ -82,7 +111,7 @@ body {
 	right: 0;
 	bottom: 0;
 	width: var(--tn-energy-level, 0%);
-	background: var(--tn-energy-ok);
+	background: var(--tn-energy-fill);
 	border-radius: 0 2px 2px 0;
 	opacity: 0.55;
 }
@@ -95,14 +124,6 @@ body {
 	line-height: 1;
 	color: var(--text-normal);
 	pointer-events: none;
-}
-
-.tn-energy-glyph.is-low .tn-energy-glyph__fill {
-	background: var(--tn-energy-low);
-}
-
-.tn-energy-glyph.is-high .tn-energy-glyph__fill {
-	background: var(--tn-energy-high);
 }
 
 .tn-energy-glyph:focus-visible {
@@ -136,15 +157,7 @@ body {
 	height: 100%;
 	width: var(--tn-energy-level, 0%);
 	border-radius: var(--radius-s);
-	background: var(--tn-energy-ok);
-}
-
-.tn-energy-gauge.is-low .tn-energy-gauge__fill {
-	background: var(--tn-energy-low);
-}
-
-.tn-energy-gauge.is-high .tn-energy-gauge__fill {
-	background: var(--tn-energy-high);
+	background: var(--tn-energy-fill);
 }
 
 .tn-energy-gauge__marker {
@@ -176,6 +189,7 @@ body {
 
 .tn-energy-panel__effect {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 	gap: var(--size-4-2);
 	padding: var(--size-2-2) 0;
@@ -183,10 +197,17 @@ body {
 
 .tn-energy-panel__effect-title {
 	all: unset;
+	flex: 1 1 auto;
+	min-width: 0;
 	cursor: pointer;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+.tn-energy-panel__focus {
+	flex: none;
+	padding: var(--size-2-1);
 }
 
 .tn-energy-panel__effect-title:focus-visible {
@@ -237,4 +258,134 @@ body {
 .tn-energy-panel__date-heading {
 	color: var(--text-muted);
 	font-size: var(--font-ui-small);
+}
+
+/* Energy & focus sidebar: the focus timer above the energy panel, scrolling together */
+.tn-energy-focus-view .tasknotes-plugin.pomodoro-view {
+	height: auto;
+	overflow-y: visible;
+	padding-bottom: var(--size-4-2);
+}
+
+.tn-energy-focus-view__energy {
+	border-top: 1px solid var(--background-modifier-border);
+}
+
+/* Focus session: title, a bar for the whole session (one segment per chunk), progress */
+.tn-focus {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-2-3);
+	width: 100%;
+}
+
+.tn-focus:empty {
+	display: none;
+}
+
+.tn-focus__header {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-2-1);
+}
+
+.tn-focus__title {
+	font-weight: var(--font-semibold);
+	overflow-wrap: anywhere;
+}
+
+.tn-focus__kind {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+}
+
+.tn-focus__kind--spark {
+	color: var(--tn-energy-spark);
+}
+
+.tn-focus__kind--drain {
+	color: var(--tn-energy-drain);
+}
+
+.tn-focus__bar {
+	display: flex;
+	gap: 2px;
+	height: 10px;
+}
+
+.tn-focus__segment {
+	position: relative;
+	flex: var(--tn-focus-minutes, 1) 1 0;
+	min-width: 4px;
+	overflow: hidden;
+	border-radius: 2px;
+	background: var(--background-modifier-border);
+}
+
+.tn-focus__segment.is-break {
+	opacity: 0.5;
+}
+
+.tn-focus__segment-fill {
+	position: absolute;
+	inset: 0 auto 0 0;
+	width: 0;
+	background: var(--interactive-accent);
+}
+
+.tn-focus__segment.is-active .tn-focus__segment-fill {
+	width: var(--tn-focus-progress, 0%);
+}
+
+.tn-focus__segment.is-done .tn-focus__segment-fill {
+	width: 100%;
+}
+
+.tn-focus__segment.is-skipped {
+	background: repeating-linear-gradient(
+		45deg,
+		var(--background-modifier-border) 0 3px,
+		transparent 3px 6px
+	);
+}
+
+.tn-focus__meta {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+}
+
+.tn-focus__heading {
+	font-size: var(--font-ui-smaller);
+	font-weight: var(--font-semibold);
+	color: var(--text-muted);
+}
+
+.tn-focus__suggestion-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-2-1);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.tasknotes-plugin .tn-focus__suggestion {
+	display: flex;
+	align-items: center;
+	gap: var(--size-2-3);
+	width: 100%;
+	justify-content: flex-start;
+	text-align: start;
+}
+
+.tn-focus__suggestion-play {
+	color: var(--interactive-accent);
+	font-size: var(--font-ui-smaller);
+}
+
+.tn-focus__suggestion-title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }

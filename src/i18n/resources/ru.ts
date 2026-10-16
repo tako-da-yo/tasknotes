@@ -366,6 +366,18 @@ export const ru: TranslationTree = {
 				paused: "{type} на паузе · осталось {time}",
 				breakReady: "{type} готово · {time} запланировано"
 			},
+			focus: {
+				continue: "Продолжить сессию",
+				end: "Завершить сессию",
+				skipChunk: "Пропустить отрезок",
+				meta: "Отрезок {index} из {count} · Закончится около {endTime}",
+				kindAndTime: "{kind} · запланировано {minutes} мин",
+				barLabel: "Отрезки сессии фокуса",
+				workSegment: "Фокус, {minutes} мин",
+				breakSegment: "Перерыв, {minutes} мин",
+				upNext: "Далее",
+				startOn: "Начать сессию фокуса: {title}",
+			},
 			timer: {
 				editLabel: "Изменить длительность таймера",
 				inputLabel: "Длительность таймера"
@@ -591,6 +603,18 @@ export const ru: TranslationTree = {
 					name: "Интервал длинного перерыва",
 					description: "Количество рабочих сессий перед длинным перерывом"
 				},
+				focusSplit: {
+					name: "Делить сессии фокуса длиннее",
+					description: "Минуты. Более длинная оценка задачи или временной блок делится на отрезки с перерывами, которые входят в запланированное время.",
+				},
+				focusDrainChunk: {
+					name: "Длина отрезка «Истощение»",
+					description: "Целевая длина каждого отрезка работы «Истощение» в минутах. Для работы «Стабильно» используется длительность работы.",
+				},
+				focusSparkChunk: {
+					name: "Длина отрезка «Искра»",
+					description: "Целевая длина каждого отрезка работы «Искра» в минутах. Более длинные отрезки оставляют место для потока.",
+				},
 				autoStartBreaks: {
 					name: "Автозапуск перерывов",
 					description: "Автоматически запускать таймеры перерывов после рабочих сессий"
@@ -602,6 +626,10 @@ export const ru: TranslationTree = {
 				notifications: {
 					name: "Уведомления помодоро",
 					description: "Показывать уведомления при завершении сессий помодоро"
+				},
+				systemTray: {
+					name: "Показывать в строке меню",
+					description: "Только для компьютера. Показывает сегодняшнюю батарею, таймер и текущее или следующее событие календаря в строке меню macOS или в области уведомлений Windows и Linux, с управлением таймером.",
 				},
 				mobileSidebar: {
 					name: "Мобильная боковая панель",
@@ -2300,6 +2328,13 @@ export const ru: TranslationTree = {
 			message: "Доступен TaskNotes {version}.",
 			action: "Открыть в плагинах сообщества"
 		},
+		brokenTaskNote: {
+			message: "TaskNotes не может прочитать свойства заметки {name}, поэтому она не показывается как задача. Так бывает, когда синхронизация объединяет две версии заметки.",
+			repair: "Исправить",
+			open: "Открыть заметку",
+			repaired: "Заметка {name} исправлена.",
+			repairFailed: "Не удалось исправить {name}. Откройте заметку и исправьте свойства вручную.",
+		},
 		exportTasksFailed: "Не удалось экспортировать задачи как файл ICS",
 		icsNoteCreatedSuccess: "Заметка успешно создана",
 		icsCreationModalOpenFailed: "Не удалось открыть модальное окно создания",
@@ -2351,6 +2386,7 @@ export const ru: TranslationTree = {
 		quickActionsCurrentTask: "Быстрые действия для текущей задачи",
 		goToTodayNote: "Перейти к заметке сегодня",
 		startPomodoro: "Запустить таймер помодоро",
+		startFocusSession: "Начать сессию фокуса",
 		stopPomodoro: "Остановить таймер помодоро",
 		pauseResumePomodoro: "Приостановить/возобновить таймер помодоро",
 		refreshCache: "Обновить кэш",
@@ -2928,6 +2964,7 @@ export const ru: TranslationTree = {
 			clearReminders: "Очистить все напоминания",
 			startTimeTracking: "Начать отслеживание времени",
 			stopTimeTracking: "Остановить отслеживание времени",
+			startFocusSession: "Начать сессию фокуса",
 			editTimeEntries: "Редактировать записи времени",
 			archive: "Архивировать",
 			unarchive: "Разархивировать",
@@ -3142,6 +3179,7 @@ export const ru: TranslationTree = {
 				paused: "Помодоро приостановлено",
 				resumed: "Помодоро возобновлено",
 				stoppedAndReset: "Помодоро остановлено и сброшено",
+				focusComplete: "Сессия фокуса завершена: {title}",
 				migrationSuccess: "Успешно перенесено {count} сессий помодоро в ежедневные заметки.",
 				migrationFailure: "Не удалось перенести данные помодоро. Пожалуйста, попробуйте снова или проверьте консоль для деталей."
 			}
@@ -3560,7 +3598,35 @@ export const ru: TranslationTree = {
 			energy: "Энергия",
 		},
 	},
+	tray: {
+		name: "TaskNotes",
+		battery: "Батарея: сейчас {now}% · вечером {projected}%",
+		title: {
+			next: "Далее: {title} через {wait}",
+		},
+		pomodoro: {
+			work: "Фокус · осталось {minutes} мин",
+			break: "Перерыв · осталось {minutes} мин",
+			paused: "Пауза · осталось {minutes} мин",
+			focus: "Сессия фокуса: {title}",
+		},
+		event: {
+			now: "Сейчас: {title} до {end}",
+			next: "Далее: {title} в {start} (через {wait})",
+		},
+		actions: {
+			pause: "Пауза",
+			resume: "Продолжить",
+			start: "Запустить Pomodoro",
+			skip: "Пропустить отрезок",
+			stop: "Остановить",
+			open: "Открыть «Энергия и фокус»",
+		},
+	},
 	energy: {
+		view: {
+			title: "Энергия и фокус",
+		},
 		kinds: {
 			spark: "Искра",
 			steady: "Стабильно",
@@ -3585,6 +3651,7 @@ export const ru: TranslationTree = {
 			lowBody: "Перенесите истощающую задачу или добавьте что-то, что заряжает.",
 			showDrains: "Показать истощающие задачи",
 			findSpark: "Найти искру",
+			startFocus: "Начать сессию фокуса: {title}",
 			emptyTitle: "Энергия ещё не настроена",
 			emptyBody: "Отметьте контексты как «Искра» или «Истощение», чтобы видеть дневной заряд.",
 			openSettings: "Открыть настройки контекстов",

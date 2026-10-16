@@ -19,6 +19,7 @@ function setLevel(el: HTMLElement, level: number): void {
 
 export function renderEnergyGlyph(host: HTMLElement, energy: DayEnergy | undefined, t: TFn, onClick?: (date: string) => void): void {
 	host.querySelector(":scope > .tn-energy-glyph")?.remove();
+	host.classList.toggle("tn-energy-host", !!energy?.hasSignal);
 	if (!energy?.hasSignal) return;
 	const glyph = host.createDiv({
 		cls: `tn-energy-glyph is-${energy.level}`,
@@ -28,7 +29,6 @@ export function renderEnergyGlyph(host: HTMLElement, energy: DayEnergy | undefin
 			"aria-label": t("energy.glyph.aria", { level: energy.projected, drain: energy.hours.drain, spark: energy.hours.spark, steady: energy.hours.steady }),
 		},
 	});
-	glyph.setAttr("title", glyph.getAttr("aria-label") ?? "");
 	glyph.createDiv({ cls: "tn-energy-glyph__fill" });
 	// The aria-label already states the level, so the visible percentage is hidden from screen readers.
 	glyph.createSpan({

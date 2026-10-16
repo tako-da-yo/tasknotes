@@ -366,6 +366,18 @@ export const zh: TranslationTree = {
 				paused: "{type} 已暂停 · 剩余 {time}",
 				breakReady: "{type} 已就绪 · 已计划 {time}"
 			},
+			focus: {
+				continue: "继续会话",
+				end: "结束会话",
+				skipChunk: "跳过此段",
+				meta: "第 {index}/{count} 段 · 约 {endTime} 结束",
+				kindAndTime: "{kind} · 计划 {minutes} 分钟",
+				barLabel: "专注会话分段",
+				workSegment: "专注 {minutes} 分钟",
+				breakSegment: "休息 {minutes} 分钟",
+				upNext: "接下来",
+				startOn: "为 {title} 开始专注会话",
+			},
 			timer: {
 				editLabel: "编辑计时器时长",
 				inputLabel: "计时器时长"
@@ -591,6 +603,18 @@ export const zh: TranslationTree = {
 					name: "长休息间隔",
 					description: "长休息前的工作会话数"
 				},
+				focusSplit: {
+					name: "拆分超过此时长的专注会话",
+					description: "分钟。超过此时长的任务估时或时间块会拆分为带休息的分段，休息计入计划时间。",
+				},
+				focusDrainChunk: {
+					name: "“消耗”分段时长",
+					description: "每段“消耗”工作的目标分钟数。“平稳”工作使用工作时长。",
+				},
+				focusSparkChunk: {
+					name: "“充能”分段时长",
+					description: "每段“充能”工作的目标分钟数。较长的分段为心流留出空间。",
+				},
 				autoStartBreaks: {
 					name: "自动开始休息",
 					description: "工作会话后自动开始休息计时器"
@@ -602,6 +626,10 @@ export const zh: TranslationTree = {
 				notifications: {
 					name: "番茄钟通知",
 					description: "番茄钟会话结束时显示通知"
+				},
+				systemTray: {
+					name: "在菜单栏中显示",
+					description: "仅限桌面端。在 macOS 菜单栏或 Windows 和 Linux 通知区域显示今日电量、计时器以及当前或下一个日历事件，并可控制计时器。",
 				},
 				mobileSidebar: {
 					name: "移动端侧边栏",
@@ -2300,6 +2328,13 @@ export const zh: TranslationTree = {
 			message: "TaskNotes {version} 可用。",
 			action: "在社区插件中打开"
 		},
+		brokenTaskNote: {
+			message: "TaskNotes 无法读取 {name} 的属性，因此不会将其显示为任务。同步合并笔记的两个版本时可能出现这种情况。",
+			repair: "修复",
+			open: "打开笔记",
+			repaired: "已修复 {name}。",
+			repairFailed: "无法修复 {name}。请打开笔记并手动修正其属性。",
+		},
 		exportTasksFailed: "导出任务为ICS文件失败",
 		icsNoteCreatedSuccess: "笔记成功创建",
 		icsCreationModalOpenFailed: "打开创建模式失败",
@@ -2351,6 +2386,7 @@ export const zh: TranslationTree = {
 		quickActionsCurrentTask: "当前任务的快速操作",
 		goToTodayNote: "转到今日笔记",
 		startPomodoro: "开始番茄钟计时器",
+		startFocusSession: "开始专注会话",
 		stopPomodoro: "停止番茄钟计时器",
 		pauseResumePomodoro: "暂停/恢复番茄钟计时器",
 		refreshCache: "刷新缓存",
@@ -2927,6 +2963,7 @@ export const zh: TranslationTree = {
 			clearReminders: "清除所有提醒",
 			startTimeTracking: "开始时间跟踪",
 			stopTimeTracking: "停止时间跟踪",
+			startFocusSession: "开始专注会话",
 			editTimeEntries: "编辑时间条目",
 			archive: "归档",
 			unarchive: "取消归档",
@@ -3141,6 +3178,7 @@ export const zh: TranslationTree = {
 				paused: "番茄钟已暂停",
 				resumed: "番茄钟已恢复",
 				stoppedAndReset: "番茄钟已停止并重置",
+				focusComplete: "专注会话已完成：{title}",
 				migrationSuccess: "成功将{count}个番茄钟会话迁移到日记。",
 				migrationFailure: "迁移番茄钟数据失败。请重试或检查控制台获取详细信息。"
 			}
@@ -3559,7 +3597,35 @@ export const zh: TranslationTree = {
 			energy: "能量",
 		},
 	},
+	tray: {
+		name: "TaskNotes",
+		battery: "电量：现在 {now}% · 今晚 {projected}%",
+		title: {
+			next: "接下来：{title}，{wait}后",
+		},
+		pomodoro: {
+			work: "专注 · 剩余 {minutes} 分钟",
+			break: "休息 · 剩余 {minutes} 分钟",
+			paused: "已暂停 · 剩余 {minutes} 分钟",
+			focus: "专注会话：{title}",
+		},
+		event: {
+			now: "现在：{title}，到 {end}",
+			next: "接下来：{title}，{start} 开始（{wait}后）",
+		},
+		actions: {
+			pause: "暂停",
+			resume: "继续",
+			start: "开始番茄钟",
+			skip: "跳过此段",
+			stop: "停止",
+			open: "打开精力与专注",
+		},
+	},
 	energy: {
+		view: {
+			title: "精力与专注",
+		},
 		kinds: {
 			spark: "充能",
 			steady: "平稳",
@@ -3584,6 +3650,7 @@ export const zh: TranslationTree = {
 			lowBody: "移走一项消耗任务，或添加一些能充能的事情。",
 			showDrains: "显示消耗任务",
 			findSpark: "寻找充能任务",
+			startFocus: "为 {title} 开始专注会话",
 			emptyTitle: "尚未设置能量",
 			emptyBody: "将情境标记为充能或消耗，即可查看每日电量。",
 			openSettings: "打开情境设置",

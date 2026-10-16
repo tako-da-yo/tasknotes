@@ -33,7 +33,7 @@ nav:
                 - Agenda: views/agenda-view.md
                 - Kanban: views/kanban-view.md
                 - Calendar views: views/calendar-views.md
-                - Pomodoro: views/pomodoro-view.md
+                - Pomodoro and focus: views/pomodoro-view.md
                 - Build a custom Base: guides/custom-bases.md
           - Calendar and integrations:
                 - Calendar integration: features/calendar-integration.md
@@ -113,6 +113,7 @@ drafts:
     - development/refactor-smoke-checks.md
     - development/runtime-api-query-contract.md
     - development/triage-and-capacity-spec.md
+    - development/focus-sessions-spec.md
     - examples/tasknotes-starter-note.md
     - examples/webhook-transforms/README.md
     - settings/advanced-settings.md

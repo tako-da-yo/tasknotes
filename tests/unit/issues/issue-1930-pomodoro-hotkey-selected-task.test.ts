@@ -61,13 +61,16 @@ describe("Issue #1930: Pomodoro hotkey starts tracking the selected task", () =>
 		const definition = createTaskNotesCommandDefinitions({} as never).find(
 			(command) => command.id === "start-pomodoro"
 		);
+		// The command routes through the service's real startNext.
 		const ctx = {
 			pomodoroService: {
+				state: { isRunning: false },
 				getState: jest.fn(() => ({ isRunning: false })),
 				resumePomodoro: jest.fn(),
 				startBreak: jest.fn(),
 				startPomodoro: jest.fn(),
 				startPomodoroWithLastSelectedTask: jest.fn(),
+				startNext: PomodoroService.prototype.startNext,
 			},
 		};
 

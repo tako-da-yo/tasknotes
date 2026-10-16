@@ -366,6 +366,18 @@ export const ko: TranslationTree = {
 				paused: "{type} 일시 중지 · {time} 남음",
 				breakReady: "{type} 준비됨 · {time} 예정"
 			},
+			focus: {
+				continue: "세션 계속",
+				end: "세션 종료",
+				skipChunk: "구간 건너뛰기",
+				meta: "구간 {index}/{count} · {endTime}쯤 종료",
+				kindAndTime: "{kind} · {minutes}분 계획",
+				barLabel: "집중 세션 구간",
+				workSegment: "집중 {minutes}분",
+				breakSegment: "휴식 {minutes}분",
+				upNext: "다음 할 일",
+				startOn: "{title}에 대한 집중 세션 시작",
+			},
 			timer: {
 				editLabel: "타이머 시간 편집",
 				inputLabel: "타이머 시간"
@@ -591,6 +603,18 @@ export const ko: TranslationTree = {
 					name: "긴 휴식 간격",
 					description: "긴 휴식 전 작업 세션 수"
 				},
+				focusSplit: {
+					name: "다음보다 긴 집중 세션 나누기",
+					description: "분. 이보다 긴 작업 예상 시간이나 타임블록은 휴식이 있는 구간으로 나뉘며, 휴식은 계획된 시간에 포함됩니다.",
+				},
+				focusDrainChunk: {
+					name: "‘소모’ 구간 길이",
+					description: "‘소모’ 작업 구간마다 목표로 하는 분. ‘안정’ 작업은 작업 시간을 사용합니다.",
+				},
+				focusSparkChunk: {
+					name: "‘충전’ 구간 길이",
+					description: "‘충전’ 작업 구간마다 목표로 하는 분. 구간이 길수록 몰입할 여유가 생깁니다.",
+				},
 				autoStartBreaks: {
 					name: "자동 휴식 시작",
 					description: "작업 세션 후 자동으로 휴식 타이머 시작"
@@ -602,6 +626,10 @@ export const ko: TranslationTree = {
 				notifications: {
 					name: "뽀모도로 알림",
 					description: "뽀모도로 세션 종료 시 알림 표시"
+				},
+				systemTray: {
+					name: "메뉴 막대에 표시",
+					description: "데스크톱 전용. 오늘의 배터리, 타이머, 현재 또는 다음 캘린더 일정을 macOS 메뉴 막대나 Windows 및 Linux 알림 영역에 표시하고 타이머를 조작할 수 있습니다.",
 				},
 				mobileSidebar: {
 					name: "모바일 사이드바",
@@ -2284,6 +2312,13 @@ export const ko: TranslationTree = {
 			message: "TaskNotes {version} 릴리스를 사용할 수 있습니다.",
 			action: "커뮤니티 플러그인에서 열기"
 		},
+		brokenTaskNote: {
+			message: "TaskNotes가 {name}의 속성을 읽을 수 없어 작업으로 표시되지 않습니다. 동기화가 노트의 두 버전을 병합할 때 생길 수 있습니다.",
+			repair: "복구",
+			open: "노트 열기",
+			repaired: "{name}을(를) 복구했습니다.",
+			repairFailed: "{name}을(를) 복구하지 못했습니다. 노트를 열어 속성을 직접 고쳐 주세요.",
+		},
 		exportTasksFailed: "ICS 파일로 작업 내보내기 실패",
 		icsNoteCreatedSuccess: "노트가 성공적으로 생성되었습니다",
 		icsCreationModalOpenFailed: "생성 모달 열기 실패",
@@ -2335,6 +2370,7 @@ export const ko: TranslationTree = {
 		quickActionsCurrentTask: "현재 작업의 빠른 작업",
 		goToTodayNote: "오늘의 노트로 이동",
 		startPomodoro: "뽀모도로 타이머 시작",
+		startFocusSession: "집중 세션 시작",
 		stopPomodoro: "뽀모도로 타이머 중지",
 		pauseResumePomodoro: "뽀모도로 타이머 일시 정지/재개",
 		refreshCache: "캐시 새로고침",
@@ -2912,6 +2948,7 @@ export const ko: TranslationTree = {
 			clearReminders: "모든 리마인더 지우기",
 			startTimeTracking: "시간 추적 시작",
 			stopTimeTracking: "시간 추적 중지",
+			startFocusSession: "집중 세션 시작",
 			editTimeEntries: "시간 기록 편집",
 			archive: "보관",
 			unarchive: "보관 해제",
@@ -3126,6 +3163,7 @@ export const ko: TranslationTree = {
 				paused: "뽀모도로 일시 정지됨",
 				resumed: "뽀모도로 재개됨",
 				stoppedAndReset: "뽀모도로가 중지되고 초기화되었습니다",
+				focusComplete: "집중 세션 완료: {title}",
 				migrationSuccess: "{count}개의 뽀모도로 세션이 데일리 노트로 마이그레이션되었습니다.",
 				migrationFailure: "뽀모도로 데이터 마이그레이션 실패. 다시 시도하거나 콘솔에서 자세한 내용을 확인하세요."
 			}
@@ -3544,7 +3582,35 @@ export const ko: TranslationTree = {
 			energy: "에너지",
 		},
 	},
+	tray: {
+		name: "TaskNotes",
+		battery: "배터리 지금 {now}% · 오늘 밤 {projected}%",
+		title: {
+			next: "다음: {title} ({wait} 후)",
+		},
+		pomodoro: {
+			work: "집중 · {minutes}분 남음",
+			break: "휴식 · {minutes}분 남음",
+			paused: "일시정지 · {minutes}분 남음",
+			focus: "집중 세션: {title}",
+		},
+		event: {
+			now: "지금: {title} ({end}까지)",
+			next: "다음: {title} ({start}, {wait} 후)",
+		},
+		actions: {
+			pause: "일시정지",
+			resume: "재개",
+			start: "뽀모도로 시작",
+			skip: "구간 건너뛰기",
+			stop: "중지",
+			open: "에너지와 집중 열기",
+		},
+	},
 	energy: {
+		view: {
+			title: "에너지와 집중",
+		},
 		kinds: {
 			spark: "충전",
 			steady: "안정",
@@ -3569,6 +3635,7 @@ export const ko: TranslationTree = {
 			lowBody: "소모 작업을 옮기거나 활력을 주는 일을 추가하세요.",
 			showDrains: "소모 작업 표시",
 			findSpark: "충전 작업 찾기",
+			startFocus: "{title}에 대한 집중 세션 시작",
 			emptyTitle: "아직 에너지가 설정되지 않았습니다",
 			emptyBody: "컨텍스트를 충전 또는 소모로 표시하면 하루 배터리를 볼 수 있습니다.",
 			openSettings: "컨텍스트 설정 열기",

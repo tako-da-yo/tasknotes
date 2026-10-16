@@ -354,6 +354,18 @@ export const en: TranslationTree = {
 				paused: "{type} paused · {time} left",
 				breakReady: "{type} ready · {time} planned",
 			},
+			focus: {
+				continue: "Continue session",
+				end: "End session",
+				skipChunk: "Skip chunk",
+				meta: "Chunk {index} of {count} · Ends around {endTime}",
+				kindAndTime: "{kind} · {minutes} min planned",
+				barLabel: "Focus session chunks",
+				workSegment: "Focus, {minutes} min",
+				breakSegment: "Break, {minutes} min",
+				upNext: "Up next",
+				startOn: "Start a focus session on {title}",
+			},
 			timer: {
 				editLabel: "Edit timer duration",
 				inputLabel: "Timer duration",
@@ -612,6 +624,18 @@ export const en: TranslationTree = {
 					name: "Long break interval",
 					description: "Number of work sessions before a long break",
 				},
+				focusSplit: {
+					name: "Split focus sessions longer than",
+					description: "Minutes. A task's estimate or a timeblock longer than this is split into chunks with breaks, which count inside the planned time.",
+				},
+				focusDrainChunk: {
+					name: "Drain chunk length",
+					description: "Target minutes for each chunk of Drain work. Steady work uses the work duration.",
+				},
+				focusSparkChunk: {
+					name: "Spark chunk length",
+					description: "Target minutes for each chunk of Spark work. Longer chunks leave room for flow.",
+				},
 				autoStartBreaks: {
 					name: "Auto-start breaks",
 					description: "Automatically start break timers after work sessions",
@@ -627,6 +651,10 @@ export const en: TranslationTree = {
 				statusBar: {
 					name: "Show Pomodoro in status bar",
 					description: "Display the active Pomodoro countdown in Obsidian's status bar",
+				},
+				systemTray: {
+					name: "Show in the menu bar",
+					description: "Desktop only. Shows today's battery, the timer and the current or next calendar event in the macOS menu bar or the Windows and Linux notification area, with controls for the timer.",
 				},
 				mobileSidebar: {
 					name: "Mobile sidebar",
@@ -2445,6 +2473,13 @@ export const en: TranslationTree = {
 			message: "TaskNotes {version} is available.",
 			action: "Open in community plugins",
 		},
+		brokenTaskNote: {
+			message: "{name} has properties TaskNotes can't read, so it isn't shown as a task. This can happen when a sync merges two versions of the note.",
+			repair: "Repair",
+			open: "Open note",
+			repaired: "Repaired {name}.",
+			repairFailed: "Couldn't repair {name}. Open it and fix its properties by hand.",
+		},
 		exportTasksFailed: "Failed to export tasks as ICS file",
 		// ICS Event Info Modal notices
 		icsNoteCreatedSuccess: "Note created successfully",
@@ -2511,6 +2546,7 @@ export const en: TranslationTree = {
 		addSubtaskToCurrentNote: "Add subtask to current note",
 		goToTodayNote: "Go to today's note",
 		startPomodoro: "Start Pomodoro timer",
+		startFocusSession: "Start focus session",
 		stopPomodoro: "Stop Pomodoro timer",
 		pauseResumePomodoro: "Pause/resume Pomodoro timer",
 		refreshCache: "Refresh cache",
@@ -3103,6 +3139,7 @@ export const en: TranslationTree = {
 			clearReminders: "Clear all reminders",
 			startTimeTracking: "Start time tracking",
 			stopTimeTracking: "Stop time tracking",
+			startFocusSession: "Start focus session",
 			editTimeEntries: "Edit time entries",
 			archive: "Archive",
 			unarchive: "Unarchive",
@@ -3312,6 +3349,7 @@ export const en: TranslationTree = {
 				paused: "Pomodoro paused",
 				resumed: "Pomodoro resumed",
 				stoppedAndReset: "Pomodoro stopped and reset",
+				focusComplete: "Focus session complete: {title}",
 				migrationSuccess: "Successfully migrated {count} pomodoro sessions to daily notes.",
 				migrationFailure:
 					"Failed to migrate Pomodoro data. Please try again or check the console for details.",
@@ -3743,7 +3781,35 @@ export const en: TranslationTree = {
 			energy: "Energy",
 		},
 	},
+	tray: {
+		name: "TaskNotes",
+		battery: "Battery {now}% now · {projected}% tonight",
+		title: {
+			next: "Next: {title} in {wait}",
+		},
+		pomodoro: {
+			work: "Focus · {minutes} min left",
+			break: "Break · {minutes} min left",
+			paused: "Paused · {minutes} min left",
+			focus: "Focus session: {title}",
+		},
+		event: {
+			now: "Now: {title} until {end}",
+			next: "Next: {title} at {start} (in {wait})",
+		},
+		actions: {
+			pause: "Pause",
+			resume: "Resume",
+			start: "Start Pomodoro",
+			skip: "Skip chunk",
+			stop: "Stop",
+			open: "Open Energy & focus",
+		},
+	},
 	energy: {
+		view: {
+			title: "Energy & focus",
+		},
 		kinds: {
 			spark: "Spark",
 			steady: "Steady",
@@ -3768,6 +3834,7 @@ export const en: TranslationTree = {
 			lowBody: "Move a drain task, or add something that sparks.",
 			showDrains: "Show drain tasks",
 			findSpark: "Find a spark",
+			startFocus: "Start a focus session on {title}",
 			emptyTitle: "No energy set yet",
 			emptyBody: "Mark contexts as spark or drain to see your daily battery.",
 			openSettings: "Open context settings",

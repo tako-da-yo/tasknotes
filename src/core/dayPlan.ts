@@ -19,6 +19,8 @@ export interface DayItem {
 	task?: TaskInfo;
 	sourceId?: string;
 	responseStatus?: CalendarResponseStatus;
+	// Provider-specific event kind, e.g. Google "workingLocation".
+	eventType?: string;
 	attachments?: string[];
 }
 
@@ -98,7 +100,7 @@ function eventItem(event: ICSEvent, input: DayPlanInput): DayItem | null {
 	const external = input.externalContextFor(event);
 	const base = {
 		kind: "event" as const, ref: event.id, date, title: event.title, contexts: external ? [external] : [], trackedMinutes: 0, trackedOnDateMinutes: 0,
-		sourceId: event.subscriptionId, responseStatus: event.responseStatus,
+		sourceId: event.subscriptionId, responseStatus: event.responseStatus, eventType: event.providerEventType,
 	};
 	if (event.allDay) {
 		const start = event.start.slice(0, 10);

@@ -52,6 +52,11 @@
       "source": [
         "src/services/PomodoroService.ts",
         "src/views/PomodoroView.ts",
+        "src/components/PomodoroPanel.ts",
+        "src/core/focusPlan.ts",
+        "src/services/focusStart.ts",
+        "src/ui/SystemTrayService.ts",
+        "src/core/trayStatus.ts",
         "src/views/PomodoroStatsView.ts",
         "src/api/PomodoroController.ts"
       ],
