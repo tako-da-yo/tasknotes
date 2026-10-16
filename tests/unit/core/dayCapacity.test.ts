@@ -4,7 +4,7 @@ import { TaskFactory } from "../../helpers/mock-factories";
 
 const nineToFive = { start: "09:00", end: "17:00" };
 const planning = { workHours: [null, nineToFive, nineToFive, nineToFive, nineToFive, nineToFive, null],
-	busyCalendars: null, allDayEventsBusy: false, defaultEstimate: null, showInStatusBar: true, warnOnOverbook: true };
+	nonBusyCalendars: [] as string[], allDayEventsBusy: false, defaultEstimate: null, showInStatusBar: true, warnOnOverbook: true };
 const t = (iso: string) => Date.parse(iso);
 const opts = (o: Partial<CapacityOptions> = {}): CapacityOptions => ({
 	date: "2026-10-15", // Thursday
@@ -43,9 +43,11 @@ describe("computeDayCapacity", () => {
 		], opts());
 		expect(c.availableMinutes).toBe(480 - 120);
 	});
-	it("only counts selected busy calendars", () => {
-		const c = computeDayCapacity([event("2026-10-15T10:00:00Z", "2026-10-15T11:00:00Z")], opts({ planning: { ...planning, busyCalendars: ["other"] } }));
-		expect(c.availableMinutes).toBe(480);
+	it("skips events from excluded calendars and counts all others, including new ones", () => {
+		const excluded = opts({ planning: { ...planning, nonBusyCalendars: ["ics1"] } });
+		expect(computeDayCapacity([event("2026-10-15T10:00:00Z", "2026-10-15T11:00:00Z")], excluded).availableMinutes).toBe(480);
+		const other = opts({ planning: { ...planning, nonBusyCalendars: ["other"] } });
+		expect(computeDayCapacity([event("2026-10-15T10:00:00Z", "2026-10-15T11:00:00Z")], other).availableMinutes).toBe(420);
 	});
 	it("ignores timeblocks for availability", () => {
 		const tb = { ...event("2026-10-15T10:00:00Z", "2026-10-15T11:00:00Z"), kind: "timeblock" as const };

@@ -203,13 +203,19 @@ function shouldMigrateParentNoteTaskCreationDefault(
 function buildPlanningSettings(
 	loadedPlanning: LoadedSettingsData["planning"] | undefined
 ): PlanningSettings {
-	const merged: PlanningSettings = { ...DEFAULT_SETTINGS.planning, ...(loadedPlanning || {}) };
+	// busyCalendars was an unreleased include-list; it is dropped rather than migrated.
+	const { busyCalendars: _legacy, ...loaded } = (loadedPlanning || {}) as Partial<PlanningSettings> & {
+		busyCalendars?: unknown;
+	};
+	const merged: PlanningSettings = { ...DEFAULT_SETTINGS.planning, ...loaded };
+	// A corrupt data.json must not crash plugin load.
+	const workHours = Array.isArray(merged.workHours)
+		? merged.workHours
+		: DEFAULT_SETTINGS.planning.workHours;
 	return {
 		...merged,
-		workHours: (merged.workHours ?? DEFAULT_SETTINGS.planning.workHours).map((day) =>
-			day ? { ...day } : null
-		),
-		busyCalendars: Array.isArray(merged.busyCalendars) ? [...merged.busyCalendars] : null,
+		workHours: workHours.map((day) => (day ? { ...day } : null)),
+		nonBusyCalendars: Array.isArray(merged.nonBusyCalendars) ? [...merged.nonBusyCalendars] : [],
 	};
 }
 

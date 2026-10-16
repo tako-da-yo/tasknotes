@@ -734,6 +734,7 @@ export const en: TranslationTree = {
 				workHoursDesc: "Used to work out how much time is free each day.",
 				dayOff: "Off",
 				busyCalendars: "Calendars that make you busy",
+				busyCalendarsDesc: "Events from ticked calendars reduce your free time. Calendars you connect later count as busy until you untick them.",
 				allDayBusy: "Count all-day events as busy",
 				defaultEstimate: "Default estimate for tasks without one (minutes)",
 				defaultEstimateDesc: "Leave empty to show them as unestimated instead.",

@@ -36,11 +36,11 @@ export function computeDayCapacity(items: DayItem[], opts: CapacityOptions): Day
 		const window: Interval = { start: localTime(opts.date, hours.start), end };
 		window.start = Math.max(window.start, Math.min(opts.now, window.end));
 		if (window.end > window.start) {
-			const busySet = opts.planning.busyCalendars ? new Set(opts.planning.busyCalendars) : null;
+			const excluded = new Set(opts.planning.nonBusyCalendars);
 			const busy: Interval[] = [];
 			for (const item of items) {
 				if (item.kind !== "event") continue;
-				if (busySet && !busySet.has(item.sourceId ?? "")) continue;
+				if (item.sourceId && excluded.has(item.sourceId)) continue;
 				if (item.allDay) {
 					if (opts.planning.allDayEventsBusy) busy.push(window);
 					continue;

@@ -1884,6 +1884,10 @@
       "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
       "translation": "f97b53293d744d9f66328b6a418c5aa0af6accb1"
     },
+    "settings.features.planning.busyCalendarsDesc": {
+      "source": "f18408428950e98c71c27652acd5970b09eae919",
+      "translation": "074119d91425998b40eb1e9161ffb148d72c9f70"
+    },
     "settings.features.planning.allDayBusy": {
       "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
       "translation": "2804f3d0b66b96c2fad6dc21ad8839891570bee1"
@@ -11361,6 +11365,10 @@
     "settings.features.planning.busyCalendars": {
       "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
       "translation": "e47bd3bc659c7629d4b7158b8a43fc39c613d87c"
+    },
+    "settings.features.planning.busyCalendarsDesc": {
+      "source": "f18408428950e98c71c27652acd5970b09eae919",
+      "translation": "2485a5cb24cf5594c549596171752ee3eb4dcc45"
     },
     "settings.features.planning.allDayBusy": {
       "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
@@ -20840,6 +20848,10 @@
       "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
       "translation": "189931164286bfd03b7656b8fa16cf285f97e8d1"
     },
+    "settings.features.planning.busyCalendarsDesc": {
+      "source": "f18408428950e98c71c27652acd5970b09eae919",
+      "translation": "c3228ca09c01dfaa6092c79a9ff1aa41333d64ad"
+    },
     "settings.features.planning.allDayBusy": {
       "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
       "translation": "bdc7b9322c34c6b766987d8e2dd7ea6ac1563b96"
@@ -30317,6 +30329,10 @@
     "settings.features.planning.busyCalendars": {
       "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
       "translation": "188fa41325976d9c60cdb8b5bc54715e0580cf81"
+    },
+    "settings.features.planning.busyCalendarsDesc": {
+      "source": "f18408428950e98c71c27652acd5970b09eae919",
+      "translation": "58329f1c87bfee33986c705b7c13c78c2bb85ee4"
     },
     "settings.features.planning.allDayBusy": {
       "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
@@ -39796,6 +39812,10 @@
       "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
       "translation": "e3bec95a289439a34c2bbdc56946af943fe4934f"
     },
+    "settings.features.planning.busyCalendarsDesc": {
+      "source": "f18408428950e98c71c27652acd5970b09eae919",
+      "translation": "2793002b9a484159a556918e2abfbe2319858b81"
+    },
     "settings.features.planning.allDayBusy": {
       "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
       "translation": "24e696743d4cdc3aa097cbbc241a2d5676e6b2b3"
@@ -49273,6 +49293,10 @@
     "settings.features.planning.busyCalendars": {
       "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
       "translation": "9dc8a560494763c67c4b5b8638dcbf179c2e5a27"
+    },
+    "settings.features.planning.busyCalendarsDesc": {
+      "source": "f18408428950e98c71c27652acd5970b09eae919",
+      "translation": "be046529af4d0fd6b2b4bcac2689239a127129ba"
     },
     "settings.features.planning.allDayBusy": {
       "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
@@ -58752,6 +58776,10 @@
       "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
       "translation": "3f9b12cc59b3a2b2f56d8501575537d4c0519204"
     },
+    "settings.features.planning.busyCalendarsDesc": {
+      "source": "f18408428950e98c71c27652acd5970b09eae919",
+      "translation": "1eda641e03aa0df9550f5abd53d45e24eaeeb2c5"
+    },
     "settings.features.planning.allDayBusy": {
       "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",
       "translation": "ed14178088d7f50fc98278004ee1b17064c003d9"
@@ -68229,6 +68257,10 @@
     "settings.features.planning.busyCalendars": {
       "source": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
       "translation": "65d633d68ff35c5d724d0a3e667c23e7157f0c2d"
+    },
+    "settings.features.planning.busyCalendarsDesc": {
+      "source": "f18408428950e98c71c27652acd5970b09eae919",
+      "translation": "a934b99b1fd4d189e6861f1c3be67ff9a22d51a3"
     },
     "settings.features.planning.allDayBusy": {
       "source": "d59417c622a2e3cae0099169681b88e0a710b9b4",

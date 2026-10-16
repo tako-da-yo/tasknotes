@@ -29,22 +29,12 @@ export function isValidWorkRange(start: string, end: string): boolean {
 }
 
 /**
- * Returns the busy-calendar selection after ticking or unticking one calendar.
- * `null` means every calendar; selecting all of them collapses back to `null`.
+ * Returns the excluded-calendar list after ticking (busy) or unticking (not busy) one
+ * calendar. Only exclusions are stored, so calendars connected later count as busy.
  */
-export function toggleBusyCalendar(
-	current: string[] | null,
-	allIds: string[],
-	id: string,
-	checked: boolean
-): string[] | null {
-	const selected = current ?? allIds;
-	const next = checked
-		? selected.includes(id)
-			? [...selected]
-			: [...selected, id]
-		: selected.filter((existing) => existing !== id);
-	return allIds.every((existing) => next.includes(existing)) ? null : next;
+export function setCalendarBusy(excluded: string[], id: string, busy: boolean): string[] {
+	const rest = excluded.filter((existing) => existing !== id);
+	return busy ? rest : [...rest, id];
 }
 
 interface CalendarOption {
@@ -127,19 +117,20 @@ export function renderPlanningSettings(
 		const calendars = collectCalendars(plugin);
 		if (calendars.length > 0) {
 			group.addSetting((setting) => {
-				setting.setName(translate("settings.features.planning.busyCalendars"));
+				setting
+					.setName(translate("settings.features.planning.busyCalendars"))
+					.setDesc(translate("settings.features.planning.busyCalendarsDesc"));
 			});
-			const allIds = calendars.map((c) => c.id);
 			for (const calendar of calendars) {
 				group.addSetting((setting) => {
 					setting.setName(calendar.name).addToggle((toggle) => {
-						const selected = plugin.settings.planning.busyCalendars;
-						toggle.setValue(selected === null || selected.includes(calendar.id));
+						toggle.setValue(
+							!plugin.settings.planning.nonBusyCalendars.includes(calendar.id)
+						);
 						toggle.onChange((checked) => {
 							updatePlanning({
-								busyCalendars: toggleBusyCalendar(
-									plugin.settings.planning.busyCalendars,
-									allIds,
+								nonBusyCalendars: setCalendarBusy(
+									plugin.settings.planning.nonBusyCalendars,
 									calendar.id,
 									checked
 								),

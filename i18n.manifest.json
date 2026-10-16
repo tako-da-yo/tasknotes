@@ -470,6 +470,7 @@
   "settings.features.planning.workHoursDesc": "dcd9d1b000fc2dcccd8c167b8ecd76fa04d907af",
   "settings.features.planning.dayOff": "e3de5ab0ca4c69dbf00e86d2558843e8d806bb49",
   "settings.features.planning.busyCalendars": "0cbfdfb8947e75817d99ba632f39c7099401c7cc",
+  "settings.features.planning.busyCalendarsDesc": "f18408428950e98c71c27652acd5970b09eae919",
   "settings.features.planning.allDayBusy": "d59417c622a2e3cae0099169681b88e0a710b9b4",
   "settings.features.planning.defaultEstimate": "073e14143b1597a96079646ad62a2ca8ed83d4bd",
   "settings.features.planning.defaultEstimateDesc": "e2f2afadfeb9fb0ded472f6caa92746136a87723",

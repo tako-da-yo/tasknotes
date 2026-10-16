@@ -121,8 +121,9 @@ export interface WorkDayHours {
 export interface PlanningSettings {
 	// index 0 = Sunday … 6 = Saturday; null = day off
 	workHours: (WorkDayHours | null)[];
-	// event subscriptionIds (ICS id, "google-<id>", "microsoft-<id>"); null = all
-	busyCalendars: string[] | null;
+	// event subscriptionIds (ICS id, "google-<id>", "microsoft-<id>") whose events don't make
+	// you busy; calendars connected later count as busy
+	nonBusyCalendars: string[];
 	allDayEventsBusy: boolean;
 	// minutes
 	defaultEstimate: number | null;

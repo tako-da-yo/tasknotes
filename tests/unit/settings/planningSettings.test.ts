@@ -7,7 +7,7 @@ describe("planning and calibration settings", () => {
 		const nineToFive = { start: "09:00", end: "17:00" };
 		expect(settings.planning).toEqual({
 			workHours: [null, nineToFive, nineToFive, nineToFive, nineToFive, nineToFive, null],
-			busyCalendars: null,
+			nonBusyCalendars: [],
 			allDayEventsBusy: false,
 			defaultEstimate: null,
 			showInStatusBar: true,
@@ -31,14 +31,26 @@ describe("planning and calibration settings", () => {
 		expect(DEFAULT_SETTINGS.planning.workHours[0]).toBeNull();
 		expect(buildSettingsFromLoadedData(null).settings.planning.workHours[1]?.start).toBe("09:00");
 	});
-	it("copies saved busyCalendars and workHours", () => {
+	it("copies saved nonBusyCalendars and workHours", () => {
 		const saved = {
-			planning: { busyCalendars: ["google-a"], workHours: [null, { start: "07:00", end: "15:00" }, null, null, null, null, null] },
+			planning: { nonBusyCalendars: ["google-a"], workHours: [null, { start: "07:00", end: "15:00" }, null, null, null, null, null] },
 		};
 		const { settings } = buildSettingsFromLoadedData(saved as never);
-		expect(settings.planning.busyCalendars).toEqual(["google-a"]);
-		expect(settings.planning.busyCalendars).not.toBe(saved.planning.busyCalendars);
+		expect(settings.planning.nonBusyCalendars).toEqual(["google-a"]);
+		expect(settings.planning.nonBusyCalendars).not.toBe(saved.planning.nonBusyCalendars);
 		expect(settings.planning.workHours[1]).toEqual({ start: "07:00", end: "15:00" });
 		expect(settings.planning.workHours[1]).not.toBe(saved.planning.workHours[1]);
+	});
+	it("ignores a legacy busyCalendars list and an invalid nonBusyCalendars", () => {
+		const { settings } = buildSettingsFromLoadedData({
+			planning: { busyCalendars: ["google-a"], nonBusyCalendars: "ics1" },
+		} as never);
+		expect(settings.planning.nonBusyCalendars).toEqual([]);
+		expect(settings.planning).not.toHaveProperty("busyCalendars");
+	});
+	it("falls back to default work hours when saved work hours are not a list", () => {
+		const { settings } = buildSettingsFromLoadedData({ planning: { workHours: "9-5" } } as never);
+		expect(settings.planning.workHours).toEqual(DEFAULT_SETTINGS.planning.workHours);
+		expect(settings.planning.workHours).not.toBe(DEFAULT_SETTINGS.planning.workHours);
 	});
 });

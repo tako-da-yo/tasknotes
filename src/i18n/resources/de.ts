@@ -706,6 +706,7 @@ export const de: TranslationTree = {
 				workHoursDesc: "Wird verwendet, um zu berechnen, wie viel Zeit an jedem Tag frei ist.",
 				dayOff: "Frei",
 				busyCalendars: "Kalender, die dich als beschäftigt markieren",
+				busyCalendarsDesc: "Termine aus angehakten Kalendern verringern deine freie Zeit. Später verbundene Kalender zählen als beschäftigt, bis du sie abwählst.",
 				allDayBusy: "Ganztägige Termine als beschäftigt zählen",
 				defaultEstimate: "Standardschätzung für Aufgaben ohne Schätzung (Minuten)",
 				defaultEstimateDesc: "Leer lassen, um sie stattdessen als ungeschätzt anzuzeigen.",

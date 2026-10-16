@@ -706,6 +706,7 @@ export const ko: TranslationTree = {
 				workHoursDesc: "매일 남는 시간을 계산하는 데 사용됩니다.",
 				dayOff: "휴무",
 				busyCalendars: "바쁨으로 표시할 캘린더",
+				busyCalendarsDesc: "선택한 캘린더의 일정은 여유 시간에서 제외됩니다. 나중에 연결한 캘린더는 선택을 해제할 때까지 바쁨으로 계산됩니다.",
 				allDayBusy: "종일 일정을 바쁨으로 계산",
 				defaultEstimate: "추정치가 없는 작업의 기본 추정치 (분)",
 				defaultEstimateDesc: "비워 두면 추정되지 않은 작업으로 표시합니다.",

@@ -706,6 +706,7 @@ export const ja: TranslationTree = {
 				workHoursDesc: "各日の空き時間を計算するために使用します。",
 				dayOff: "休み",
 				busyCalendars: "予定ありとして扱うカレンダー",
+				busyCalendarsDesc: "チェックしたカレンダーの予定は空き時間から差し引かれます。後から接続したカレンダーは、チェックを外すまで予定ありとして扱われます。",
 				allDayBusy: "終日の予定を予定ありとして扱う",
 				defaultEstimate: "見積もりのないタスクのデフォルト見積もり（分）",
 				defaultEstimateDesc: "空欄にすると、未見積もりとして表示します。",

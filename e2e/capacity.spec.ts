@@ -112,7 +112,7 @@ test('calibrated planned time and free time in the status bar and Stats view', a
   await p.evaluate(async () => {
     const plugin = (window as any).app.plugins.plugins['tasknotes'];
     plugin.settings.calibration = { windowDays: 90, applyToPlanning: true };
-    plugin.settings.planning = { ...plugin.settings.planning, busyCalendars: null, defaultEstimate: null, showInStatusBar: true };
+    plugin.settings.planning = { ...plugin.settings.planning, nonBusyCalendars: [], defaultEstimate: null, showInStatusBar: true };
     await plugin.saveSettings();
   });
   const fixtures = await p.evaluate(async (date) => {

@@ -706,6 +706,7 @@ export const zh: TranslationTree = {
 				workHoursDesc: "用于计算每天有多少空闲时间。",
 				dayOff: "休息",
 				busyCalendars: "使你处于忙碌状态的日历",
+				busyCalendarsDesc: "勾选的日历中的事件会减少你的空闲时间。之后连接的日历在你取消勾选之前都算作忙碌。",
 				allDayBusy: "将全天事件计为忙碌",
 				defaultEstimate: "没有估算的任务的默认估算（分钟）",
 				defaultEstimateDesc: "留空则将其显示为未估算。",

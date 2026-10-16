@@ -429,7 +429,7 @@ export const DEFAULT_SETTINGS: TaskNotesSettings = {
 			{ start: "09:00", end: "17:00" },
 			null,
 		],
-		busyCalendars: null,
+		nonBusyCalendars: [],
 		allDayEventsBusy: false,
 		defaultEstimate: null,
 		showInStatusBar: true,

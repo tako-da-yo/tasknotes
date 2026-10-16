@@ -708,6 +708,7 @@ export const pt: TranslationTree = {
 				workHoursDesc: "Usado para calcular quanto tempo livre há em cada dia.",
 				dayOff: "Folga",
 				busyCalendars: "Calendários que deixam você ocupado",
+				busyCalendarsDesc: "Eventos dos calendários marcados reduzem seu tempo livre. Calendários conectados depois contam como ocupado até você desmarcá-los.",
 				allDayBusy: "Contar eventos de dia inteiro como ocupado",
 				defaultEstimate: "Estimativa padrão para tarefas sem estimativa (minutos)",
 				defaultEstimateDesc: "Deixe vazio para mostrá-las como sem estimativa.",

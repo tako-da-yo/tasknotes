@@ -3,7 +3,7 @@ import {
 	isValidWorkRange,
 	parseHHMM,
 	renderPlanningSettings,
-	toggleBusyCalendar,
+	setCalendarBusy,
 } from "../../../src/settings/tabs/features/planningSettings";
 import { DEFAULT_SETTINGS } from "../../../src/settings/defaults";
 import type TaskNotesPlugin from "../../../src/main";
@@ -34,19 +34,19 @@ describe("isValidWorkRange", () => {
 	});
 });
 
-describe("toggleBusyCalendar", () => {
-	const all = ["ics1", "google-a", "microsoft-b"];
-	it("turns null (all) into the explicit list minus the unticked calendar", () => {
-		expect(toggleBusyCalendar(null, all, "ics1", false)).toEqual(["google-a", "microsoft-b"]);
+describe("setCalendarBusy", () => {
+	it("excludes an unticked calendar", () => {
+		expect(setCalendarBusy([], "ics1", false)).toEqual(["ics1"]);
+		expect(setCalendarBusy(["ics1"], "ics1", false)).toEqual(["ics1"]);
 	});
-	it("adds a ticked calendar and returns null once all are selected", () => {
-		expect(toggleBusyCalendar(["google-a"], all, "ics1", true)).toEqual(["google-a", "ics1"]);
-		expect(toggleBusyCalendar(["google-a", "ics1"], all, "microsoft-b", true)).toBeNull();
+	it("removes a ticked calendar from the exclusions", () => {
+		expect(setCalendarBusy(["google-a", "ics1"], "ics1", true)).toEqual(["google-a"]);
+		expect(setCalendarBusy([], "ics1", true)).toEqual([]);
 	});
 	it("does not mutate the input", () => {
-		const current = ["google-a", "ics1"];
-		toggleBusyCalendar(current, all, "ics1", false);
-		expect(current).toEqual(["google-a", "ics1"]);
+		const current = ["google-a"];
+		setCalendarBusy(current, "ics1", false);
+		expect(current).toEqual(["google-a"]);
 	});
 });
 
@@ -120,11 +120,11 @@ describe("renderPlanningSettings", () => {
 		expect(container.textContent).toContain("microsoft-b");
 	});
 
-	it("unticking a calendar writes a new explicit list and invalidates services", () => {
+	it("unticking a calendar excludes only that calendar and invalidates services", () => {
 		const { plugin, settings, save } = setup();
 		const before = settings.planning;
 		named(toggles, "Team ICS")[0].fn(false as never);
-		expect(settings.planning.busyCalendars).toEqual(["google-a", "microsoft-b"]);
+		expect(settings.planning.nonBusyCalendars).toEqual(["ics1"]);
 		expect(settings.planning).not.toBe(before);
 		expect(save).toHaveBeenCalled();
 		expect(plugin.dayPlanService.invalidate).toHaveBeenCalled();
