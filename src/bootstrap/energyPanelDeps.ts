@@ -125,6 +125,7 @@ export function createEnergyPanelDeps(plugin: TaskNotesPlugin): EnergyPanelDeps 
 		openSettings: () => {
 			plugin.app.setting.open();
 			plugin.app.setting.openTabById(plugin.manifest.id);
+			plugin.settingTab?.openTab("task-properties", "property-context-groups");
 		},
 		t,
 		today: () => getTodayString(),

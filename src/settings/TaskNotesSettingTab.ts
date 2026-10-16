@@ -7,6 +7,7 @@ import {
 } from "obsidian";
 import TaskNotesPlugin from "../main";
 import { debounce, DebouncedFunction } from "./components/settingHelpers";
+import { setCardCollapsed } from "./components/CardComponent";
 import { renderGeneralTab } from "./tabs/generalTab";
 import { renderTaskPropertiesTab } from "./tabs/taskPropertiesTab";
 import { renderModalFieldsTab } from "./tabs/modalFieldsTab";
@@ -176,6 +177,21 @@ export class TaskNotesSettingTab extends PluginSettingTab {
 	private renderTabContent(tab: TabConfig, container: HTMLElement): void {
 		tab.renderFn(container, this.plugin, this.debouncedSave);
 		this.cardExpansionState.restore(container, tab.id);
+	}
+
+	/**
+	 * Show the settings tab `tabId` (e.g. "task-properties"); with `cardId`, expand that
+	 * card and scroll it into view. Call after Obsidian has opened this settings tab.
+	 */
+	openTab(tabId: string, cardId?: string): void {
+		this.switchTab(tabId);
+		if (!cardId) return;
+		const card = this.containerEl.querySelector<HTMLElement>(
+			`#settings-tab-${tabId} .tasknotes-settings__card[data-card-id="${cardId}"]`
+		);
+		if (!card) return;
+		setCardCollapsed(card, false);
+		card.scrollIntoView({ block: "start" });
 	}
 
 	private switchTab(tabId: string): void {
