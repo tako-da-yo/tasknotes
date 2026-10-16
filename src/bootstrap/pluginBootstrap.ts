@@ -25,6 +25,7 @@ import { TriageService } from "../services/TriageService";
 import { EstimateCalibrationService } from "../services/EstimateCalibrationService";
 import { DayPlanService } from "../services/DayPlanService";
 import { CapacityService } from "../services/CapacityService";
+import { EnergyService } from "../services/EnergyService";
 import { createDayPlanSources } from "./dayPlanSources";
 import { getTodayString } from "../utils/dateUtils";
 import { ViewStateManager } from "../services/ViewStateManager";
@@ -214,6 +215,11 @@ export async function initializeCoreServices(plugin: TaskNotesPlugin): Promise<v
 		getSettings: () => plugin.settings,
 		calibratedMinutes: (t) => plugin.estimateCalibrationService.calibratedMinutes(t),
 		now: () => Date.now(),
+	});
+	plugin.energyService = new EnergyService({
+		dayPlan: plugin.dayPlanService,
+		getSettings: () => plugin.settings,
+		calibratedMinutes: (t) => plugin.estimateCalibrationService.calibratedMinutes(t),
 	});
 	plugin.overbookNotifier = new OverbookNotifier({
 		getCapacity: (date) => plugin.capacityService.getDayCapacity(date),

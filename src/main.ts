@@ -49,6 +49,7 @@ import type { TriageService } from "./services/TriageService";
 import type { EstimateCalibrationService } from "./services/EstimateCalibrationService";
 import type { DayPlanService } from "./services/DayPlanService";
 import type { CapacityService } from "./services/CapacityService";
+import type { EnergyService } from "./services/EnergyService";
 import { datesTouchedByProperty, type OverbookNotifier } from "./ui/overbookNotice";
 import type { ViewPerformanceService } from "./services/ViewPerformanceService";
 import { AutoArchiveService } from "./services/AutoArchiveService";
@@ -168,6 +169,7 @@ export default class TaskNotesPlugin extends Plugin {
 	estimateCalibrationService!: EstimateCalibrationService;
 	dayPlanService!: DayPlanService;
 	capacityService!: CapacityService;
+	energyService!: EnergyService;
 	overbookNotifier!: OverbookNotifier;
 	viewStateManager: ViewStateManager;
 	projectSubtasksService: ProjectSubtasksService;
