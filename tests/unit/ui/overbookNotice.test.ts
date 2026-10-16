@@ -1,13 +1,13 @@
 import { OverbookNotifier, datesTouched } from "../../../src/ui/overbookNotice";
 
-const cap = (over: number) => ({
+const cap = (over: number, hasWorkHours = true) => ({
 	date: "2026-10-16",
 	availableMinutes: 60,
 	plannedMinutes: 60 + over,
 	overByMinutes: over,
 	unestimatedCount: 0,
 	tasks: [],
-	hasWorkHours: true,
+	hasWorkHours,
 });
 
 describe("OverbookNotifier", () => {
@@ -22,6 +22,7 @@ describe("OverbookNotifier", () => {
 			formatDay: () => "Friday",
 			t: (_k, p) => `${p!.day} ${p!.over}`,
 			fmt: (m) => `${m}m`,
+			today: () => "2026-10-15",
 		});
 	beforeEach(() => {
 		notify.mockClear();
@@ -43,6 +44,60 @@ describe("OverbookNotifier", () => {
 		await make(30, false).check(["2026-10-16"]);
 		expect(notify).not.toHaveBeenCalled();
 	});
+	it("stays quiet on days without work hours", async () => {
+		const n = new OverbookNotifier({
+			getCapacity: async () => cap(30, false),
+			enabled: () => true,
+			notify,
+			now: () => now,
+			formatDay: () => "Friday",
+			t: (_k, p) => `${p!.day} ${p!.over}`,
+			fmt: (m) => `${m}m`,
+			today: () => "2026-10-15",
+		});
+		await n.check(["2026-10-16"]);
+		expect(notify).not.toHaveBeenCalled();
+	});
+	it("skips past days without computing their capacity", async () => {
+		const getCapacity = jest.fn(async () => cap(30));
+		const n = new OverbookNotifier({
+			getCapacity,
+			enabled: () => true,
+			notify,
+			now: () => now,
+			formatDay: () => "Friday",
+			t: (_k, p) => `${p!.day} ${p!.over}`,
+			fmt: (m) => `${m}m`,
+			today: () => "2026-10-15",
+		});
+		await n.check(["2026-10-14"]);
+		expect(getCapacity).not.toHaveBeenCalled();
+		expect(notify).not.toHaveBeenCalled();
+		await n.check(["2026-10-15"]);
+		expect(notify).toHaveBeenCalledTimes(1);
+	});
+	it("shows one notice when two checks for the same date overlap", async () => {
+		const n = make(30);
+		await Promise.all([n.check(["2026-10-16"]), n.check(["2026-10-16"])]);
+		expect(notify).toHaveBeenCalledTimes(1);
+	});
+	it("does not rate-limit a date that turned out not to be over", async () => {
+		let over = 0;
+		const n = new OverbookNotifier({
+			getCapacity: async () => cap(over),
+			enabled: () => true,
+			notify,
+			now: () => now,
+			formatDay: () => "Friday",
+			t: (_k, p) => `${p!.day} ${p!.over}`,
+			fmt: (m) => `${m}m`,
+			today: () => "2026-10-15",
+		});
+		await n.check(["2026-10-16"]);
+		over = 30;
+		await n.check(["2026-10-16"]);
+		expect(notify).toHaveBeenCalledTimes(1);
+	});
 	it("does not reject when capacity cannot be computed", async () => {
 		const n = new OverbookNotifier({
 			getCapacity: async () => {
@@ -54,6 +109,7 @@ describe("OverbookNotifier", () => {
 			formatDay: () => "Friday",
 			t: (_k, p) => `${p!.day} ${p!.over}`,
 			fmt: (m) => `${m}m`,
+			today: () => "2026-10-15",
 		});
 		await expect(n.check(["2026-10-16"])).resolves.toBeUndefined();
 		expect(notify).not.toHaveBeenCalled();

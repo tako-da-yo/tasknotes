@@ -223,6 +223,7 @@ export async function initializeCoreServices(plugin: TaskNotesPlugin): Promise<v
 		formatDay: (date) => weekdayName(date),
 		t: (key, params) => plugin.i18n.translate(key, params),
 		fmt: formatTime,
+		today: () => getTodayString(),
 	});
 	plugin.taskService.setAutoArchiveService(plugin.autoArchiveService);
 }
