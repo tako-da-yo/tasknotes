@@ -851,6 +851,24 @@ export class ICSSubscriptionService extends EventEmitter {
 		return allEvents;
 	}
 
+	/**
+	 * Cached events of enabled subscriptions that getAllEvents() would return,
+	 * without triggering any fetch or refresh. For background readers that must
+	 * not cause network requests.
+	 */
+	getCachedEvents(): ICSEvent[] {
+		const now = Date.now();
+		const events: ICSEvent[] = [];
+		for (const subscription of this.subscriptions) {
+			if (!subscription.enabled) continue;
+			const cache = this.cache.get(subscription.id);
+			if (!cache) continue;
+			const gracePeriodEnd = new Date(cache.expires).getTime() + this.CACHE_GRACE_PERIOD;
+			if (now < gracePeriodEnd) events.push(...cache.events);
+		}
+		return events;
+	}
+
 	getEventsForSubscription(subscriptionId: string): ICSEvent[] {
 		const cache = this.cache.get(subscriptionId);
 		if (!cache) {

@@ -68,7 +68,8 @@ export function createDayPlanSources(plugin: TaskNotesPlugin): DayPlanSourceBund
 	const sources: DayPlanSources = {
 		getTasks: () => plugin.cacheManager.getAllCachedTasks(),
 		getEvents: (): ICSEvent[] => [
-			...(plugin.icsSubscriptionService?.getAllEvents() ?? []),
+			// getCachedEvents: getAllEvents() would start fetches for missing or stale feeds.
+			...(plugin.icsSubscriptionService?.getCachedEvents() ?? []),
 			...(plugin.googleCalendarService?.getAllEvents() ?? []),
 			...(plugin.microsoftCalendarService?.getAllEvents() ?? []),
 		],

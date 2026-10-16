@@ -25,9 +25,9 @@ describe("DayPlanService", () => {
 		const listener = jest.fn();
 		svc.onChange(listener);
 		svc.invalidate();
-		expect(listener).toHaveBeenCalled();
 		await svc.getDayItems("2026-10-15");
 		expect(getTimeblocks).toHaveBeenCalledTimes(4);
+		expect(listener).toHaveBeenCalled();
 	});
 
 	it("reads tasks and events once per range call", async () => {
@@ -55,7 +55,28 @@ describe("DayPlanService", () => {
 		const off = svc.onChange(listener);
 		off();
 		svc.invalidate();
+		await Promise.resolve();
 		expect(listener).not.toHaveBeenCalled();
+	});
+
+	it("coalesces invalidations in one tick into a single notification", async () => {
+		const getTimeblocks = jest.fn(async () => []);
+		const svc = new DayPlanService(sources({ getTimeblocks }));
+		const listener = jest.fn();
+		svc.onChange(listener);
+		await svc.getDayItems("2026-10-15");
+		svc.invalidate();
+		svc.invalidate();
+		svc.invalidate();
+		expect(listener).not.toHaveBeenCalled();
+		// The cache is cleared synchronously even though notification is deferred.
+		await svc.getDayItems("2026-10-15");
+		expect(getTimeblocks).toHaveBeenCalledTimes(2);
+		await Promise.resolve();
+		expect(listener).toHaveBeenCalledTimes(1);
+		svc.invalidate();
+		await Promise.resolve();
+		expect(listener).toHaveBeenCalledTimes(2);
 	});
 
 	it("does not cache a failed timeblock read", async () => {

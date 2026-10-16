@@ -33,6 +33,7 @@ function addDays(date: string, days: number): string {
 export class DayPlanService {
 	private cache = new Map<string, Promise<DayItem[]>>();
 	private listeners = new Set<() => void>();
+	private notifyPending = false;
 
 	constructor(private readonly sources: DayPlanSources) {}
 
@@ -51,9 +52,18 @@ export class DayPlanService {
 		return new Map(dates.map((d, i) => [d, results[i]]));
 	}
 
+	/**
+	 * Clears the cache immediately. Listeners are notified once on the next
+	 * microtask, however many invalidations happen in the current tick.
+	 */
 	invalidate(): void {
 		this.cache.clear();
-		for (const listener of [...this.listeners]) listener();
+		if (this.notifyPending) return;
+		this.notifyPending = true;
+		queueMicrotask(() => {
+			this.notifyPending = false;
+			for (const listener of [...this.listeners]) listener();
+		});
 	}
 
 	onChange(listener: () => void): () => void {
