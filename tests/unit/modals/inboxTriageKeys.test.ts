@@ -7,21 +7,44 @@ import {
 describe("keyToAction", () => {
 	const opts = { hasSomeday: true, targetIsInput: false };
 	it("maps number and letter keys", () => {
-		expect(keyToAction("1", opts)).toBe("today");
-		expect(keyToAction("2", opts)).toBe("schedule");
-		expect(keyToAction("3", opts)).toBe("someday");
-		expect(keyToAction("4", opts)).toBe("done");
-		expect(keyToAction("5", opts)).toBe("drop");
-		expect(keyToAction("e", opts)).toBe("edit");
-		expect(keyToAction("ArrowRight", opts)).toBe("skip");
-		expect(keyToAction("s", opts)).toBe("skip");
-		expect(keyToAction("z", opts)).toBe("undo");
+		expect(keyToAction({ key: "1" }, opts)).toBe("today");
+		expect(keyToAction({ key: "2" }, opts)).toBe("schedule");
+		expect(keyToAction({ key: "3" }, opts)).toBe("someday");
+		expect(keyToAction({ key: "4" }, opts)).toBe("done");
+		expect(keyToAction({ key: "5" }, opts)).toBe("drop");
+		expect(keyToAction({ key: "e" }, opts)).toBe("edit");
+		expect(keyToAction({ key: "ArrowRight" }, opts)).toBe("skip");
+		expect(keyToAction({ key: "s" }, opts)).toBe("skip");
+		expect(keyToAction({ key: "z" }, opts)).toBe("undo");
 	});
 	it("ignores keys typed into inputs", () => {
-		expect(keyToAction("1", { ...opts, targetIsInput: true })).toBeNull();
+		expect(keyToAction({ key: "1" }, { ...opts, targetIsInput: true })).toBeNull();
 	});
 	it("hides someday when not configured", () => {
-		expect(keyToAction("3", { ...opts, hasSomeday: false })).toBeNull();
+		expect(keyToAction({ key: "3" }, { ...opts, hasSomeday: false })).toBeNull();
+		expect(keyToAction({ key: '"', code: "Digit3" }, { ...opts, hasSomeday: false })).toBeNull();
+	});
+	it("falls back to the physical digit key on AZERTY layouts", () => {
+		expect(keyToAction({ key: "&", code: "Digit1" }, opts)).toBe("today");
+		expect(keyToAction({ key: "é", code: "Digit2" }, opts)).toBe("schedule");
+		expect(keyToAction({ key: '"', code: "Digit3" }, opts)).toBe("someday");
+		expect(keyToAction({ key: "'", code: "Digit4" }, opts)).toBe("done");
+		expect(keyToAction({ key: "(", code: "Digit5" }, opts)).toBe("drop");
+	});
+	it("accepts Shift+digit and numpad digits", () => {
+		expect(keyToAction({ key: "1", code: "Digit1", shiftKey: true }, opts)).toBe("today");
+		expect(keyToAction({ key: "End", code: "Numpad1" }, opts)).toBe("today");
+		expect(keyToAction({ key: "5", code: "Numpad5" }, opts)).toBe("drop");
+	});
+	it("does not map other physical keys", () => {
+		expect(keyToAction({ key: "à", code: "Digit0" }, opts)).toBeNull();
+		expect(keyToAction({ key: "-", code: "Digit6" }, opts)).toBeNull();
+	});
+	it("rejects Ctrl, Meta and Alt combinations", () => {
+		expect(keyToAction({ key: "1", code: "Digit1", ctrlKey: true }, opts)).toBeNull();
+		expect(keyToAction({ key: "1", code: "Digit1", metaKey: true }, opts)).toBeNull();
+		expect(keyToAction({ key: "&", code: "Digit1", altKey: true }, opts)).toBeNull();
+		expect(keyToAction({ key: "z", ctrlKey: true }, opts)).toBeNull();
 	});
 });
 

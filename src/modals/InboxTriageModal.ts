@@ -32,15 +32,48 @@ const KEY_MAP: Record<string, TriageKey> = {
 	z: "undo",
 };
 
+/** Physical digit keys, used when the layout does not produce a digit (e.g. AZERTY). */
+const CODE_MAP: Record<string, TriageKey> = {
+	Digit1: "today",
+	Digit2: "schedule",
+	Digit3: "someday",
+	Digit4: "done",
+	Digit5: "drop",
+	Numpad1: "today",
+	Numpad2: "schedule",
+	Numpad3: "someday",
+	Numpad4: "done",
+	Numpad5: "drop",
+};
+
+export interface TriageKeyInput {
+	key: string;
+	code?: string;
+	ctrlKey?: boolean;
+	metaKey?: boolean;
+	altKey?: boolean;
+	shiftKey?: boolean;
+}
+
+function lookup(map: Record<string, TriageKey>, value: string | undefined): TriageKey | null {
+	return value !== undefined && Object.prototype.hasOwnProperty.call(map, value)
+		? map[value]
+		: null;
+}
+
+/**
+ * Maps a key press to a triage action. `key` is matched first; for digits the physical
+ * `code` is a fallback so the 1–5 shortcuts also work where digits need Shift (AZERTY).
+ * Ctrl, Meta and Alt combinations are left to Obsidian.
+ */
 export function keyToAction(
-	key: string,
+	input: TriageKeyInput,
 	opts: { hasSomeday: boolean; targetIsInput: boolean }
 ): TriageKey | null {
 	if (opts.targetIsInput) return null;
-	const normalized = key.length === 1 ? key.toLowerCase() : key;
-	const action = Object.prototype.hasOwnProperty.call(KEY_MAP, normalized)
-		? KEY_MAP[normalized]
-		: null;
+	if (input.ctrlKey || input.metaKey || input.altKey) return null;
+	const normalized = input.key.length === 1 ? input.key.toLowerCase() : input.key;
+	const action = lookup(KEY_MAP, normalized) ?? lookup(CODE_MAP, input.code);
 	if (action === "someday" && !opts.hasSomeday) return null;
 	return action;
 }
@@ -112,7 +145,8 @@ export class InboxTriageModal extends Modal {
 
 	onOpen(): void {
 		this.modalEl.addClass("tn-triage-modal");
-		this.scope.register([], null, (evt) => this.onKey(evt));
+		// null modifiers: also receive Shift+digit (AZERTY); keyToAction rejects Ctrl/Meta/Alt.
+		this.scope.register(null, null, (evt) => this.onKey(evt));
 		this.render();
 	}
 
@@ -134,12 +168,11 @@ export class InboxTriageModal extends Modal {
 	}
 
 	private onKey(evt: KeyboardEvent): boolean {
-		if (evt.ctrlKey || evt.metaKey || evt.altKey) return true;
 		const target = evt.target instanceof HTMLElement ? evt.target : null;
 		const targetIsInput = !!target?.closest(
 			"input, textarea, select, [contenteditable='true']"
 		);
-		const action = keyToAction(evt.key, { hasSomeday: this.hasSomeday(), targetIsInput });
+		const action = keyToAction(evt, { hasSomeday: this.hasSomeday(), targetIsInput });
 		if (!action) return true;
 		evt.preventDefault();
 		void this.handle(action);
