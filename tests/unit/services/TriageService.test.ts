@@ -113,4 +113,13 @@ describe("TriageService", () => {
 		expect(deps.store.get("a.md")).toMatchObject({ status: "open", scheduled: "2026-10-01" });
 		expect(svc.hasFreshStartSnapshot()).toBe(false);
 	});
+	it("runFreshStartFor only touches the given tasks", async () => {
+		const deps = makeDeps([
+			TaskFactory.createTask({ path: "a.md", scheduled: "2026-10-01" }),
+			TaskFactory.createTask({ path: "b.md", scheduled: "2026-10-01" }),
+		]);
+		const svc = new TriageService(deps);
+		expect(await svc.runFreshStartFor([deps.store.get("a.md")!], false)).toBe(1);
+		expect(deps.store.get("b.md")!.scheduled).toBe("2026-10-01");
+	});
 });

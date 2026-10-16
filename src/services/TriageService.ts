@@ -86,8 +86,16 @@ export class TriageService {
 		clearDue: boolean,
 		onProgress?: (done: number, total: number) => void
 	): Promise<number> {
+		return this.runFreshStartFor(this.deps.getTasks(), clearDue, onProgress);
+	}
+
+	/** Fresh start limited to `tasks`; the snapshot (and so undo) covers only these tasks. */
+	async runFreshStartFor(
+		tasks: TaskInfo[],
+		clearDue: boolean,
+		onProgress?: (done: number, total: number) => void
+	): Promise<number> {
 		const settings = this.deps.getSettings();
-		const tasks = this.deps.getTasks();
 		const entries = planFreshStart(tasks, {
 			today: this.deps.today(),
 			clearDue,

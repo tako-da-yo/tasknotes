@@ -2414,6 +2414,14 @@ export const en: TranslationTree = {
 		agendaLoadingFailed: "Error loading agenda. Please try refreshing.",
 		// Stats View notices
 		statsLoadingFailed: "Error loading project details.",
+		freshStart: {
+			done: "Fresh start: {count} tasks reset.",
+			undo: "Undo",
+			undone: "Fresh start undone: {restored} restored, {skipped} skipped because they changed.",
+			progress: "Resetting {done} of {total}…",
+			failed: "Fresh start failed. Some tasks may not have been reset.",
+			undoFailed: "Could not undo the fresh start.",
+		},
 	},
 	commands: {
 		openCalendarView: "Open mini calendar view",
@@ -2462,8 +2470,22 @@ export const en: TranslationTree = {
 		createOrOpenTaskWithTracking: "Create or open task and start time tracking",
 		rolloverOverdueScheduledTasks: "Postpone overdue scheduled tasks to today",
 		triageInbox: "Triage inbox",
+		freshStart: "Fresh start: reset overdue tasks",
+		undoFreshStart: "Undo last fresh start",
 	},
 	modals: {
+		freshStart: {
+			title: "Fresh start",
+			summary: "{total} tasks are overdue.",
+			scheduledLine:
+				"{count} have past scheduled dates. These will be cleared and the tasks moved to your inbox.",
+			scheduledLineNoInbox: "{count} have past scheduled dates. These will be cleared.",
+			dueLine: "{count} have past due dates.",
+			clearDue: "Also clear past due dates",
+			clearDueHint: "Off by default, because due dates are often real deadlines.",
+			confirm: "Fresh start",
+			nothing: "Nothing is overdue.",
+		},
 		inboxTriage: {
 			title: "Triage inbox",
 			progress: "{current} of {total}",
@@ -2996,6 +3018,9 @@ export const en: TranslationTree = {
 		},
 	},
 	contextMenus: {
+		batch: {
+			freshStart: "Fresh start selected",
+		},
 		task: {
 			status: "Status",
 			statusSelected: "✓ {label}",

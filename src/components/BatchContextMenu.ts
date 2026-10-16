@@ -22,6 +22,7 @@ import {
 	removeTagsFromList,
 } from "../utils/taskTagList";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
+import { runFreshStartFlow } from "../commands/freshStartFlow";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Components/BatchContextMenu" });
 
@@ -120,6 +121,15 @@ export class BatchContextMenu {
 
 			const submenu = getSubmenu(item);
 			this.addDateOptions(submenu, "scheduled");
+		});
+
+		// Fresh start for the selection only
+		this.menu.addItem((item) => {
+			item.setTitle(this.t("contextMenus.batch.freshStart"));
+			item.setIcon("rotate-ccw");
+			item.onClick(async () => {
+				await this.batchFreshStart();
+			});
 		});
 
 		this.menu.addSeparator();
@@ -346,6 +356,17 @@ export class BatchContextMenu {
 		await this.batchUpdateTags((task) =>
 			mode === "add" ? addTagsToList(task.tags, tags) : removeTagsFromList(task.tags, tags)
 		);
+	}
+
+	private async batchFreshStart(): Promise<void> {
+		const { plugin, selectedPaths, onUpdate } = this.options;
+		const tasks: TaskInfo[] = [];
+		for (const path of selectedPaths) {
+			const task = await plugin.cacheManager.getTaskInfo(path);
+			if (task) tasks.push(task);
+		}
+		await runFreshStartFlow(plugin, tasks);
+		onUpdate?.();
 	}
 
 	private async copySelectedTasks(format: TaskCopyFormat): Promise<void> {

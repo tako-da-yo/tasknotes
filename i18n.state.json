@@ -5512,6 +5512,12 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "48b6b25d3c2bb80e22f5335afb721ceadd0d7570"
     },
+    "notices.freshStart.done": null,
+    "notices.freshStart.undo": null,
+    "notices.freshStart.undone": null,
+    "notices.freshStart.progress": null,
+    "notices.freshStart.failed": null,
+    "notices.freshStart.undoFailed": null,
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "1fcab5b50d9d6ffb720cb3996503072939afb6fb"
@@ -5685,6 +5691,17 @@
       "translation": "641022fdb5e4fe9391c040c2c9683738ec18ec56"
     },
     "commands.triageInbox": null,
+    "commands.freshStart": null,
+    "commands.undoFreshStart": null,
+    "modals.freshStart.title": null,
+    "modals.freshStart.summary": null,
+    "modals.freshStart.scheduledLine": null,
+    "modals.freshStart.scheduledLineNoInbox": null,
+    "modals.freshStart.dueLine": null,
+    "modals.freshStart.clearDue": null,
+    "modals.freshStart.clearDueHint": null,
+    "modals.freshStart.confirm": null,
+    "modals.freshStart.nothing": null,
     "modals.inboxTriage.title": null,
     "modals.inboxTriage.progress": null,
     "modals.inboxTriage.captured": null,
@@ -7097,6 +7114,7 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "a585e67357bb975b0bde78889eda116c12035fca"
     },
+    "contextMenus.batch.freshStart": null,
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "bae7d5be70820ed56467bd9a63744e23b47bd711"
@@ -14647,6 +14665,12 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "26a44336cb5d53991dcb84a5a03b3cfd0617bd9d"
     },
+    "notices.freshStart.done": null,
+    "notices.freshStart.undo": null,
+    "notices.freshStart.undone": null,
+    "notices.freshStart.progress": null,
+    "notices.freshStart.failed": null,
+    "notices.freshStart.undoFailed": null,
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "11e514cf3b3274eef09162a3f5f038b414ef62ce"
@@ -14820,6 +14844,17 @@
       "translation": "dfb197d44003b01e388d18d203804b109ffb52e3"
     },
     "commands.triageInbox": null,
+    "commands.freshStart": null,
+    "commands.undoFreshStart": null,
+    "modals.freshStart.title": null,
+    "modals.freshStart.summary": null,
+    "modals.freshStart.scheduledLine": null,
+    "modals.freshStart.scheduledLineNoInbox": null,
+    "modals.freshStart.dueLine": null,
+    "modals.freshStart.clearDue": null,
+    "modals.freshStart.clearDueHint": null,
+    "modals.freshStart.confirm": null,
+    "modals.freshStart.nothing": null,
     "modals.inboxTriage.title": null,
     "modals.inboxTriage.progress": null,
     "modals.inboxTriage.captured": null,
@@ -16232,6 +16267,7 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "6e06ced83b07191f9aa272f95c5ae0aa66c4d775"
     },
+    "contextMenus.batch.freshStart": null,
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "87cf2a843e2e43a05edc326327fca7e1388bc196"
@@ -23782,6 +23818,12 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "09852e0da7c31a9514d323655cc1d542e5686cc4"
     },
+    "notices.freshStart.done": null,
+    "notices.freshStart.undo": null,
+    "notices.freshStart.undone": null,
+    "notices.freshStart.progress": null,
+    "notices.freshStart.failed": null,
+    "notices.freshStart.undoFailed": null,
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "93ef7fa71140819bcd7ff92af774e58e45d12867"
@@ -23955,6 +23997,17 @@
       "translation": "2a6f9d87e5ea5c98a846f17d561a5558aee14a55"
     },
     "commands.triageInbox": null,
+    "commands.freshStart": null,
+    "commands.undoFreshStart": null,
+    "modals.freshStart.title": null,
+    "modals.freshStart.summary": null,
+    "modals.freshStart.scheduledLine": null,
+    "modals.freshStart.scheduledLineNoInbox": null,
+    "modals.freshStart.dueLine": null,
+    "modals.freshStart.clearDue": null,
+    "modals.freshStart.clearDueHint": null,
+    "modals.freshStart.confirm": null,
+    "modals.freshStart.nothing": null,
     "modals.inboxTriage.title": null,
     "modals.inboxTriage.progress": null,
     "modals.inboxTriage.captured": null,
@@ -25367,6 +25420,7 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "c1c141ca8e94f5eddf40cfe81c1e1fa84281fd9f"
     },
+    "contextMenus.batch.freshStart": null,
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "659499f38a5647a0d307be6f23a5d367a167fbf7"
@@ -32917,6 +32971,12 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "61b41c1dd943fe52777bba6de2d9319415e10cac"
     },
+    "notices.freshStart.done": null,
+    "notices.freshStart.undo": null,
+    "notices.freshStart.undone": null,
+    "notices.freshStart.progress": null,
+    "notices.freshStart.failed": null,
+    "notices.freshStart.undoFailed": null,
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "238d8e03e2d389757ad2ceb689cd167abb51e3c1"
@@ -33090,6 +33150,17 @@
       "translation": "885709e454f1004cac119f0a31c2f5f5d2e73d21"
     },
     "commands.triageInbox": null,
+    "commands.freshStart": null,
+    "commands.undoFreshStart": null,
+    "modals.freshStart.title": null,
+    "modals.freshStart.summary": null,
+    "modals.freshStart.scheduledLine": null,
+    "modals.freshStart.scheduledLineNoInbox": null,
+    "modals.freshStart.dueLine": null,
+    "modals.freshStart.clearDue": null,
+    "modals.freshStart.clearDueHint": null,
+    "modals.freshStart.confirm": null,
+    "modals.freshStart.nothing": null,
     "modals.inboxTriage.title": null,
     "modals.inboxTriage.progress": null,
     "modals.inboxTriage.captured": null,
@@ -34502,6 +34573,7 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "f1f005c426eabb2a2655b7036c5432784809f48b"
     },
+    "contextMenus.batch.freshStart": null,
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "0a409cee235c7f6064ee84956d3cbb8e45973ca3"
@@ -42052,6 +42124,12 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "c8625579fc944285c07ca887e8faae76b67c3fa1"
     },
+    "notices.freshStart.done": null,
+    "notices.freshStart.undo": null,
+    "notices.freshStart.undone": null,
+    "notices.freshStart.progress": null,
+    "notices.freshStart.failed": null,
+    "notices.freshStart.undoFailed": null,
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "6cd04430fcec0c1d96fa2f3736006caba6d747b4"
@@ -42225,6 +42303,17 @@
       "translation": "a398bc3fee1e815294881cb86084db6efffa1703"
     },
     "commands.triageInbox": null,
+    "commands.freshStart": null,
+    "commands.undoFreshStart": null,
+    "modals.freshStart.title": null,
+    "modals.freshStart.summary": null,
+    "modals.freshStart.scheduledLine": null,
+    "modals.freshStart.scheduledLineNoInbox": null,
+    "modals.freshStart.dueLine": null,
+    "modals.freshStart.clearDue": null,
+    "modals.freshStart.clearDueHint": null,
+    "modals.freshStart.confirm": null,
+    "modals.freshStart.nothing": null,
     "modals.inboxTriage.title": null,
     "modals.inboxTriage.progress": null,
     "modals.inboxTriage.captured": null,
@@ -43637,6 +43726,7 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "4916045bdd910c71da5581eaea1559f913abcb4e"
     },
+    "contextMenus.batch.freshStart": null,
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "2926977ba7c9d5465edab324771625f471dc3020"
@@ -51187,6 +51277,12 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "c51835b42aa14031bd826c499db40da5564802db"
     },
+    "notices.freshStart.done": null,
+    "notices.freshStart.undo": null,
+    "notices.freshStart.undone": null,
+    "notices.freshStart.progress": null,
+    "notices.freshStart.failed": null,
+    "notices.freshStart.undoFailed": null,
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "c57f02a044a8482162ee24c12ac0f083f0e5fb8e"
@@ -51360,6 +51456,17 @@
       "translation": "854b064c78143187ceda78369040021eeed6f3c2"
     },
     "commands.triageInbox": null,
+    "commands.freshStart": null,
+    "commands.undoFreshStart": null,
+    "modals.freshStart.title": null,
+    "modals.freshStart.summary": null,
+    "modals.freshStart.scheduledLine": null,
+    "modals.freshStart.scheduledLineNoInbox": null,
+    "modals.freshStart.dueLine": null,
+    "modals.freshStart.clearDue": null,
+    "modals.freshStart.clearDueHint": null,
+    "modals.freshStart.confirm": null,
+    "modals.freshStart.nothing": null,
     "modals.inboxTriage.title": null,
     "modals.inboxTriage.progress": null,
     "modals.inboxTriage.captured": null,
@@ -52772,6 +52879,7 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "c1823bffc7e50ff1475cd3cef744867ecfbe3a06"
     },
+    "contextMenus.batch.freshStart": null,
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "bae7d5be70820ed56467bd9a63744e23b47bd711"
@@ -60322,6 +60430,12 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "7afc60e9ff44743b1bcb9bdd34f85f02e68892b3"
     },
+    "notices.freshStart.done": null,
+    "notices.freshStart.undo": null,
+    "notices.freshStart.undone": null,
+    "notices.freshStart.progress": null,
+    "notices.freshStart.failed": null,
+    "notices.freshStart.undoFailed": null,
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "d0a77d204fd475eecb26b93a0dd2069a177dd85b"
@@ -60495,6 +60609,17 @@
       "translation": "b75667f91c66134ba3fb5a45fcb4c210d8778648"
     },
     "commands.triageInbox": null,
+    "commands.freshStart": null,
+    "commands.undoFreshStart": null,
+    "modals.freshStart.title": null,
+    "modals.freshStart.summary": null,
+    "modals.freshStart.scheduledLine": null,
+    "modals.freshStart.scheduledLineNoInbox": null,
+    "modals.freshStart.dueLine": null,
+    "modals.freshStart.clearDue": null,
+    "modals.freshStart.clearDueHint": null,
+    "modals.freshStart.confirm": null,
+    "modals.freshStart.nothing": null,
     "modals.inboxTriage.title": null,
     "modals.inboxTriage.progress": null,
     "modals.inboxTriage.captured": null,
@@ -61907,6 +62032,7 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "05f4c95497558b9f9663dbb6f4bb973e43dc3763"
     },
+    "contextMenus.batch.freshStart": null,
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "f7f293b5c58cf8a1508319db3e59577951e44343"
@@ -69457,6 +69583,12 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "d2b2d104c6e11ddb838a308e4d3fca580956083c"
     },
+    "notices.freshStart.done": null,
+    "notices.freshStart.undo": null,
+    "notices.freshStart.undone": null,
+    "notices.freshStart.progress": null,
+    "notices.freshStart.failed": null,
+    "notices.freshStart.undoFailed": null,
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "2ff9c940fa568cb7744b11cb1964e2ba41282620"
@@ -69630,6 +69762,17 @@
       "translation": "1b0fee896b2122eaf22be533e1183db56e0ffd88"
     },
     "commands.triageInbox": null,
+    "commands.freshStart": null,
+    "commands.undoFreshStart": null,
+    "modals.freshStart.title": null,
+    "modals.freshStart.summary": null,
+    "modals.freshStart.scheduledLine": null,
+    "modals.freshStart.scheduledLineNoInbox": null,
+    "modals.freshStart.dueLine": null,
+    "modals.freshStart.clearDue": null,
+    "modals.freshStart.clearDueHint": null,
+    "modals.freshStart.confirm": null,
+    "modals.freshStart.nothing": null,
     "modals.inboxTriage.title": null,
     "modals.inboxTriage.progress": null,
     "modals.inboxTriage.captured": null,
@@ -71042,6 +71185,7 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "27e4e4024761094df2de591bf54ec7c61974e4df"
     },
+    "contextMenus.batch.freshStart": null,
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "62e951a692ff8f4e8a0e9049d726f42685237d0d"

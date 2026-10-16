@@ -4,6 +4,7 @@ import type { TranslatedCommandDefinition } from "./types";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { showConfirmationModal } from "../modals/ConfirmationModal";
 import { InboxTriageModal } from "../modals/InboxTriageModal";
+import { runFreshStartFlow, runUndoFreshStart } from "./freshStartFlow";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Commands/TaskNotesCommands" });
 
@@ -236,6 +237,21 @@ export function createTaskNotesCommandDefinitions(
 					return;
 				}
 				new InboxTriageModal(ctx.app, ctx).open();
+			},
+		},
+		{
+			id: "fresh-start",
+			nameKey: "commands.freshStart",
+			callback: (ctx) => runFreshStartFlow(ctx),
+		},
+		{
+			id: "undo-fresh-start",
+			nameKey: "commands.undoFreshStart",
+			// checkCallback receives no plugin argument, so use the factory's plugin.
+			checkCallback: (checking) => {
+				if (!plugin.triageService.hasFreshStartSnapshot()) return false;
+				if (!checking) void runUndoFreshStart(plugin);
+				return true;
 			},
 		},
 		{
