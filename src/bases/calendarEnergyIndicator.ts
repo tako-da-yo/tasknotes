@@ -4,11 +4,11 @@ import type { EnergyService } from "../services/EnergyService";
 
 type TFn = (k: string, p?: Record<string, string | number>) => string;
 
-/** FullCalendar's exclusive [currentStart, currentEnd) as an inclusive local "yyyy-MM-dd" range. */
-export function toLocalDateRange(currentStart: Date, currentEnd: Date): { start: string; end: string } {
-	const lastDay = new Date(currentEnd);
+/** A FullCalendar range with an exclusive end, as an inclusive local "yyyy-MM-dd" range. */
+export function toLocalDateRange(rangeStart: Date, rangeEnd: Date): { start: string; end: string } {
+	const lastDay = new Date(rangeEnd);
 	lastDay.setDate(lastDay.getDate() - 1);
-	return { start: format(currentStart, "yyyy-MM-dd"), end: format(lastDay, "yyyy-MM-dd") };
+	return { start: format(rangeStart, "yyyy-MM-dd"), end: format(lastDay, "yyyy-MM-dd") };
 }
 
 function setLevel(el: HTMLElement, level: number): void {
@@ -39,33 +39,41 @@ export function renderEnergyGlyph(host: HTMLElement, energy: DayEnergy | undefin
 }
 
 export class CalendarEnergyIndicators {
-	private hosts = new Map<string, HTMLElement>();
+	// A date can be on screen more than once (e.g. a day header and a cell), so keep
+	// every host per date; registering never displaces another host.
+	private hosts = new Map<string, Set<HTMLElement>>();
 
 	constructor(private readonly deps: { energy: EnergyService; t: TFn; onClick: (date: string) => void }) {}
 
 	register(date: string, host: HTMLElement): void {
-		this.hosts.set(date, host);
+		const hosts = this.hosts.get(date);
+		if (hosts) hosts.add(host);
+		else this.hosts.set(date, new Set([host]));
 	}
 
 	async refresh(start: string, end: string): Promise<void> {
 		if (!this.deps.energy.isActive()) {
-			for (const host of this.hosts.values()) renderEnergyGlyph(host, undefined, this.deps.t);
+			for (const hosts of this.hosts.values()) {
+				for (const host of hosts) renderEnergyGlyph(host, undefined, this.deps.t);
+			}
 			return;
 		}
 		const range = await this.deps.energy.getEnergyInRange(start, end);
-		for (const [date, host] of this.hosts) {
+		for (const [date, hosts] of this.hosts) {
 			if (date < start || date > end) continue;
-			renderEnergyGlyph(host, range.get(date), this.deps.t, this.deps.onClick);
+			for (const host of hosts) renderEnergyGlyph(host, range.get(date), this.deps.t, this.deps.onClick);
 		}
 	}
 
 	/**
-	 * Drop hosts outside the visible range. FullCalendar fires `datesSet` after the
-	 * new cells' didMount hooks, so clearing there would drop the fresh hosts.
+	 * Drop hosts that left the DOM. FullCalendar reuses cells across navigation without
+	 * re-firing didMount, and fires `datesSet` after new cells register, so neither
+	 * clearing nor pruning by date is safe there.
 	 */
-	prune(start: string, end: string): void {
-		for (const date of [...this.hosts.keys()]) {
-			if (date < start || date > end) this.hosts.delete(date);
+	prune(): void {
+		for (const [date, hosts] of this.hosts) {
+			for (const host of hosts) if (!host.isConnected) hosts.delete(host);
+			if (hosts.size === 0) this.hosts.delete(date);
 		}
 	}
 

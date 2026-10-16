@@ -58,16 +58,42 @@ describe("CalendarEnergyIndicators", () => {
 		await ind.refresh("2026-10-15", "2026-10-15");
 		expect(getEnergyInRange).not.toHaveBeenCalled();
 	});
-	it("prune drops hosts outside the range so they are not rendered", async () => {
-		const getEnergyInRange = jest.fn(async () => new Map([["2026-10-15", energy(40)], ["2026-11-01", energy(80)]]));
+	it("keeps a connected host through prune and refreshes it after a range change", async () => {
+		const getEnergyInRange = jest.fn(async () => new Map([["2026-10-01", energy(40)]]));
 		const ind = new CalendarEnergyIndicators({ energy: { getEnergyInRange, isActive: () => true } as never, t, onClick: jest.fn() });
-		const old = document.createElement("div");
-		const kept = document.createElement("div");
-		ind.register("2026-10-15", kept);
-		ind.register("2026-11-01", old);
-		ind.prune("2026-10-01", "2026-10-31");
-		await ind.refresh("2026-10-01", "2026-11-30");
-		expect(kept.querySelector(".tn-energy-glyph")).not.toBeNull();
-		expect(old.querySelector(".tn-energy-glyph")).toBeNull();
+		const reused = document.createElement("div");
+		document.body.appendChild(reused);
+		ind.register("2026-10-01", reused);
+		// September's rendered range ends on Oct 10; October reuses that cell without re-mounting it.
+		await ind.refresh("2026-08-30", "2026-10-10");
+		reused.querySelector(".tn-energy-glyph")?.remove();
+		ind.prune();
+		await ind.refresh("2026-09-27", "2026-11-07");
+		expect(reused.querySelector(".tn-energy-glyph")).not.toBeNull();
+		reused.remove();
+	});
+	it("prunes disconnected hosts", async () => {
+		const getEnergyInRange = jest.fn(async () => new Map([["2026-10-15", energy(40)]]));
+		const ind = new CalendarEnergyIndicators({ energy: { getEnergyInRange, isActive: () => true } as never, t, onClick: jest.fn() });
+		const gone = document.createElement("div");
+		ind.register("2026-10-15", gone);
+		ind.prune();
+		await ind.refresh("2026-10-01", "2026-10-31");
+		expect(gone.querySelector(".tn-energy-glyph")).toBeNull();
+	});
+	it("does not let a second host for the same date displace a connected host", async () => {
+		const getEnergyInRange = jest.fn(async () => new Map([["2026-10-31", energy(40)]]));
+		const ind = new CalendarEnergyIndicators({ energy: { getEnergyInRange, isActive: () => true } as never, t, onClick: jest.fn() });
+		const real = document.createElement("div");
+		const duplicate = document.createElement("div");
+		document.body.append(real, duplicate);
+		ind.register("2026-10-31", real);
+		ind.register("2026-10-31", duplicate);
+		ind.register("2026-10-31", real);
+		await ind.refresh("2026-10-01", "2026-10-31");
+		expect(real.querySelectorAll(".tn-energy-glyph")).toHaveLength(1);
+		expect(duplicate.querySelector(".tn-energy-glyph")).not.toBeNull();
+		real.remove();
+		duplicate.remove();
 	});
 });

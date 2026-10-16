@@ -177,6 +177,8 @@ type Calendar = {
 		type?: string;
 		currentStart: Date;
 		currentEnd: Date;
+		activeStart: Date;
+		activeEnd: Date;
 	};
 };
 
@@ -656,11 +658,11 @@ export class CalendarView extends BasesViewBase {
 		this.energyUnsubscribe = energy.onChange(() => this.refreshEnergyIndicators());
 	}
 
-	/** The visible days as an inclusive range of local "yyyy-MM-dd" dates. */
+	/** The rendered days (incl. adjacent-month days) as an inclusive local "yyyy-MM-dd" range. */
 	private getEnergyRange(): { start: string; end: string } | null {
 		const view = this.calendar?.view;
 		if (!view) return null;
-		return toLocalDateRange(view.currentStart, view.currentEnd);
+		return toLocalDateRange(view.activeStart, view.activeEnd);
 	}
 
 	private refreshEnergyIndicators(): void {
@@ -1463,8 +1465,9 @@ export class CalendarView extends BasesViewBase {
 				if (arg.view.type.startsWith("timeGrid")) this.registerEnergyHost(arg.date, arg.el);
 			},
 			dayCellDidMount: (arg) => {
-				// Time-grid days show the glyph in the column header instead.
-				if (arg.view.type.startsWith("timeGrid")) return;
+				// Time-grid days show the glyph in the column header instead. Disabled cells
+				// (year view's hidden placeholders for other months' days) get none.
+				if (arg.view.type.startsWith("timeGrid") || arg.isDisabled) return;
 				const host = arg.el.querySelector<HTMLElement>(".fc-daygrid-day-top");
 				if (host) this.registerEnergyHost(arg.date, host);
 			},
@@ -1532,9 +1535,9 @@ export class CalendarView extends BasesViewBase {
 				this.scheduleRefreshButtonIconUpdate();
 			},
 			datesSet: (arg) => {
-				// datesSet fires after the new cells' didMount hooks, so prune rather than clear.
-				const range = toLocalDateRange(arg.view.currentStart, arg.view.currentEnd);
-				this.energyIndicators?.prune(range.start, range.end);
+				// datesSet fires after the new cells' didMount hooks, and reused cells do not
+				// re-register, so only drop hosts that left the DOM.
+				this.energyIndicators?.prune();
 				this.applyLayoutClasses();
 				this.scheduleTodayColumnWidthUpdate();
 				this.scheduleDailyNoteHeaderLinkUpdate();
