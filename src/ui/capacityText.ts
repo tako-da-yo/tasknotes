@@ -1,4 +1,5 @@
 import type { DayCapacity } from "../core/dayCapacity";
+import type { DayEnergy } from "../core/energyModel";
 
 /**
  * Status bar text for a day's capacity, or null when the item should be hidden.
@@ -22,4 +23,10 @@ export function capacityPopoverSummary(
 	fmt: (m: number) => string
 ): string {
 	return capacityStatusText(c, t, fmt) ?? t("capacity.empty");
+}
+
+/** Battery prefix for the status bar ("🔋40% · "), or "" when the day has no energy signal. */
+export function energyPrefix(e: Pick<DayEnergy, "projected" | "level" | "hasSignal"> | null): string {
+	if (!e?.hasSignal) return "";
+	return `${e.level === "low" ? "🪫" : "🔋"}${e.projected}% · `;
 }

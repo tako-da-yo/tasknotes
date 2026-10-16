@@ -5,6 +5,8 @@ import { inboxMoveBlock, type DayCapacity } from "../core/dayCapacity";
 import { formatTime } from "../utils/helpers";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { capacityPopoverSummary } from "./capacityText";
+import { EnergyPanel, type EnergyPanelDeps } from "../components/EnergyPanel";
+import { createEnergyPanelDeps } from "../bootstrap/energyPanelDeps";
 
 const logger = createTaskNotesLogger({ tag: "UI/CapacityPopover" });
 
@@ -66,6 +68,30 @@ class CapacityModal extends Modal {
 		const { contentEl, plugin, capacity } = this;
 		const t = (key: string, params?: Record<string, string | number>) => this.t(key, params);
 		contentEl.empty();
+
+		if (plugin.energyService?.isActive()) {
+			const base = createEnergyPanelDeps(plugin);
+			const deps: EnergyPanelDeps = {
+				...base,
+				// The capacity summary sits right below, so the panel skips its own capacity line.
+				getCapacityLine: undefined,
+				// Navigating away closes the popover, like opening a task row does.
+				openItem: (item) => {
+					this.closeAndNavigate();
+					base.openItem(item);
+				},
+				openSettings: () => {
+					this.closeAndNavigate();
+					base.openSettings();
+				},
+			};
+			const panel = new EnergyPanel(
+				contentEl.createDiv({ cls: "tn-capacity-popover__energy" }),
+				deps,
+				{ date: capacity.date, navigable: false }
+			);
+			void panel.render();
+		}
 
 		contentEl.createDiv({
 			cls: "tn-capacity-popover__summary",

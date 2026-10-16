@@ -1,4 +1,4 @@
-import { capacityPopoverSummary, capacityStatusText } from "../../../src/ui/capacityText";
+import { capacityPopoverSummary, capacityStatusText, energyPrefix } from "../../../src/ui/capacityText";
 
 const t = (k: string, p: Record<string, string | number> = {}) =>
 	({ "capacity.status": `Today: ${p.planned} planned · ${p.free} free`, "capacity.over": ` · ${p.over} over`,
@@ -31,4 +31,11 @@ describe("capacityPopoverSummary", () => {
 		expect(capacityPopoverSummary({ ...base, availableMinutes: 200, plannedMinutes: 100, overByMinutes: 0 }, t, fmt))
 			.toBe("Today: 100m planned · 200m free");
 	});
+});
+
+describe("energyPrefix", () => {
+	const e = (projected: number, level: string, hasSignal = true) => ({ projected, level, hasSignal }) as never;
+	it("is empty without signal", () => { expect(energyPrefix(null)).toBe(""); expect(energyPrefix(e(70, "high", false))).toBe(""); });
+	it("shows the battery level", () => { expect(energyPrefix(e(40, "ok"))).toBe("🔋40% · "); });
+	it("uses the low battery glyph", () => { expect(energyPrefix(e(10, "low"))).toBe("🪫10% · "); });
 });

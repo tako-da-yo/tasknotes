@@ -14,7 +14,7 @@ import { formatPomodoroTime } from "../utils/pomodoroTime";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { getTodayString } from "../utils/dateUtils";
 import { formatTime } from "../utils/helpers";
-import { capacityStatusText } from "./capacityText";
+import { capacityStatusText, energyPrefix } from "./capacityText";
 import { openCapacityPopover } from "./CapacityPopover";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Services/StatusBarService" });
@@ -99,11 +99,7 @@ export class StatusBarService {
 
 	private ensureCapacityStatusBarElement(): void {
 		// Mobile has no status bar; the capacity command still works there.
-		if (
-			Platform.isMobile ||
-			this.capacityStatusBarElement ||
-			!this.plugin.settings.planning?.showInStatusBar
-		) {
+		if (Platform.isMobile || this.capacityStatusBarElement || !this.isCapacityItemWanted()) {
 			return;
 		}
 
@@ -124,6 +120,19 @@ export class StatusBarService {
 		});
 		this.hideElement(el);
 		this.capacityStatusBarElement = el;
+	}
+
+	private showsCapacityText(): boolean {
+		return !!this.plugin.settings.planning?.showInStatusBar;
+	}
+
+	private isEnergyActive(): boolean {
+		return !!this.plugin.energyService?.isActive();
+	}
+
+	/** The item carries capacity text, the battery level, or both. */
+	private isCapacityItemWanted(): boolean {
+		return this.showsCapacityText() || this.isEnergyActive();
 	}
 
 	private registerCapacityRefresh(): void {
@@ -156,7 +165,9 @@ export class StatusBarService {
 		if (Platform.isMobile) return;
 		const seq = ++this.capacityUpdateSeq;
 
-		if (!this.plugin.settings.planning?.showInStatusBar) {
+		const showCapacity = this.showsCapacityText();
+		const energyActive = this.isEnergyActive();
+		if (!showCapacity && !energyActive) {
 			if (this.capacityStatusBarElement) this.hideElement(this.capacityStatusBarElement);
 			return;
 		}
@@ -165,27 +176,38 @@ export class StatusBarService {
 		// Subscribe lazily so nothing runs while the item is turned off.
 		this.registerCapacityRefresh();
 		const el = this.capacityStatusBarElement;
-		if (!el || !this.plugin.capacityService) {
+		if (!el) {
 			return;
 		}
 
 		try {
-			const capacity = await this.plugin.capacityService.getDayCapacity(getTodayString());
+			const today = getTodayString();
+			const capacityService = showCapacity ? this.plugin.capacityService : undefined;
+			const [capacity, energy] = await Promise.all([
+				capacityService ? capacityService.getDayCapacity(today) : Promise.resolve(null),
+				energyActive ? this.plugin.energyService.getDayEnergy(today) : Promise.resolve(null),
+			]);
 			// A newer refresh started while this one was waiting; let it win.
 			if (seq !== this.capacityUpdateSeq || !this.capacityStatusBarElement) return;
 
-			const text = capacityStatusText(
-				capacity,
-				(key, params) => this.plugin.i18n.translate(key, params),
-				formatTime
-			);
-			if (text === null) {
+			const capacityText = capacity
+				? capacityStatusText(
+						capacity,
+						(key, params) => this.plugin.i18n.translate(key, params),
+						formatTime
+					)
+				: null;
+			const prefix = energyPrefix(energy);
+			if (!capacityText && !prefix) {
 				this.hideElement(el);
 				return;
 			}
 
+			// With only the battery, drop the trailing separator.
+			const text = capacityText ? prefix + capacityText : prefix.replace(/ · $/, "");
 			el.setText(text);
-			el.toggleClass("is-over", capacity.overByMinutes > 0);
+			el.toggleClass("is-over", !!capacityText && (capacity?.overByMinutes ?? 0) > 0);
+			el.toggleClass("is-low-energy", !!prefix && energy?.level === "low");
 			this.showElement(el);
 		} catch (error) {
 			tasknotesLogger.error("Error updating capacity status bar:", {
