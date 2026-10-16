@@ -1108,6 +1108,23 @@ export const pt: TranslationTree = {
 			statusCard: {
 				valuesHeader: "Valores de Status"
 			},
+			triage: {
+				heading: "Caixa de entrada",
+				enable: "Ativar caixa de entrada",
+				enableDesc: "Adiciona os status caixa de entrada e algum dia e o comando de triagem da caixa de entrada.",
+				enabledNotice: "Caixa de entrada ativada. Para adicionar as visualizações caixa de entrada e algum dia à sua base de tarefas, use o botão “Atualizar arquivos padrão”.",
+				inboxStatus: "Status da caixa de entrada",
+				somedayStatus: "Status algum dia",
+				none: "Nenhum",
+				captureToInbox: "Capturar na caixa de entrada",
+				captureToInboxDesc: "Novas tarefas sem data ou status vão para a caixa de entrada.",
+				inboxLabel: "Caixa de entrada",
+				somedayLabel: "Algum dia",
+				defaultsBlockCapture: "Novas tarefas recebem uma {fields} padrão, então não irão para a caixa de entrada.",
+				defaultsFieldScheduled: "data agendada",
+				defaultsFieldDue: "data de vencimento",
+				defaultsSetNone: "Definir como nenhuma",
+			},
 			priorityCard: {
 				valuesHeader: "Valores de Prioridade"
 			},
@@ -2234,6 +2251,15 @@ export const pt: TranslationTree = {
 		}
 	},
 	notices: {
+		freshStart: {
+			done: "Recomeço: {count} tarefas redefinidas.",
+			nothingChanged: "Recomeço: nenhuma tarefa precisava ser redefinida.",
+			undo: "Desfazer",
+			undone: "Recomeço desfeito: {restored} restauradas, {skipped} ignoradas porque foram alteradas.",
+			progress: "Redefinindo {done} de {total}…",
+			failed: "O recomeço falhou. Algumas tarefas podem não ter sido redefinidas.",
+			undoFailed: "Não foi possível desfazer o recomeço.",
+		},
 		languageChanged: "Idioma alterado para {language}.",
 		releaseAvailable: {
 			message: "TaskNotes {version} está disponível.",
@@ -2261,6 +2287,9 @@ export const pt: TranslationTree = {
 		statsLoadingFailed: "Erro ao carregar detalhes do projeto."
 	},
 	commands: {
+		triageInbox: "Triar caixa de entrada",
+		freshStart: "Recomeço: redefinir tarefas atrasadas",
+		undoFreshStart: "Desfazer último recomeço",
 		openCalendarView: "Abrir visualização de mini calendário",
 		openAdvancedCalendarView: "Abrir visualização de calendário",
 		openTasksView: "Abrir visualização de tarefas",
@@ -2308,6 +2337,43 @@ export const pt: TranslationTree = {
 		addSubtaskToCurrentNote: "Adicionar subtarefa à nota atual"
 	},
 	modals: {
+		freshStart: {
+			title: "Recomeço",
+			summary: "{total} tarefas estão atrasadas.",
+			scheduledLine: "{count} têm datas agendadas passadas. Elas serão removidas e as tarefas movidas para sua caixa de entrada.",
+			scheduledLineNoInbox: "{count} têm datas agendadas passadas. Elas serão removidas.",
+			dueLine: "{count} têm datas de vencimento passadas.",
+			clearDue: "Remover também as datas de vencimento passadas",
+			clearDueHint: "Desativado por padrão, porque datas de vencimento costumam ser prazos reais.",
+			confirm: "Recomeçar",
+			nothing: "Nada está atrasado.",
+		},
+		inboxTriage: {
+			title: "Triar caixa de entrada",
+			progress: "{current} de {total}",
+			captured: "Capturada {age}",
+			actions: {
+				today: "Hoje",
+				schedule: "Agendar…",
+				someday: "Algum dia",
+				done: "Já feita",
+				drop: "Descartar",
+				edit: "Editar",
+				skip: "Pular",
+				undo: "Desfazer",
+			},
+			schedule: {
+				tomorrow: "Amanhã",
+				weekend: "Este fim de semana",
+				nextWeek: "Próxima semana",
+				pick: "Escolher data…",
+			},
+			empty: "Sua caixa de entrada está vazia.",
+			capture: "Capturar uma tarefa",
+			finished: "Caixa de entrada limpa. {sorted} organizadas, {skipped} puladas.",
+			notReady: "A caixa de entrada não está configurada. Escolha um status de caixa de entrada em configurações → propriedades da tarefa → status.",
+			failed: "Não foi possível atualizar a tarefa.",
+		},
 		deviceCode: {
 			title: "Autorização do Google Agenda",
 			instructions: {
@@ -2805,6 +2871,9 @@ export const pt: TranslationTree = {
 		}
 	},
 	contextMenus: {
+		batch: {
+			freshStart: "Recomeço para selecionadas",
+		},
 		task: {
 			status: "Status",
 			statusSelected: "✓ {label}",

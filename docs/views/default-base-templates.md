@@ -253,6 +253,33 @@ Used by the **Tasks** command to display filtered task views.
 This template includes multiple views: Manual Order, All Tasks, Not Blocked, Today, Overdue, This Week, and Unscheduled. The Manual Order view groups by status and sorts by the manual-order property so drag-to-reorder works immediately in new bases. The default property name is `tasknotes_manual_order`. The remaining views keep their existing date- and urgency-focused defaults. Each filtered view (except All Tasks) filters for incomplete tasks, handling both recurring and non-recurring tasks. For recurring tasks, the generated filters normalize `complete_instances` values before checking today's date, and missing values are treated as "not completed today" so newly created recurring tasks still appear by default. The "Not Blocked" view additionally filters for tasks that are ready to work on (no incomplete blocking dependencies).
 The default views cover common review horizons and can be kept, removed, or cloned with modified filters.
 
+When an inbox status is set (see [Inbox and triage](../features/task-management.md#inbox-and-triage)), the template also adds an **Inbox** view, and a **Someday** view when a someday status is set too. Each one shows tasks with that status that are not archived. Inbox is sorted by creation time and Someday by last modified time, oldest first. Existing task bases get these views when you use **Update default files**. The example below assumes the inbox is off, so it doesn't include them. With the default `inbox` status and archive tag, the Inbox view looks like this:
+
+```yaml
+  - type: tasknotesTaskList
+    name: "Inbox"
+    filters:
+      and:
+        - status == "inbox"
+        - file.hasTag("archived") != true
+    order:
+      - status
+      - priority
+      - due
+      - scheduled
+      - projects
+      - contexts
+      - tags
+      - blockedBy
+      - file.name
+      - recurrence
+      - complete_instances
+      - file.tasks
+    sort:
+      - column: file.ctime
+        direction: ASC
+```
+
 ```yaml
 # All Tasks
 

@@ -1106,6 +1106,23 @@ export const ja: TranslationTree = {
 			statusCard: {
 				valuesHeader: "ステータス値"
 			},
+			triage: {
+				heading: "インボックス",
+				enable: "インボックスを有効化",
+				enableDesc: "インボックスといつかやるのステータスと、インボックス整理コマンドを追加します。",
+				enabledNotice: "インボックスを有効にしました。タスクベースにインボックスといつかやるのビューを追加するには、「デフォルトファイルを更新」ボタンを使用してください。",
+				inboxStatus: "インボックスのステータス",
+				somedayStatus: "いつかやるのステータス",
+				none: "なし",
+				captureToInbox: "インボックスに取り込む",
+				captureToInboxDesc: "日付やステータスのない新しいタスクはインボックスに入ります。",
+				inboxLabel: "インボックス",
+				somedayLabel: "いつかやる",
+				defaultsBlockCapture: "新しいタスクにはデフォルトの{fields}が設定されるため、インボックスには入りません。",
+				defaultsFieldScheduled: "予定日",
+				defaultsFieldDue: "期限日",
+				defaultsSetNone: "なしに設定",
+			},
 			priorityCard: {
 				valuesHeader: "優先度値"
 			},
@@ -2232,6 +2249,15 @@ export const ja: TranslationTree = {
 		}
 	},
 	notices: {
+		freshStart: {
+			done: "仕切り直し：{count}件のタスクをリセットしました。",
+			nothingChanged: "仕切り直し：リセットが必要なタスクはありませんでした。",
+			undo: "元に戻す",
+			undone: "仕切り直しを元に戻しました：{restored}件を復元、{skipped}件は変更されていたためスキップしました。",
+			progress: "{total}件中{done}件をリセット中…",
+			failed: "仕切り直しに失敗しました。一部のタスクがリセットされていない可能性があります。",
+			undoFailed: "仕切り直しを元に戻せませんでした。",
+		},
 		languageChanged: "言語を{language}に変更しました。",
 		releaseAvailable: {
 			message: "TaskNotes {version} が利用可能です。",
@@ -2259,6 +2285,9 @@ export const ja: TranslationTree = {
 		statsLoadingFailed: "プロジェクト詳細の読み込みエラー。"
 	},
 	commands: {
+		triageInbox: "インボックスを整理",
+		freshStart: "仕切り直し：期限超過のタスクをリセット",
+		undoFreshStart: "最後の仕切り直しを元に戻す",
 		openCalendarView: "ミニカレンダービューを開く",
 		openAdvancedCalendarView: "カレンダービューを開く",
 		openTasksView: "タスクビューを開く",
@@ -2306,6 +2335,43 @@ export const ja: TranslationTree = {
 		addSubtaskToCurrentNote: "現在のノートにサブタスクを追加"
 	},
 	modals: {
+		freshStart: {
+			title: "仕切り直し",
+			summary: "{total}件のタスクが期限超過です。",
+			scheduledLine: "{count}件は予定日が過ぎています。予定日を消去し、タスクをインボックスに移動します。",
+			scheduledLineNoInbox: "{count}件は予定日が過ぎています。予定日を消去します。",
+			dueLine: "{count}件は期限日が過ぎています。",
+			clearDue: "過ぎた期限日も消去する",
+			clearDueHint: "期限日は実際の締め切りであることが多いため、デフォルトではオフです。",
+			confirm: "仕切り直す",
+			nothing: "期限超過のものはありません。",
+		},
+		inboxTriage: {
+			title: "インボックスを整理",
+			progress: "{current} / {total}",
+			captured: "{age}に取り込み",
+			actions: {
+				today: "今日",
+				schedule: "予定…",
+				someday: "いつかやる",
+				done: "完了済み",
+				drop: "破棄",
+				edit: "編集",
+				skip: "スキップ",
+				undo: "元に戻す",
+			},
+			schedule: {
+				tomorrow: "明日",
+				weekend: "今週末",
+				nextWeek: "来週",
+				pick: "日付を選択…",
+			},
+			empty: "インボックスは空です。",
+			capture: "タスクを取り込む",
+			finished: "インボックスが空になりました。{sorted}件を整理、{skipped}件をスキップしました。",
+			notReady: "インボックスが設定されていません。設定 → タスクプロパティ → ステータスでインボックスのステータスを選択してください。",
+			failed: "タスクを更新できませんでした。",
+		},
 		deviceCode: {
 			title: "Googleカレンダー認証",
 			instructions: {
@@ -2803,6 +2869,9 @@ export const ja: TranslationTree = {
 		}
 	},
 	contextMenus: {
+		batch: {
+			freshStart: "選択したタスクを仕切り直し",
+		},
 		task: {
 			status: "ステータス",
 			statusSelected: "✓ {label}",

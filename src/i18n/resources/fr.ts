@@ -1106,6 +1106,23 @@ export const fr: TranslationTree = {
 			statusCard: {
 				valuesHeader: "Valeurs de statut"
 			},
+			triage: {
+				heading: "Boîte de réception",
+				enable: "Activer la boîte de réception",
+				enableDesc: "Ajoute les statuts boîte de réception et un jour, ainsi que la commande de tri de la boîte de réception.",
+				enabledNotice: "Boîte de réception activée. Pour ajouter les vues boîte de réception et un jour à votre base de tâches, utilisez le bouton « Mettre à jour les fichiers par défaut ».",
+				inboxStatus: "Statut boîte de réception",
+				somedayStatus: "Statut un jour",
+				none: "Aucun",
+				captureToInbox: "Capturer dans la boîte de réception",
+				captureToInboxDesc: "Les nouvelles tâches sans date ni statut vont dans la boîte de réception.",
+				inboxLabel: "Boîte de réception",
+				somedayLabel: "Un jour",
+				defaultsBlockCapture: "Les nouvelles tâches reçoivent une {fields} par défaut, elles n'iront donc pas dans la boîte de réception.",
+				defaultsFieldScheduled: "date planifiée",
+				defaultsFieldDue: "date d'échéance",
+				defaultsSetNone: "Définir sur aucune",
+			},
 			priorityCard: {
 				valuesHeader: "Valeurs de priorité"
 			},
@@ -2232,6 +2249,15 @@ export const fr: TranslationTree = {
 		}
 	},
 	notices: {
+		freshStart: {
+			done: "Nouveau départ : {count} tâches réinitialisées.",
+			nothingChanged: "Nouveau départ : aucune tâche à réinitialiser.",
+			undo: "Annuler",
+			undone: "Nouveau départ annulé : {restored} restaurées, {skipped} ignorées car modifiées entre-temps.",
+			progress: "Réinitialisation de {done} sur {total}…",
+			failed: "Le nouveau départ a échoué. Certaines tâches n'ont peut-être pas été réinitialisées.",
+			undoFailed: "Impossible d'annuler le nouveau départ.",
+		},
 		languageChanged: "Langue changée pour {language}.",
 		releaseAvailable: {
 			message: "TaskNotes {version} est disponible.",
@@ -2259,6 +2285,9 @@ export const fr: TranslationTree = {
 		statsLoadingFailed: "Erreur lors du chargement des détails du projet."
 	},
 	commands: {
+		triageInbox: "Trier la boîte de réception",
+		freshStart: "Nouveau départ : réinitialiser les tâches en retard",
+		undoFreshStart: "Annuler le dernier nouveau départ",
 		openCalendarView: "Ouvrir la vue mini calendrier",
 		openAdvancedCalendarView: "Ouvrir la vue calendrier",
 		openTasksView: "Ouvrir la vue tâches",
@@ -2306,6 +2335,43 @@ export const fr: TranslationTree = {
 		addSubtaskToCurrentNote: "Ajouter une sous-tâche à la note actuelle"
 	},
 	modals: {
+		freshStart: {
+			title: "Nouveau départ",
+			summary: "{total} tâches sont en retard.",
+			scheduledLine: "{count} ont des dates planifiées passées. Elles seront effacées et les tâches déplacées dans votre boîte de réception.",
+			scheduledLineNoInbox: "{count} ont des dates planifiées passées. Elles seront effacées.",
+			dueLine: "{count} ont des dates d'échéance passées.",
+			clearDue: "Effacer aussi les dates d'échéance passées",
+			clearDueHint: "Désactivé par défaut, car les dates d'échéance sont souvent de vraies échéances.",
+			confirm: "Nouveau départ",
+			nothing: "Rien n'est en retard.",
+		},
+		inboxTriage: {
+			title: "Trier la boîte de réception",
+			progress: "{current} sur {total}",
+			captured: "Capturée {age}",
+			actions: {
+				today: "Aujourd'hui",
+				schedule: "Planifier…",
+				someday: "Un jour",
+				done: "Déjà faite",
+				drop: "Abandonner",
+				edit: "Modifier",
+				skip: "Passer",
+				undo: "Annuler",
+			},
+			schedule: {
+				tomorrow: "Demain",
+				weekend: "Ce week-end",
+				nextWeek: "La semaine prochaine",
+				pick: "Choisir une date…",
+			},
+			empty: "Votre boîte de réception est vide.",
+			capture: "Capturer une tâche",
+			finished: "Boîte de réception vide. {sorted} triées, {skipped} passées.",
+			notReady: "La boîte de réception n'est pas configurée. Choisissez un statut de boîte de réception dans paramètres → propriétés des tâches → statuts.",
+			failed: "Impossible de mettre à jour la tâche.",
+		},
 		deviceCode: {
 			title: "Autorisation Google Agenda",
 			instructions: {
@@ -2803,6 +2869,9 @@ export const fr: TranslationTree = {
 		}
 	},
 	contextMenus: {
+		batch: {
+			freshStart: "Nouveau départ pour la sélection",
+		},
 		task: {
 			status: "Statut",
 			statusSelected: "Statut sélectionné : {label}",

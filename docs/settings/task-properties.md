@@ -60,6 +60,17 @@ Status cards support drag-and-drop reordering.
 
 Use the **Value** field as the stable stored identifier and the **Label** field for display text with spaces or title casing. TaskNotes status menus and cycling use the configured order, and TaskNotes Kanban views can preserve dragged column order. Native Bases grouping/sorting may still order status values alphabetically by their stored **Value**, so use prefixes such as `1-open`, `2-doing`, `3-done` if you need predictable native Bases order.
 
+#### Inbox
+
+The **Inbox** card under the status values turns on the optional inbox used by the **Triage inbox** and **Fresh start** commands. See [Inbox and triage](../features/task-management.md#inbox-and-triage).
+
+- **Enable inbox**: Adds `inbox` and `someday` statuses if they are missing and selects them below. Shown until an inbox status is set.
+- **Inbox status**: The status that marks a task as being in the inbox. **None** turns the inbox off.
+- **Someday status**: The status used by the triage **Someday** action. **None** hides that action.
+- **Capture to inbox**: When on, new tasks with no status and no due or scheduled date get the inbox status. On by default.
+
+If **Default scheduled date** or **Default due date** is not **None**, new tasks always get a date and skip the inbox. The card then shows a note and a **Set to none** button that sets those defaults to **None**.
+
 #### Boolean Status Values
 
 TaskNotes supports using boolean values (`true` and `false`) as status values, which integrates with Obsidian's native checkbox property format:

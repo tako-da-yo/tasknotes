@@ -1106,6 +1106,23 @@ export const ko: TranslationTree = {
 			statusCard: {
 				valuesHeader: "상태 값"
 			},
+			triage: {
+				heading: "수신함",
+				enable: "수신함 사용",
+				enableDesc: "수신함 및 언젠가 상태와 수신함 정리 명령을 추가합니다.",
+				enabledNotice: "수신함이 활성화되었습니다. 작업 베이스에 수신함 및 언젠가 보기를 추가하려면 '기본 파일 업데이트' 버튼을 사용하세요.",
+				inboxStatus: "수신함 상태",
+				somedayStatus: "언젠가 상태",
+				none: "없음",
+				captureToInbox: "수신함으로 수집",
+				captureToInboxDesc: "날짜나 상태가 없는 새 작업은 수신함으로 갑니다.",
+				inboxLabel: "수신함",
+				somedayLabel: "언젠가",
+				defaultsBlockCapture: "새 작업에 기본 {fields}이(가) 설정되므로 수신함으로 가지 않습니다.",
+				defaultsFieldScheduled: "예정일",
+				defaultsFieldDue: "마감일",
+				defaultsSetNone: "없음으로 설정",
+			},
 			priorityCard: {
 				valuesHeader: "우선순위 값"
 			},
@@ -2216,6 +2233,15 @@ export const ko: TranslationTree = {
 		}
 	},
 	notices: {
+		freshStart: {
+			done: "새 출발: 작업 {count}개를 재설정했습니다.",
+			nothingChanged: "새 출발: 재설정할 작업이 없습니다.",
+			undo: "실행 취소",
+			undone: "새 출발 취소됨: {restored}개 복원, {skipped}개는 변경되어 건너뜀.",
+			progress: "{total}개 중 {done}개 재설정 중…",
+			failed: "새 출발에 실패했습니다. 일부 작업이 재설정되지 않았을 수 있습니다.",
+			undoFailed: "새 출발을 취소할 수 없습니다.",
+		},
 		languageChanged: "언어가 {language}(으)로 변경되었습니다.",
 		releaseAvailable: {
 			message: "TaskNotes {version} 릴리스를 사용할 수 있습니다.",
@@ -2243,6 +2269,9 @@ export const ko: TranslationTree = {
 		statsLoadingFailed: "프로젝트 세부정보 로딩 중 오류."
 	},
 	commands: {
+		triageInbox: "수신함 정리",
+		freshStart: "새 출발: 기한이 지난 작업 재설정",
+		undoFreshStart: "마지막 새 출발 취소",
 		openCalendarView: "미니 캘린더 뷰 열기",
 		openAdvancedCalendarView: "캘린더 뷰 열기",
 		openTasksView: "작업 뷰 열기",
@@ -2290,6 +2319,43 @@ export const ko: TranslationTree = {
 		addSubtaskToCurrentNote: "현재 노트에 하위 작업 추가"
 	},
 	modals: {
+		freshStart: {
+			title: "새 출발",
+			summary: "작업 {total}개가 기한이 지났습니다.",
+			scheduledLine: "{count}개는 예정일이 지났습니다. 예정일을 지우고 작업을 수신함으로 옮깁니다.",
+			scheduledLineNoInbox: "{count}개는 예정일이 지났습니다. 예정일을 지웁니다.",
+			dueLine: "{count}개는 마감일이 지났습니다.",
+			clearDue: "지난 마감일도 지우기",
+			clearDueHint: "마감일은 실제 기한인 경우가 많아 기본적으로 꺼져 있습니다.",
+			confirm: "새 출발",
+			nothing: "기한이 지난 항목이 없습니다.",
+		},
+		inboxTriage: {
+			title: "수신함 정리",
+			progress: "{current} / {total}",
+			captured: "{age} 수집됨",
+			actions: {
+				today: "오늘",
+				schedule: "예약…",
+				someday: "언젠가",
+				done: "이미 완료",
+				drop: "버리기",
+				edit: "편집",
+				skip: "건너뛰기",
+				undo: "실행 취소",
+			},
+			schedule: {
+				tomorrow: "내일",
+				weekend: "이번 주말",
+				nextWeek: "다음 주",
+				pick: "날짜 선택…",
+			},
+			empty: "수신함이 비어 있습니다.",
+			capture: "작업 수집",
+			finished: "수신함 정리 완료. {sorted}개 정리, {skipped}개 건너뜀.",
+			notReady: "수신함이 설정되지 않았습니다. 설정 → 작업 속성 → 상태에서 수신함 상태를 선택하세요.",
+			failed: "작업을 업데이트할 수 없습니다.",
+		},
 		deviceCode: {
 			title: "Google 캘린더 인증",
 			instructions: {
@@ -2787,6 +2853,9 @@ export const ko: TranslationTree = {
 		}
 	},
 	contextMenus: {
+		batch: {
+			freshStart: "선택 항목 새 출발",
+		},
 		task: {
 			status: "상태",
 			statusSelected: "✓ {label}",

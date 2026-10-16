@@ -1106,6 +1106,23 @@ export const zh: TranslationTree = {
 			statusCard: {
 				valuesHeader: "状态值"
 			},
+			triage: {
+				heading: "收件箱",
+				enable: "启用收件箱",
+				enableDesc: "添加收件箱和将来某天状态，以及整理收件箱命令。",
+				enabledNotice: "已启用收件箱。要将收件箱和将来某天视图添加到任务库，请使用“更新默认文件”按钮。",
+				inboxStatus: "收件箱状态",
+				somedayStatus: "将来某天状态",
+				none: "无",
+				captureToInbox: "收集到收件箱",
+				captureToInboxDesc: "没有日期或状态的新任务会进入收件箱。",
+				inboxLabel: "收件箱",
+				somedayLabel: "将来某天",
+				defaultsBlockCapture: "新任务会获得默认的{fields}，因此不会进入收件箱。",
+				defaultsFieldScheduled: "计划日期",
+				defaultsFieldDue: "截止日期",
+				defaultsSetNone: "设为无",
+			},
 			priorityCard: {
 				valuesHeader: "优先级值"
 			},
@@ -2232,6 +2249,15 @@ export const zh: TranslationTree = {
 		}
 	},
 	notices: {
+		freshStart: {
+			done: "重新开始：已重置 {count} 个任务。",
+			nothingChanged: "重新开始：没有需要重置的任务。",
+			undo: "撤销",
+			undone: "已撤销重新开始：恢复 {restored} 个，{skipped} 个因已更改而跳过。",
+			progress: "正在重置第 {done} 个，共 {total} 个…",
+			failed: "重新开始失败。部分任务可能未被重置。",
+			undoFailed: "无法撤销重新开始。",
+		},
 		languageChanged: "语言已更改为{language}。",
 		releaseAvailable: {
 			message: "TaskNotes {version} 可用。",
@@ -2259,6 +2285,9 @@ export const zh: TranslationTree = {
 		statsLoadingFailed: "加载项目详情时出错。"
 	},
 	commands: {
+		triageInbox: "整理收件箱",
+		freshStart: "重新开始：重置逾期任务",
+		undoFreshStart: "撤销上次重新开始",
 		openCalendarView: "打开迷你日历视图",
 		openAdvancedCalendarView: "打开日历视图",
 		openTasksView: "打开任务视图",
@@ -2306,6 +2335,43 @@ export const zh: TranslationTree = {
 		addSubtaskToCurrentNote: "向当前笔记添加子任务"
 	},
 	modals: {
+		freshStart: {
+			title: "重新开始",
+			summary: "{total} 个任务已逾期。",
+			scheduledLine: "{count} 个任务的计划日期已过。这些日期将被清除，任务将移至收件箱。",
+			scheduledLineNoInbox: "{count} 个任务的计划日期已过。这些日期将被清除。",
+			dueLine: "{count} 个任务的截止日期已过。",
+			clearDue: "同时清除已过的截止日期",
+			clearDueHint: "默认关闭，因为截止日期通常是真正的期限。",
+			confirm: "重新开始",
+			nothing: "没有逾期的任务。",
+		},
+		inboxTriage: {
+			title: "整理收件箱",
+			progress: "{current} / {total}",
+			captured: "{age}收集",
+			actions: {
+				today: "今天",
+				schedule: "安排…",
+				someday: "将来某天",
+				done: "已完成",
+				drop: "丢弃",
+				edit: "编辑",
+				skip: "跳过",
+				undo: "撤销",
+			},
+			schedule: {
+				tomorrow: "明天",
+				weekend: "本周末",
+				nextWeek: "下周",
+				pick: "选择日期…",
+			},
+			empty: "收件箱是空的。",
+			capture: "收集任务",
+			finished: "收件箱已清空。已整理 {sorted} 个，跳过 {skipped} 个。",
+			notReady: "收件箱尚未设置。请在 设置 → 任务属性 → 状态 中选择收件箱状态。",
+			failed: "无法更新任务。",
+		},
 		deviceCode: {
 			title: "谷歌日历授权",
 			instructions: {
@@ -2802,6 +2868,9 @@ export const zh: TranslationTree = {
 		}
 	},
 	contextMenus: {
+		batch: {
+			freshStart: "对所选任务重新开始",
+		},
 		task: {
 			status: "状态",
 			statusSelected: "✓ {label}",

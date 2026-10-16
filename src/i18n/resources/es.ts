@@ -1106,6 +1106,23 @@ export const es: TranslationTree = {
 			statusCard: {
 				valuesHeader: "Valores de estado"
 			},
+			triage: {
+				heading: "Bandeja de entrada",
+				enable: "Activar bandeja de entrada",
+				enableDesc: "Añade los estados bandeja de entrada y algún día, y el comando para clasificar la bandeja de entrada.",
+				enabledNotice: "Bandeja de entrada activada. Para añadir las vistas bandeja de entrada y algún día a tu base de tareas, usa el botón «Actualizar archivos predeterminados».",
+				inboxStatus: "Estado de bandeja de entrada",
+				somedayStatus: "Estado de algún día",
+				none: "Ninguno",
+				captureToInbox: "Capturar en la bandeja de entrada",
+				captureToInboxDesc: "Las tareas nuevas sin fecha ni estado van a la bandeja de entrada.",
+				inboxLabel: "Bandeja de entrada",
+				somedayLabel: "Algún día",
+				defaultsBlockCapture: "Las tareas nuevas reciben una {fields} predeterminada, así que no irán a la bandeja de entrada.",
+				defaultsFieldScheduled: "fecha programada",
+				defaultsFieldDue: "fecha de vencimiento",
+				defaultsSetNone: "Establecer en ninguna",
+			},
 			priorityCard: {
 				valuesHeader: "Valores de prioridad"
 			},
@@ -2232,6 +2249,15 @@ export const es: TranslationTree = {
 		}
 	},
 	notices: {
+		freshStart: {
+			done: "Nuevo comienzo: {count} tareas restablecidas.",
+			nothingChanged: "Nuevo comienzo: ninguna tarea necesitaba restablecerse.",
+			undo: "Deshacer",
+			undone: "Nuevo comienzo deshecho: {restored} restauradas, {skipped} omitidas porque cambiaron.",
+			progress: "Restableciendo {done} de {total}…",
+			failed: "El nuevo comienzo falló. Es posible que algunas tareas no se hayan restablecido.",
+			undoFailed: "No se pudo deshacer el nuevo comienzo.",
+		},
 		languageChanged: "Idioma cambiado a {language}.",
 		releaseAvailable: {
 			message: "TaskNotes {version} está disponible.",
@@ -2259,6 +2285,9 @@ export const es: TranslationTree = {
 		statsLoadingFailed: "Error al cargar los detalles del proyecto."
 	},
 	commands: {
+		triageInbox: "Clasificar bandeja de entrada",
+		freshStart: "Nuevo comienzo: restablecer tareas vencidas",
+		undoFreshStart: "Deshacer el último nuevo comienzo",
 		openCalendarView: "Abrir vista de mini calendario",
 		openAdvancedCalendarView: "Abrir vista de calendario",
 		openTasksView: "Abrir vista de tareas",
@@ -2306,6 +2335,43 @@ export const es: TranslationTree = {
 		addSubtaskToCurrentNote: "Añadir subtarea a la nota actual"
 	},
 	modals: {
+		freshStart: {
+			title: "Nuevo comienzo",
+			summary: "{total} tareas están vencidas.",
+			scheduledLine: "{count} tienen fechas programadas pasadas. Se borrarán y las tareas se moverán a tu bandeja de entrada.",
+			scheduledLineNoInbox: "{count} tienen fechas programadas pasadas. Se borrarán.",
+			dueLine: "{count} tienen fechas de vencimiento pasadas.",
+			clearDue: "Borrar también las fechas de vencimiento pasadas",
+			clearDueHint: "Desactivado por defecto, porque las fechas de vencimiento suelen ser plazos reales.",
+			confirm: "Nuevo comienzo",
+			nothing: "No hay nada vencido.",
+		},
+		inboxTriage: {
+			title: "Clasificar bandeja de entrada",
+			progress: "{current} de {total}",
+			captured: "Capturada {age}",
+			actions: {
+				today: "Hoy",
+				schedule: "Programar…",
+				someday: "Algún día",
+				done: "Ya hecha",
+				drop: "Descartar",
+				edit: "Editar",
+				skip: "Omitir",
+				undo: "Deshacer",
+			},
+			schedule: {
+				tomorrow: "Mañana",
+				weekend: "Este fin de semana",
+				nextWeek: "La próxima semana",
+				pick: "Elegir fecha…",
+			},
+			empty: "Tu bandeja de entrada está vacía.",
+			capture: "Capturar una tarea",
+			finished: "Bandeja de entrada vacía. {sorted} clasificadas, {skipped} omitidas.",
+			notReady: "La bandeja de entrada no está configurada. Elige un estado de bandeja de entrada en ajustes → propiedades de tareas → estados.",
+			failed: "No se pudo actualizar la tarea.",
+		},
 		deviceCode: {
 			title: "Autorización del Calendario de Google",
 			instructions: {
@@ -2803,6 +2869,9 @@ export const es: TranslationTree = {
 		}
 	},
 	contextMenus: {
+		batch: {
+			freshStart: "Nuevo comienzo para la selección",
+		},
 		task: {
 			status: "Estado",
 			statusSelected: "✓ {label}",

@@ -1106,6 +1106,23 @@ export const de: TranslationTree = {
 			statusCard: {
 				valuesHeader: "Statuswerte"
 			},
+			triage: {
+				heading: "Posteingang",
+				enable: "Posteingang aktivieren",
+				enableDesc: "Fügt die Status Posteingang und Irgendwann sowie den Befehl zum Sichten des Posteingangs hinzu.",
+				enabledNotice: "Posteingang aktiviert. Um die Ansichten Posteingang und Irgendwann zu deiner Aufgaben-Base hinzuzufügen, nutze die Schaltfläche „Standarddateien aktualisieren“.",
+				inboxStatus: "Posteingangsstatus",
+				somedayStatus: "Irgendwann-Status",
+				none: "Keiner",
+				captureToInbox: "In den Posteingang erfassen",
+				captureToInboxDesc: "Neue Aufgaben ohne Datum oder Status landen im Posteingang.",
+				inboxLabel: "Posteingang",
+				somedayLabel: "Irgendwann",
+				defaultsBlockCapture: "Neue Aufgaben erhalten standardmäßig ein {fields}, daher landen sie nicht im Posteingang.",
+				defaultsFieldScheduled: "geplantes Datum",
+				defaultsFieldDue: "Fälligkeitsdatum",
+				defaultsSetNone: "Auf keines setzen",
+			},
 			priorityCard: {
 				valuesHeader: "Prioritätswerte"
 			},
@@ -2232,6 +2249,15 @@ export const de: TranslationTree = {
 		}
 	},
 	notices: {
+		freshStart: {
+			done: "Neuanfang: {count} Aufgaben zurückgesetzt.",
+			nothingChanged: "Neuanfang: Keine Aufgaben mussten zurückgesetzt werden.",
+			undo: "Rückgängig",
+			undone: "Neuanfang rückgängig gemacht: {restored} wiederhergestellt, {skipped} übersprungen, weil sie geändert wurden.",
+			progress: "Setze {done} von {total} zurück…",
+			failed: "Neuanfang fehlgeschlagen. Einige Aufgaben wurden möglicherweise nicht zurückgesetzt.",
+			undoFailed: "Der Neuanfang konnte nicht rückgängig gemacht werden.",
+		},
 		languageChanged: "Sprache geändert zu {language}.",
 		releaseAvailable: {
 			message: "TaskNotes {version} ist verfügbar.",
@@ -2259,6 +2285,9 @@ export const de: TranslationTree = {
 		statsLoadingFailed: "Fehler beim Laden der Projektdetails."
 	},
 	commands: {
+		triageInbox: "Posteingang sichten",
+		freshStart: "Neuanfang: überfällige Aufgaben zurücksetzen",
+		undoFreshStart: "Letzten Neuanfang rückgängig machen",
 		openCalendarView: "Mini-Kalenderansicht öffnen",
 		openAdvancedCalendarView: "Kalenderansicht öffnen",
 		openTasksView: "Aufgabenansicht öffnen",
@@ -2306,6 +2335,43 @@ export const de: TranslationTree = {
 		addSubtaskToCurrentNote: "Unteraufgabe zur aktuellen Notiz hinzufügen"
 	},
 	modals: {
+		freshStart: {
+			title: "Neuanfang",
+			summary: "{total} Aufgaben sind überfällig.",
+			scheduledLine: "{count} haben ein vergangenes geplantes Datum. Dieses wird entfernt und die Aufgaben werden in deinen Posteingang verschoben.",
+			scheduledLineNoInbox: "{count} haben ein vergangenes geplantes Datum. Dieses wird entfernt.",
+			dueLine: "{count} haben ein vergangenes Fälligkeitsdatum.",
+			clearDue: "Auch vergangene Fälligkeitsdaten entfernen",
+			clearDueHint: "Standardmäßig aus, da Fälligkeitsdaten oft echte Fristen sind.",
+			confirm: "Neuanfang",
+			nothing: "Nichts ist überfällig.",
+		},
+		inboxTriage: {
+			title: "Posteingang sichten",
+			progress: "{current} von {total}",
+			captured: "Erfasst {age}",
+			actions: {
+				today: "Heute",
+				schedule: "Planen…",
+				someday: "Irgendwann",
+				done: "Schon erledigt",
+				drop: "Verwerfen",
+				edit: "Bearbeiten",
+				skip: "Überspringen",
+				undo: "Rückgängig",
+			},
+			schedule: {
+				tomorrow: "Morgen",
+				weekend: "Dieses Wochenende",
+				nextWeek: "Nächste Woche",
+				pick: "Datum wählen…",
+			},
+			empty: "Dein Posteingang ist leer.",
+			capture: "Aufgabe erfassen",
+			finished: "Posteingang leer. {sorted} einsortiert, {skipped} übersprungen.",
+			notReady: "Der Posteingang ist nicht eingerichtet. Wähle einen Posteingangsstatus unter Einstellungen → Aufgabeneigenschaften → Status.",
+			failed: "Die Aufgabe konnte nicht aktualisiert werden.",
+		},
 		deviceCode: {
 			title: "Google Kalender-Autorisierung",
 			instructions: {
@@ -2803,6 +2869,9 @@ export const de: TranslationTree = {
 		}
 	},
 	contextMenus: {
+		batch: {
+			freshStart: "Neuanfang für Auswahl",
+		},
 		task: {
 			status: "Status",
 			statusSelected: "✓ {label}",

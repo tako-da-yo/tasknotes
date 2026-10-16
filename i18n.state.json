@@ -2752,21 +2752,66 @@
       "source": "106dfef892b5bcd49066d8740f9e8726937d4f5e",
       "translation": "4e826773671d5c30f738ef239d2903ca769dddf0"
     },
-    "settings.taskProperties.triage.heading": null,
-    "settings.taskProperties.triage.enable": null,
-    "settings.taskProperties.triage.enableDesc": null,
-    "settings.taskProperties.triage.enabledNotice": null,
-    "settings.taskProperties.triage.inboxStatus": null,
-    "settings.taskProperties.triage.somedayStatus": null,
-    "settings.taskProperties.triage.none": null,
-    "settings.taskProperties.triage.captureToInbox": null,
-    "settings.taskProperties.triage.captureToInboxDesc": null,
-    "settings.taskProperties.triage.inboxLabel": null,
-    "settings.taskProperties.triage.somedayLabel": null,
-    "settings.taskProperties.triage.defaultsBlockCapture": null,
-    "settings.taskProperties.triage.defaultsFieldScheduled": null,
-    "settings.taskProperties.triage.defaultsFieldDue": null,
-    "settings.taskProperties.triage.defaultsSetNone": null,
+    "settings.taskProperties.triage.heading": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "52da15ddd4626e2ccdfa4518fdac62c78cee0412"
+    },
+    "settings.taskProperties.triage.enable": {
+      "source": "e3ba1316543cb064cb1ce7b3a3f38ab48247761e",
+      "translation": "7738bbc53efe5fd1043d8c7763b90975546d27ac"
+    },
+    "settings.taskProperties.triage.enableDesc": {
+      "source": "142aa0f03d4e477284d8456f76f19313b14168ab",
+      "translation": "bcc94727f1f8712bd52479dd9dbfc33d18e8d666"
+    },
+    "settings.taskProperties.triage.enabledNotice": {
+      "source": "77591e43683385b00ca243d5bf1b0fad80ec3700",
+      "translation": "4bf92fa4e51dcc4ead801bd7137520f0b5899357"
+    },
+    "settings.taskProperties.triage.inboxStatus": {
+      "source": "a0c47a1b2635968fe1c8fcd9a5ccc6c4cd81c2af",
+      "translation": "23fb77d28e9bd8e9841d69bfdf61ba0815c6b3cb"
+    },
+    "settings.taskProperties.triage.somedayStatus": {
+      "source": "6b1e6090d4d96f27efd0b2b9b42e9384fc0e8363",
+      "translation": "c5e6596be722ef2841d3692aeb2bcfac40baa386"
+    },
+    "settings.taskProperties.triage.none": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "155f7a975ef562a629b07046c7fb0134a2210e8f"
+    },
+    "settings.taskProperties.triage.captureToInbox": {
+      "source": "10e2cd8a46f0e825bb88d869aeb249f6bf69818b",
+      "translation": "2be856c45a8815f4b075b4ffda5cee32bd777c92"
+    },
+    "settings.taskProperties.triage.captureToInboxDesc": {
+      "source": "4e6203df8b72d769182a47126cbf544d4b467565",
+      "translation": "8ee9ddd18fe18a2a8285750b836512af7519ea5e"
+    },
+    "settings.taskProperties.triage.inboxLabel": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "52da15ddd4626e2ccdfa4518fdac62c78cee0412"
+    },
+    "settings.taskProperties.triage.somedayLabel": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "8123c17d7a39ddda90f93fd728938e9140aa098f"
+    },
+    "settings.taskProperties.triage.defaultsBlockCapture": {
+      "source": "b799fdc97761516a0de421452edca36cb20f77e0",
+      "translation": "97a168778de65822e5366e98b23597880f5e547e"
+    },
+    "settings.taskProperties.triage.defaultsFieldScheduled": {
+      "source": "e891e3709fb48ba78e0e067b6c8691d8cab84382",
+      "translation": "8ec64f53b1ccacd073275ca21360bfbd0efeba4f"
+    },
+    "settings.taskProperties.triage.defaultsFieldDue": {
+      "source": "30cdf73eff2a596aff88c475560de83dbaa7d346",
+      "translation": "0fb757b8f746cea74271e0a0c3d3f63d11508ce3"
+    },
+    "settings.taskProperties.triage.defaultsSetNone": {
+      "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
+      "translation": "37eb6906dfa1b25a7d86fee48f844ad2aacc860c"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "c602150d4829ed75cee581b73742fae538548e94"
@@ -5527,13 +5572,34 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "48b6b25d3c2bb80e22f5335afb721ceadd0d7570"
     },
-    "notices.freshStart.done": null,
-    "notices.freshStart.nothingChanged": null,
-    "notices.freshStart.undo": null,
-    "notices.freshStart.undone": null,
-    "notices.freshStart.progress": null,
-    "notices.freshStart.failed": null,
-    "notices.freshStart.undoFailed": null,
+    "notices.freshStart.done": {
+      "source": "d7b386fb063e048918bc7a83164fd5e5dd4ba1ed",
+      "translation": "61a40cc140c387d6137e219c7d1a2552b9152284"
+    },
+    "notices.freshStart.nothingChanged": {
+      "source": "9bfee1277289fa500704dbf248c4f3fa7168af08",
+      "translation": "3d880b022c320b63b6ab5b1df279807605b7299d"
+    },
+    "notices.freshStart.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "b626f2e45925f37541f947c179a1725bfa5b6135"
+    },
+    "notices.freshStart.undone": {
+      "source": "636c8ac2672a15bf61f040a51c9bc1892c358d6c",
+      "translation": "5095511e7f6eafe86d99027969df316e7f27fec5"
+    },
+    "notices.freshStart.progress": {
+      "source": "02e0a01e81eb69baf92ca3361a3057dc4c47ad45",
+      "translation": "480c806a97e900e3be4d739db8c76aa2043a0420"
+    },
+    "notices.freshStart.failed": {
+      "source": "aa527f45b6e9e573847c70c9499b119c2c27f3fa",
+      "translation": "3441bb51ad7856f6128578d4d62ab94238e185c9"
+    },
+    "notices.freshStart.undoFailed": {
+      "source": "46d81023476e2a728254063fa53e0bad630be2ce",
+      "translation": "2278b30ed4b5b4c3fb6729b5a6eee7005554e720"
+    },
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "1fcab5b50d9d6ffb720cb3996503072939afb6fb"
@@ -5706,38 +5772,134 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "641022fdb5e4fe9391c040c2c9683738ec18ec56"
     },
-    "commands.triageInbox": null,
-    "commands.freshStart": null,
-    "commands.undoFreshStart": null,
-    "modals.freshStart.title": null,
-    "modals.freshStart.summary": null,
-    "modals.freshStart.scheduledLine": null,
-    "modals.freshStart.scheduledLineNoInbox": null,
-    "modals.freshStart.dueLine": null,
-    "modals.freshStart.clearDue": null,
-    "modals.freshStart.clearDueHint": null,
-    "modals.freshStart.confirm": null,
-    "modals.freshStart.nothing": null,
-    "modals.inboxTriage.title": null,
-    "modals.inboxTriage.progress": null,
-    "modals.inboxTriage.captured": null,
-    "modals.inboxTriage.actions.today": null,
-    "modals.inboxTriage.actions.schedule": null,
-    "modals.inboxTriage.actions.someday": null,
-    "modals.inboxTriage.actions.done": null,
-    "modals.inboxTriage.actions.drop": null,
-    "modals.inboxTriage.actions.edit": null,
-    "modals.inboxTriage.actions.skip": null,
-    "modals.inboxTriage.actions.undo": null,
-    "modals.inboxTriage.schedule.tomorrow": null,
-    "modals.inboxTriage.schedule.weekend": null,
-    "modals.inboxTriage.schedule.nextWeek": null,
-    "modals.inboxTriage.schedule.pick": null,
-    "modals.inboxTriage.empty": null,
-    "modals.inboxTriage.capture": null,
-    "modals.inboxTriage.finished": null,
-    "modals.inboxTriage.notReady": null,
-    "modals.inboxTriage.failed": null,
+    "commands.triageInbox": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "25758530d3b4347ba7aa3d7c3ffadc6e61cbb74e"
+    },
+    "commands.freshStart": {
+      "source": "d0d6697a8e6470983c2fd3f591309f87612b7287",
+      "translation": "4a850264447a7673c78ae1553c3fb5ae376301d5"
+    },
+    "commands.undoFreshStart": {
+      "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
+      "translation": "b51a6998fc65f470988ce718e711cf29ef304251"
+    },
+    "modals.freshStart.title": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "18f280a11c64b8a8dc89ae2d6d0c44c70e450126"
+    },
+    "modals.freshStart.summary": {
+      "source": "424cce674d72ae6f8eb3c945f3cb7d63e00bd75d",
+      "translation": "7abda614ecca4c7f39bd79c8c7e45c11a915c747"
+    },
+    "modals.freshStart.scheduledLine": {
+      "source": "3b8b29a2aed08e1f0e723a6b5d6457541e94afeb",
+      "translation": "230c397a5e6aedf5bf76de4bf26cf1935ce868d8"
+    },
+    "modals.freshStart.scheduledLineNoInbox": {
+      "source": "b3a3aadf92f7f875e02e999fa3e35a2f1cac802a",
+      "translation": "6e74f989c20ca7672c5caf0336f17a47b2c00d00"
+    },
+    "modals.freshStart.dueLine": {
+      "source": "0e14d7672b80359562a4361ce70cebe3e18b24b5",
+      "translation": "fd5a3298e86c1b7aa7eabd009ae2f2b9ba8646d1"
+    },
+    "modals.freshStart.clearDue": {
+      "source": "3861164071a10fc67f139ca7088b8d07e2fe454e",
+      "translation": "b8c5e078128c094134a25d21c157857b96fa9bc5"
+    },
+    "modals.freshStart.clearDueHint": {
+      "source": "ceef6c188f0680aefff5614ae824230ae91e97b9",
+      "translation": "1f5a7f21cbf9624186538b90d23a1c7d88f28521"
+    },
+    "modals.freshStart.confirm": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "18f280a11c64b8a8dc89ae2d6d0c44c70e450126"
+    },
+    "modals.freshStart.nothing": {
+      "source": "a7498b630bd5ceba0d1d4278cfe18eb18fa7e4fa",
+      "translation": "240cbf57979088f501b2cc9ca3f2fbb803cd9717"
+    },
+    "modals.inboxTriage.title": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "25758530d3b4347ba7aa3d7c3ffadc6e61cbb74e"
+    },
+    "modals.inboxTriage.progress": {
+      "source": "7e20641fe8fb90eea47a613fd9602923da70c817",
+      "translation": "61a1dcc258e1b54541cde065ed70ed946d83d6a5"
+    },
+    "modals.inboxTriage.captured": {
+      "source": "505fd34f3794e2084cc1cff92cef44d8ecfaa43b",
+      "translation": "2cacdebc64a3da64ef29d47698f1104607e6f865"
+    },
+    "modals.inboxTriage.actions.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "1ab33097cd8e13568f48934edb37a699300295dc"
+    },
+    "modals.inboxTriage.actions.schedule": {
+      "source": "c83800b8042193cf03adaa8eb8e6ee20508a3ffa",
+      "translation": "5ab8af919e10918b5f13a46236848550059d7399"
+    },
+    "modals.inboxTriage.actions.someday": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "8123c17d7a39ddda90f93fd728938e9140aa098f"
+    },
+    "modals.inboxTriage.actions.done": {
+      "source": "b8b41a7eae9c635c16940d1cacc8c8b984600100",
+      "translation": "3d71b754dd7dcd959d95d77f3bda1e26396de2b3"
+    },
+    "modals.inboxTriage.actions.drop": {
+      "source": "0a088b3115056ef6acd3ab4b406c823e1724e216",
+      "translation": "24cc57bcb8133f61a3bbc7bdb938660cec330b47"
+    },
+    "modals.inboxTriage.actions.edit": {
+      "source": "5301648dcf6b53cefc9ed52999aaa92d4603cae0",
+      "translation": "104f3bfdc340d784736f80e84f3092ced29e481d"
+    },
+    "modals.inboxTriage.actions.skip": {
+      "source": "3da474537ac378c616d6b301acc1674bc348cecd",
+      "translation": "3af1d9e8f55139290c5037f93af6cdfb48155418"
+    },
+    "modals.inboxTriage.actions.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "b626f2e45925f37541f947c179a1725bfa5b6135"
+    },
+    "modals.inboxTriage.schedule.tomorrow": {
+      "source": "1948bf2dfa8fbc1f07ad3b6f0e2b3ee39f87e495",
+      "translation": "67c0dcf84ac06f61a19098dfe98bac28abc1f2d9"
+    },
+    "modals.inboxTriage.schedule.weekend": {
+      "source": "1921aa118ad7a4dca5f679eaefc3e1777854c777",
+      "translation": "43e35639bbb3f8e564fb406317fc12fcb23aca4c"
+    },
+    "modals.inboxTriage.schedule.nextWeek": {
+      "source": "5a20763adfb0adcac05270a340009a8526652248",
+      "translation": "393f10c7b38d86ae77fe5c9812cb8aa4b8c76861"
+    },
+    "modals.inboxTriage.schedule.pick": {
+      "source": "a0c6c6e32e4990b712909843fd4b5e7a3815f1ea",
+      "translation": "9c8f836ab1b0981a57bb7bf7b512a7ce553dff74"
+    },
+    "modals.inboxTriage.empty": {
+      "source": "bd62b5c6bc74facae0a9a205cee91f0bb035aeca",
+      "translation": "7e109ab7fb774cb9190675a11e82c5f5fd2efc2d"
+    },
+    "modals.inboxTriage.capture": {
+      "source": "7d99492f83563bd67d307b38a8bd69aea2ff4ec5",
+      "translation": "8135d7f03ec22f6b7e5c0be7c20a0dfbfd11e7e5"
+    },
+    "modals.inboxTriage.finished": {
+      "source": "0ec08196f5fff3850a3c96b7504f4d8068b7d250",
+      "translation": "1dd18ccbf1629be475e7e1b9f1a8353fdc3658ba"
+    },
+    "modals.inboxTriage.notReady": {
+      "source": "08c96e62915ad380e68c867e04f6bfc77d1fb5ab",
+      "translation": "8e4f67228948e694397b613e8023f899fae44966"
+    },
+    "modals.inboxTriage.failed": {
+      "source": "cb5badb64bc680f83cbe00362cdb8a907e9ae91e",
+      "translation": "83980f3f0aa0ed3ea5a970399b282dd2e24d9066"
+    },
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "4ae489e473a5a1d2bf9aaf0efed4a3aed66c8526"
@@ -7130,7 +7292,10 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "a585e67357bb975b0bde78889eda116c12035fca"
     },
-    "contextMenus.batch.freshStart": null,
+    "contextMenus.batch.freshStart": {
+      "source": "ff37fc0f265ff7999f9feda851158c78b41a56d6",
+      "translation": "d951b6db9fefa6bbaf74f987a0471d0044998909"
+    },
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "bae7d5be70820ed56467bd9a63744e23b47bd711"
@@ -11921,21 +12086,66 @@
       "source": "106dfef892b5bcd49066d8740f9e8726937d4f5e",
       "translation": "8397851864fbaec18aef0f81e6d36e3f0ff86fa0"
     },
-    "settings.taskProperties.triage.heading": null,
-    "settings.taskProperties.triage.enable": null,
-    "settings.taskProperties.triage.enableDesc": null,
-    "settings.taskProperties.triage.enabledNotice": null,
-    "settings.taskProperties.triage.inboxStatus": null,
-    "settings.taskProperties.triage.somedayStatus": null,
-    "settings.taskProperties.triage.none": null,
-    "settings.taskProperties.triage.captureToInbox": null,
-    "settings.taskProperties.triage.captureToInboxDesc": null,
-    "settings.taskProperties.triage.inboxLabel": null,
-    "settings.taskProperties.triage.somedayLabel": null,
-    "settings.taskProperties.triage.defaultsBlockCapture": null,
-    "settings.taskProperties.triage.defaultsFieldScheduled": null,
-    "settings.taskProperties.triage.defaultsFieldDue": null,
-    "settings.taskProperties.triage.defaultsSetNone": null,
+    "settings.taskProperties.triage.heading": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "87e4789295f4d8d72e0b8c730368bdb43a19f5de"
+    },
+    "settings.taskProperties.triage.enable": {
+      "source": "e3ba1316543cb064cb1ce7b3a3f38ab48247761e",
+      "translation": "45359a7139f3dba1d8d444cc64deb0c425c1abb6"
+    },
+    "settings.taskProperties.triage.enableDesc": {
+      "source": "142aa0f03d4e477284d8456f76f19313b14168ab",
+      "translation": "8cabdbfc034e13dee59122e8d368fc477db1bc36"
+    },
+    "settings.taskProperties.triage.enabledNotice": {
+      "source": "77591e43683385b00ca243d5bf1b0fad80ec3700",
+      "translation": "4eeae9bff4950c5a6b12f664aa99e9b70aef203e"
+    },
+    "settings.taskProperties.triage.inboxStatus": {
+      "source": "a0c47a1b2635968fe1c8fcd9a5ccc6c4cd81c2af",
+      "translation": "a722c4f6e08fd8414f3c2f2b6d3ce3965880a0e8"
+    },
+    "settings.taskProperties.triage.somedayStatus": {
+      "source": "6b1e6090d4d96f27efd0b2b9b42e9384fc0e8363",
+      "translation": "44f825589e7f3afe9e6c08515ab7ba7d1c35bbb1"
+    },
+    "settings.taskProperties.triage.none": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "f3c24118253ba4c6d9714a1b7072af06a8990a67"
+    },
+    "settings.taskProperties.triage.captureToInbox": {
+      "source": "10e2cd8a46f0e825bb88d869aeb249f6bf69818b",
+      "translation": "3b627a18dcf88fc63077c1c511b849fa77a5326e"
+    },
+    "settings.taskProperties.triage.captureToInboxDesc": {
+      "source": "4e6203df8b72d769182a47126cbf544d4b467565",
+      "translation": "ea86b3a0789b4380724c42dcbeb27f8d5bbca020"
+    },
+    "settings.taskProperties.triage.inboxLabel": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "87e4789295f4d8d72e0b8c730368bdb43a19f5de"
+    },
+    "settings.taskProperties.triage.somedayLabel": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "c4336ce4c4a52d11c513ce6f8fba839eacabe408"
+    },
+    "settings.taskProperties.triage.defaultsBlockCapture": {
+      "source": "b799fdc97761516a0de421452edca36cb20f77e0",
+      "translation": "67d701899fbed0bdc44e8a286047ea7fdcc3490f"
+    },
+    "settings.taskProperties.triage.defaultsFieldScheduled": {
+      "source": "e891e3709fb48ba78e0e067b6c8691d8cab84382",
+      "translation": "c6b0217770e4a885e5fe1a8038dd99787b7eaaed"
+    },
+    "settings.taskProperties.triage.defaultsFieldDue": {
+      "source": "30cdf73eff2a596aff88c475560de83dbaa7d346",
+      "translation": "ebb6e969956d829b85cd5cc383abec886f85b248"
+    },
+    "settings.taskProperties.triage.defaultsSetNone": {
+      "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
+      "translation": "cab52153ccb808d281715379fb96b06c36cf5f4a"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "99ab8d8cdfc59cfdc75dc7b6c0a386ce990b8eaa"
@@ -14696,13 +14906,34 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "26a44336cb5d53991dcb84a5a03b3cfd0617bd9d"
     },
-    "notices.freshStart.done": null,
-    "notices.freshStart.nothingChanged": null,
-    "notices.freshStart.undo": null,
-    "notices.freshStart.undone": null,
-    "notices.freshStart.progress": null,
-    "notices.freshStart.failed": null,
-    "notices.freshStart.undoFailed": null,
+    "notices.freshStart.done": {
+      "source": "d7b386fb063e048918bc7a83164fd5e5dd4ba1ed",
+      "translation": "d7ffd8c6da1b1b0ec1874e1ced7b81abe0511427"
+    },
+    "notices.freshStart.nothingChanged": {
+      "source": "9bfee1277289fa500704dbf248c4f3fa7168af08",
+      "translation": "ef2910cc3b358e90ac9ed9ac4d58a6035e9ddd5e"
+    },
+    "notices.freshStart.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "26060e2bc3c7dd3ab57a1eb162ff8c52488761f3"
+    },
+    "notices.freshStart.undone": {
+      "source": "636c8ac2672a15bf61f040a51c9bc1892c358d6c",
+      "translation": "09a3be45046aa6782e785cfe1e0a4ee4e2d59763"
+    },
+    "notices.freshStart.progress": {
+      "source": "02e0a01e81eb69baf92ca3361a3057dc4c47ad45",
+      "translation": "cfaf26d004af58129aa5a6564310e1d2666733db"
+    },
+    "notices.freshStart.failed": {
+      "source": "aa527f45b6e9e573847c70c9499b119c2c27f3fa",
+      "translation": "a0108e3f64ce17b8564107d84ff5c73f20b31612"
+    },
+    "notices.freshStart.undoFailed": {
+      "source": "46d81023476e2a728254063fa53e0bad630be2ce",
+      "translation": "72520f80208a8032887d9867ed11f997fccc2440"
+    },
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "11e514cf3b3274eef09162a3f5f038b414ef62ce"
@@ -14875,38 +15106,134 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "dfb197d44003b01e388d18d203804b109ffb52e3"
     },
-    "commands.triageInbox": null,
-    "commands.freshStart": null,
-    "commands.undoFreshStart": null,
-    "modals.freshStart.title": null,
-    "modals.freshStart.summary": null,
-    "modals.freshStart.scheduledLine": null,
-    "modals.freshStart.scheduledLineNoInbox": null,
-    "modals.freshStart.dueLine": null,
-    "modals.freshStart.clearDue": null,
-    "modals.freshStart.clearDueHint": null,
-    "modals.freshStart.confirm": null,
-    "modals.freshStart.nothing": null,
-    "modals.inboxTriage.title": null,
-    "modals.inboxTriage.progress": null,
-    "modals.inboxTriage.captured": null,
-    "modals.inboxTriage.actions.today": null,
-    "modals.inboxTriage.actions.schedule": null,
-    "modals.inboxTriage.actions.someday": null,
-    "modals.inboxTriage.actions.done": null,
-    "modals.inboxTriage.actions.drop": null,
-    "modals.inboxTriage.actions.edit": null,
-    "modals.inboxTriage.actions.skip": null,
-    "modals.inboxTriage.actions.undo": null,
-    "modals.inboxTriage.schedule.tomorrow": null,
-    "modals.inboxTriage.schedule.weekend": null,
-    "modals.inboxTriage.schedule.nextWeek": null,
-    "modals.inboxTriage.schedule.pick": null,
-    "modals.inboxTriage.empty": null,
-    "modals.inboxTriage.capture": null,
-    "modals.inboxTriage.finished": null,
-    "modals.inboxTriage.notReady": null,
-    "modals.inboxTriage.failed": null,
+    "commands.triageInbox": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "bbfac9c0e3fae6034d7b3ad338323f7cb60da838"
+    },
+    "commands.freshStart": {
+      "source": "d0d6697a8e6470983c2fd3f591309f87612b7287",
+      "translation": "c259c04576af636d9b806126a86985a895d542ad"
+    },
+    "commands.undoFreshStart": {
+      "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
+      "translation": "bc65218936e17175941d2a06e4ff34d18a7d1da7"
+    },
+    "modals.freshStart.title": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "1e3dfca4721b5a527de500afbda1fa0d2992e3c8"
+    },
+    "modals.freshStart.summary": {
+      "source": "424cce674d72ae6f8eb3c945f3cb7d63e00bd75d",
+      "translation": "1d82cd072f03321dde34a03631ef1375d1db92ed"
+    },
+    "modals.freshStart.scheduledLine": {
+      "source": "3b8b29a2aed08e1f0e723a6b5d6457541e94afeb",
+      "translation": "7168772a6a21aec71151593bfbb5d18a6ed8a291"
+    },
+    "modals.freshStart.scheduledLineNoInbox": {
+      "source": "b3a3aadf92f7f875e02e999fa3e35a2f1cac802a",
+      "translation": "f98c216914f06e884c8bab16ab8aad3e8297574d"
+    },
+    "modals.freshStart.dueLine": {
+      "source": "0e14d7672b80359562a4361ce70cebe3e18b24b5",
+      "translation": "db472c6268f7db648f77c9237baebc9294066470"
+    },
+    "modals.freshStart.clearDue": {
+      "source": "3861164071a10fc67f139ca7088b8d07e2fe454e",
+      "translation": "5dcaefa58065bd476fc20a378589177ce0295865"
+    },
+    "modals.freshStart.clearDueHint": {
+      "source": "ceef6c188f0680aefff5614ae824230ae91e97b9",
+      "translation": "7bc64a0fa4297ca3f8c191c2db191333325c5ea9"
+    },
+    "modals.freshStart.confirm": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "1e3dfca4721b5a527de500afbda1fa0d2992e3c8"
+    },
+    "modals.freshStart.nothing": {
+      "source": "a7498b630bd5ceba0d1d4278cfe18eb18fa7e4fa",
+      "translation": "f932fa0982653a6c3065ab4f06232afe1114212f"
+    },
+    "modals.inboxTriage.title": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "bbfac9c0e3fae6034d7b3ad338323f7cb60da838"
+    },
+    "modals.inboxTriage.progress": {
+      "source": "7e20641fe8fb90eea47a613fd9602923da70c817",
+      "translation": "9163a18ded6453bc6c7321004aeec54e19e9cfec"
+    },
+    "modals.inboxTriage.captured": {
+      "source": "505fd34f3794e2084cc1cff92cef44d8ecfaa43b",
+      "translation": "0e68f057e3bc7ebd9685b31764ebfedc89e25e4d"
+    },
+    "modals.inboxTriage.actions.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "565e9824d995abb146d7f796e6cb377ef5bf2cb8"
+    },
+    "modals.inboxTriage.actions.schedule": {
+      "source": "c83800b8042193cf03adaa8eb8e6ee20508a3ffa",
+      "translation": "1f78f024fe4f3473a503bf70a8a601cca94d6d6d"
+    },
+    "modals.inboxTriage.actions.someday": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "c4336ce4c4a52d11c513ce6f8fba839eacabe408"
+    },
+    "modals.inboxTriage.actions.done": {
+      "source": "b8b41a7eae9c635c16940d1cacc8c8b984600100",
+      "translation": "9d51f251e0c3bb8f0cb63f8ea65e6f096e34fbdf"
+    },
+    "modals.inboxTriage.actions.drop": {
+      "source": "0a088b3115056ef6acd3ab4b406c823e1724e216",
+      "translation": "63a77c77e07ec566a1588d58f472320215983d3c"
+    },
+    "modals.inboxTriage.actions.edit": {
+      "source": "5301648dcf6b53cefc9ed52999aaa92d4603cae0",
+      "translation": "2b5f23437f5815b2437440e38916c90848492c18"
+    },
+    "modals.inboxTriage.actions.skip": {
+      "source": "3da474537ac378c616d6b301acc1674bc348cecd",
+      "translation": "7d1f35bef5b57437a455e53504d742ff3a52ef69"
+    },
+    "modals.inboxTriage.actions.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "26060e2bc3c7dd3ab57a1eb162ff8c52488761f3"
+    },
+    "modals.inboxTriage.schedule.tomorrow": {
+      "source": "1948bf2dfa8fbc1f07ad3b6f0e2b3ee39f87e495",
+      "translation": "153d4410177eb547b494c17328d5fe626cf71572"
+    },
+    "modals.inboxTriage.schedule.weekend": {
+      "source": "1921aa118ad7a4dca5f679eaefc3e1777854c777",
+      "translation": "28ca968c960197dc9deee5535b405a79d52f38b8"
+    },
+    "modals.inboxTriage.schedule.nextWeek": {
+      "source": "5a20763adfb0adcac05270a340009a8526652248",
+      "translation": "ca6456c9e068bf8ecf8dedfaa7804efc4902b497"
+    },
+    "modals.inboxTriage.schedule.pick": {
+      "source": "a0c6c6e32e4990b712909843fd4b5e7a3815f1ea",
+      "translation": "1fa48576e04932e7e461e40d9558ed3da4671c83"
+    },
+    "modals.inboxTriage.empty": {
+      "source": "bd62b5c6bc74facae0a9a205cee91f0bb035aeca",
+      "translation": "34d57ed499a191a196ada6d7631e5616d7ff1819"
+    },
+    "modals.inboxTriage.capture": {
+      "source": "7d99492f83563bd67d307b38a8bd69aea2ff4ec5",
+      "translation": "9320152e8ccd305dade259695cd581c12e9ebfc8"
+    },
+    "modals.inboxTriage.finished": {
+      "source": "0ec08196f5fff3850a3c96b7504f4d8068b7d250",
+      "translation": "e971bc7cd8ad27a912aee9ee192458a6350d0a21"
+    },
+    "modals.inboxTriage.notReady": {
+      "source": "08c96e62915ad380e68c867e04f6bfc77d1fb5ab",
+      "translation": "b57e1f344b3d05e44840c92840ab0e63a57dd1eb"
+    },
+    "modals.inboxTriage.failed": {
+      "source": "cb5badb64bc680f83cbe00362cdb8a907e9ae91e",
+      "translation": "74951a495bd9f6f6e8455a14fd3fc622537e9362"
+    },
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "b751828a1280ee6986bb981e927b7233e89f770f"
@@ -16299,7 +16626,10 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "6e06ced83b07191f9aa272f95c5ae0aa66c4d775"
     },
-    "contextMenus.batch.freshStart": null,
+    "contextMenus.batch.freshStart": {
+      "source": "ff37fc0f265ff7999f9feda851158c78b41a56d6",
+      "translation": "ed5c28865ed279f43348b8a738bfd8d35418c24a"
+    },
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "87cf2a843e2e43a05edc326327fca7e1388bc196"
@@ -21090,21 +21420,66 @@
       "source": "106dfef892b5bcd49066d8740f9e8726937d4f5e",
       "translation": "2fa984ce72b528b5d80413b6bdbabdcd26fa7f2b"
     },
-    "settings.taskProperties.triage.heading": null,
-    "settings.taskProperties.triage.enable": null,
-    "settings.taskProperties.triage.enableDesc": null,
-    "settings.taskProperties.triage.enabledNotice": null,
-    "settings.taskProperties.triage.inboxStatus": null,
-    "settings.taskProperties.triage.somedayStatus": null,
-    "settings.taskProperties.triage.none": null,
-    "settings.taskProperties.triage.captureToInbox": null,
-    "settings.taskProperties.triage.captureToInboxDesc": null,
-    "settings.taskProperties.triage.inboxLabel": null,
-    "settings.taskProperties.triage.somedayLabel": null,
-    "settings.taskProperties.triage.defaultsBlockCapture": null,
-    "settings.taskProperties.triage.defaultsFieldScheduled": null,
-    "settings.taskProperties.triage.defaultsFieldDue": null,
-    "settings.taskProperties.triage.defaultsSetNone": null,
+    "settings.taskProperties.triage.heading": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "c467025ca2973b4410a03e1a7202f9c9ff710ce4"
+    },
+    "settings.taskProperties.triage.enable": {
+      "source": "e3ba1316543cb064cb1ce7b3a3f38ab48247761e",
+      "translation": "439cb5aacf622970e5ef1dbb39040dd2ec883891"
+    },
+    "settings.taskProperties.triage.enableDesc": {
+      "source": "142aa0f03d4e477284d8456f76f19313b14168ab",
+      "translation": "4f2fdb19218f43d1f6f67cb1a48a179af7a1c694"
+    },
+    "settings.taskProperties.triage.enabledNotice": {
+      "source": "77591e43683385b00ca243d5bf1b0fad80ec3700",
+      "translation": "bf3f2a10e7ad521e1ea16ccf426abdaf45d7d84b"
+    },
+    "settings.taskProperties.triage.inboxStatus": {
+      "source": "a0c47a1b2635968fe1c8fcd9a5ccc6c4cd81c2af",
+      "translation": "9f141c631863ff3a8c7a1b054f0616bd6cffe827"
+    },
+    "settings.taskProperties.triage.somedayStatus": {
+      "source": "6b1e6090d4d96f27efd0b2b9b42e9384fc0e8363",
+      "translation": "786a982b85c968170a25cbf991c45b4190ee435e"
+    },
+    "settings.taskProperties.triage.none": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "b2ed82f1bf1c30916cde300ded82176c2ff0300a"
+    },
+    "settings.taskProperties.triage.captureToInbox": {
+      "source": "10e2cd8a46f0e825bb88d869aeb249f6bf69818b",
+      "translation": "c013814d4894a0ff77cf42830d329e5df3598d92"
+    },
+    "settings.taskProperties.triage.captureToInboxDesc": {
+      "source": "4e6203df8b72d769182a47126cbf544d4b467565",
+      "translation": "201c527153766546052ff741e890cde8efd31aab"
+    },
+    "settings.taskProperties.triage.inboxLabel": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "c467025ca2973b4410a03e1a7202f9c9ff710ce4"
+    },
+    "settings.taskProperties.triage.somedayLabel": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "017f84294c2698c1a14e1fb052bfd14accfc0780"
+    },
+    "settings.taskProperties.triage.defaultsBlockCapture": {
+      "source": "b799fdc97761516a0de421452edca36cb20f77e0",
+      "translation": "b5854f4747ae14479b2605b15bcb5b4fd6ff1660"
+    },
+    "settings.taskProperties.triage.defaultsFieldScheduled": {
+      "source": "e891e3709fb48ba78e0e067b6c8691d8cab84382",
+      "translation": "8b363a929b99a02380443407d2dfe5f73eb2b0af"
+    },
+    "settings.taskProperties.triage.defaultsFieldDue": {
+      "source": "30cdf73eff2a596aff88c475560de83dbaa7d346",
+      "translation": "4c05157fd91a8004022eda624ee70553e16f3065"
+    },
+    "settings.taskProperties.triage.defaultsSetNone": {
+      "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
+      "translation": "c4ec6ab953ae04eb7677cc5fc92600a206c4733f"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "fb026d0eaad45b388c84db6e9efb723033ef0134"
@@ -23865,13 +24240,34 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "09852e0da7c31a9514d323655cc1d542e5686cc4"
     },
-    "notices.freshStart.done": null,
-    "notices.freshStart.nothingChanged": null,
-    "notices.freshStart.undo": null,
-    "notices.freshStart.undone": null,
-    "notices.freshStart.progress": null,
-    "notices.freshStart.failed": null,
-    "notices.freshStart.undoFailed": null,
+    "notices.freshStart.done": {
+      "source": "d7b386fb063e048918bc7a83164fd5e5dd4ba1ed",
+      "translation": "34abd47f2043b01abe2d25c33cde9e0060c48630"
+    },
+    "notices.freshStart.nothingChanged": {
+      "source": "9bfee1277289fa500704dbf248c4f3fa7168af08",
+      "translation": "d4e08b9ca1c108dbeb06c827528526fb70b26e7b"
+    },
+    "notices.freshStart.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "49ba3292420c74828e7892fadc66f3f4ee4c0111"
+    },
+    "notices.freshStart.undone": {
+      "source": "636c8ac2672a15bf61f040a51c9bc1892c358d6c",
+      "translation": "f40b5c4947662ad0a8f25c9d0094e526d2192d5e"
+    },
+    "notices.freshStart.progress": {
+      "source": "02e0a01e81eb69baf92ca3361a3057dc4c47ad45",
+      "translation": "fd13d91d1939332193c66d4d80e7bd6f27bbbf73"
+    },
+    "notices.freshStart.failed": {
+      "source": "aa527f45b6e9e573847c70c9499b119c2c27f3fa",
+      "translation": "7af9cc6db0c53a857e273f4b89453c3543d47530"
+    },
+    "notices.freshStart.undoFailed": {
+      "source": "46d81023476e2a728254063fa53e0bad630be2ce",
+      "translation": "9a1c13cce64bac3ab684eff7fd8b2db397bf3921"
+    },
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "93ef7fa71140819bcd7ff92af774e58e45d12867"
@@ -24044,38 +24440,134 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "2a6f9d87e5ea5c98a846f17d561a5558aee14a55"
     },
-    "commands.triageInbox": null,
-    "commands.freshStart": null,
-    "commands.undoFreshStart": null,
-    "modals.freshStart.title": null,
-    "modals.freshStart.summary": null,
-    "modals.freshStart.scheduledLine": null,
-    "modals.freshStart.scheduledLineNoInbox": null,
-    "modals.freshStart.dueLine": null,
-    "modals.freshStart.clearDue": null,
-    "modals.freshStart.clearDueHint": null,
-    "modals.freshStart.confirm": null,
-    "modals.freshStart.nothing": null,
-    "modals.inboxTriage.title": null,
-    "modals.inboxTriage.progress": null,
-    "modals.inboxTriage.captured": null,
-    "modals.inboxTriage.actions.today": null,
-    "modals.inboxTriage.actions.schedule": null,
-    "modals.inboxTriage.actions.someday": null,
-    "modals.inboxTriage.actions.done": null,
-    "modals.inboxTriage.actions.drop": null,
-    "modals.inboxTriage.actions.edit": null,
-    "modals.inboxTriage.actions.skip": null,
-    "modals.inboxTriage.actions.undo": null,
-    "modals.inboxTriage.schedule.tomorrow": null,
-    "modals.inboxTriage.schedule.weekend": null,
-    "modals.inboxTriage.schedule.nextWeek": null,
-    "modals.inboxTriage.schedule.pick": null,
-    "modals.inboxTriage.empty": null,
-    "modals.inboxTriage.capture": null,
-    "modals.inboxTriage.finished": null,
-    "modals.inboxTriage.notReady": null,
-    "modals.inboxTriage.failed": null,
+    "commands.triageInbox": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "168b72e0ccb1fecdd4e2bed095f4c089d78cd46f"
+    },
+    "commands.freshStart": {
+      "source": "d0d6697a8e6470983c2fd3f591309f87612b7287",
+      "translation": "301d1548c3c7473a5808ef7c29dba4b1a88d0e21"
+    },
+    "commands.undoFreshStart": {
+      "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
+      "translation": "66cb392de38f44c2986bc5d71d57c62c2f9e534a"
+    },
+    "modals.freshStart.title": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "da0564618387e99d32978e8012ee241b430f493a"
+    },
+    "modals.freshStart.summary": {
+      "source": "424cce674d72ae6f8eb3c945f3cb7d63e00bd75d",
+      "translation": "894ab50af0f35f12b22f7ae4555fba5daf4f7905"
+    },
+    "modals.freshStart.scheduledLine": {
+      "source": "3b8b29a2aed08e1f0e723a6b5d6457541e94afeb",
+      "translation": "c5719c1b88f1601a6c8d1487ddabf0a3e526767c"
+    },
+    "modals.freshStart.scheduledLineNoInbox": {
+      "source": "b3a3aadf92f7f875e02e999fa3e35a2f1cac802a",
+      "translation": "003cfe4d1e2aad4bd4bf68fb148fc36622f6ded0"
+    },
+    "modals.freshStart.dueLine": {
+      "source": "0e14d7672b80359562a4361ce70cebe3e18b24b5",
+      "translation": "9c7295ee681cf239d9573fcfb1654dbc7cd9e7f3"
+    },
+    "modals.freshStart.clearDue": {
+      "source": "3861164071a10fc67f139ca7088b8d07e2fe454e",
+      "translation": "196ec8e931b1bd7de34d783025323100fbba3719"
+    },
+    "modals.freshStart.clearDueHint": {
+      "source": "ceef6c188f0680aefff5614ae824230ae91e97b9",
+      "translation": "b59d5b169cacafad00dbbf0e616a2a3b970e41e7"
+    },
+    "modals.freshStart.confirm": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "da0564618387e99d32978e8012ee241b430f493a"
+    },
+    "modals.freshStart.nothing": {
+      "source": "a7498b630bd5ceba0d1d4278cfe18eb18fa7e4fa",
+      "translation": "c4e0ab3176cad543ca391ff5e91900139df76948"
+    },
+    "modals.inboxTriage.title": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "168b72e0ccb1fecdd4e2bed095f4c089d78cd46f"
+    },
+    "modals.inboxTriage.progress": {
+      "source": "7e20641fe8fb90eea47a613fd9602923da70c817",
+      "translation": "37f64e30f60070e260ce4f916852b6b1262ad6d5"
+    },
+    "modals.inboxTriage.captured": {
+      "source": "505fd34f3794e2084cc1cff92cef44d8ecfaa43b",
+      "translation": "264d0df859ee6874d59e955162b1782fef3bdf99"
+    },
+    "modals.inboxTriage.actions.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "baca97f697fbf114ca2b08c97c106dde47583c4a"
+    },
+    "modals.inboxTriage.actions.schedule": {
+      "source": "c83800b8042193cf03adaa8eb8e6ee20508a3ffa",
+      "translation": "201aaaae09cc3e9ff6abcbd0bbd0b52e4bd931d3"
+    },
+    "modals.inboxTriage.actions.someday": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "017f84294c2698c1a14e1fb052bfd14accfc0780"
+    },
+    "modals.inboxTriage.actions.done": {
+      "source": "b8b41a7eae9c635c16940d1cacc8c8b984600100",
+      "translation": "e53d7c2b1ee4a345fbf66674a137754ba3511b65"
+    },
+    "modals.inboxTriage.actions.drop": {
+      "source": "0a088b3115056ef6acd3ab4b406c823e1724e216",
+      "translation": "7a0662a3c1a60a15d7e3d86fa35aad500813d36d"
+    },
+    "modals.inboxTriage.actions.edit": {
+      "source": "5301648dcf6b53cefc9ed52999aaa92d4603cae0",
+      "translation": "f260e757cec75096bc3eefbfb1c4a14720832017"
+    },
+    "modals.inboxTriage.actions.skip": {
+      "source": "3da474537ac378c616d6b301acc1674bc348cecd",
+      "translation": "5dc188e52a87c3d21da9c0b047e0820e3a4893b8"
+    },
+    "modals.inboxTriage.actions.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "49ba3292420c74828e7892fadc66f3f4ee4c0111"
+    },
+    "modals.inboxTriage.schedule.tomorrow": {
+      "source": "1948bf2dfa8fbc1f07ad3b6f0e2b3ee39f87e495",
+      "translation": "2ab7e70a795413277c5fb24b3bd9b35c5c06598a"
+    },
+    "modals.inboxTriage.schedule.weekend": {
+      "source": "1921aa118ad7a4dca5f679eaefc3e1777854c777",
+      "translation": "c8b6ff418b3a60e984b0adfe061ceefa8ee91c3c"
+    },
+    "modals.inboxTriage.schedule.nextWeek": {
+      "source": "5a20763adfb0adcac05270a340009a8526652248",
+      "translation": "ada9f8906dd2ff302a24371a4d050100a6d874e6"
+    },
+    "modals.inboxTriage.schedule.pick": {
+      "source": "a0c6c6e32e4990b712909843fd4b5e7a3815f1ea",
+      "translation": "f573619c98288e20fb00786c30b3af7bbf948e19"
+    },
+    "modals.inboxTriage.empty": {
+      "source": "bd62b5c6bc74facae0a9a205cee91f0bb035aeca",
+      "translation": "106a1705a88372fd2e142af68bb6760f451e8881"
+    },
+    "modals.inboxTriage.capture": {
+      "source": "7d99492f83563bd67d307b38a8bd69aea2ff4ec5",
+      "translation": "1995c0547f588c9323d0d8918d313a791db98af3"
+    },
+    "modals.inboxTriage.finished": {
+      "source": "0ec08196f5fff3850a3c96b7504f4d8068b7d250",
+      "translation": "458daec25cd7f88e683c2f8ad26416154e1ff494"
+    },
+    "modals.inboxTriage.notReady": {
+      "source": "08c96e62915ad380e68c867e04f6bfc77d1fb5ab",
+      "translation": "9ac468d57691b0fb17ed97ec675bb2c4c126779d"
+    },
+    "modals.inboxTriage.failed": {
+      "source": "cb5badb64bc680f83cbe00362cdb8a907e9ae91e",
+      "translation": "94aeb7dc8c0a575a9a36517299202fff805ad57f"
+    },
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "3fd7f1097ffdd1ec563ab5714dcdee521c89ec5f"
@@ -25468,7 +25960,10 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "c1c141ca8e94f5eddf40cfe81c1e1fa84281fd9f"
     },
-    "contextMenus.batch.freshStart": null,
+    "contextMenus.batch.freshStart": {
+      "source": "ff37fc0f265ff7999f9feda851158c78b41a56d6",
+      "translation": "f1454d973bbb0074d9efc81746d0450172c40c79"
+    },
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "659499f38a5647a0d307be6f23a5d367a167fbf7"
@@ -30259,21 +30754,66 @@
       "source": "106dfef892b5bcd49066d8740f9e8726937d4f5e",
       "translation": "7a3d3fc0b40abcdeeb1af43c853c886485a7d1bd"
     },
-    "settings.taskProperties.triage.heading": null,
-    "settings.taskProperties.triage.enable": null,
-    "settings.taskProperties.triage.enableDesc": null,
-    "settings.taskProperties.triage.enabledNotice": null,
-    "settings.taskProperties.triage.inboxStatus": null,
-    "settings.taskProperties.triage.somedayStatus": null,
-    "settings.taskProperties.triage.none": null,
-    "settings.taskProperties.triage.captureToInbox": null,
-    "settings.taskProperties.triage.captureToInboxDesc": null,
-    "settings.taskProperties.triage.inboxLabel": null,
-    "settings.taskProperties.triage.somedayLabel": null,
-    "settings.taskProperties.triage.defaultsBlockCapture": null,
-    "settings.taskProperties.triage.defaultsFieldScheduled": null,
-    "settings.taskProperties.triage.defaultsFieldDue": null,
-    "settings.taskProperties.triage.defaultsSetNone": null,
+    "settings.taskProperties.triage.heading": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "9bdabf2fffd1cbe387f6edf6f1fc27ac69c6aec4"
+    },
+    "settings.taskProperties.triage.enable": {
+      "source": "e3ba1316543cb064cb1ce7b3a3f38ab48247761e",
+      "translation": "a320c708ef016b2748e87d3785942d962c00dc18"
+    },
+    "settings.taskProperties.triage.enableDesc": {
+      "source": "142aa0f03d4e477284d8456f76f19313b14168ab",
+      "translation": "59d721a449f4b4011f3241ed3c0acc5a6b0c2ad7"
+    },
+    "settings.taskProperties.triage.enabledNotice": {
+      "source": "77591e43683385b00ca243d5bf1b0fad80ec3700",
+      "translation": "0b56f0fc83a0974b586617e6e86204cbbada7f6b"
+    },
+    "settings.taskProperties.triage.inboxStatus": {
+      "source": "a0c47a1b2635968fe1c8fcd9a5ccc6c4cd81c2af",
+      "translation": "414fe355dfbf46d3bcbc446d341c553caa7c5811"
+    },
+    "settings.taskProperties.triage.somedayStatus": {
+      "source": "6b1e6090d4d96f27efd0b2b9b42e9384fc0e8363",
+      "translation": "91096fa50cb542500f180f1a8a344309626566da"
+    },
+    "settings.taskProperties.triage.none": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "1a2e920ba7c651e24be9fb2c70c396440509317e"
+    },
+    "settings.taskProperties.triage.captureToInbox": {
+      "source": "10e2cd8a46f0e825bb88d869aeb249f6bf69818b",
+      "translation": "badc7367b6f1056a45d7855a786311ecc5762ed1"
+    },
+    "settings.taskProperties.triage.captureToInboxDesc": {
+      "source": "4e6203df8b72d769182a47126cbf544d4b467565",
+      "translation": "d864c4e717e1f32fd9096daa3c5d8d085fd3267e"
+    },
+    "settings.taskProperties.triage.inboxLabel": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "9bdabf2fffd1cbe387f6edf6f1fc27ac69c6aec4"
+    },
+    "settings.taskProperties.triage.somedayLabel": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "6115ccb4cf875f9e6f376589a8f18ba2414348f0"
+    },
+    "settings.taskProperties.triage.defaultsBlockCapture": {
+      "source": "b799fdc97761516a0de421452edca36cb20f77e0",
+      "translation": "56d70b8f2084d052b716f1a48ad5274f2cd56ef3"
+    },
+    "settings.taskProperties.triage.defaultsFieldScheduled": {
+      "source": "e891e3709fb48ba78e0e067b6c8691d8cab84382",
+      "translation": "c1a4728e83ab35ff2b84086e1ba8d7c2fc6279d2"
+    },
+    "settings.taskProperties.triage.defaultsFieldDue": {
+      "source": "30cdf73eff2a596aff88c475560de83dbaa7d346",
+      "translation": "7b83dfd5f7b333f1af13708f38d4bb811d8f79e5"
+    },
+    "settings.taskProperties.triage.defaultsSetNone": {
+      "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
+      "translation": "07d73ac516e75f49b534c60b28aa927ea23547fa"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "183bdd7ee2a7805e8f9c941256ea9a878b2a57fe"
@@ -33034,13 +33574,34 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "61b41c1dd943fe52777bba6de2d9319415e10cac"
     },
-    "notices.freshStart.done": null,
-    "notices.freshStart.nothingChanged": null,
-    "notices.freshStart.undo": null,
-    "notices.freshStart.undone": null,
-    "notices.freshStart.progress": null,
-    "notices.freshStart.failed": null,
-    "notices.freshStart.undoFailed": null,
+    "notices.freshStart.done": {
+      "source": "d7b386fb063e048918bc7a83164fd5e5dd4ba1ed",
+      "translation": "678eb516a0f4f95b9bed23e8909acf3b62e4c973"
+    },
+    "notices.freshStart.nothingChanged": {
+      "source": "9bfee1277289fa500704dbf248c4f3fa7168af08",
+      "translation": "2ae3b4e7cf99a346608171c33df58d99089de3ee"
+    },
+    "notices.freshStart.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "c7f325f13f167d696c1e0c7bcf75325af6262dcb"
+    },
+    "notices.freshStart.undone": {
+      "source": "636c8ac2672a15bf61f040a51c9bc1892c358d6c",
+      "translation": "0955d11c4d9dbfd0c48e491000dc47f5dfa1fc6f"
+    },
+    "notices.freshStart.progress": {
+      "source": "02e0a01e81eb69baf92ca3361a3057dc4c47ad45",
+      "translation": "7d5b1c29bbba99f6ac4871865e628c9763384bbf"
+    },
+    "notices.freshStart.failed": {
+      "source": "aa527f45b6e9e573847c70c9499b119c2c27f3fa",
+      "translation": "eb5c55b71318baf02e6be167cc2f0f76783fd5f0"
+    },
+    "notices.freshStart.undoFailed": {
+      "source": "46d81023476e2a728254063fa53e0bad630be2ce",
+      "translation": "d628b1ea4f495339d0b3eaa0c1a5355d9bc86790"
+    },
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "238d8e03e2d389757ad2ceb689cd167abb51e3c1"
@@ -33213,38 +33774,134 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "885709e454f1004cac119f0a31c2f5f5d2e73d21"
     },
-    "commands.triageInbox": null,
-    "commands.freshStart": null,
-    "commands.undoFreshStart": null,
-    "modals.freshStart.title": null,
-    "modals.freshStart.summary": null,
-    "modals.freshStart.scheduledLine": null,
-    "modals.freshStart.scheduledLineNoInbox": null,
-    "modals.freshStart.dueLine": null,
-    "modals.freshStart.clearDue": null,
-    "modals.freshStart.clearDueHint": null,
-    "modals.freshStart.confirm": null,
-    "modals.freshStart.nothing": null,
-    "modals.inboxTriage.title": null,
-    "modals.inboxTriage.progress": null,
-    "modals.inboxTriage.captured": null,
-    "modals.inboxTriage.actions.today": null,
-    "modals.inboxTriage.actions.schedule": null,
-    "modals.inboxTriage.actions.someday": null,
-    "modals.inboxTriage.actions.done": null,
-    "modals.inboxTriage.actions.drop": null,
-    "modals.inboxTriage.actions.edit": null,
-    "modals.inboxTriage.actions.skip": null,
-    "modals.inboxTriage.actions.undo": null,
-    "modals.inboxTriage.schedule.tomorrow": null,
-    "modals.inboxTriage.schedule.weekend": null,
-    "modals.inboxTriage.schedule.nextWeek": null,
-    "modals.inboxTriage.schedule.pick": null,
-    "modals.inboxTriage.empty": null,
-    "modals.inboxTriage.capture": null,
-    "modals.inboxTriage.finished": null,
-    "modals.inboxTriage.notReady": null,
-    "modals.inboxTriage.failed": null,
+    "commands.triageInbox": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "e2e26e56ebe590c055e026398232445134021df1"
+    },
+    "commands.freshStart": {
+      "source": "d0d6697a8e6470983c2fd3f591309f87612b7287",
+      "translation": "36619ad6d3d0aed91788a2fb168f428471ee266b"
+    },
+    "commands.undoFreshStart": {
+      "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
+      "translation": "78d1ea7ebc78e5e2ba116f50a37eba708c10069d"
+    },
+    "modals.freshStart.title": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "fc5b2ca043e23fd1524c8a007b6116444ea9c239"
+    },
+    "modals.freshStart.summary": {
+      "source": "424cce674d72ae6f8eb3c945f3cb7d63e00bd75d",
+      "translation": "051050c36e2917da0e112ddb760ddefdfcddb51f"
+    },
+    "modals.freshStart.scheduledLine": {
+      "source": "3b8b29a2aed08e1f0e723a6b5d6457541e94afeb",
+      "translation": "765d6a5bd40b6a7e34d8cdc21c4cad5a4003b452"
+    },
+    "modals.freshStart.scheduledLineNoInbox": {
+      "source": "b3a3aadf92f7f875e02e999fa3e35a2f1cac802a",
+      "translation": "0cd733d8ea39350da2a38cb42128f91f03537900"
+    },
+    "modals.freshStart.dueLine": {
+      "source": "0e14d7672b80359562a4361ce70cebe3e18b24b5",
+      "translation": "9bb412b9f3556cdfabd43e0af9a49671d36f9fcf"
+    },
+    "modals.freshStart.clearDue": {
+      "source": "3861164071a10fc67f139ca7088b8d07e2fe454e",
+      "translation": "7b36705e902ec9d4e59a67723f1d5d557bb518f7"
+    },
+    "modals.freshStart.clearDueHint": {
+      "source": "ceef6c188f0680aefff5614ae824230ae91e97b9",
+      "translation": "f8b30e8f3c0abe830a805251aaf94d582672254d"
+    },
+    "modals.freshStart.confirm": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "4ba368ad6d5bea507d4c1008c9ef6baf8c888628"
+    },
+    "modals.freshStart.nothing": {
+      "source": "a7498b630bd5ceba0d1d4278cfe18eb18fa7e4fa",
+      "translation": "3ca7eca4280600446b06320b5095d5cf82913faf"
+    },
+    "modals.inboxTriage.title": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "e2e26e56ebe590c055e026398232445134021df1"
+    },
+    "modals.inboxTriage.progress": {
+      "source": "7e20641fe8fb90eea47a613fd9602923da70c817",
+      "translation": "e2637e82fe4837e80379c26ebcb6b98f709d5a40"
+    },
+    "modals.inboxTriage.captured": {
+      "source": "505fd34f3794e2084cc1cff92cef44d8ecfaa43b",
+      "translation": "8b0a0d48763c8121f2fa08cb4ba1148aed41e195"
+    },
+    "modals.inboxTriage.actions.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "574cd4fb795bbf0b38d31b2edd3860f822be0c1c"
+    },
+    "modals.inboxTriage.actions.schedule": {
+      "source": "c83800b8042193cf03adaa8eb8e6ee20508a3ffa",
+      "translation": "b74c70f54fda8b831d8783d23d0dd0b59b28e40c"
+    },
+    "modals.inboxTriage.actions.someday": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "6115ccb4cf875f9e6f376589a8f18ba2414348f0"
+    },
+    "modals.inboxTriage.actions.done": {
+      "source": "b8b41a7eae9c635c16940d1cacc8c8b984600100",
+      "translation": "f6c9b647f0a21015f649efa44d3f720753723572"
+    },
+    "modals.inboxTriage.actions.drop": {
+      "source": "0a088b3115056ef6acd3ab4b406c823e1724e216",
+      "translation": "a328a2d80d0088f4239f1f34ccd495d88c267cea"
+    },
+    "modals.inboxTriage.actions.edit": {
+      "source": "5301648dcf6b53cefc9ed52999aaa92d4603cae0",
+      "translation": "d107b864c37815fbb4849cf3a387fa5819cebadb"
+    },
+    "modals.inboxTriage.actions.skip": {
+      "source": "3da474537ac378c616d6b301acc1674bc348cecd",
+      "translation": "a91a8a6ac7cee5edec26adc060bb5ce8449c25d7"
+    },
+    "modals.inboxTriage.actions.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "c7f325f13f167d696c1e0c7bcf75325af6262dcb"
+    },
+    "modals.inboxTriage.schedule.tomorrow": {
+      "source": "1948bf2dfa8fbc1f07ad3b6f0e2b3ee39f87e495",
+      "translation": "762ffcba27adb41d4107f8e38dda628f3793ef64"
+    },
+    "modals.inboxTriage.schedule.weekend": {
+      "source": "1921aa118ad7a4dca5f679eaefc3e1777854c777",
+      "translation": "c6ec11295c8423badf37d211593fcd61bf0c7da6"
+    },
+    "modals.inboxTriage.schedule.nextWeek": {
+      "source": "5a20763adfb0adcac05270a340009a8526652248",
+      "translation": "9e2a449e4ede9facef8925389fdf42424f6fce44"
+    },
+    "modals.inboxTriage.schedule.pick": {
+      "source": "a0c6c6e32e4990b712909843fd4b5e7a3815f1ea",
+      "translation": "8279e02355a559cf9225c2c83d4312dc1046167a"
+    },
+    "modals.inboxTriage.empty": {
+      "source": "bd62b5c6bc74facae0a9a205cee91f0bb035aeca",
+      "translation": "a14ebe3eefd9aeae66bf45b88e941999e74a7fe2"
+    },
+    "modals.inboxTriage.capture": {
+      "source": "7d99492f83563bd67d307b38a8bd69aea2ff4ec5",
+      "translation": "324ac3afda4caa796a5040554aa2733ced617739"
+    },
+    "modals.inboxTriage.finished": {
+      "source": "0ec08196f5fff3850a3c96b7504f4d8068b7d250",
+      "translation": "0535fa96c93d733b3c26af5ddedf485602d3fd34"
+    },
+    "modals.inboxTriage.notReady": {
+      "source": "08c96e62915ad380e68c867e04f6bfc77d1fb5ab",
+      "translation": "3c350edf8bbd7c66d0bdcf38568577afcf5ff6e0"
+    },
+    "modals.inboxTriage.failed": {
+      "source": "cb5badb64bc680f83cbe00362cdb8a907e9ae91e",
+      "translation": "0e051128bc3173078a2da949d5c2106fec6ba952"
+    },
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "ece297f69ffd13b505e878cc8ccb5ee9c37cae9c"
@@ -34637,7 +35294,10 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "f1f005c426eabb2a2655b7036c5432784809f48b"
     },
-    "contextMenus.batch.freshStart": null,
+    "contextMenus.batch.freshStart": {
+      "source": "ff37fc0f265ff7999f9feda851158c78b41a56d6",
+      "translation": "6d2dfe4524619ccb21cbad1b0001c45f84381505"
+    },
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "0a409cee235c7f6064ee84956d3cbb8e45973ca3"
@@ -39428,21 +40088,66 @@
       "source": "106dfef892b5bcd49066d8740f9e8726937d4f5e",
       "translation": "8d5463a0f10879e6f6af2869ee728953d3032fe1"
     },
-    "settings.taskProperties.triage.heading": null,
-    "settings.taskProperties.triage.enable": null,
-    "settings.taskProperties.triage.enableDesc": null,
-    "settings.taskProperties.triage.enabledNotice": null,
-    "settings.taskProperties.triage.inboxStatus": null,
-    "settings.taskProperties.triage.somedayStatus": null,
-    "settings.taskProperties.triage.none": null,
-    "settings.taskProperties.triage.captureToInbox": null,
-    "settings.taskProperties.triage.captureToInboxDesc": null,
-    "settings.taskProperties.triage.inboxLabel": null,
-    "settings.taskProperties.triage.somedayLabel": null,
-    "settings.taskProperties.triage.defaultsBlockCapture": null,
-    "settings.taskProperties.triage.defaultsFieldScheduled": null,
-    "settings.taskProperties.triage.defaultsFieldDue": null,
-    "settings.taskProperties.triage.defaultsSetNone": null,
+    "settings.taskProperties.triage.heading": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "7c69d748521c69daeaecd93e92d81048fe2d448b"
+    },
+    "settings.taskProperties.triage.enable": {
+      "source": "e3ba1316543cb064cb1ce7b3a3f38ab48247761e",
+      "translation": "5719160c598d8733c2dc6372c4089d89790b0e24"
+    },
+    "settings.taskProperties.triage.enableDesc": {
+      "source": "142aa0f03d4e477284d8456f76f19313b14168ab",
+      "translation": "1b2d3296a24a1a871100ffc4069f46f96a9c0056"
+    },
+    "settings.taskProperties.triage.enabledNotice": {
+      "source": "77591e43683385b00ca243d5bf1b0fad80ec3700",
+      "translation": "5627a759cbadd0c5385e9d7c31565d863fbeb987"
+    },
+    "settings.taskProperties.triage.inboxStatus": {
+      "source": "a0c47a1b2635968fe1c8fcd9a5ccc6c4cd81c2af",
+      "translation": "d2bdbb88eb3411e5ee8ecebf311e14d043138094"
+    },
+    "settings.taskProperties.triage.somedayStatus": {
+      "source": "6b1e6090d4d96f27efd0b2b9b42e9384fc0e8363",
+      "translation": "9866f4964b8c4c5e5526aebad70acfe435b969ac"
+    },
+    "settings.taskProperties.triage.none": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "d58fa73adc42668ca7193bb4975c944411c6775e"
+    },
+    "settings.taskProperties.triage.captureToInbox": {
+      "source": "10e2cd8a46f0e825bb88d869aeb249f6bf69818b",
+      "translation": "26bf06b3abd6f56d424754e8cde4df6933e8a81c"
+    },
+    "settings.taskProperties.triage.captureToInboxDesc": {
+      "source": "4e6203df8b72d769182a47126cbf544d4b467565",
+      "translation": "91146e71b9f73098f383ea1ca335952589c8ca5e"
+    },
+    "settings.taskProperties.triage.inboxLabel": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "7c69d748521c69daeaecd93e92d81048fe2d448b"
+    },
+    "settings.taskProperties.triage.somedayLabel": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "7cb76985f0f19e1a6b494c452387c709c0b396a4"
+    },
+    "settings.taskProperties.triage.defaultsBlockCapture": {
+      "source": "b799fdc97761516a0de421452edca36cb20f77e0",
+      "translation": "81d72c51d20ef775a45294fe5b3aeca58a964601"
+    },
+    "settings.taskProperties.triage.defaultsFieldScheduled": {
+      "source": "e891e3709fb48ba78e0e067b6c8691d8cab84382",
+      "translation": "0ac577ce5eb53a87a45785afaba017ed857a8fd7"
+    },
+    "settings.taskProperties.triage.defaultsFieldDue": {
+      "source": "30cdf73eff2a596aff88c475560de83dbaa7d346",
+      "translation": "7484df0283554ae6df780ca6380c7bdd15cf00f2"
+    },
+    "settings.taskProperties.triage.defaultsSetNone": {
+      "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
+      "translation": "7195339368ef4e6675a9491580d3937c61b11dbc"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "5b187c18393ba9f40fa30f45f743c136f9e2c2a4"
@@ -42203,13 +42908,34 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "c8625579fc944285c07ca887e8faae76b67c3fa1"
     },
-    "notices.freshStart.done": null,
-    "notices.freshStart.nothingChanged": null,
-    "notices.freshStart.undo": null,
-    "notices.freshStart.undone": null,
-    "notices.freshStart.progress": null,
-    "notices.freshStart.failed": null,
-    "notices.freshStart.undoFailed": null,
+    "notices.freshStart.done": {
+      "source": "d7b386fb063e048918bc7a83164fd5e5dd4ba1ed",
+      "translation": "0b38c3ae452f90049eb8865cbaf7b83c124a8cbe"
+    },
+    "notices.freshStart.nothingChanged": {
+      "source": "9bfee1277289fa500704dbf248c4f3fa7168af08",
+      "translation": "0ffc8bf73670ede15513b2316e42785d4732eb08"
+    },
+    "notices.freshStart.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "90945122e16c878b8753bf4f91b43f6158656f5f"
+    },
+    "notices.freshStart.undone": {
+      "source": "636c8ac2672a15bf61f040a51c9bc1892c358d6c",
+      "translation": "19b074ec076e938c1e3d50efb928e798a1d60c85"
+    },
+    "notices.freshStart.progress": {
+      "source": "02e0a01e81eb69baf92ca3361a3057dc4c47ad45",
+      "translation": "046a260b5e7e8832114d61d91a9a03974edae8fe"
+    },
+    "notices.freshStart.failed": {
+      "source": "aa527f45b6e9e573847c70c9499b119c2c27f3fa",
+      "translation": "dc78de0f22403f18a781f0d7629b3add941d0d07"
+    },
+    "notices.freshStart.undoFailed": {
+      "source": "46d81023476e2a728254063fa53e0bad630be2ce",
+      "translation": "9d5add6b94263c29ec779289c4f47a522a831593"
+    },
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "6cd04430fcec0c1d96fa2f3736006caba6d747b4"
@@ -42382,38 +43108,134 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "a398bc3fee1e815294881cb86084db6efffa1703"
     },
-    "commands.triageInbox": null,
-    "commands.freshStart": null,
-    "commands.undoFreshStart": null,
-    "modals.freshStart.title": null,
-    "modals.freshStart.summary": null,
-    "modals.freshStart.scheduledLine": null,
-    "modals.freshStart.scheduledLineNoInbox": null,
-    "modals.freshStart.dueLine": null,
-    "modals.freshStart.clearDue": null,
-    "modals.freshStart.clearDueHint": null,
-    "modals.freshStart.confirm": null,
-    "modals.freshStart.nothing": null,
-    "modals.inboxTriage.title": null,
-    "modals.inboxTriage.progress": null,
-    "modals.inboxTriage.captured": null,
-    "modals.inboxTriage.actions.today": null,
-    "modals.inboxTriage.actions.schedule": null,
-    "modals.inboxTriage.actions.someday": null,
-    "modals.inboxTriage.actions.done": null,
-    "modals.inboxTriage.actions.drop": null,
-    "modals.inboxTriage.actions.edit": null,
-    "modals.inboxTriage.actions.skip": null,
-    "modals.inboxTriage.actions.undo": null,
-    "modals.inboxTriage.schedule.tomorrow": null,
-    "modals.inboxTriage.schedule.weekend": null,
-    "modals.inboxTriage.schedule.nextWeek": null,
-    "modals.inboxTriage.schedule.pick": null,
-    "modals.inboxTriage.empty": null,
-    "modals.inboxTriage.capture": null,
-    "modals.inboxTriage.finished": null,
-    "modals.inboxTriage.notReady": null,
-    "modals.inboxTriage.failed": null,
+    "commands.triageInbox": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "d14ef57a378b9668e6f2b9f9c3f57bca6136e1be"
+    },
+    "commands.freshStart": {
+      "source": "d0d6697a8e6470983c2fd3f591309f87612b7287",
+      "translation": "295dbcbb5c08220fa96065faf1d05a680dc3ba44"
+    },
+    "commands.undoFreshStart": {
+      "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
+      "translation": "f918ed2eafbeaab4fb6c5e8fc076a77e001a1e9f"
+    },
+    "modals.freshStart.title": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "5afaa1821a1ddb502ba70fa10b60708e4d9b3113"
+    },
+    "modals.freshStart.summary": {
+      "source": "424cce674d72ae6f8eb3c945f3cb7d63e00bd75d",
+      "translation": "73240383f3c8df4d2e4a28ef4ff628826ef0dda1"
+    },
+    "modals.freshStart.scheduledLine": {
+      "source": "3b8b29a2aed08e1f0e723a6b5d6457541e94afeb",
+      "translation": "5b136ff95c28dafb003bc040414f50547020bf32"
+    },
+    "modals.freshStart.scheduledLineNoInbox": {
+      "source": "b3a3aadf92f7f875e02e999fa3e35a2f1cac802a",
+      "translation": "85b63fe2ff1fd7582a68d063ee578364e5561263"
+    },
+    "modals.freshStart.dueLine": {
+      "source": "0e14d7672b80359562a4361ce70cebe3e18b24b5",
+      "translation": "b4b7adb97b31f62f2ce92f5b7c63301616f5610c"
+    },
+    "modals.freshStart.clearDue": {
+      "source": "3861164071a10fc67f139ca7088b8d07e2fe454e",
+      "translation": "757baf56edcabbb982afd6a0e9469248858acc83"
+    },
+    "modals.freshStart.clearDueHint": {
+      "source": "ceef6c188f0680aefff5614ae824230ae91e97b9",
+      "translation": "19805a636c3e6c16fe2d0213dc650763f335f588"
+    },
+    "modals.freshStart.confirm": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "5afaa1821a1ddb502ba70fa10b60708e4d9b3113"
+    },
+    "modals.freshStart.nothing": {
+      "source": "a7498b630bd5ceba0d1d4278cfe18eb18fa7e4fa",
+      "translation": "7def13cd071a6360160dc88bd5724bc83348cdee"
+    },
+    "modals.inboxTriage.title": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "d14ef57a378b9668e6f2b9f9c3f57bca6136e1be"
+    },
+    "modals.inboxTriage.progress": {
+      "source": "7e20641fe8fb90eea47a613fd9602923da70c817",
+      "translation": "e2637e82fe4837e80379c26ebcb6b98f709d5a40"
+    },
+    "modals.inboxTriage.captured": {
+      "source": "505fd34f3794e2084cc1cff92cef44d8ecfaa43b",
+      "translation": "05f89c593216a33ffaf0661ea87d982c280c4477"
+    },
+    "modals.inboxTriage.actions.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "2bdce5e8cc42ebd14f38135858dea1956e743c28"
+    },
+    "modals.inboxTriage.actions.schedule": {
+      "source": "c83800b8042193cf03adaa8eb8e6ee20508a3ffa",
+      "translation": "25cb730b4da2612ffddcd2ddd0a764b851f97c82"
+    },
+    "modals.inboxTriage.actions.someday": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "7cb76985f0f19e1a6b494c452387c709c0b396a4"
+    },
+    "modals.inboxTriage.actions.done": {
+      "source": "b8b41a7eae9c635c16940d1cacc8c8b984600100",
+      "translation": "77d43ed397313f765d839da52133ac78a7b4bd39"
+    },
+    "modals.inboxTriage.actions.drop": {
+      "source": "0a088b3115056ef6acd3ab4b406c823e1724e216",
+      "translation": "6db5f96bd1eb691173c3048b9d1aead00471cf91"
+    },
+    "modals.inboxTriage.actions.edit": {
+      "source": "5301648dcf6b53cefc9ed52999aaa92d4603cae0",
+      "translation": "d482e14b4039fd640dc31d630875bbb0f8b82b59"
+    },
+    "modals.inboxTriage.actions.skip": {
+      "source": "3da474537ac378c616d6b301acc1674bc348cecd",
+      "translation": "88130ab9ba717495209182a84ab11c542dad04fd"
+    },
+    "modals.inboxTriage.actions.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "90945122e16c878b8753bf4f91b43f6158656f5f"
+    },
+    "modals.inboxTriage.schedule.tomorrow": {
+      "source": "1948bf2dfa8fbc1f07ad3b6f0e2b3ee39f87e495",
+      "translation": "ad95f2b6dcc75d02f06cd9f95718c5d16daa421f"
+    },
+    "modals.inboxTriage.schedule.weekend": {
+      "source": "1921aa118ad7a4dca5f679eaefc3e1777854c777",
+      "translation": "3c548b7b45379649efd85f3963082600adee34c0"
+    },
+    "modals.inboxTriage.schedule.nextWeek": {
+      "source": "5a20763adfb0adcac05270a340009a8526652248",
+      "translation": "3e92afe7a63d3dac5a17663092330c37ec263789"
+    },
+    "modals.inboxTriage.schedule.pick": {
+      "source": "a0c6c6e32e4990b712909843fd4b5e7a3815f1ea",
+      "translation": "1fb63c902eefb9f7521eddb4461e6cc448e8cff9"
+    },
+    "modals.inboxTriage.empty": {
+      "source": "bd62b5c6bc74facae0a9a205cee91f0bb035aeca",
+      "translation": "1bc4f499431c3c8f4eec478fdf1f24e725e34b57"
+    },
+    "modals.inboxTriage.capture": {
+      "source": "7d99492f83563bd67d307b38a8bd69aea2ff4ec5",
+      "translation": "38ab8dd87a53f1a39aed142c95d3555d085c6ef4"
+    },
+    "modals.inboxTriage.finished": {
+      "source": "0ec08196f5fff3850a3c96b7504f4d8068b7d250",
+      "translation": "c58efa81c7d3185b7b8e1bdcc4cf996250d0d3d9"
+    },
+    "modals.inboxTriage.notReady": {
+      "source": "08c96e62915ad380e68c867e04f6bfc77d1fb5ab",
+      "translation": "66f303ce4b0bdc5ca875ec28047fa15955a98fca"
+    },
+    "modals.inboxTriage.failed": {
+      "source": "cb5badb64bc680f83cbe00362cdb8a907e9ae91e",
+      "translation": "4d77fa3e1f98fa4a543fac69e7a026b45273ee16"
+    },
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "ec82f0165b75226c3dbdce229bcefd772703dbb3"
@@ -43806,7 +44628,10 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "4916045bdd910c71da5581eaea1559f913abcb4e"
     },
-    "contextMenus.batch.freshStart": null,
+    "contextMenus.batch.freshStart": {
+      "source": "ff37fc0f265ff7999f9feda851158c78b41a56d6",
+      "translation": "a3743cc276433b80f592cbf5bbe86abbc0221941"
+    },
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "2926977ba7c9d5465edab324771625f471dc3020"
@@ -48597,21 +49422,66 @@
       "source": "106dfef892b5bcd49066d8740f9e8726937d4f5e",
       "translation": "9cca8cd909be1435cbfbb9df08ec59321d530115"
     },
-    "settings.taskProperties.triage.heading": null,
-    "settings.taskProperties.triage.enable": null,
-    "settings.taskProperties.triage.enableDesc": null,
-    "settings.taskProperties.triage.enabledNotice": null,
-    "settings.taskProperties.triage.inboxStatus": null,
-    "settings.taskProperties.triage.somedayStatus": null,
-    "settings.taskProperties.triage.none": null,
-    "settings.taskProperties.triage.captureToInbox": null,
-    "settings.taskProperties.triage.captureToInboxDesc": null,
-    "settings.taskProperties.triage.inboxLabel": null,
-    "settings.taskProperties.triage.somedayLabel": null,
-    "settings.taskProperties.triage.defaultsBlockCapture": null,
-    "settings.taskProperties.triage.defaultsFieldScheduled": null,
-    "settings.taskProperties.triage.defaultsFieldDue": null,
-    "settings.taskProperties.triage.defaultsSetNone": null,
+    "settings.taskProperties.triage.heading": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "227cf786fcefbee71e85f4a647c1ca503d9c67d1"
+    },
+    "settings.taskProperties.triage.enable": {
+      "source": "e3ba1316543cb064cb1ce7b3a3f38ab48247761e",
+      "translation": "53667d814705fc932517352f22196947f4e574fd"
+    },
+    "settings.taskProperties.triage.enableDesc": {
+      "source": "142aa0f03d4e477284d8456f76f19313b14168ab",
+      "translation": "b5648388c332b6d0513691b30e2b9ae8a89ebffb"
+    },
+    "settings.taskProperties.triage.enabledNotice": {
+      "source": "77591e43683385b00ca243d5bf1b0fad80ec3700",
+      "translation": "98a39c5a057ce9ed4dfb9f9a11a0cdf40c35120b"
+    },
+    "settings.taskProperties.triage.inboxStatus": {
+      "source": "a0c47a1b2635968fe1c8fcd9a5ccc6c4cd81c2af",
+      "translation": "c306d76dc34656318ab48545204f77b60c2ea07e"
+    },
+    "settings.taskProperties.triage.somedayStatus": {
+      "source": "6b1e6090d4d96f27efd0b2b9b42e9384fc0e8363",
+      "translation": "f351d3632cebe123eee35372630727eba200c8c1"
+    },
+    "settings.taskProperties.triage.none": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "997c23481b65acedf66f096e33e6d933a35fff78"
+    },
+    "settings.taskProperties.triage.captureToInbox": {
+      "source": "10e2cd8a46f0e825bb88d869aeb249f6bf69818b",
+      "translation": "f19bfa117bca8e7ba40b41ab7ebeeecff7fec2df"
+    },
+    "settings.taskProperties.triage.captureToInboxDesc": {
+      "source": "4e6203df8b72d769182a47126cbf544d4b467565",
+      "translation": "b951280e4e627c6f48c6d08b8ce58b3e4b5be11f"
+    },
+    "settings.taskProperties.triage.inboxLabel": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "227cf786fcefbee71e85f4a647c1ca503d9c67d1"
+    },
+    "settings.taskProperties.triage.somedayLabel": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "d2e5638576ab8704d10681122ffbe0a67139e4b5"
+    },
+    "settings.taskProperties.triage.defaultsBlockCapture": {
+      "source": "b799fdc97761516a0de421452edca36cb20f77e0",
+      "translation": "b183a34175ab47276f41097025d46d5cce15450c"
+    },
+    "settings.taskProperties.triage.defaultsFieldScheduled": {
+      "source": "e891e3709fb48ba78e0e067b6c8691d8cab84382",
+      "translation": "0d2cb2e2437cf9fcb6e560d703b345e91263ef52"
+    },
+    "settings.taskProperties.triage.defaultsFieldDue": {
+      "source": "30cdf73eff2a596aff88c475560de83dbaa7d346",
+      "translation": "593a772a26c676792f26df223cfbfa30c52a3d72"
+    },
+    "settings.taskProperties.triage.defaultsSetNone": {
+      "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
+      "translation": "4c635bc837847f34b88c33895e8a855daae4b3cb"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "f96479e3b07c4ec2bfb5d302b16a118e8bf26897"
@@ -51372,13 +52242,34 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "c51835b42aa14031bd826c499db40da5564802db"
     },
-    "notices.freshStart.done": null,
-    "notices.freshStart.nothingChanged": null,
-    "notices.freshStart.undo": null,
-    "notices.freshStart.undone": null,
-    "notices.freshStart.progress": null,
-    "notices.freshStart.failed": null,
-    "notices.freshStart.undoFailed": null,
+    "notices.freshStart.done": {
+      "source": "d7b386fb063e048918bc7a83164fd5e5dd4ba1ed",
+      "translation": "11ae5cde2baa6a1984db3927641a85da0acbb699"
+    },
+    "notices.freshStart.nothingChanged": {
+      "source": "9bfee1277289fa500704dbf248c4f3fa7168af08",
+      "translation": "1b0d78cb145c8e6e4fc031f93c36e4ec85ff0aea"
+    },
+    "notices.freshStart.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "95d2c5ee416c8998d04725349c6031f6d91dcdaf"
+    },
+    "notices.freshStart.undone": {
+      "source": "636c8ac2672a15bf61f040a51c9bc1892c358d6c",
+      "translation": "d7c5351700d3b166ef9f23a3d30dd650a699e9ee"
+    },
+    "notices.freshStart.progress": {
+      "source": "02e0a01e81eb69baf92ca3361a3057dc4c47ad45",
+      "translation": "12cbb38f24196a3ae4a5a1825db3a1589d814d38"
+    },
+    "notices.freshStart.failed": {
+      "source": "aa527f45b6e9e573847c70c9499b119c2c27f3fa",
+      "translation": "16a2137e54aaca6536ea0a020367b9aa97b36414"
+    },
+    "notices.freshStart.undoFailed": {
+      "source": "46d81023476e2a728254063fa53e0bad630be2ce",
+      "translation": "265070b931f8c4c2a298eb0b59c2ce2eb73a21cd"
+    },
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "c57f02a044a8482162ee24c12ac0f083f0e5fb8e"
@@ -51551,38 +52442,134 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "854b064c78143187ceda78369040021eeed6f3c2"
     },
-    "commands.triageInbox": null,
-    "commands.freshStart": null,
-    "commands.undoFreshStart": null,
-    "modals.freshStart.title": null,
-    "modals.freshStart.summary": null,
-    "modals.freshStart.scheduledLine": null,
-    "modals.freshStart.scheduledLineNoInbox": null,
-    "modals.freshStart.dueLine": null,
-    "modals.freshStart.clearDue": null,
-    "modals.freshStart.clearDueHint": null,
-    "modals.freshStart.confirm": null,
-    "modals.freshStart.nothing": null,
-    "modals.inboxTriage.title": null,
-    "modals.inboxTriage.progress": null,
-    "modals.inboxTriage.captured": null,
-    "modals.inboxTriage.actions.today": null,
-    "modals.inboxTriage.actions.schedule": null,
-    "modals.inboxTriage.actions.someday": null,
-    "modals.inboxTriage.actions.done": null,
-    "modals.inboxTriage.actions.drop": null,
-    "modals.inboxTriage.actions.edit": null,
-    "modals.inboxTriage.actions.skip": null,
-    "modals.inboxTriage.actions.undo": null,
-    "modals.inboxTriage.schedule.tomorrow": null,
-    "modals.inboxTriage.schedule.weekend": null,
-    "modals.inboxTriage.schedule.nextWeek": null,
-    "modals.inboxTriage.schedule.pick": null,
-    "modals.inboxTriage.empty": null,
-    "modals.inboxTriage.capture": null,
-    "modals.inboxTriage.finished": null,
-    "modals.inboxTriage.notReady": null,
-    "modals.inboxTriage.failed": null,
+    "commands.triageInbox": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "27ae6e9b1f294c7cce27c62822f5d74d88ae8320"
+    },
+    "commands.freshStart": {
+      "source": "d0d6697a8e6470983c2fd3f591309f87612b7287",
+      "translation": "dc789cbb8a4bafbfa5918389da330a1df39f997d"
+    },
+    "commands.undoFreshStart": {
+      "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
+      "translation": "769e9d0db2ca28de5917069b59a0d99e64004cef"
+    },
+    "modals.freshStart.title": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "835d5deafbe6951c341d22cbea09489aad6c87ed"
+    },
+    "modals.freshStart.summary": {
+      "source": "424cce674d72ae6f8eb3c945f3cb7d63e00bd75d",
+      "translation": "4eb07ec371a89b1ca583a814df296e5ef2a4130d"
+    },
+    "modals.freshStart.scheduledLine": {
+      "source": "3b8b29a2aed08e1f0e723a6b5d6457541e94afeb",
+      "translation": "58cfd5e4d93ec34201e5ffa8cd410176530e2369"
+    },
+    "modals.freshStart.scheduledLineNoInbox": {
+      "source": "b3a3aadf92f7f875e02e999fa3e35a2f1cac802a",
+      "translation": "1d9ac5cc41961a2bd67fa2b43de63ea59e56a433"
+    },
+    "modals.freshStart.dueLine": {
+      "source": "0e14d7672b80359562a4361ce70cebe3e18b24b5",
+      "translation": "bb75baeb5e079f81ef1a4fb55f2fd38e4b1e632e"
+    },
+    "modals.freshStart.clearDue": {
+      "source": "3861164071a10fc67f139ca7088b8d07e2fe454e",
+      "translation": "c89540bc22f02c6b79105237df1b1dd4b46760a2"
+    },
+    "modals.freshStart.clearDueHint": {
+      "source": "ceef6c188f0680aefff5614ae824230ae91e97b9",
+      "translation": "9b9fb0e286dc471657dd93d8e8dd3273b404ddbe"
+    },
+    "modals.freshStart.confirm": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "8b53db45105ce0dc9b2468cb5f3cb69dcb5afa11"
+    },
+    "modals.freshStart.nothing": {
+      "source": "a7498b630bd5ceba0d1d4278cfe18eb18fa7e4fa",
+      "translation": "795c063fb0f686b5545d0ff6d33e9a8236bbc829"
+    },
+    "modals.inboxTriage.title": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "27ae6e9b1f294c7cce27c62822f5d74d88ae8320"
+    },
+    "modals.inboxTriage.progress": {
+      "source": "7e20641fe8fb90eea47a613fd9602923da70c817",
+      "translation": "9163a18ded6453bc6c7321004aeec54e19e9cfec"
+    },
+    "modals.inboxTriage.captured": {
+      "source": "505fd34f3794e2084cc1cff92cef44d8ecfaa43b",
+      "translation": "0e68f057e3bc7ebd9685b31764ebfedc89e25e4d"
+    },
+    "modals.inboxTriage.actions.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "ba008427845318a7ec22eed54a1897c29414a2e7"
+    },
+    "modals.inboxTriage.actions.schedule": {
+      "source": "c83800b8042193cf03adaa8eb8e6ee20508a3ffa",
+      "translation": "5b099744cfd5bc3d3b5a447fbbc5c2c9fbd04425"
+    },
+    "modals.inboxTriage.actions.someday": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "d2e5638576ab8704d10681122ffbe0a67139e4b5"
+    },
+    "modals.inboxTriage.actions.done": {
+      "source": "b8b41a7eae9c635c16940d1cacc8c8b984600100",
+      "translation": "729b175c53f537c31e3cd949d4792021f931b59c"
+    },
+    "modals.inboxTriage.actions.drop": {
+      "source": "0a088b3115056ef6acd3ab4b406c823e1724e216",
+      "translation": "63a77c77e07ec566a1588d58f472320215983d3c"
+    },
+    "modals.inboxTriage.actions.edit": {
+      "source": "5301648dcf6b53cefc9ed52999aaa92d4603cae0",
+      "translation": "2b5f23437f5815b2437440e38916c90848492c18"
+    },
+    "modals.inboxTriage.actions.skip": {
+      "source": "3da474537ac378c616d6b301acc1674bc348cecd",
+      "translation": "6ec317a18efd5c6e9c8572e221f7ef53979ae3cb"
+    },
+    "modals.inboxTriage.actions.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "95d2c5ee416c8998d04725349c6031f6d91dcdaf"
+    },
+    "modals.inboxTriage.schedule.tomorrow": {
+      "source": "1948bf2dfa8fbc1f07ad3b6f0e2b3ee39f87e495",
+      "translation": "60cf8de1ba68003500b6e1d19a152c0d22e777cb"
+    },
+    "modals.inboxTriage.schedule.weekend": {
+      "source": "1921aa118ad7a4dca5f679eaefc3e1777854c777",
+      "translation": "55a8a8802f5795e354e064543087cf5c8f1a564e"
+    },
+    "modals.inboxTriage.schedule.nextWeek": {
+      "source": "5a20763adfb0adcac05270a340009a8526652248",
+      "translation": "3867104e8cc448f78c929c319187d66cd9c4ce7e"
+    },
+    "modals.inboxTriage.schedule.pick": {
+      "source": "a0c6c6e32e4990b712909843fd4b5e7a3815f1ea",
+      "translation": "9a68015a9688d86fc570e96c1712554fe50b43e9"
+    },
+    "modals.inboxTriage.empty": {
+      "source": "bd62b5c6bc74facae0a9a205cee91f0bb035aeca",
+      "translation": "9bf5f7832e9d482ca04392fd83316ddab2c1bc58"
+    },
+    "modals.inboxTriage.capture": {
+      "source": "7d99492f83563bd67d307b38a8bd69aea2ff4ec5",
+      "translation": "9134f37449068399f63dfb6b080c9365d3e57a77"
+    },
+    "modals.inboxTriage.finished": {
+      "source": "0ec08196f5fff3850a3c96b7504f4d8068b7d250",
+      "translation": "18377bb32b2e25119b4c73a66d6d26fad076151c"
+    },
+    "modals.inboxTriage.notReady": {
+      "source": "08c96e62915ad380e68c867e04f6bfc77d1fb5ab",
+      "translation": "5bbd13615667e30a8abf5752c999d3b300cc7ea8"
+    },
+    "modals.inboxTriage.failed": {
+      "source": "cb5badb64bc680f83cbe00362cdb8a907e9ae91e",
+      "translation": "2a35aadfc7391b48c38a902fb608cc9562fbb292"
+    },
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "593a2468a8efaddbd38aadc53f01098d23309cd8"
@@ -52975,7 +53962,10 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "c1823bffc7e50ff1475cd3cef744867ecfbe3a06"
     },
-    "contextMenus.batch.freshStart": null,
+    "contextMenus.batch.freshStart": {
+      "source": "ff37fc0f265ff7999f9feda851158c78b41a56d6",
+      "translation": "5207fd2b88cd7179bff42831f7fbcf3dada28ffc"
+    },
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "bae7d5be70820ed56467bd9a63744e23b47bd711"
@@ -57766,21 +58756,66 @@
       "source": "106dfef892b5bcd49066d8740f9e8726937d4f5e",
       "translation": "5618b58d35cda9e935bd6c2172449230a2330e3f"
     },
-    "settings.taskProperties.triage.heading": null,
-    "settings.taskProperties.triage.enable": null,
-    "settings.taskProperties.triage.enableDesc": null,
-    "settings.taskProperties.triage.enabledNotice": null,
-    "settings.taskProperties.triage.inboxStatus": null,
-    "settings.taskProperties.triage.somedayStatus": null,
-    "settings.taskProperties.triage.none": null,
-    "settings.taskProperties.triage.captureToInbox": null,
-    "settings.taskProperties.triage.captureToInboxDesc": null,
-    "settings.taskProperties.triage.inboxLabel": null,
-    "settings.taskProperties.triage.somedayLabel": null,
-    "settings.taskProperties.triage.defaultsBlockCapture": null,
-    "settings.taskProperties.triage.defaultsFieldScheduled": null,
-    "settings.taskProperties.triage.defaultsFieldDue": null,
-    "settings.taskProperties.triage.defaultsSetNone": null,
+    "settings.taskProperties.triage.heading": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "e926c35ff22c275836eb6932581c0c0c37816e7c"
+    },
+    "settings.taskProperties.triage.enable": {
+      "source": "e3ba1316543cb064cb1ce7b3a3f38ab48247761e",
+      "translation": "42f445982e7b838b1f13454b3863932e8e4c4958"
+    },
+    "settings.taskProperties.triage.enableDesc": {
+      "source": "142aa0f03d4e477284d8456f76f19313b14168ab",
+      "translation": "356c3cb514bf2fbd7d8c0ee01df4b1e298a07be4"
+    },
+    "settings.taskProperties.triage.enabledNotice": {
+      "source": "77591e43683385b00ca243d5bf1b0fad80ec3700",
+      "translation": "e73bd312046242d010558de6f9c87480beb00b8d"
+    },
+    "settings.taskProperties.triage.inboxStatus": {
+      "source": "a0c47a1b2635968fe1c8fcd9a5ccc6c4cd81c2af",
+      "translation": "ad3aa1987752f508a84ef2f219279dcfb6ed3517"
+    },
+    "settings.taskProperties.triage.somedayStatus": {
+      "source": "6b1e6090d4d96f27efd0b2b9b42e9384fc0e8363",
+      "translation": "59057f89502f791990674c5a02bb643ea99e21db"
+    },
+    "settings.taskProperties.triage.none": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "f82a8219414c7c8e9aaf95e1702a58e584f7f4a0"
+    },
+    "settings.taskProperties.triage.captureToInbox": {
+      "source": "10e2cd8a46f0e825bb88d869aeb249f6bf69818b",
+      "translation": "691219c609af3786cc0d0011ab99d76f4bc565a2"
+    },
+    "settings.taskProperties.triage.captureToInboxDesc": {
+      "source": "4e6203df8b72d769182a47126cbf544d4b467565",
+      "translation": "ba02305f9fdfa50a8322b155f05b18b594456166"
+    },
+    "settings.taskProperties.triage.inboxLabel": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "e926c35ff22c275836eb6932581c0c0c37816e7c"
+    },
+    "settings.taskProperties.triage.somedayLabel": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "dea01f3bd196147a6450bcd6e53473c8b91334f1"
+    },
+    "settings.taskProperties.triage.defaultsBlockCapture": {
+      "source": "b799fdc97761516a0de421452edca36cb20f77e0",
+      "translation": "d2a4565a052c3715ce52484c9115dc56c1131158"
+    },
+    "settings.taskProperties.triage.defaultsFieldScheduled": {
+      "source": "e891e3709fb48ba78e0e067b6c8691d8cab84382",
+      "translation": "55943abcaeb1f3bbc3002f57d350521ec9d8e813"
+    },
+    "settings.taskProperties.triage.defaultsFieldDue": {
+      "source": "30cdf73eff2a596aff88c475560de83dbaa7d346",
+      "translation": "97acf319ada40571105c937f192f204349363d7d"
+    },
+    "settings.taskProperties.triage.defaultsSetNone": {
+      "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
+      "translation": "e80525eb1663d07a01be1739b045f4b965e0d88b"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "598dbbf4e742f35ac9e774281b016897e5a788ef"
@@ -60541,13 +61576,34 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "7afc60e9ff44743b1bcb9bdd34f85f02e68892b3"
     },
-    "notices.freshStart.done": null,
-    "notices.freshStart.nothingChanged": null,
-    "notices.freshStart.undo": null,
-    "notices.freshStart.undone": null,
-    "notices.freshStart.progress": null,
-    "notices.freshStart.failed": null,
-    "notices.freshStart.undoFailed": null,
+    "notices.freshStart.done": {
+      "source": "d7b386fb063e048918bc7a83164fd5e5dd4ba1ed",
+      "translation": "38e3083f665a518fadf6597927f0ae62f5bc661b"
+    },
+    "notices.freshStart.nothingChanged": {
+      "source": "9bfee1277289fa500704dbf248c4f3fa7168af08",
+      "translation": "fe9eacdc48abffbb65c2840257f07ed2f52449e6"
+    },
+    "notices.freshStart.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "555ad1c0c33d26b34b5ca8bb38dfba4e2092df27"
+    },
+    "notices.freshStart.undone": {
+      "source": "636c8ac2672a15bf61f040a51c9bc1892c358d6c",
+      "translation": "cd07980e23525d3833aedc89e50abb061a4450fe"
+    },
+    "notices.freshStart.progress": {
+      "source": "02e0a01e81eb69baf92ca3361a3057dc4c47ad45",
+      "translation": "c8721ec1540f42683c6899564c0e1c8a684bbf57"
+    },
+    "notices.freshStart.failed": {
+      "source": "aa527f45b6e9e573847c70c9499b119c2c27f3fa",
+      "translation": "455643437de745d924bab4ca5f813797d27bf889"
+    },
+    "notices.freshStart.undoFailed": {
+      "source": "46d81023476e2a728254063fa53e0bad630be2ce",
+      "translation": "b85252bbe5cb28ad431d4c406a4c942696a5ea88"
+    },
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "d0a77d204fd475eecb26b93a0dd2069a177dd85b"
@@ -60720,38 +61776,134 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "b75667f91c66134ba3fb5a45fcb4c210d8778648"
     },
-    "commands.triageInbox": null,
-    "commands.freshStart": null,
-    "commands.undoFreshStart": null,
-    "modals.freshStart.title": null,
-    "modals.freshStart.summary": null,
-    "modals.freshStart.scheduledLine": null,
-    "modals.freshStart.scheduledLineNoInbox": null,
-    "modals.freshStart.dueLine": null,
-    "modals.freshStart.clearDue": null,
-    "modals.freshStart.clearDueHint": null,
-    "modals.freshStart.confirm": null,
-    "modals.freshStart.nothing": null,
-    "modals.inboxTriage.title": null,
-    "modals.inboxTriage.progress": null,
-    "modals.inboxTriage.captured": null,
-    "modals.inboxTriage.actions.today": null,
-    "modals.inboxTriage.actions.schedule": null,
-    "modals.inboxTriage.actions.someday": null,
-    "modals.inboxTriage.actions.done": null,
-    "modals.inboxTriage.actions.drop": null,
-    "modals.inboxTriage.actions.edit": null,
-    "modals.inboxTriage.actions.skip": null,
-    "modals.inboxTriage.actions.undo": null,
-    "modals.inboxTriage.schedule.tomorrow": null,
-    "modals.inboxTriage.schedule.weekend": null,
-    "modals.inboxTriage.schedule.nextWeek": null,
-    "modals.inboxTriage.schedule.pick": null,
-    "modals.inboxTriage.empty": null,
-    "modals.inboxTriage.capture": null,
-    "modals.inboxTriage.finished": null,
-    "modals.inboxTriage.notReady": null,
-    "modals.inboxTriage.failed": null,
+    "commands.triageInbox": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "3c5b6ba7debb8624bfa2fbadfc1f37dd22f170ff"
+    },
+    "commands.freshStart": {
+      "source": "d0d6697a8e6470983c2fd3f591309f87612b7287",
+      "translation": "f8210f2c4f90f0115f821947a8a4c4311376a04b"
+    },
+    "commands.undoFreshStart": {
+      "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
+      "translation": "f27bf07674199d91ae546c84419e978a3e162c32"
+    },
+    "modals.freshStart.title": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "155d77f8989026d850cb9eae638d1f3aa35a7c20"
+    },
+    "modals.freshStart.summary": {
+      "source": "424cce674d72ae6f8eb3c945f3cb7d63e00bd75d",
+      "translation": "60abb1c2d7004860b14b8f455fec3c1612b2eadd"
+    },
+    "modals.freshStart.scheduledLine": {
+      "source": "3b8b29a2aed08e1f0e723a6b5d6457541e94afeb",
+      "translation": "63e642b1e5129472b1264b4861c7cc7727f34a7a"
+    },
+    "modals.freshStart.scheduledLineNoInbox": {
+      "source": "b3a3aadf92f7f875e02e999fa3e35a2f1cac802a",
+      "translation": "387ed0d71c27247967f01ffe7e503392ca4f554b"
+    },
+    "modals.freshStart.dueLine": {
+      "source": "0e14d7672b80359562a4361ce70cebe3e18b24b5",
+      "translation": "5e3a692916f6e7751595f82eee721d3e60ef273c"
+    },
+    "modals.freshStart.clearDue": {
+      "source": "3861164071a10fc67f139ca7088b8d07e2fe454e",
+      "translation": "58fccc274dc158d5c6c9c22431798e549dd0cd97"
+    },
+    "modals.freshStart.clearDueHint": {
+      "source": "ceef6c188f0680aefff5614ae824230ae91e97b9",
+      "translation": "43970cd15a6ae3d32ae7a100f21b94cd435cb6de"
+    },
+    "modals.freshStart.confirm": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "caa211a8d21d840f47a936fab604fb3c01fce842"
+    },
+    "modals.freshStart.nothing": {
+      "source": "a7498b630bd5ceba0d1d4278cfe18eb18fa7e4fa",
+      "translation": "4d5bc95b21ba1e5effedcf4a2b2ecba2ccc6d2d2"
+    },
+    "modals.inboxTriage.title": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "3c5b6ba7debb8624bfa2fbadfc1f37dd22f170ff"
+    },
+    "modals.inboxTriage.progress": {
+      "source": "7e20641fe8fb90eea47a613fd9602923da70c817",
+      "translation": "fe73eb8e4c864d0ea5195887a0deb60a8142d088"
+    },
+    "modals.inboxTriage.captured": {
+      "source": "505fd34f3794e2084cc1cff92cef44d8ecfaa43b",
+      "translation": "42df79b02c13520e08838ffe212eb6cf331d2509"
+    },
+    "modals.inboxTriage.actions.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "5d5d2ea20a2583d5068219949a2230a19abff3b0"
+    },
+    "modals.inboxTriage.actions.schedule": {
+      "source": "c83800b8042193cf03adaa8eb8e6ee20508a3ffa",
+      "translation": "988d31ac7c1aa264036f232e463f9a8280d07fa6"
+    },
+    "modals.inboxTriage.actions.someday": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "dea01f3bd196147a6450bcd6e53473c8b91334f1"
+    },
+    "modals.inboxTriage.actions.done": {
+      "source": "b8b41a7eae9c635c16940d1cacc8c8b984600100",
+      "translation": "8bddcbe9fb00c1fdf374197546bc2c44ec613cde"
+    },
+    "modals.inboxTriage.actions.drop": {
+      "source": "0a088b3115056ef6acd3ab4b406c823e1724e216",
+      "translation": "941d9e221e7e84b83c76e6d625aa342b9fa638cb"
+    },
+    "modals.inboxTriage.actions.edit": {
+      "source": "5301648dcf6b53cefc9ed52999aaa92d4603cae0",
+      "translation": "9d809f884b63cdec29d382384aef1ec7cbe123d8"
+    },
+    "modals.inboxTriage.actions.skip": {
+      "source": "3da474537ac378c616d6b301acc1674bc348cecd",
+      "translation": "fe10080140d53b20444900b96ff8049e2e395692"
+    },
+    "modals.inboxTriage.actions.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "555ad1c0c33d26b34b5ca8bb38dfba4e2092df27"
+    },
+    "modals.inboxTriage.schedule.tomorrow": {
+      "source": "1948bf2dfa8fbc1f07ad3b6f0e2b3ee39f87e495",
+      "translation": "f6de15c50ab5a8af31c9c0a759f4b9daff5f699d"
+    },
+    "modals.inboxTriage.schedule.weekend": {
+      "source": "1921aa118ad7a4dca5f679eaefc3e1777854c777",
+      "translation": "ac6a5a6e6b4deb547ae5a2856ec611e256b04fc0"
+    },
+    "modals.inboxTriage.schedule.nextWeek": {
+      "source": "5a20763adfb0adcac05270a340009a8526652248",
+      "translation": "8e321b77536cde3ecfaab74508634d8643636748"
+    },
+    "modals.inboxTriage.schedule.pick": {
+      "source": "a0c6c6e32e4990b712909843fd4b5e7a3815f1ea",
+      "translation": "0e81b0be88a30842181bbf685e36b936f6746cc9"
+    },
+    "modals.inboxTriage.empty": {
+      "source": "bd62b5c6bc74facae0a9a205cee91f0bb035aeca",
+      "translation": "9e87954d004d119c43b1339c9b15f5c4977e9101"
+    },
+    "modals.inboxTriage.capture": {
+      "source": "7d99492f83563bd67d307b38a8bd69aea2ff4ec5",
+      "translation": "ca5f8743a2e0d3730c9e247e34186bd9dc61af9d"
+    },
+    "modals.inboxTriage.finished": {
+      "source": "0ec08196f5fff3850a3c96b7504f4d8068b7d250",
+      "translation": "c7859dbd3ac06bea145e39f21019b649dec16566"
+    },
+    "modals.inboxTriage.notReady": {
+      "source": "08c96e62915ad380e68c867e04f6bfc77d1fb5ab",
+      "translation": "23dd1f6496322e302f9dd6c4fffbb6e11caf8581"
+    },
+    "modals.inboxTriage.failed": {
+      "source": "cb5badb64bc680f83cbe00362cdb8a907e9ae91e",
+      "translation": "7b3dc0cb7b0b4f84f921b2a32a3d41665b5b7a2e"
+    },
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "e803dccd7dc588f274c09f49489687d8725f9f82"
@@ -62144,7 +63296,10 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "05f4c95497558b9f9663dbb6f4bb973e43dc3763"
     },
-    "contextMenus.batch.freshStart": null,
+    "contextMenus.batch.freshStart": {
+      "source": "ff37fc0f265ff7999f9feda851158c78b41a56d6",
+      "translation": "f352258ba9e36245729855e5674e3cf711016675"
+    },
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "f7f293b5c58cf8a1508319db3e59577951e44343"
@@ -66935,21 +68090,66 @@
       "source": "106dfef892b5bcd49066d8740f9e8726937d4f5e",
       "translation": "896cea7e4e59261359b6fb609f8eb4cad529f649"
     },
-    "settings.taskProperties.triage.heading": null,
-    "settings.taskProperties.triage.enable": null,
-    "settings.taskProperties.triage.enableDesc": null,
-    "settings.taskProperties.triage.enabledNotice": null,
-    "settings.taskProperties.triage.inboxStatus": null,
-    "settings.taskProperties.triage.somedayStatus": null,
-    "settings.taskProperties.triage.none": null,
-    "settings.taskProperties.triage.captureToInbox": null,
-    "settings.taskProperties.triage.captureToInboxDesc": null,
-    "settings.taskProperties.triage.inboxLabel": null,
-    "settings.taskProperties.triage.somedayLabel": null,
-    "settings.taskProperties.triage.defaultsBlockCapture": null,
-    "settings.taskProperties.triage.defaultsFieldScheduled": null,
-    "settings.taskProperties.triage.defaultsFieldDue": null,
-    "settings.taskProperties.triage.defaultsSetNone": null,
+    "settings.taskProperties.triage.heading": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "cd83e6e100dd7f6732401aa5b5f832cfe2106e38"
+    },
+    "settings.taskProperties.triage.enable": {
+      "source": "e3ba1316543cb064cb1ce7b3a3f38ab48247761e",
+      "translation": "9e944300586032be88d320d4c97bbc0100c2789f"
+    },
+    "settings.taskProperties.triage.enableDesc": {
+      "source": "142aa0f03d4e477284d8456f76f19313b14168ab",
+      "translation": "5b035cf46bb689087fa64f0f830b95d2ad989bf6"
+    },
+    "settings.taskProperties.triage.enabledNotice": {
+      "source": "77591e43683385b00ca243d5bf1b0fad80ec3700",
+      "translation": "b1c09e330d13ba09765ba3ff886beb13b916237f"
+    },
+    "settings.taskProperties.triage.inboxStatus": {
+      "source": "a0c47a1b2635968fe1c8fcd9a5ccc6c4cd81c2af",
+      "translation": "b18497f8182ae6482164a32bea4f7a3197e9b5c1"
+    },
+    "settings.taskProperties.triage.somedayStatus": {
+      "source": "6b1e6090d4d96f27efd0b2b9b42e9384fc0e8363",
+      "translation": "588e5a3b3cc8420a6041467a06d89bba1af3c972"
+    },
+    "settings.taskProperties.triage.none": {
+      "source": "6eef6648406c333a4035cd5e60d0bf2ecf2606d7",
+      "translation": "72077749f794f21a6478e5677f0603a6daad5158"
+    },
+    "settings.taskProperties.triage.captureToInbox": {
+      "source": "10e2cd8a46f0e825bb88d869aeb249f6bf69818b",
+      "translation": "f604e1849e57d4896b24b133550ad4d6fdc8f869"
+    },
+    "settings.taskProperties.triage.captureToInboxDesc": {
+      "source": "4e6203df8b72d769182a47126cbf544d4b467565",
+      "translation": "600beac0877b013b50340cc3a1ca328ecb51d068"
+    },
+    "settings.taskProperties.triage.inboxLabel": {
+      "source": "44caf74675ceb79ba5cc13bafa102509369c2b53",
+      "translation": "cd83e6e100dd7f6732401aa5b5f832cfe2106e38"
+    },
+    "settings.taskProperties.triage.somedayLabel": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "65178f5d23b65ca6a8522b579957805b0964ec5b"
+    },
+    "settings.taskProperties.triage.defaultsBlockCapture": {
+      "source": "b799fdc97761516a0de421452edca36cb20f77e0",
+      "translation": "d6454444f967d57e5ef4f31a7fae1e9ee72cd932"
+    },
+    "settings.taskProperties.triage.defaultsFieldScheduled": {
+      "source": "e891e3709fb48ba78e0e067b6c8691d8cab84382",
+      "translation": "d0f48e113d6802fdb4c3bbeda77a95fa817230ea"
+    },
+    "settings.taskProperties.triage.defaultsFieldDue": {
+      "source": "30cdf73eff2a596aff88c475560de83dbaa7d346",
+      "translation": "9b3177f0b7007c72e0693d40d7eed5110e679a0d"
+    },
+    "settings.taskProperties.triage.defaultsSetNone": {
+      "source": "de193b547d08e60de2da8344d165b6bc7c0faab0",
+      "translation": "d653eb2139b89791f7c60e12587b8b874fee467d"
+    },
     "settings.taskProperties.priorityCard.valuesHeader": {
       "source": "b6cf813e4663cc20a47c7dc8b7bf7ed8f3815128",
       "translation": "2fb4de08ac74f955d61930918c0254e0cc756f24"
@@ -69710,13 +70910,34 @@
       "source": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
       "translation": "d2b2d104c6e11ddb838a308e4d3fca580956083c"
     },
-    "notices.freshStart.done": null,
-    "notices.freshStart.nothingChanged": null,
-    "notices.freshStart.undo": null,
-    "notices.freshStart.undone": null,
-    "notices.freshStart.progress": null,
-    "notices.freshStart.failed": null,
-    "notices.freshStart.undoFailed": null,
+    "notices.freshStart.done": {
+      "source": "d7b386fb063e048918bc7a83164fd5e5dd4ba1ed",
+      "translation": "010f53f87fa823cf345d14a5abd63837d0934cbc"
+    },
+    "notices.freshStart.nothingChanged": {
+      "source": "9bfee1277289fa500704dbf248c4f3fa7168af08",
+      "translation": "4e67cdd319191f1c07d6e21b2836805d83b11fe9"
+    },
+    "notices.freshStart.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "9fcefd8dc81ef205be34ce3148249bcd90120aa6"
+    },
+    "notices.freshStart.undone": {
+      "source": "636c8ac2672a15bf61f040a51c9bc1892c358d6c",
+      "translation": "fe47fc3965fa3686cd71923ed699026a5d24ba49"
+    },
+    "notices.freshStart.progress": {
+      "source": "02e0a01e81eb69baf92ca3361a3057dc4c47ad45",
+      "translation": "d9d1a22c027a2d92ab7a3cb9f4b6b0f983c9f798"
+    },
+    "notices.freshStart.failed": {
+      "source": "aa527f45b6e9e573847c70c9499b119c2c27f3fa",
+      "translation": "009626e685e08005d668b71969ce15301635e385"
+    },
+    "notices.freshStart.undoFailed": {
+      "source": "46d81023476e2a728254063fa53e0bad630be2ce",
+      "translation": "25b5440eb3de3279cd3e62faf1f18529cba98adc"
+    },
     "commands.openCalendarView": {
       "source": "d7dce352d3bf5b12479770b86495263f84275492",
       "translation": "2ff9c940fa568cb7744b11cb1964e2ba41282620"
@@ -69889,38 +71110,134 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "1b0fee896b2122eaf22be533e1183db56e0ffd88"
     },
-    "commands.triageInbox": null,
-    "commands.freshStart": null,
-    "commands.undoFreshStart": null,
-    "modals.freshStart.title": null,
-    "modals.freshStart.summary": null,
-    "modals.freshStart.scheduledLine": null,
-    "modals.freshStart.scheduledLineNoInbox": null,
-    "modals.freshStart.dueLine": null,
-    "modals.freshStart.clearDue": null,
-    "modals.freshStart.clearDueHint": null,
-    "modals.freshStart.confirm": null,
-    "modals.freshStart.nothing": null,
-    "modals.inboxTriage.title": null,
-    "modals.inboxTriage.progress": null,
-    "modals.inboxTriage.captured": null,
-    "modals.inboxTriage.actions.today": null,
-    "modals.inboxTriage.actions.schedule": null,
-    "modals.inboxTriage.actions.someday": null,
-    "modals.inboxTriage.actions.done": null,
-    "modals.inboxTriage.actions.drop": null,
-    "modals.inboxTriage.actions.edit": null,
-    "modals.inboxTriage.actions.skip": null,
-    "modals.inboxTriage.actions.undo": null,
-    "modals.inboxTriage.schedule.tomorrow": null,
-    "modals.inboxTriage.schedule.weekend": null,
-    "modals.inboxTriage.schedule.nextWeek": null,
-    "modals.inboxTriage.schedule.pick": null,
-    "modals.inboxTriage.empty": null,
-    "modals.inboxTriage.capture": null,
-    "modals.inboxTriage.finished": null,
-    "modals.inboxTriage.notReady": null,
-    "modals.inboxTriage.failed": null,
+    "commands.triageInbox": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "d24cf21f09faed89f0ff240486853c6c6e926479"
+    },
+    "commands.freshStart": {
+      "source": "d0d6697a8e6470983c2fd3f591309f87612b7287",
+      "translation": "4810e449f057d36dc1560ab58fbde0fac98e5986"
+    },
+    "commands.undoFreshStart": {
+      "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
+      "translation": "b2266ef1f34a57c1335ad30c6106fa9db15e0236"
+    },
+    "modals.freshStart.title": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "f17fc9b7f685759a454f1bb94659b367044402c1"
+    },
+    "modals.freshStart.summary": {
+      "source": "424cce674d72ae6f8eb3c945f3cb7d63e00bd75d",
+      "translation": "e5022b7a9f16b65da594f903a38eba75ae0b4cb3"
+    },
+    "modals.freshStart.scheduledLine": {
+      "source": "3b8b29a2aed08e1f0e723a6b5d6457541e94afeb",
+      "translation": "ca44d4978e6b4095f584a3aa3621af9fd5eef191"
+    },
+    "modals.freshStart.scheduledLineNoInbox": {
+      "source": "b3a3aadf92f7f875e02e999fa3e35a2f1cac802a",
+      "translation": "4985ed4ce5007e47902177585b3c13f492dc61d1"
+    },
+    "modals.freshStart.dueLine": {
+      "source": "0e14d7672b80359562a4361ce70cebe3e18b24b5",
+      "translation": "7b853e5978f986a1fd499eeae20e958624846c5e"
+    },
+    "modals.freshStart.clearDue": {
+      "source": "3861164071a10fc67f139ca7088b8d07e2fe454e",
+      "translation": "97042cea393856fef6ca486c48de29d3b403961f"
+    },
+    "modals.freshStart.clearDueHint": {
+      "source": "ceef6c188f0680aefff5614ae824230ae91e97b9",
+      "translation": "1b5036139fb72ae2e062991d08b8eb2eb19aef57"
+    },
+    "modals.freshStart.confirm": {
+      "source": "a503c5b794357918ee549959eeccb5af0d432063",
+      "translation": "f17fc9b7f685759a454f1bb94659b367044402c1"
+    },
+    "modals.freshStart.nothing": {
+      "source": "a7498b630bd5ceba0d1d4278cfe18eb18fa7e4fa",
+      "translation": "cf17dfee6969f22a17800ebc019396c06d942e95"
+    },
+    "modals.inboxTriage.title": {
+      "source": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
+      "translation": "d24cf21f09faed89f0ff240486853c6c6e926479"
+    },
+    "modals.inboxTriage.progress": {
+      "source": "7e20641fe8fb90eea47a613fd9602923da70c817",
+      "translation": "e2637e82fe4837e80379c26ebcb6b98f709d5a40"
+    },
+    "modals.inboxTriage.captured": {
+      "source": "505fd34f3794e2084cc1cff92cef44d8ecfaa43b",
+      "translation": "751ac9f38a84608ac08ee97051cf28cc5e657901"
+    },
+    "modals.inboxTriage.actions.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "17e83cc25e229b05c4c91b60fba8d5cc7c0ef931"
+    },
+    "modals.inboxTriage.actions.schedule": {
+      "source": "c83800b8042193cf03adaa8eb8e6ee20508a3ffa",
+      "translation": "fba261eef121410bebc69cc52d72b9b096d065b1"
+    },
+    "modals.inboxTriage.actions.someday": {
+      "source": "bcf0537bd12b64ecc64a6eb97297c297aeba10dd",
+      "translation": "65178f5d23b65ca6a8522b579957805b0964ec5b"
+    },
+    "modals.inboxTriage.actions.done": {
+      "source": "b8b41a7eae9c635c16940d1cacc8c8b984600100",
+      "translation": "e99b48a29bdfdc828623c75b4e5f41367c3c076c"
+    },
+    "modals.inboxTriage.actions.drop": {
+      "source": "0a088b3115056ef6acd3ab4b406c823e1724e216",
+      "translation": "ea4899468caefcf8e8aa42b12401f83b1f588c87"
+    },
+    "modals.inboxTriage.actions.edit": {
+      "source": "5301648dcf6b53cefc9ed52999aaa92d4603cae0",
+      "translation": "a7f814c0a40db7fdeca129f773733a049a084558"
+    },
+    "modals.inboxTriage.actions.skip": {
+      "source": "3da474537ac378c616d6b301acc1674bc348cecd",
+      "translation": "31a98593f16d4826660279bf6ad9804357d7efb2"
+    },
+    "modals.inboxTriage.actions.undo": {
+      "source": "39fc72124884d6573e4f9f89585f071ed0782696",
+      "translation": "9fcefd8dc81ef205be34ce3148249bcd90120aa6"
+    },
+    "modals.inboxTriage.schedule.tomorrow": {
+      "source": "1948bf2dfa8fbc1f07ad3b6f0e2b3ee39f87e495",
+      "translation": "b76ce230d32c11cf7af79a7fb6ac7a1f71c8f7a1"
+    },
+    "modals.inboxTriage.schedule.weekend": {
+      "source": "1921aa118ad7a4dca5f679eaefc3e1777854c777",
+      "translation": "9c349e097d3c9effd128b972d9083602a6c110e4"
+    },
+    "modals.inboxTriage.schedule.nextWeek": {
+      "source": "5a20763adfb0adcac05270a340009a8526652248",
+      "translation": "1b029a74527f8b457b53fdb6cc406973dcd96dcf"
+    },
+    "modals.inboxTriage.schedule.pick": {
+      "source": "a0c6c6e32e4990b712909843fd4b5e7a3815f1ea",
+      "translation": "29012f7d138efe09ae9b572a13fcb3c67668b081"
+    },
+    "modals.inboxTriage.empty": {
+      "source": "bd62b5c6bc74facae0a9a205cee91f0bb035aeca",
+      "translation": "3d79a8f538e6195a958f472bb9a4087571e4f2b6"
+    },
+    "modals.inboxTriage.capture": {
+      "source": "7d99492f83563bd67d307b38a8bd69aea2ff4ec5",
+      "translation": "93cbf766f9f386ec4b3ca88f4ab0c321a1c073d6"
+    },
+    "modals.inboxTriage.finished": {
+      "source": "0ec08196f5fff3850a3c96b7504f4d8068b7d250",
+      "translation": "0058c55b4ff0fc72009569544520d26635ee9f7e"
+    },
+    "modals.inboxTriage.notReady": {
+      "source": "08c96e62915ad380e68c867e04f6bfc77d1fb5ab",
+      "translation": "8054ff9f58cd4655d838c766096489758d0227ca"
+    },
+    "modals.inboxTriage.failed": {
+      "source": "cb5badb64bc680f83cbe00362cdb8a907e9ae91e",
+      "translation": "7d3573ad6022998ced80234c8cbaf545a5d7454a"
+    },
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "93ded0de3e847f73c0023e4206ccd3aa03cdd0bf"
@@ -71313,7 +72630,10 @@
       "source": "6b01c84eaddf7dd2da3a9f10a1470268926dd944",
       "translation": "27e4e4024761094df2de591bf54ec7c61974e4df"
     },
-    "contextMenus.batch.freshStart": null,
+    "contextMenus.batch.freshStart": {
+      "source": "ff37fc0f265ff7999f9feda851158c78b41a56d6",
+      "translation": "c411e541a1822b18cbf2e2b43efc13476dddfced"
+    },
     "contextMenus.task.status": {
       "source": "bae7d5be70820ed56467bd9a63744e23b47bd711",
       "translation": "62e951a692ff8f4e8a0e9049d726f42685237d0d"

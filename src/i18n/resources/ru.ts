@@ -1106,6 +1106,23 @@ export const ru: TranslationTree = {
 			statusCard: {
 				valuesHeader: "Значения статуса"
 			},
+			triage: {
+				heading: "Входящие",
+				enable: "Включить входящие",
+				enableDesc: "Добавляет статусы «входящие» и «когда-нибудь», а также команду разбора входящих.",
+				enabledNotice: "Входящие включены. Чтобы добавить представления «Входящие» и «Когда-нибудь» в базу задач, используйте кнопку «Обновить файлы по умолчанию».",
+				inboxStatus: "Статус входящих",
+				somedayStatus: "Статус «когда-нибудь»",
+				none: "Нет",
+				captureToInbox: "Собирать во входящие",
+				captureToInboxDesc: "Новые задачи без даты и статуса попадают во входящие.",
+				inboxLabel: "Входящие",
+				somedayLabel: "Когда-нибудь",
+				defaultsBlockCapture: "Новые задачи получают {fields} по умолчанию, поэтому они не попадут во входящие.",
+				defaultsFieldScheduled: "запланированную дату",
+				defaultsFieldDue: "срок выполнения",
+				defaultsSetNone: "Установить «нет»",
+			},
 			priorityCard: {
 				valuesHeader: "Значения приоритета"
 			},
@@ -2232,6 +2249,15 @@ export const ru: TranslationTree = {
 		}
 	},
 	notices: {
+		freshStart: {
+			done: "Чистый лист: сброшено задач: {count}.",
+			nothingChanged: "Чистый лист: задач для сброса нет.",
+			undo: "Отменить",
+			undone: "Чистый лист отменён: восстановлено {restored}, пропущено {skipped}, так как они изменились.",
+			progress: "Сброс {done} из {total}…",
+			failed: "Не удалось выполнить чистый лист. Некоторые задачи могли не сброситься.",
+			undoFailed: "Не удалось отменить чистый лист.",
+		},
 		languageChanged: "Язык изменен на {language}.",
 		releaseAvailable: {
 			message: "Доступен TaskNotes {version}.",
@@ -2259,6 +2285,9 @@ export const ru: TranslationTree = {
 		statsLoadingFailed: "Ошибка загрузки данных проекта."
 	},
 	commands: {
+		triageInbox: "Разобрать входящие",
+		freshStart: "Чистый лист: сбросить просроченные задачи",
+		undoFreshStart: "Отменить последний чистый лист",
 		openCalendarView: "Открыть представление мини-календаря",
 		openAdvancedCalendarView: "Открыть представление календаря",
 		openTasksView: "Открыть представление задач",
@@ -2306,6 +2335,43 @@ export const ru: TranslationTree = {
 		addSubtaskToCurrentNote: "Добавить подзадачу к текущей заметке"
 	},
 	modals: {
+		freshStart: {
+			title: "Чистый лист",
+			summary: "Просрочено задач: {total}.",
+			scheduledLine: "С прошедшей запланированной датой: {count}. Даты будут удалены, а задачи перемещены во входящие.",
+			scheduledLineNoInbox: "С прошедшей запланированной датой: {count}. Даты будут удалены.",
+			dueLine: "С прошедшим сроком выполнения: {count}.",
+			clearDue: "Также удалить прошедшие сроки выполнения",
+			clearDueHint: "По умолчанию выключено, так как сроки выполнения часто являются реальными дедлайнами.",
+			confirm: "Начать с чистого листа",
+			nothing: "Просроченных задач нет.",
+		},
+		inboxTriage: {
+			title: "Разобрать входящие",
+			progress: "{current} из {total}",
+			captured: "Добавлено {age}",
+			actions: {
+				today: "Сегодня",
+				schedule: "Запланировать…",
+				someday: "Когда-нибудь",
+				done: "Уже сделано",
+				drop: "Отбросить",
+				edit: "Изменить",
+				skip: "Пропустить",
+				undo: "Отменить",
+			},
+			schedule: {
+				tomorrow: "Завтра",
+				weekend: "В эти выходные",
+				nextWeek: "На следующей неделе",
+				pick: "Выбрать дату…",
+			},
+			empty: "Входящие пусты.",
+			capture: "Добавить задачу",
+			finished: "Входящие разобраны. Разобрано: {sorted}, пропущено: {skipped}.",
+			notReady: "Входящие не настроены. Выберите статус входящих в разделе настройки → свойства задач → статусы.",
+			failed: "Не удалось обновить задачу.",
+		},
 		deviceCode: {
 			title: "Авторизация Google Календаря",
 			instructions: {
@@ -2803,6 +2869,9 @@ export const ru: TranslationTree = {
 		}
 	},
 	contextMenus: {
+		batch: {
+			freshStart: "Чистый лист для выбранных",
+		},
 		task: {
 			status: "Статус",
 			statusSelected: "✓ {label}",

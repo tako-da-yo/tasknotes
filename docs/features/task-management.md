@@ -159,6 +159,55 @@ These controls currently create and manage finish-to-start style blockers. Advan
 
 ![Task context menu](../assets/feature-task-context-menu.png)
 
+## Inbox and triage
+
+The inbox is an optional status for tasks you have captured but not yet decided on. New tasks with no date land there, and the **Triage inbox** command lets you sort them one at a time. The inbox is off until you turn it on.
+
+### Turning on the inbox
+
+Open **Settings → Task properties**, expand the **Status** card and find the **Inbox** card under the status values. Select **Enable inbox**. TaskNotes adds an `inbox` status and a `someday` status if they don't exist yet, and selects them as the **Inbox status** and **Someday status**. You can also pick any existing status in either dropdown. Leaving **Someday status** set to **None** hides the Someday action.
+
+To add the Inbox and Someday views to your task base, use **Update default files** in **Settings → General** afterwards.
+
+### Capture to inbox
+
+With **Capture to inbox** on (the default once an inbox status is set), a new task goes to the inbox when it has no status and no due or scheduled date. This applies to tasks created from the task creation modal, quick-create in the task selector and inline checkbox conversion. A task you give a status or a date keeps it. Tasks created through the HTTP API, MCP or the CLI are not affected.
+
+The **Default scheduled date** and **Default due date** settings count as real dates. If either is set to anything other than **None**, new tasks get that date and skip the inbox. In that case the Inbox card shows a note and a **Set to none** button that sets those defaults to **None**.
+
+### Triage inbox
+
+Run the **Triage inbox** command to go through the inbox one task at a time, oldest first. Each task shows its title, the start of its details, its projects, contexts and tags, and how long ago it was captured. Pick an action with the buttons or the keyboard:
+
+| Key | Action | Result |
+|-----|--------|--------|
+| `1` | Today | Sets the scheduled date to today and the status to your default status |
+| `2` | Schedule… | Offers **Tomorrow**, **This weekend**, **Next week** and **Pick date…**, then sets the scheduled date and the default status |
+| `3` | Someday | Sets the status to your someday status (only when one is set) |
+| `4` | Done already | Sets the status to a completed status |
+| `5` | Drop | Archives the task. Nothing is deleted |
+| `E` | Edit | Opens the task in the edit modal. If you move it out of the inbox there, it counts as sorted |
+| `→` or `S` | Skip | Leaves the task in the inbox and moves to the next one |
+| `Z` | Undo | Reverts the last action in this session |
+
+Press `Esc` to close the modal at any time. Changes you have made so far are kept. When the queue is finished, TaskNotes shows how many tasks you sorted and skipped.
+
+### Fresh start
+
+When overdue tasks pile up, run **Fresh start: reset overdue tasks**. A confirmation window shows how many tasks are overdue, how many have a past scheduled date and how many have a past due date. When you confirm:
+
+- Past scheduled dates are cleared and those tasks move to the inbox. Without an inbox status, their status stays the same.
+- Past due dates stay unless you turn on **Also clear past due dates**. It is off by default because due dates are often real deadlines.
+- Recurring, completed and archived tasks are left alone.
+
+A notice with an **Undo** link stays for 10 seconds. After that, run **Undo last fresh start**, which is available while the last fresh start can still be undone. Undo restores the dates and statuses that fresh start changed, but skips any field you have changed since, and reports how many tasks it restored and skipped.
+
+To reset only some tasks, select them in a task list or Kanban view and choose **Fresh start selected** from the batch menu.
+
+### Inbox and Someday views
+
+The default task base (`tasks-default.base`) includes **Inbox** and **Someday** views once the matching status is set. They are ordinary Bases views that filter on the status and leave out archived tasks, so you can sort, filter or copy them like any other view. Existing vaults get them through **Update default files**. See [Default Base Templates](../reference/default-base-templates.md) for the rest of the template.
+
 ## Automation
 
 ### Auto-Archiving
