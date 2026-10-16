@@ -24,6 +24,7 @@ import { TaskStatsService } from "../services/TaskStatsService";
 import { TriageService } from "../services/TriageService";
 import { EstimateCalibrationService } from "../services/EstimateCalibrationService";
 import { DayPlanService } from "../services/DayPlanService";
+import { CapacityService } from "../services/CapacityService";
 import { createDayPlanSources } from "./dayPlanSources";
 import { getTodayString } from "../utils/dateUtils";
 import { ViewStateManager } from "../services/ViewStateManager";
@@ -206,6 +207,12 @@ export async function initializeCoreServices(plugin: TaskNotesPlugin): Promise<v
 	plugin.icsSubscriptionService = new ICSSubscriptionService(plugin);
 	plugin.icsNoteService = new ICSNoteService(plugin);
 	initializeDayPlanService(plugin);
+	plugin.capacityService = new CapacityService({
+		dayPlan: plugin.dayPlanService,
+		getSettings: () => plugin.settings,
+		calibratedMinutes: (t) => plugin.estimateCalibrationService.calibratedMinutes(t),
+		now: () => Date.now(),
+	});
 	plugin.taskService.setAutoArchiveService(plugin.autoArchiveService);
 }
 

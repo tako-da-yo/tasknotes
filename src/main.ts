@@ -48,6 +48,7 @@ import { TaskStatsService } from "./services/TaskStatsService";
 import type { TriageService } from "./services/TriageService";
 import type { EstimateCalibrationService } from "./services/EstimateCalibrationService";
 import type { DayPlanService } from "./services/DayPlanService";
+import type { CapacityService } from "./services/CapacityService";
 import type { ViewPerformanceService } from "./services/ViewPerformanceService";
 import { AutoArchiveService } from "./services/AutoArchiveService";
 import { ViewStateManager } from "./services/ViewStateManager";
@@ -165,6 +166,7 @@ export default class TaskNotesPlugin extends Plugin {
 	triageService!: TriageService;
 	estimateCalibrationService!: EstimateCalibrationService;
 	dayPlanService!: DayPlanService;
+	capacityService!: CapacityService;
 	viewStateManager: ViewStateManager;
 	projectSubtasksService: ProjectSubtasksService;
 	expandedProjectsService: ExpandedProjectsService;
