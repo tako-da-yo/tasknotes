@@ -756,7 +756,10 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "867134c8307a64ce7d8b6e9aadc9f6a2a380e9e0"
     },
-    "views.basesCalendar.settings.layout.showEnergy": null,
+    "views.basesCalendar.settings.layout.showEnergy": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "5b35cb41838c2197dddd430b672483fdbfb3470a"
+    },
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "d34f9553ec975a87ab960269b275219393df0ed2"
@@ -1917,15 +1920,42 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "5fdec269a55c0903ea4f38f9f48e92fe5ca6eda6"
     },
-    "settings.features.energy.heading": null,
-    "settings.features.energy.enabled": null,
-    "settings.features.energy.enabledDesc": null,
-    "settings.features.energy.baseline": null,
-    "settings.features.energy.sparkPerHour": null,
-    "settings.features.energy.drainPerHour": null,
-    "settings.features.energy.steadyPerHour": null,
-    "settings.features.energy.lowThreshold": null,
-    "settings.features.energy.allDayMinutes": null,
+    "settings.features.energy.heading": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "51344b63032c35433ee22a213870de84be155e92"
+    },
+    "settings.features.energy.enabled": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "5b35cb41838c2197dddd430b672483fdbfb3470a"
+    },
+    "settings.features.energy.enabledDesc": {
+      "source": "c962c9e187e885eefc2f9818be9891a54ec1631b",
+      "translation": "c33f3f6b64339ae6b6e721e8ab645ccaf7154796"
+    },
+    "settings.features.energy.baseline": {
+      "source": "2183e31cc2290cc9678f0da6e252dbe0fa9abfb7",
+      "translation": "439201d761a0b045e15eaef98caa61d1271fa0dc"
+    },
+    "settings.features.energy.sparkPerHour": {
+      "source": "374d9b26cd6faa4931cae4c856a956ba04af57a4",
+      "translation": "cd06b18374df4052a13c98a482ccf286fb2c5332"
+    },
+    "settings.features.energy.drainPerHour": {
+      "source": "ca32b032e204f85f559926f55a03f86a563bce4d",
+      "translation": "4ebb4bc1a447a653cd668ae41f48b530d1a30be9"
+    },
+    "settings.features.energy.steadyPerHour": {
+      "source": "d3d30a7de6943a10643ce46dec976fe0a47b502d",
+      "translation": "a3c91aae1c88764f93b408d5d7c897eea0490ae6"
+    },
+    "settings.features.energy.lowThreshold": {
+      "source": "1fd07b75e14373345d0207e5839e3275f8d589c1",
+      "translation": "54c0022d74ef724fbbd5b5efac1eaf144c9c4aa9"
+    },
+    "settings.features.energy.allDayMinutes": {
+      "source": "911ba8c8fbb5e9c23571e64010fedd5ff59f714d",
+      "translation": "fb931ced172da0d8a0af46fe0590c3a754545c3f"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "f8d65c41fbeffee5100a9a76ed32a87e19dc15b4"
@@ -5882,7 +5912,10 @@
       "source": "42bb2d702635030d332cf146fea8d7a480c72460",
       "translation": "635f9ca6935dda17f4d4aef1b36c3c8bbcf1dace"
     },
-    "commands.openEnergyPanel": null,
+    "commands.openEnergyPanel": {
+      "source": "a305779903e864b47f93b4c378c4d21987bf68f8",
+      "translation": "a5c321fc1a173a3e26304082ffd49581bb1dc9b0"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "18f280a11c64b8a8dc89ae2d6d0c44c70e450126"
@@ -9439,34 +9472,118 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     },
-    "contextGroups.settings.energy": null,
-    "energy.kinds.spark": null,
-    "energy.kinds.steady": null,
-    "energy.kinds.drain": null,
-    "energy.glyph.aria": null,
-    "energy.panel.title": null,
-    "energy.panel.now": null,
-    "energy.panel.tonight": null,
-    "energy.panel.projected": null,
-    "energy.panel.gaugeAria": null,
-    "energy.panel.mix": null,
-    "energy.panel.biggest": null,
-    "energy.panel.assumed": null,
-    "energy.panel.lowTitle": null,
-    "energy.panel.lowBody": null,
-    "energy.panel.showDrains": null,
-    "energy.panel.findSpark": null,
-    "energy.panel.emptyTitle": null,
-    "energy.panel.emptyBody": null,
-    "energy.panel.openSettings": null,
-    "energy.panel.previousDay": null,
-    "energy.panel.nextDay": null,
-    "energy.panel.today": null,
-    "energy.panel.invalidDate": null,
-    "energy.panel.drainsPlaceholder": null,
-    "energy.panel.sparkPlaceholder": null,
-    "energy.panel.noDrains": null,
-    "energy.panel.noSparks": null,
+    "contextGroups.settings.energy": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "51344b63032c35433ee22a213870de84be155e92"
+    },
+    "energy.kinds.spark": {
+      "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
+      "translation": "84e93878d197ceb04bb95629f763e366bff83324"
+    },
+    "energy.kinds.steady": {
+      "source": "b3012de005fd47fc7e92f28669435beb461d3cfd",
+      "translation": "a2082d80c7197740a73113b29f8fb5e63517ad29"
+    },
+    "energy.kinds.drain": {
+      "source": "4e4369e733c095a308c9f110fad31b6a36951fae",
+      "translation": "5c605926dbe2ac8f85a2e74f1c9fc5bfdba5fb2d"
+    },
+    "energy.glyph.aria": {
+      "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
+      "translation": "cd3b54eacfd5c4cd360b56fd3b3f15f5457fb631"
+    },
+    "energy.panel.title": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "51344b63032c35433ee22a213870de84be155e92"
+    },
+    "energy.panel.now": {
+      "source": "862d8be50e60993236088dd2aabf43757403079f",
+      "translation": "4cd7c94ceabbc771ac8606bca88e96efb40d74ba"
+    },
+    "energy.panel.tonight": {
+      "source": "d03b9b8881191249568dd7f2c39d67598d0fa038",
+      "translation": "3961cc40445dbe6caaa2bff3c2dc7686e1cc851a"
+    },
+    "energy.panel.projected": {
+      "source": "50ee8c235d4f7a52738c3bd8d154ef68681d658c",
+      "translation": "80e3ac0840d2a11c3fa8358852b4389d99fe472f"
+    },
+    "energy.panel.gaugeAria": {
+      "source": "e0b8a102b5572833fce527648d322b189c5069bf",
+      "translation": "f50c1195bb2503de4eaf0293e4d83f049a5190fa"
+    },
+    "energy.panel.mix": {
+      "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
+      "translation": "48508978cd9c833da60fb1b6a235f425dcaf8876"
+    },
+    "energy.panel.biggest": {
+      "source": "670616950d780f1f6b10f5a0f36e93620b3a4f9d",
+      "translation": "dff89ce72b0c11e80adf8d7fb53f06c905b769a7"
+    },
+    "energy.panel.assumed": {
+      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
+      "translation": "a93c6f2baf51b4f5bd1a7ea2886fef371c69edf4"
+    },
+    "energy.panel.lowTitle": {
+      "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
+      "translation": "39365df0139103579900f98a17cc00fe1bc38ea4"
+    },
+    "energy.panel.lowBody": {
+      "source": "d71c4af5b62d62973f765cedcdaf4ba915dffdf4",
+      "translation": "88570409ebd99105da07d0c07b27ef3489423726"
+    },
+    "energy.panel.showDrains": {
+      "source": "6aa4845d0a2f36b986bb1c79db1238ecb578258b",
+      "translation": "cac9c4f0e474399d45ace77fced6f366c234d20d"
+    },
+    "energy.panel.findSpark": {
+      "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
+      "translation": "ea403053d8cfd73f01524031e70a725121d6fb59"
+    },
+    "energy.panel.emptyTitle": {
+      "source": "1310f875993b121823753fcd42c63176d6e92ac4",
+      "translation": "704add960809f753b869a621d1af7dac16269544"
+    },
+    "energy.panel.emptyBody": {
+      "source": "d809d84495d7d86b39d0762427b3c450bdb21819",
+      "translation": "675565a7d59baf252fc8750aed6aea3e1ae6e6f8"
+    },
+    "energy.panel.openSettings": {
+      "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
+      "translation": "190ed88ee9f6ed3310d15af22118504bc45e7e1c"
+    },
+    "energy.panel.previousDay": {
+      "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
+      "translation": "55864474893e6240682f26b52c58299e0f719dfe"
+    },
+    "energy.panel.nextDay": {
+      "source": "38f859dde041a79ba8933ac0a80271471c73c47d",
+      "translation": "a60676d215c3f524b27dba4ceaa29c5276b838a1"
+    },
+    "energy.panel.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "1ab33097cd8e13568f48934edb37a699300295dc"
+    },
+    "energy.panel.invalidDate": {
+      "source": "61238384e584bd55de158ccfb190870beba6a849",
+      "translation": "5c924885fd04d0966e5b0ebd55317fc678115fe5"
+    },
+    "energy.panel.drainsPlaceholder": {
+      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
+      "translation": "91ebf47411cd2a134a24c37bc0bf90a2bd3abfb5"
+    },
+    "energy.panel.sparkPlaceholder": {
+      "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
+      "translation": "47947a48030d4bd81c09b53d12345ab453ce2620"
+    },
+    "energy.panel.noDrains": {
+      "source": "8698a47f0b4f8a8bfdc58f9e8b93ff954224c2a2",
+      "translation": "85f736fe8bf1e07bad3e9610dda0aa4987067eb1"
+    },
+    "energy.panel.noSparks": {
+      "source": "bcd81a13d821ea8b0b4a2fcfb90b98ef5196dc78",
+      "translation": "b27ce0669a5dc785fc737d9deb215a38b9cd5313"
+    },
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "b150630225f04f0591c9b0adf8a37b898e13660e"
@@ -10277,7 +10394,10 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "261dbe011184cfead1b62050ba9e12766979103e"
     },
-    "views.basesCalendar.settings.layout.showEnergy": null,
+    "views.basesCalendar.settings.layout.showEnergy": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "d4148f5ccac84b86439ced912d080412b4272d3a"
+    },
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "3d920acdfefface7c0a3247d2a44f2f6d5059ddb"
@@ -11438,15 +11558,42 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "4c54cc214d0c07cc21f7cf0416c4e31de4f94d0a"
     },
-    "settings.features.energy.heading": null,
-    "settings.features.energy.enabled": null,
-    "settings.features.energy.enabledDesc": null,
-    "settings.features.energy.baseline": null,
-    "settings.features.energy.sparkPerHour": null,
-    "settings.features.energy.drainPerHour": null,
-    "settings.features.energy.steadyPerHour": null,
-    "settings.features.energy.lowThreshold": null,
-    "settings.features.energy.allDayMinutes": null,
+    "settings.features.energy.heading": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "0ac5b9db1d9be8414ca4daefdc7a47fd5ffeae73"
+    },
+    "settings.features.energy.enabled": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "d4148f5ccac84b86439ced912d080412b4272d3a"
+    },
+    "settings.features.energy.enabledDesc": {
+      "source": "c962c9e187e885eefc2f9818be9891a54ec1631b",
+      "translation": "4d50deae405bb645b6bb8093ac2176c298afe31d"
+    },
+    "settings.features.energy.baseline": {
+      "source": "2183e31cc2290cc9678f0da6e252dbe0fa9abfb7",
+      "translation": "b5ccbbd263f34d4eee4101f96375946b4c72bd36"
+    },
+    "settings.features.energy.sparkPerHour": {
+      "source": "374d9b26cd6faa4931cae4c856a956ba04af57a4",
+      "translation": "16472eaa732aaef2cc3ed8f53652a42d9c2564fd"
+    },
+    "settings.features.energy.drainPerHour": {
+      "source": "ca32b032e204f85f559926f55a03f86a563bce4d",
+      "translation": "6a779c0da3a8bc8dcfa1e7d8106aa3f76da82d66"
+    },
+    "settings.features.energy.steadyPerHour": {
+      "source": "d3d30a7de6943a10643ce46dec976fe0a47b502d",
+      "translation": "f7cea3ca07f5aa768fc289bc71608f6be7c12ca7"
+    },
+    "settings.features.energy.lowThreshold": {
+      "source": "1fd07b75e14373345d0207e5839e3275f8d589c1",
+      "translation": "3fa77f3e2786b233b8048a74c9736ffa021231cd"
+    },
+    "settings.features.energy.allDayMinutes": {
+      "source": "911ba8c8fbb5e9c23571e64010fedd5ff59f714d",
+      "translation": "a9907d1d56f9e4685a95ba4d031b05ce1f5b8cdb"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "4c0ca3e381fd1cdee36c8fd640e48cb88a056469"
@@ -15403,7 +15550,10 @@
       "source": "42bb2d702635030d332cf146fea8d7a480c72460",
       "translation": "8f567618ee3c41422728a46ec8a4173fe73a7a25"
     },
-    "commands.openEnergyPanel": null,
+    "commands.openEnergyPanel": {
+      "source": "a305779903e864b47f93b4c378c4d21987bf68f8",
+      "translation": "50aa73f40b3b7bc9ab06f5ea148207a946a33c7a"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "1e3dfca4721b5a527de500afbda1fa0d2992e3c8"
@@ -18960,34 +19110,118 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     },
-    "contextGroups.settings.energy": null,
-    "energy.kinds.spark": null,
-    "energy.kinds.steady": null,
-    "energy.kinds.drain": null,
-    "energy.glyph.aria": null,
-    "energy.panel.title": null,
-    "energy.panel.now": null,
-    "energy.panel.tonight": null,
-    "energy.panel.projected": null,
-    "energy.panel.gaugeAria": null,
-    "energy.panel.mix": null,
-    "energy.panel.biggest": null,
-    "energy.panel.assumed": null,
-    "energy.panel.lowTitle": null,
-    "energy.panel.lowBody": null,
-    "energy.panel.showDrains": null,
-    "energy.panel.findSpark": null,
-    "energy.panel.emptyTitle": null,
-    "energy.panel.emptyBody": null,
-    "energy.panel.openSettings": null,
-    "energy.panel.previousDay": null,
-    "energy.panel.nextDay": null,
-    "energy.panel.today": null,
-    "energy.panel.invalidDate": null,
-    "energy.panel.drainsPlaceholder": null,
-    "energy.panel.sparkPlaceholder": null,
-    "energy.panel.noDrains": null,
-    "energy.panel.noSparks": null,
+    "contextGroups.settings.energy": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "0ac5b9db1d9be8414ca4daefdc7a47fd5ffeae73"
+    },
+    "energy.kinds.spark": {
+      "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
+      "translation": "8136ab20e7714ab8932150c9356734ba7d9f7dc3"
+    },
+    "energy.kinds.steady": {
+      "source": "b3012de005fd47fc7e92f28669435beb461d3cfd",
+      "translation": "e9c0f48712b25cf3c5ef22b958ac615eb9c7f682"
+    },
+    "energy.kinds.drain": {
+      "source": "4e4369e733c095a308c9f110fad31b6a36951fae",
+      "translation": "15cf81970cb2096df70624087acafb098b6a2bb7"
+    },
+    "energy.glyph.aria": {
+      "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
+      "translation": "2414ebb67b5586f248fa823156023d5b83e646e6"
+    },
+    "energy.panel.title": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "0ac5b9db1d9be8414ca4daefdc7a47fd5ffeae73"
+    },
+    "energy.panel.now": {
+      "source": "862d8be50e60993236088dd2aabf43757403079f",
+      "translation": "e5af1609dce2f7a9b76a8fb6c6dcb4966fc8fa92"
+    },
+    "energy.panel.tonight": {
+      "source": "d03b9b8881191249568dd7f2c39d67598d0fa038",
+      "translation": "4035ac44bede4178378727061863ad1d915882d3"
+    },
+    "energy.panel.projected": {
+      "source": "50ee8c235d4f7a52738c3bd8d154ef68681d658c",
+      "translation": "797b1be3a11a61f19719b48c2faf0cf077204765"
+    },
+    "energy.panel.gaugeAria": {
+      "source": "e0b8a102b5572833fce527648d322b189c5069bf",
+      "translation": "8e2fd3f32cd08ad994ef1f5662c13de4222e3d7d"
+    },
+    "energy.panel.mix": {
+      "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
+      "translation": "0dec0be497c3d05ec3ee02dea146dd16f947e836"
+    },
+    "energy.panel.biggest": {
+      "source": "670616950d780f1f6b10f5a0f36e93620b3a4f9d",
+      "translation": "41d890fe76342dba538090dbcf1c9bf700d754e9"
+    },
+    "energy.panel.assumed": {
+      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
+      "translation": "cfbb916bfb306abd5be844fe40314ab9d4ee313a"
+    },
+    "energy.panel.lowTitle": {
+      "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
+      "translation": "10be8e15897d0b9c7ff5da1d6730adbb0e7d7543"
+    },
+    "energy.panel.lowBody": {
+      "source": "d71c4af5b62d62973f765cedcdaf4ba915dffdf4",
+      "translation": "c641116a9921312211fccbee7a20700fe850c7bc"
+    },
+    "energy.panel.showDrains": {
+      "source": "6aa4845d0a2f36b986bb1c79db1238ecb578258b",
+      "translation": "cca144def8d32904659d61ecc4a4006a0a2c6af8"
+    },
+    "energy.panel.findSpark": {
+      "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
+      "translation": "124c609e107642398dd3c5f051fa0bc87f9ff03c"
+    },
+    "energy.panel.emptyTitle": {
+      "source": "1310f875993b121823753fcd42c63176d6e92ac4",
+      "translation": "92584aa321d4a7b0f1fb3de83d1f48755db04329"
+    },
+    "energy.panel.emptyBody": {
+      "source": "d809d84495d7d86b39d0762427b3c450bdb21819",
+      "translation": "b847f0742f7cb936204724ca90169f6ce0dbb26c"
+    },
+    "energy.panel.openSettings": {
+      "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
+      "translation": "8d05309426cf92dc13b476a48af418b23666db84"
+    },
+    "energy.panel.previousDay": {
+      "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
+      "translation": "0f242e62b5022f5b57060f2fe90f054e9b98a267"
+    },
+    "energy.panel.nextDay": {
+      "source": "38f859dde041a79ba8933ac0a80271471c73c47d",
+      "translation": "83a6e793e91a145b84b9649668d0a4178eeb6fe8"
+    },
+    "energy.panel.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "565e9824d995abb146d7f796e6cb377ef5bf2cb8"
+    },
+    "energy.panel.invalidDate": {
+      "source": "61238384e584bd55de158ccfb190870beba6a849",
+      "translation": "1319a1e59fc2e20804fdda67a5293f065cb2e2b5"
+    },
+    "energy.panel.drainsPlaceholder": {
+      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
+      "translation": "fdfa0101aa74d8e3a41a7bf6cbf8eb618ed5f168"
+    },
+    "energy.panel.sparkPlaceholder": {
+      "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
+      "translation": "297777c673b89b62acefcf77cfdbc775ea830fe1"
+    },
+    "energy.panel.noDrains": {
+      "source": "8698a47f0b4f8a8bfdc58f9e8b93ff954224c2a2",
+      "translation": "06448099b553d5dc6166991cf4b4ba3e7360ca9e"
+    },
+    "energy.panel.noSparks": {
+      "source": "bcd81a13d821ea8b0b4a2fcfb90b98ef5196dc78",
+      "translation": "fac3e3234a5717693a51e1be5f33370a02fb3d73"
+    },
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "910b9ebed42ee2a4760c1c4e966692823860a70a"
@@ -19798,7 +20032,10 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "3682e667d989a4d7de57b6eb4a1021fa3f731d42"
     },
-    "views.basesCalendar.settings.layout.showEnergy": null,
+    "views.basesCalendar.settings.layout.showEnergy": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "8d67aa7e6864c4fafba00d0d66551de02d99b78c"
+    },
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "ff3399ad04b443bff75aa18be67780f745d62940"
@@ -20959,15 +21196,42 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "16058fa28f77028a10a5a0db94f829e0e4f88b1f"
     },
-    "settings.features.energy.heading": null,
-    "settings.features.energy.enabled": null,
-    "settings.features.energy.enabledDesc": null,
-    "settings.features.energy.baseline": null,
-    "settings.features.energy.sparkPerHour": null,
-    "settings.features.energy.drainPerHour": null,
-    "settings.features.energy.steadyPerHour": null,
-    "settings.features.energy.lowThreshold": null,
-    "settings.features.energy.allDayMinutes": null,
+    "settings.features.energy.heading": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "56b1baa1548790c0a4ff476dacc7b7a2f4fe2b92"
+    },
+    "settings.features.energy.enabled": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "8d67aa7e6864c4fafba00d0d66551de02d99b78c"
+    },
+    "settings.features.energy.enabledDesc": {
+      "source": "c962c9e187e885eefc2f9818be9891a54ec1631b",
+      "translation": "8d05cc76102ce9553c55afc368ce92edded4949d"
+    },
+    "settings.features.energy.baseline": {
+      "source": "2183e31cc2290cc9678f0da6e252dbe0fa9abfb7",
+      "translation": "b405a6529ad3677c46ad2439717b59f563cac194"
+    },
+    "settings.features.energy.sparkPerHour": {
+      "source": "374d9b26cd6faa4931cae4c856a956ba04af57a4",
+      "translation": "f5cbb5f985d98cbd210c95390044b35d8febcb7e"
+    },
+    "settings.features.energy.drainPerHour": {
+      "source": "ca32b032e204f85f559926f55a03f86a563bce4d",
+      "translation": "27cf663fa4997339d0f73e556c3f46633571a8af"
+    },
+    "settings.features.energy.steadyPerHour": {
+      "source": "d3d30a7de6943a10643ce46dec976fe0a47b502d",
+      "translation": "781b292ca61e7ae893b2cd5f3bbaa1e5f3a475d8"
+    },
+    "settings.features.energy.lowThreshold": {
+      "source": "1fd07b75e14373345d0207e5839e3275f8d589c1",
+      "translation": "94d8381a94887f498bcab0f94e826cdcc2d1e3b1"
+    },
+    "settings.features.energy.allDayMinutes": {
+      "source": "911ba8c8fbb5e9c23571e64010fedd5ff59f714d",
+      "translation": "6a81a6e777c394b4f9a7a7d3154a1730b95abd72"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "a5f7f40f1cc5116d99e65b8b4bd8dcb32682b8a8"
@@ -24924,7 +25188,10 @@
       "source": "42bb2d702635030d332cf146fea8d7a480c72460",
       "translation": "370f91f08abab704e4a5b7572e831d692a348305"
     },
-    "commands.openEnergyPanel": null,
+    "commands.openEnergyPanel": {
+      "source": "a305779903e864b47f93b4c378c4d21987bf68f8",
+      "translation": "49337a1de1d539a2ca840c262076d458a85e1f95"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "da0564618387e99d32978e8012ee241b430f493a"
@@ -28481,34 +28748,118 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "e582e53cb5f667d8b1755431b37ede223e92c9f0"
     },
-    "contextGroups.settings.energy": null,
-    "energy.kinds.spark": null,
-    "energy.kinds.steady": null,
-    "energy.kinds.drain": null,
-    "energy.glyph.aria": null,
-    "energy.panel.title": null,
-    "energy.panel.now": null,
-    "energy.panel.tonight": null,
-    "energy.panel.projected": null,
-    "energy.panel.gaugeAria": null,
-    "energy.panel.mix": null,
-    "energy.panel.biggest": null,
-    "energy.panel.assumed": null,
-    "energy.panel.lowTitle": null,
-    "energy.panel.lowBody": null,
-    "energy.panel.showDrains": null,
-    "energy.panel.findSpark": null,
-    "energy.panel.emptyTitle": null,
-    "energy.panel.emptyBody": null,
-    "energy.panel.openSettings": null,
-    "energy.panel.previousDay": null,
-    "energy.panel.nextDay": null,
-    "energy.panel.today": null,
-    "energy.panel.invalidDate": null,
-    "energy.panel.drainsPlaceholder": null,
-    "energy.panel.sparkPlaceholder": null,
-    "energy.panel.noDrains": null,
-    "energy.panel.noSparks": null,
+    "contextGroups.settings.energy": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "56b1baa1548790c0a4ff476dacc7b7a2f4fe2b92"
+    },
+    "energy.kinds.spark": {
+      "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
+      "translation": "ba32cdb0a07ff72babf5d47daec3a4cda64a26af"
+    },
+    "energy.kinds.steady": {
+      "source": "b3012de005fd47fc7e92f28669435beb461d3cfd",
+      "translation": "d96e5b2dd07c1733b2b013bd82922c22baade37d"
+    },
+    "energy.kinds.drain": {
+      "source": "4e4369e733c095a308c9f110fad31b6a36951fae",
+      "translation": "161954ee502aea59d3e8f8e1160d3ae8f68693c6"
+    },
+    "energy.glyph.aria": {
+      "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
+      "translation": "c12d51b2aa25da30866c88b66ff1a6958d5aacc6"
+    },
+    "energy.panel.title": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "56b1baa1548790c0a4ff476dacc7b7a2f4fe2b92"
+    },
+    "energy.panel.now": {
+      "source": "862d8be50e60993236088dd2aabf43757403079f",
+      "translation": "22f30d7a31bc032e3758dd4bcc77bea654b9d7fe"
+    },
+    "energy.panel.tonight": {
+      "source": "d03b9b8881191249568dd7f2c39d67598d0fa038",
+      "translation": "c18fa282e4641087835d2ef61f6fd2d302f1a871"
+    },
+    "energy.panel.projected": {
+      "source": "50ee8c235d4f7a52738c3bd8d154ef68681d658c",
+      "translation": "034053c99f785e3702e23121f7ec1ffe76a2454f"
+    },
+    "energy.panel.gaugeAria": {
+      "source": "e0b8a102b5572833fce527648d322b189c5069bf",
+      "translation": "610193f6105c9eb0dc2ef46530cb7613b5ecadff"
+    },
+    "energy.panel.mix": {
+      "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
+      "translation": "e0b8ca6da13e29696e216c411696c47540aba5fb"
+    },
+    "energy.panel.biggest": {
+      "source": "670616950d780f1f6b10f5a0f36e93620b3a4f9d",
+      "translation": "530f9e29c6b45c4e6dd37018062b2d27f0eb0e04"
+    },
+    "energy.panel.assumed": {
+      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
+      "translation": "ffe96735df31a1b3218ee897b8072bb3efe9f480"
+    },
+    "energy.panel.lowTitle": {
+      "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
+      "translation": "3bd22067f9d1139bf0914a76636a400d45911db0"
+    },
+    "energy.panel.lowBody": {
+      "source": "d71c4af5b62d62973f765cedcdaf4ba915dffdf4",
+      "translation": "00cbb3af7ce4d8fa52bf81ae3c00edf12d25ed74"
+    },
+    "energy.panel.showDrains": {
+      "source": "6aa4845d0a2f36b986bb1c79db1238ecb578258b",
+      "translation": "0824714670e31b61a3c98e3a8fbf72954125c53d"
+    },
+    "energy.panel.findSpark": {
+      "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
+      "translation": "ce8194dada0fed49940234fee7d4af9d3048a119"
+    },
+    "energy.panel.emptyTitle": {
+      "source": "1310f875993b121823753fcd42c63176d6e92ac4",
+      "translation": "5ae23c0966f30c8c9e89dfb0e28dad6692107b59"
+    },
+    "energy.panel.emptyBody": {
+      "source": "d809d84495d7d86b39d0762427b3c450bdb21819",
+      "translation": "812f9521b9cf131b45f4b40e01b5482f7b8c4e80"
+    },
+    "energy.panel.openSettings": {
+      "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
+      "translation": "a9f109c65d0c09c7962ef25d9a977edf157de06b"
+    },
+    "energy.panel.previousDay": {
+      "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
+      "translation": "f9fa33a4bcd95fe815a4c53e18f314b2d8368ddb"
+    },
+    "energy.panel.nextDay": {
+      "source": "38f859dde041a79ba8933ac0a80271471c73c47d",
+      "translation": "6c0d8d6be2c0d2073fb13f52971e6426f52b9e03"
+    },
+    "energy.panel.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "baca97f697fbf114ca2b08c97c106dde47583c4a"
+    },
+    "energy.panel.invalidDate": {
+      "source": "61238384e584bd55de158ccfb190870beba6a849",
+      "translation": "e1320361b40fe181031217f1a6bdbf43c7428d3d"
+    },
+    "energy.panel.drainsPlaceholder": {
+      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
+      "translation": "5a7604eac84f6bc775cfde7396569cc83d968e62"
+    },
+    "energy.panel.sparkPlaceholder": {
+      "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
+      "translation": "056f4fd489f5da034fc8b795da8a6487c07de112"
+    },
+    "energy.panel.noDrains": {
+      "source": "8698a47f0b4f8a8bfdc58f9e8b93ff954224c2a2",
+      "translation": "a6085ad3f447dbf367c4e0368da80891004ce0b0"
+    },
+    "energy.panel.noSparks": {
+      "source": "bcd81a13d821ea8b0b4a2fcfb90b98ef5196dc78",
+      "translation": "de06e00f2d8cbf1acd9d4e1dcd485a3b6a48812b"
+    },
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "35b77098d76b8d1ee95044267700101ec88c1bb1"
@@ -29319,7 +29670,10 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "65c4dfd4853c39e856a2990a0fdafcfd61231dfd"
     },
-    "views.basesCalendar.settings.layout.showEnergy": null,
+    "views.basesCalendar.settings.layout.showEnergy": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "333ee7eea9caab1bc370d6f20b73667c3f2e2d70"
+    },
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "2bf95a23664ff28d7b96fdf8c50cf20961565416"
@@ -30480,15 +30834,42 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "e035dbfdec3e36b36c87f9d05a160e75743e8f3b"
     },
-    "settings.features.energy.heading": null,
-    "settings.features.energy.enabled": null,
-    "settings.features.energy.enabledDesc": null,
-    "settings.features.energy.baseline": null,
-    "settings.features.energy.sparkPerHour": null,
-    "settings.features.energy.drainPerHour": null,
-    "settings.features.energy.steadyPerHour": null,
-    "settings.features.energy.lowThreshold": null,
-    "settings.features.energy.allDayMinutes": null,
+    "settings.features.energy.heading": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "578325b56bfa62d16ea07c1e3c3021ca5c7c6fe0"
+    },
+    "settings.features.energy.enabled": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "333ee7eea9caab1bc370d6f20b73667c3f2e2d70"
+    },
+    "settings.features.energy.enabledDesc": {
+      "source": "c962c9e187e885eefc2f9818be9891a54ec1631b",
+      "translation": "858827f73717597d581da1c0821233b34eef9efc"
+    },
+    "settings.features.energy.baseline": {
+      "source": "2183e31cc2290cc9678f0da6e252dbe0fa9abfb7",
+      "translation": "ba18d96290df741c90dee948eb40bcc0aed9d4e8"
+    },
+    "settings.features.energy.sparkPerHour": {
+      "source": "374d9b26cd6faa4931cae4c856a956ba04af57a4",
+      "translation": "a49496117af82dfe36e1ccbb5b2a7cb67e9a3ef9"
+    },
+    "settings.features.energy.drainPerHour": {
+      "source": "ca32b032e204f85f559926f55a03f86a563bce4d",
+      "translation": "18f038d5ab810883f4efbdc7b37f2a6612a4205b"
+    },
+    "settings.features.energy.steadyPerHour": {
+      "source": "d3d30a7de6943a10643ce46dec976fe0a47b502d",
+      "translation": "bfaa0b7d83dca22ee69653f794a5ddeb0575462c"
+    },
+    "settings.features.energy.lowThreshold": {
+      "source": "1fd07b75e14373345d0207e5839e3275f8d589c1",
+      "translation": "dbd4ce3fba513ec80d8b763e11023a4895231496"
+    },
+    "settings.features.energy.allDayMinutes": {
+      "source": "911ba8c8fbb5e9c23571e64010fedd5ff59f714d",
+      "translation": "3465ecc999ea216af6a288fe5a0b8ec3bdb0f958"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "77c4460b544a9124d89441d892cbf8507bc65679"
@@ -34445,7 +34826,10 @@
       "source": "42bb2d702635030d332cf146fea8d7a480c72460",
       "translation": "193e01859f75a5147551dcc7ae47cb5f708226c0"
     },
-    "commands.openEnergyPanel": null,
+    "commands.openEnergyPanel": {
+      "source": "a305779903e864b47f93b4c378c4d21987bf68f8",
+      "translation": "7e918a2026fe39e049c6f78176dd2012c69db466"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "fc5b2ca043e23fd1524c8a007b6116444ea9c239"
@@ -38002,34 +38386,118 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "b46b7646a3de5c7fa376305d8f0e7b42d9c17514"
     },
-    "contextGroups.settings.energy": null,
-    "energy.kinds.spark": null,
-    "energy.kinds.steady": null,
-    "energy.kinds.drain": null,
-    "energy.glyph.aria": null,
-    "energy.panel.title": null,
-    "energy.panel.now": null,
-    "energy.panel.tonight": null,
-    "energy.panel.projected": null,
-    "energy.panel.gaugeAria": null,
-    "energy.panel.mix": null,
-    "energy.panel.biggest": null,
-    "energy.panel.assumed": null,
-    "energy.panel.lowTitle": null,
-    "energy.panel.lowBody": null,
-    "energy.panel.showDrains": null,
-    "energy.panel.findSpark": null,
-    "energy.panel.emptyTitle": null,
-    "energy.panel.emptyBody": null,
-    "energy.panel.openSettings": null,
-    "energy.panel.previousDay": null,
-    "energy.panel.nextDay": null,
-    "energy.panel.today": null,
-    "energy.panel.invalidDate": null,
-    "energy.panel.drainsPlaceholder": null,
-    "energy.panel.sparkPlaceholder": null,
-    "energy.panel.noDrains": null,
-    "energy.panel.noSparks": null,
+    "contextGroups.settings.energy": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "578325b56bfa62d16ea07c1e3c3021ca5c7c6fe0"
+    },
+    "energy.kinds.spark": {
+      "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
+      "translation": "5564fa0228e0176e110d8b39e3577a5aae5f048f"
+    },
+    "energy.kinds.steady": {
+      "source": "b3012de005fd47fc7e92f28669435beb461d3cfd",
+      "translation": "a5c2a6495f118f809b95ffbd50d043b9752a78aa"
+    },
+    "energy.kinds.drain": {
+      "source": "4e4369e733c095a308c9f110fad31b6a36951fae",
+      "translation": "c77f5c7a720c1ff80787db33a1495a63010b2b27"
+    },
+    "energy.glyph.aria": {
+      "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
+      "translation": "16fafd196fa0e8b6684e4302848b37784f807290"
+    },
+    "energy.panel.title": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "578325b56bfa62d16ea07c1e3c3021ca5c7c6fe0"
+    },
+    "energy.panel.now": {
+      "source": "862d8be50e60993236088dd2aabf43757403079f",
+      "translation": "3a377b69a2cd8d25b09479586e8c75cb1f49b45c"
+    },
+    "energy.panel.tonight": {
+      "source": "d03b9b8881191249568dd7f2c39d67598d0fa038",
+      "translation": "49b781b4d8a62b8c0c1ea920559588470d81a8a8"
+    },
+    "energy.panel.projected": {
+      "source": "50ee8c235d4f7a52738c3bd8d154ef68681d658c",
+      "translation": "960f45fb05a103f2b594a8ea36ab08816352aa99"
+    },
+    "energy.panel.gaugeAria": {
+      "source": "e0b8a102b5572833fce527648d322b189c5069bf",
+      "translation": "b93168e57d6a98936bdf2302671cdde5bf5ef184"
+    },
+    "energy.panel.mix": {
+      "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
+      "translation": "7c12ab969025968afc022b9904659cedea130568"
+    },
+    "energy.panel.biggest": {
+      "source": "670616950d780f1f6b10f5a0f36e93620b3a4f9d",
+      "translation": "521d0ea7d7108481749a53114ded405b61bad26f"
+    },
+    "energy.panel.assumed": {
+      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
+      "translation": "386f2f48de71eb63b14c28797080e95b9bf763bf"
+    },
+    "energy.panel.lowTitle": {
+      "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
+      "translation": "569f18dd88c3306ddd6ddbab55ed3faf8ec1a388"
+    },
+    "energy.panel.lowBody": {
+      "source": "d71c4af5b62d62973f765cedcdaf4ba915dffdf4",
+      "translation": "19db8d209fe3a3d9ed76732270e672fb58c1084a"
+    },
+    "energy.panel.showDrains": {
+      "source": "6aa4845d0a2f36b986bb1c79db1238ecb578258b",
+      "translation": "85ba0010807f7919fb8dd015120315416f85de56"
+    },
+    "energy.panel.findSpark": {
+      "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
+      "translation": "45386c07725a66c9dd4d30a9a16ab430492fa4e6"
+    },
+    "energy.panel.emptyTitle": {
+      "source": "1310f875993b121823753fcd42c63176d6e92ac4",
+      "translation": "dfc1bd6e6564f13c3b68fc8b30a435ee3dfe06f2"
+    },
+    "energy.panel.emptyBody": {
+      "source": "d809d84495d7d86b39d0762427b3c450bdb21819",
+      "translation": "fa3df095a2e774367634cc416987562b0dec74db"
+    },
+    "energy.panel.openSettings": {
+      "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
+      "translation": "52b017c0a1c745d0db9e0ce5974ce2f350a1b972"
+    },
+    "energy.panel.previousDay": {
+      "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
+      "translation": "f6f002ec190e6c737c911bb1ce49893ea9367e79"
+    },
+    "energy.panel.nextDay": {
+      "source": "38f859dde041a79ba8933ac0a80271471c73c47d",
+      "translation": "28753d5ded4663223fcb1f0d6b70764cc2fe4de2"
+    },
+    "energy.panel.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "574cd4fb795bbf0b38d31b2edd3860f822be0c1c"
+    },
+    "energy.panel.invalidDate": {
+      "source": "61238384e584bd55de158ccfb190870beba6a849",
+      "translation": "cd19f9bab99ad81963a3df9e383f70d2a0f161ef"
+    },
+    "energy.panel.drainsPlaceholder": {
+      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
+      "translation": "1b512cde2db23cab62ecbc4c89a507349cd341bf"
+    },
+    "energy.panel.sparkPlaceholder": {
+      "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
+      "translation": "4b227cf707d6de7af77d3c9532c016931282119c"
+    },
+    "energy.panel.noDrains": {
+      "source": "8698a47f0b4f8a8bfdc58f9e8b93ff954224c2a2",
+      "translation": "19822aa7b705e659497d3b69f40c53891213b405"
+    },
+    "energy.panel.noSparks": {
+      "source": "bcd81a13d821ea8b0b4a2fcfb90b98ef5196dc78",
+      "translation": "d59d03e6fa1b002f7630707cc9d6c81c3883fc1d"
+    },
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "23719bfed0c991fb2aae79db4309ac01f28ffcbc"
@@ -38840,7 +39308,10 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "ce2f4b553c2cacdb36d743ef18075991aa2a5b6c"
     },
-    "views.basesCalendar.settings.layout.showEnergy": null,
+    "views.basesCalendar.settings.layout.showEnergy": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "88c39bf449bfcfba04b8a6c289773603b5f405df"
+    },
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "2f538cd8ee044615e1f6926f0944510150f31b0f"
@@ -40001,15 +40472,42 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "65d1fa35318a3fec3611a431ab250a8a671ef405"
     },
-    "settings.features.energy.heading": null,
-    "settings.features.energy.enabled": null,
-    "settings.features.energy.enabledDesc": null,
-    "settings.features.energy.baseline": null,
-    "settings.features.energy.sparkPerHour": null,
-    "settings.features.energy.drainPerHour": null,
-    "settings.features.energy.steadyPerHour": null,
-    "settings.features.energy.lowThreshold": null,
-    "settings.features.energy.allDayMinutes": null,
+    "settings.features.energy.heading": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "7154da110a18388a66eb99086c2d096502c4b439"
+    },
+    "settings.features.energy.enabled": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "88c39bf449bfcfba04b8a6c289773603b5f405df"
+    },
+    "settings.features.energy.enabledDesc": {
+      "source": "c962c9e187e885eefc2f9818be9891a54ec1631b",
+      "translation": "e354115d8099c699889bdc55a823f12c3b5f436f"
+    },
+    "settings.features.energy.baseline": {
+      "source": "2183e31cc2290cc9678f0da6e252dbe0fa9abfb7",
+      "translation": "24853ba3e642390fa6e00132ba64b1ba52bf8ac6"
+    },
+    "settings.features.energy.sparkPerHour": {
+      "source": "374d9b26cd6faa4931cae4c856a956ba04af57a4",
+      "translation": "c14df9bd2fa3c7b5f74b07f8ed56e74050b809af"
+    },
+    "settings.features.energy.drainPerHour": {
+      "source": "ca32b032e204f85f559926f55a03f86a563bce4d",
+      "translation": "63244046ac28cee45df8bc8697af4724066dfd29"
+    },
+    "settings.features.energy.steadyPerHour": {
+      "source": "d3d30a7de6943a10643ce46dec976fe0a47b502d",
+      "translation": "bfde43beb0ffaf94546c7029fd0562dbed075c4c"
+    },
+    "settings.features.energy.lowThreshold": {
+      "source": "1fd07b75e14373345d0207e5839e3275f8d589c1",
+      "translation": "70b403f09849e5c0f70510f8c8316f4f9b14963e"
+    },
+    "settings.features.energy.allDayMinutes": {
+      "source": "911ba8c8fbb5e9c23571e64010fedd5ff59f714d",
+      "translation": "01b00c36ac0576bfc82b75b00a665c4dd913c817"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "bd0c59c5581b33718277f5170690b8224e7e0a48"
@@ -43966,7 +44464,10 @@
       "source": "42bb2d702635030d332cf146fea8d7a480c72460",
       "translation": "0ddd661b8ebde5b559826a9ea2afdc7e119fe29b"
     },
-    "commands.openEnergyPanel": null,
+    "commands.openEnergyPanel": {
+      "source": "a305779903e864b47f93b4c378c4d21987bf68f8",
+      "translation": "2f0db530372edc8ae14a2abe5d6ded80d6b622c5"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "5afaa1821a1ddb502ba70fa10b60708e4d9b3113"
@@ -47523,34 +48024,118 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "3cf0a67476a9def32ffaa4b76dc45b80b730fce1"
     },
-    "contextGroups.settings.energy": null,
-    "energy.kinds.spark": null,
-    "energy.kinds.steady": null,
-    "energy.kinds.drain": null,
-    "energy.glyph.aria": null,
-    "energy.panel.title": null,
-    "energy.panel.now": null,
-    "energy.panel.tonight": null,
-    "energy.panel.projected": null,
-    "energy.panel.gaugeAria": null,
-    "energy.panel.mix": null,
-    "energy.panel.biggest": null,
-    "energy.panel.assumed": null,
-    "energy.panel.lowTitle": null,
-    "energy.panel.lowBody": null,
-    "energy.panel.showDrains": null,
-    "energy.panel.findSpark": null,
-    "energy.panel.emptyTitle": null,
-    "energy.panel.emptyBody": null,
-    "energy.panel.openSettings": null,
-    "energy.panel.previousDay": null,
-    "energy.panel.nextDay": null,
-    "energy.panel.today": null,
-    "energy.panel.invalidDate": null,
-    "energy.panel.drainsPlaceholder": null,
-    "energy.panel.sparkPlaceholder": null,
-    "energy.panel.noDrains": null,
-    "energy.panel.noSparks": null,
+    "contextGroups.settings.energy": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "7154da110a18388a66eb99086c2d096502c4b439"
+    },
+    "energy.kinds.spark": {
+      "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
+      "translation": "b03617ef2f8ba4b54cc806eb23dd5660a7092ec2"
+    },
+    "energy.kinds.steady": {
+      "source": "b3012de005fd47fc7e92f28669435beb461d3cfd",
+      "translation": "a5114909eef08c872bb3e5e53b54f5940ac5600f"
+    },
+    "energy.kinds.drain": {
+      "source": "4e4369e733c095a308c9f110fad31b6a36951fae",
+      "translation": "849a48789b3f43b93bedfd408b7f91558d3833c9"
+    },
+    "energy.glyph.aria": {
+      "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
+      "translation": "88985ca3c6634b5d8edeffb336bc37d341972fe0"
+    },
+    "energy.panel.title": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "7154da110a18388a66eb99086c2d096502c4b439"
+    },
+    "energy.panel.now": {
+      "source": "862d8be50e60993236088dd2aabf43757403079f",
+      "translation": "dec160f24c91f7a1499c24cc37abccea51e62882"
+    },
+    "energy.panel.tonight": {
+      "source": "d03b9b8881191249568dd7f2c39d67598d0fa038",
+      "translation": "ad53787c3c24b91de9b54be39ac41bd507c955f2"
+    },
+    "energy.panel.projected": {
+      "source": "50ee8c235d4f7a52738c3bd8d154ef68681d658c",
+      "translation": "07783652f4aacb43693af5863ddb89075ddde6c7"
+    },
+    "energy.panel.gaugeAria": {
+      "source": "e0b8a102b5572833fce527648d322b189c5069bf",
+      "translation": "01043d8d750ef1102013a2dae4b872bab845aec3"
+    },
+    "energy.panel.mix": {
+      "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
+      "translation": "9b61fd676348f84ecdaa59378d73c0ca278955a6"
+    },
+    "energy.panel.biggest": {
+      "source": "670616950d780f1f6b10f5a0f36e93620b3a4f9d",
+      "translation": "b8db599b5b310079015437c3507c57542b8a6d16"
+    },
+    "energy.panel.assumed": {
+      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
+      "translation": "9aa0926057dfe8eb36ec841e0426605d215abcdf"
+    },
+    "energy.panel.lowTitle": {
+      "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
+      "translation": "e03bf87d5d80aed4d0ad1833ec63bc2567510415"
+    },
+    "energy.panel.lowBody": {
+      "source": "d71c4af5b62d62973f765cedcdaf4ba915dffdf4",
+      "translation": "ed63aaa6a652ae9744d5ab31c2bd26a5b7d58e52"
+    },
+    "energy.panel.showDrains": {
+      "source": "6aa4845d0a2f36b986bb1c79db1238ecb578258b",
+      "translation": "1647139a1d1130026fc0370303f7d382435a42a6"
+    },
+    "energy.panel.findSpark": {
+      "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
+      "translation": "77784c96d86326616048e41b9e6e14efde5633e8"
+    },
+    "energy.panel.emptyTitle": {
+      "source": "1310f875993b121823753fcd42c63176d6e92ac4",
+      "translation": "beb8269c9e91b99e1a1c576636f7fd0e0c00929e"
+    },
+    "energy.panel.emptyBody": {
+      "source": "d809d84495d7d86b39d0762427b3c450bdb21819",
+      "translation": "2454f2a36614b523934007fb1326122e01ac727c"
+    },
+    "energy.panel.openSettings": {
+      "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
+      "translation": "6365a85b2fd829a69db696b119de52fd5bf67196"
+    },
+    "energy.panel.previousDay": {
+      "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
+      "translation": "fa9a799834621f9342b91b6765408a0512361601"
+    },
+    "energy.panel.nextDay": {
+      "source": "38f859dde041a79ba8933ac0a80271471c73c47d",
+      "translation": "c98d717bf992cd99dd0dd1d3b10fe386eeb56b2d"
+    },
+    "energy.panel.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "2bdce5e8cc42ebd14f38135858dea1956e743c28"
+    },
+    "energy.panel.invalidDate": {
+      "source": "61238384e584bd55de158ccfb190870beba6a849",
+      "translation": "eb522cb7ea8a1ffb04261ad7bf1f16aa3886dc38"
+    },
+    "energy.panel.drainsPlaceholder": {
+      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
+      "translation": "eb43d51a59f356d55d32015b2917ee02f56ab7db"
+    },
+    "energy.panel.sparkPlaceholder": {
+      "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
+      "translation": "f3ef1259bcf5bae6f72fbbff6bf8b5ded3813bb9"
+    },
+    "energy.panel.noDrains": {
+      "source": "8698a47f0b4f8a8bfdc58f9e8b93ff954224c2a2",
+      "translation": "4f743f67abf28364cfe961c76036d71fae8532bd"
+    },
+    "energy.panel.noSparks": {
+      "source": "bcd81a13d821ea8b0b4a2fcfb90b98ef5196dc78",
+      "translation": "86a9ee1be0d39dc54cba972c52ff1291eb864a5c"
+    },
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "7de25a1dcc4d3273de20362c8d2c224d5f1f6701"
@@ -48361,7 +48946,10 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "eda3f6e02d9d4958eb538b5260a013bb75b599b3"
     },
-    "views.basesCalendar.settings.layout.showEnergy": null,
+    "views.basesCalendar.settings.layout.showEnergy": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "bd4840bbd0180fe52e9fb751158ef61b4101ade5"
+    },
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "1d164e9ef48faf3bdb2e0172550fb512348f53ea"
@@ -49522,15 +50110,42 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "5d69b489ec363e25c8663527295e95deafe73857"
     },
-    "settings.features.energy.heading": null,
-    "settings.features.energy.enabled": null,
-    "settings.features.energy.enabledDesc": null,
-    "settings.features.energy.baseline": null,
-    "settings.features.energy.sparkPerHour": null,
-    "settings.features.energy.drainPerHour": null,
-    "settings.features.energy.steadyPerHour": null,
-    "settings.features.energy.lowThreshold": null,
-    "settings.features.energy.allDayMinutes": null,
+    "settings.features.energy.heading": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "f41aa7a3294ffe47a5be7cc93e17696055fbe800"
+    },
+    "settings.features.energy.enabled": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "bd4840bbd0180fe52e9fb751158ef61b4101ade5"
+    },
+    "settings.features.energy.enabledDesc": {
+      "source": "c962c9e187e885eefc2f9818be9891a54ec1631b",
+      "translation": "a090d296d7bb5200842657cc50069be4cf7376de"
+    },
+    "settings.features.energy.baseline": {
+      "source": "2183e31cc2290cc9678f0da6e252dbe0fa9abfb7",
+      "translation": "6aa3b5a344785e4584abe93bd1cc9bfea95badaf"
+    },
+    "settings.features.energy.sparkPerHour": {
+      "source": "374d9b26cd6faa4931cae4c856a956ba04af57a4",
+      "translation": "6bc53fc2c45d1bf51d28d8c2b044999bcd756f82"
+    },
+    "settings.features.energy.drainPerHour": {
+      "source": "ca32b032e204f85f559926f55a03f86a563bce4d",
+      "translation": "107bf890fbcea4a45e6bd8d5a9d7ffb522d58b3f"
+    },
+    "settings.features.energy.steadyPerHour": {
+      "source": "d3d30a7de6943a10643ce46dec976fe0a47b502d",
+      "translation": "23523c405469447153c2b0ba78eda1e40aa9dc2d"
+    },
+    "settings.features.energy.lowThreshold": {
+      "source": "1fd07b75e14373345d0207e5839e3275f8d589c1",
+      "translation": "39600f971c5489edc2e57054baf9263bc404703a"
+    },
+    "settings.features.energy.allDayMinutes": {
+      "source": "911ba8c8fbb5e9c23571e64010fedd5ff59f714d",
+      "translation": "02e5bdcd6550805fc46356b58d6381307657742c"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "9120379848b593a73daa93fbc3a6c021cf2a7266"
@@ -53487,7 +54102,10 @@
       "source": "42bb2d702635030d332cf146fea8d7a480c72460",
       "translation": "cbd1d0734b87d8e4f6c1f2654883ca5988fc6dc0"
     },
-    "commands.openEnergyPanel": null,
+    "commands.openEnergyPanel": {
+      "source": "a305779903e864b47f93b4c378c4d21987bf68f8",
+      "translation": "7283940870d7bfbd187129e57bdb07871aa65939"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "835d5deafbe6951c341d22cbea09489aad6c87ed"
@@ -57044,34 +57662,118 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     },
-    "contextGroups.settings.energy": null,
-    "energy.kinds.spark": null,
-    "energy.kinds.steady": null,
-    "energy.kinds.drain": null,
-    "energy.glyph.aria": null,
-    "energy.panel.title": null,
-    "energy.panel.now": null,
-    "energy.panel.tonight": null,
-    "energy.panel.projected": null,
-    "energy.panel.gaugeAria": null,
-    "energy.panel.mix": null,
-    "energy.panel.biggest": null,
-    "energy.panel.assumed": null,
-    "energy.panel.lowTitle": null,
-    "energy.panel.lowBody": null,
-    "energy.panel.showDrains": null,
-    "energy.panel.findSpark": null,
-    "energy.panel.emptyTitle": null,
-    "energy.panel.emptyBody": null,
-    "energy.panel.openSettings": null,
-    "energy.panel.previousDay": null,
-    "energy.panel.nextDay": null,
-    "energy.panel.today": null,
-    "energy.panel.invalidDate": null,
-    "energy.panel.drainsPlaceholder": null,
-    "energy.panel.sparkPlaceholder": null,
-    "energy.panel.noDrains": null,
-    "energy.panel.noSparks": null,
+    "contextGroups.settings.energy": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "f41aa7a3294ffe47a5be7cc93e17696055fbe800"
+    },
+    "energy.kinds.spark": {
+      "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
+      "translation": "1068d20824fb4071e1003a929efd5d6e480171b1"
+    },
+    "energy.kinds.steady": {
+      "source": "b3012de005fd47fc7e92f28669435beb461d3cfd",
+      "translation": "074077d885e81c29b6ca50a41f363978a2dd7682"
+    },
+    "energy.kinds.drain": {
+      "source": "4e4369e733c095a308c9f110fad31b6a36951fae",
+      "translation": "15cf81970cb2096df70624087acafb098b6a2bb7"
+    },
+    "energy.glyph.aria": {
+      "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
+      "translation": "5b990f2bac1ac5b84efeb1d67879fde03a87e36c"
+    },
+    "energy.panel.title": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "f41aa7a3294ffe47a5be7cc93e17696055fbe800"
+    },
+    "energy.panel.now": {
+      "source": "862d8be50e60993236088dd2aabf43757403079f",
+      "translation": "5aa6d2da68fd5d3e04938e9edc053bef7d1101b2"
+    },
+    "energy.panel.tonight": {
+      "source": "d03b9b8881191249568dd7f2c39d67598d0fa038",
+      "translation": "dfcaac32b1e4cfb8c780912500174955ac4dbfa3"
+    },
+    "energy.panel.projected": {
+      "source": "50ee8c235d4f7a52738c3bd8d154ef68681d658c",
+      "translation": "797b1be3a11a61f19719b48c2faf0cf077204765"
+    },
+    "energy.panel.gaugeAria": {
+      "source": "e0b8a102b5572833fce527648d322b189c5069bf",
+      "translation": "0442a314670d542b5a33c7a86d2551386315aa59"
+    },
+    "energy.panel.mix": {
+      "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
+      "translation": "dd2754eb4d9e90830779fdcebd2edcfa9f3454bb"
+    },
+    "energy.panel.biggest": {
+      "source": "670616950d780f1f6b10f5a0f36e93620b3a4f9d",
+      "translation": "d07c2c32c636daffc8094d60fae1646bb3b57ad2"
+    },
+    "energy.panel.assumed": {
+      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
+      "translation": "8f991b18fc25cadadff305ec90a3ab2d1dbeda4a"
+    },
+    "energy.panel.lowTitle": {
+      "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
+      "translation": "024723a916708b3088b1e2d36c4288114e2fe3ec"
+    },
+    "energy.panel.lowBody": {
+      "source": "d71c4af5b62d62973f765cedcdaf4ba915dffdf4",
+      "translation": "a0071b841e51e295daeb1c5b0c047edcc952c432"
+    },
+    "energy.panel.showDrains": {
+      "source": "6aa4845d0a2f36b986bb1c79db1238ecb578258b",
+      "translation": "8dc1040054b0afd8bd2b5e1578007f16b4010403"
+    },
+    "energy.panel.findSpark": {
+      "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
+      "translation": "6bdfef7efe65c72f7b3375850baea7c715846e1c"
+    },
+    "energy.panel.emptyTitle": {
+      "source": "1310f875993b121823753fcd42c63176d6e92ac4",
+      "translation": "375d846eff26c4df078a91ade1970e2e2999cbaf"
+    },
+    "energy.panel.emptyBody": {
+      "source": "d809d84495d7d86b39d0762427b3c450bdb21819",
+      "translation": "5994ba4f510635750c25733fab20577c7fe6ab04"
+    },
+    "energy.panel.openSettings": {
+      "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
+      "translation": "238cc3935b8d8450519fe5b77935a7e605f4d395"
+    },
+    "energy.panel.previousDay": {
+      "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
+      "translation": "3bdf2c7de744a250094ef4a61a09a56e02074fca"
+    },
+    "energy.panel.nextDay": {
+      "source": "38f859dde041a79ba8933ac0a80271471c73c47d",
+      "translation": "368f9dc42dccd75ba8fb765e14ccd931b99cc932"
+    },
+    "energy.panel.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "ba008427845318a7ec22eed54a1897c29414a2e7"
+    },
+    "energy.panel.invalidDate": {
+      "source": "61238384e584bd55de158ccfb190870beba6a849",
+      "translation": "5569564abdfd517049c5380669e7206bb9d4abb4"
+    },
+    "energy.panel.drainsPlaceholder": {
+      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
+      "translation": "39ed9494900e640fadafc7ae3df8b6262f412857"
+    },
+    "energy.panel.sparkPlaceholder": {
+      "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
+      "translation": "f5e94a8de7bf361093aaf82c59a7a14f439c5e9d"
+    },
+    "energy.panel.noDrains": {
+      "source": "8698a47f0b4f8a8bfdc58f9e8b93ff954224c2a2",
+      "translation": "cffbca36b2980420a36ef26f5b71aba56095c3fc"
+    },
+    "energy.panel.noSparks": {
+      "source": "bcd81a13d821ea8b0b4a2fcfb90b98ef5196dc78",
+      "translation": "2942df05706c4b8b5530c01bec1b9bd9d7b9f8af"
+    },
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "0d8edb4d1f9516570fd5b251e583da381550faab"
@@ -57882,7 +58584,10 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "1c2f6e30f63a82584dc88702bac4dc913fbcfc05"
     },
-    "views.basesCalendar.settings.layout.showEnergy": null,
+    "views.basesCalendar.settings.layout.showEnergy": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "3136c4d6c6eb7eec75616b2bc2c8fbd8d4647c08"
+    },
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "721ceb74578615cf952c38213f272ffcfd1cce1a"
@@ -59043,15 +59748,42 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "8ee63fee6abdbb23722b833f3f58ab866147d4bc"
     },
-    "settings.features.energy.heading": null,
-    "settings.features.energy.enabled": null,
-    "settings.features.energy.enabledDesc": null,
-    "settings.features.energy.baseline": null,
-    "settings.features.energy.sparkPerHour": null,
-    "settings.features.energy.drainPerHour": null,
-    "settings.features.energy.steadyPerHour": null,
-    "settings.features.energy.lowThreshold": null,
-    "settings.features.energy.allDayMinutes": null,
+    "settings.features.energy.heading": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "f561c6b678d4450cfbab4700dcc6e39cae3a9d5c"
+    },
+    "settings.features.energy.enabled": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "3136c4d6c6eb7eec75616b2bc2c8fbd8d4647c08"
+    },
+    "settings.features.energy.enabledDesc": {
+      "source": "c962c9e187e885eefc2f9818be9891a54ec1631b",
+      "translation": "862fce46c49c2ca61bd9c344b98731bfaad7cc34"
+    },
+    "settings.features.energy.baseline": {
+      "source": "2183e31cc2290cc9678f0da6e252dbe0fa9abfb7",
+      "translation": "81baec0a0f916b4fb2d9f3acb70ac67c0f3b42e0"
+    },
+    "settings.features.energy.sparkPerHour": {
+      "source": "374d9b26cd6faa4931cae4c856a956ba04af57a4",
+      "translation": "8ad0ee030cdc47cf8694a987a48d69965c546a51"
+    },
+    "settings.features.energy.drainPerHour": {
+      "source": "ca32b032e204f85f559926f55a03f86a563bce4d",
+      "translation": "fa4ca1d328163d7bbd4081a9a8a16b2a21038373"
+    },
+    "settings.features.energy.steadyPerHour": {
+      "source": "d3d30a7de6943a10643ce46dec976fe0a47b502d",
+      "translation": "ca605d7c27a1c0c413085597c60bd033d62ed4c0"
+    },
+    "settings.features.energy.lowThreshold": {
+      "source": "1fd07b75e14373345d0207e5839e3275f8d589c1",
+      "translation": "addec40191bfc0a539dcc1a320f7aae64cb035b0"
+    },
+    "settings.features.energy.allDayMinutes": {
+      "source": "911ba8c8fbb5e9c23571e64010fedd5ff59f714d",
+      "translation": "c8436dd1e565468493199bc957abbe1530d6c058"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "2790d0e72f91ee2a7b5a2e462de03080d55bfa58"
@@ -63008,7 +63740,10 @@
       "source": "42bb2d702635030d332cf146fea8d7a480c72460",
       "translation": "4271f1ec4cb57d231e28f1989b1d3e610663a8cd"
     },
-    "commands.openEnergyPanel": null,
+    "commands.openEnergyPanel": {
+      "source": "a305779903e864b47f93b4c378c4d21987bf68f8",
+      "translation": "b664b50a2ad538f180eeae65e567fee9b1595b85"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "155d77f8989026d850cb9eae638d1f3aa35a7c20"
@@ -66565,34 +67300,118 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "8f9eec5d25d2633da4dd1d0c1a82a3310455a6e2"
     },
-    "contextGroups.settings.energy": null,
-    "energy.kinds.spark": null,
-    "energy.kinds.steady": null,
-    "energy.kinds.drain": null,
-    "energy.glyph.aria": null,
-    "energy.panel.title": null,
-    "energy.panel.now": null,
-    "energy.panel.tonight": null,
-    "energy.panel.projected": null,
-    "energy.panel.gaugeAria": null,
-    "energy.panel.mix": null,
-    "energy.panel.biggest": null,
-    "energy.panel.assumed": null,
-    "energy.panel.lowTitle": null,
-    "energy.panel.lowBody": null,
-    "energy.panel.showDrains": null,
-    "energy.panel.findSpark": null,
-    "energy.panel.emptyTitle": null,
-    "energy.panel.emptyBody": null,
-    "energy.panel.openSettings": null,
-    "energy.panel.previousDay": null,
-    "energy.panel.nextDay": null,
-    "energy.panel.today": null,
-    "energy.panel.invalidDate": null,
-    "energy.panel.drainsPlaceholder": null,
-    "energy.panel.sparkPlaceholder": null,
-    "energy.panel.noDrains": null,
-    "energy.panel.noSparks": null,
+    "contextGroups.settings.energy": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "f561c6b678d4450cfbab4700dcc6e39cae3a9d5c"
+    },
+    "energy.kinds.spark": {
+      "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
+      "translation": "e2db477b89ddb92f80222fb56d7f27c3c1a0d34f"
+    },
+    "energy.kinds.steady": {
+      "source": "b3012de005fd47fc7e92f28669435beb461d3cfd",
+      "translation": "3313706028acb9bf1ebd682e6aa51be895dc134b"
+    },
+    "energy.kinds.drain": {
+      "source": "4e4369e733c095a308c9f110fad31b6a36951fae",
+      "translation": "e962beeaf3c11a51e09dec2022ccec55c1d875e1"
+    },
+    "energy.glyph.aria": {
+      "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
+      "translation": "b0f26578b6da290f4beb8d10acbd9aadba5dca98"
+    },
+    "energy.panel.title": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "f561c6b678d4450cfbab4700dcc6e39cae3a9d5c"
+    },
+    "energy.panel.now": {
+      "source": "862d8be50e60993236088dd2aabf43757403079f",
+      "translation": "5a2b025cb4bc2dc9392839ba9b22db1477d2f159"
+    },
+    "energy.panel.tonight": {
+      "source": "d03b9b8881191249568dd7f2c39d67598d0fa038",
+      "translation": "24ff18fbe56f809708c97e10795871724fb574fe"
+    },
+    "energy.panel.projected": {
+      "source": "50ee8c235d4f7a52738c3bd8d154ef68681d658c",
+      "translation": "7ed818c9f91ae8bfef57b4396e9410762ceb6512"
+    },
+    "energy.panel.gaugeAria": {
+      "source": "e0b8a102b5572833fce527648d322b189c5069bf",
+      "translation": "dcff9132ce8b15163a1ba53291b74b878ad6afd8"
+    },
+    "energy.panel.mix": {
+      "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
+      "translation": "613c17002dccf08efb0003f9fae2712f259e8c90"
+    },
+    "energy.panel.biggest": {
+      "source": "670616950d780f1f6b10f5a0f36e93620b3a4f9d",
+      "translation": "4cc49cd79222b7d0e0ebec32450613fe34299116"
+    },
+    "energy.panel.assumed": {
+      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
+      "translation": "18f6b52da65618736204a65830c4e30b66dabf2b"
+    },
+    "energy.panel.lowTitle": {
+      "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
+      "translation": "dceff9bf96b886e2418c4bc7e52de4f46416a17a"
+    },
+    "energy.panel.lowBody": {
+      "source": "d71c4af5b62d62973f765cedcdaf4ba915dffdf4",
+      "translation": "b5d0b145c82193821ca9ec97149625ddda34cb35"
+    },
+    "energy.panel.showDrains": {
+      "source": "6aa4845d0a2f36b986bb1c79db1238ecb578258b",
+      "translation": "8bcb0cc3e94a1155964e8eb01b669bcfcaeca73f"
+    },
+    "energy.panel.findSpark": {
+      "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
+      "translation": "aa963202d18ab97e27a232d7408d226b40ae8ca5"
+    },
+    "energy.panel.emptyTitle": {
+      "source": "1310f875993b121823753fcd42c63176d6e92ac4",
+      "translation": "ed7dfc9277c15aa9f2d2905858f47192ed3675a2"
+    },
+    "energy.panel.emptyBody": {
+      "source": "d809d84495d7d86b39d0762427b3c450bdb21819",
+      "translation": "932947c8693eafeb299f72adedbae17262f76982"
+    },
+    "energy.panel.openSettings": {
+      "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
+      "translation": "2fb10365945f4fd9e14d666f605b6a70faff265a"
+    },
+    "energy.panel.previousDay": {
+      "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
+      "translation": "0e26e83b9183f77e50f7da0e51305d089ed9ecf3"
+    },
+    "energy.panel.nextDay": {
+      "source": "38f859dde041a79ba8933ac0a80271471c73c47d",
+      "translation": "9ee75443206d9302a377e959a71ae9e1d8106de7"
+    },
+    "energy.panel.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "5d5d2ea20a2583d5068219949a2230a19abff3b0"
+    },
+    "energy.panel.invalidDate": {
+      "source": "61238384e584bd55de158ccfb190870beba6a849",
+      "translation": "ee7505bdb874028693a289901b416ac8c97b8d9f"
+    },
+    "energy.panel.drainsPlaceholder": {
+      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
+      "translation": "fd7232ccf8228b0fb24feffd0483ea8189a77530"
+    },
+    "energy.panel.sparkPlaceholder": {
+      "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
+      "translation": "91c58893708b2dff8d7a6bf7d48062deff30b5cb"
+    },
+    "energy.panel.noDrains": {
+      "source": "8698a47f0b4f8a8bfdc58f9e8b93ff954224c2a2",
+      "translation": "5d082879564d7cc71f0396d92b97ec60f25cfde4"
+    },
+    "energy.panel.noSparks": {
+      "source": "bcd81a13d821ea8b0b4a2fcfb90b98ef5196dc78",
+      "translation": "3545cd3141e18ee40c9f31bf22a0d1f2f1a41d42"
+    },
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "dfb4e5d70cc1c58c27cda848580bcd3eb32c0ddc"
@@ -67403,7 +68222,10 @@
       "source": "181797ee5c8edfd86e0166c5012159efdebefee8",
       "translation": "d81915fea955be14ce3b3223342d5171cdd0112f"
     },
-    "views.basesCalendar.settings.layout.showEnergy": null,
+    "views.basesCalendar.settings.layout.showEnergy": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "32bdbe0084507ee076323af99a7fee20f3561a4a"
+    },
     "views.basesCalendar.settings.layout.showNowIndicator": {
       "source": "80bc9e34e9d741ed65ca981c5371f2598870dad8",
       "translation": "1a0fdb388b2f6cd3cc91565d3e328a39a93f7192"
@@ -68564,15 +69386,42 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "d5aab9a5163463bca9c9a176e9bd191f56cea6b8"
     },
-    "settings.features.energy.heading": null,
-    "settings.features.energy.enabled": null,
-    "settings.features.energy.enabledDesc": null,
-    "settings.features.energy.baseline": null,
-    "settings.features.energy.sparkPerHour": null,
-    "settings.features.energy.drainPerHour": null,
-    "settings.features.energy.steadyPerHour": null,
-    "settings.features.energy.lowThreshold": null,
-    "settings.features.energy.allDayMinutes": null,
+    "settings.features.energy.heading": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "6e01538b7fa565c8239fc94475d3a2209e547b0a"
+    },
+    "settings.features.energy.enabled": {
+      "source": "469f53d8bb05d2f0cfea6b7e619ceb9f547651a0",
+      "translation": "32bdbe0084507ee076323af99a7fee20f3561a4a"
+    },
+    "settings.features.energy.enabledDesc": {
+      "source": "c962c9e187e885eefc2f9818be9891a54ec1631b",
+      "translation": "f78e2f27f9211d267def9285327ac4fc41d4275c"
+    },
+    "settings.features.energy.baseline": {
+      "source": "2183e31cc2290cc9678f0da6e252dbe0fa9abfb7",
+      "translation": "a6b8ce7cf37f89c22f5fcae7bc625eb7be6cdca4"
+    },
+    "settings.features.energy.sparkPerHour": {
+      "source": "374d9b26cd6faa4931cae4c856a956ba04af57a4",
+      "translation": "84a9f21ef16fd3d437267b4d23905042bb034287"
+    },
+    "settings.features.energy.drainPerHour": {
+      "source": "ca32b032e204f85f559926f55a03f86a563bce4d",
+      "translation": "935b3e7fdc6f12aae5aed707cf49725e631100a0"
+    },
+    "settings.features.energy.steadyPerHour": {
+      "source": "d3d30a7de6943a10643ce46dec976fe0a47b502d",
+      "translation": "3819bb0089f89b8ad563b0f4049d97bb49c2d1e0"
+    },
+    "settings.features.energy.lowThreshold": {
+      "source": "1fd07b75e14373345d0207e5839e3275f8d589c1",
+      "translation": "7e40d8a394fd2d5d0ba74ba26b16f5cb59872f33"
+    },
+    "settings.features.energy.allDayMinutes": {
+      "source": "911ba8c8fbb5e9c23571e64010fedd5ff59f714d",
+      "translation": "8b605e318f2dc73262cac03287900a099c443679"
+    },
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "a494fec9acc52ee5b25f67d1af09d93e12d7fc6b"
@@ -72529,7 +73378,10 @@
       "source": "42bb2d702635030d332cf146fea8d7a480c72460",
       "translation": "ae73b386b383e0387881e030688c14d5b625e4ef"
     },
-    "commands.openEnergyPanel": null,
+    "commands.openEnergyPanel": {
+      "source": "a305779903e864b47f93b4c378c4d21987bf68f8",
+      "translation": "953adb9a0b7e07a34024fd4f55cf689321519ac3"
+    },
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "f17fc9b7f685759a454f1bb94659b367044402c1"
@@ -76086,34 +76938,118 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "978b0408a02d3ed12151c714327f16eee7b72e8c"
     },
-    "contextGroups.settings.energy": null,
-    "energy.kinds.spark": null,
-    "energy.kinds.steady": null,
-    "energy.kinds.drain": null,
-    "energy.glyph.aria": null,
-    "energy.panel.title": null,
-    "energy.panel.now": null,
-    "energy.panel.tonight": null,
-    "energy.panel.projected": null,
-    "energy.panel.gaugeAria": null,
-    "energy.panel.mix": null,
-    "energy.panel.biggest": null,
-    "energy.panel.assumed": null,
-    "energy.panel.lowTitle": null,
-    "energy.panel.lowBody": null,
-    "energy.panel.showDrains": null,
-    "energy.panel.findSpark": null,
-    "energy.panel.emptyTitle": null,
-    "energy.panel.emptyBody": null,
-    "energy.panel.openSettings": null,
-    "energy.panel.previousDay": null,
-    "energy.panel.nextDay": null,
-    "energy.panel.today": null,
-    "energy.panel.invalidDate": null,
-    "energy.panel.drainsPlaceholder": null,
-    "energy.panel.sparkPlaceholder": null,
-    "energy.panel.noDrains": null,
-    "energy.panel.noSparks": null,
+    "contextGroups.settings.energy": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "6e01538b7fa565c8239fc94475d3a2209e547b0a"
+    },
+    "energy.kinds.spark": {
+      "source": "85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c",
+      "translation": "40ce893d1b060fb3e2c866d745b78cf8e61ff48a"
+    },
+    "energy.kinds.steady": {
+      "source": "b3012de005fd47fc7e92f28669435beb461d3cfd",
+      "translation": "9d3b49bd99687ce00c6a028190ff8f68cd7862dd"
+    },
+    "energy.kinds.drain": {
+      "source": "4e4369e733c095a308c9f110fad31b6a36951fae",
+      "translation": "c77f5c7a720c1ff80787db33a1495a63010b2b27"
+    },
+    "energy.glyph.aria": {
+      "source": "0fe288c0eb22d9cb0c3e2072d498aabfbc1490a8",
+      "translation": "9b2aabb801d011e3a2e1b097e9fc0544d9d325e2"
+    },
+    "energy.panel.title": {
+      "source": "437bcb15112715dc73cb38b85f0830f3ce457ded",
+      "translation": "6e01538b7fa565c8239fc94475d3a2209e547b0a"
+    },
+    "energy.panel.now": {
+      "source": "862d8be50e60993236088dd2aabf43757403079f",
+      "translation": "3db88123510e22c15823123904069670ac6c722b"
+    },
+    "energy.panel.tonight": {
+      "source": "d03b9b8881191249568dd7f2c39d67598d0fa038",
+      "translation": "4c16b941a5cec5f3b26129c83649856625238183"
+    },
+    "energy.panel.projected": {
+      "source": "50ee8c235d4f7a52738c3bd8d154ef68681d658c",
+      "translation": "634f28f1edf592e029579496ccf9d1341efa41f4"
+    },
+    "energy.panel.gaugeAria": {
+      "source": "e0b8a102b5572833fce527648d322b189c5069bf",
+      "translation": "91a533b0088422240b21dfee6911c7caf9abbebd"
+    },
+    "energy.panel.mix": {
+      "source": "8e814772c38e2a949178ce2cc9ca4059eab471e6",
+      "translation": "7ae1a262ea13a0a8bc495d4f5df600dc7a3b03c4"
+    },
+    "energy.panel.biggest": {
+      "source": "670616950d780f1f6b10f5a0f36e93620b3a4f9d",
+      "translation": "ebdb744d2e63add3d81958cfca78f87584459a6b"
+    },
+    "energy.panel.assumed": {
+      "source": "7e23227ddcc67e8ef5012e821b3b04e3e195e156",
+      "translation": "1c2c6227f6df034858cd8291ab0a3563c0584ea5"
+    },
+    "energy.panel.lowTitle": {
+      "source": "d1e2aa0280f3882436e241e6d610ce6339fe47e9",
+      "translation": "e0174e3d334df9a35dab8489ba40b825a1b5f0db"
+    },
+    "energy.panel.lowBody": {
+      "source": "d71c4af5b62d62973f765cedcdaf4ba915dffdf4",
+      "translation": "44a8d19e5aaa1f0a02179d048e1b8594cfbdc499"
+    },
+    "energy.panel.showDrains": {
+      "source": "6aa4845d0a2f36b986bb1c79db1238ecb578258b",
+      "translation": "be95b5bf19c914db5214cda6ebb1645835e93359"
+    },
+    "energy.panel.findSpark": {
+      "source": "51426563ac150c85bc921c0ed3c5162a69d3ca38",
+      "translation": "81c3af9854b88bfff585614833d066839b47722d"
+    },
+    "energy.panel.emptyTitle": {
+      "source": "1310f875993b121823753fcd42c63176d6e92ac4",
+      "translation": "3c7d6ed33c230516d31c34f969ed75a71ab4b956"
+    },
+    "energy.panel.emptyBody": {
+      "source": "d809d84495d7d86b39d0762427b3c450bdb21819",
+      "translation": "6f8e2e6d9189a065286ade4bf2eb0703fd38f7f8"
+    },
+    "energy.panel.openSettings": {
+      "source": "aa4c2f8301c6d0f525713791ae968668ea19c88c",
+      "translation": "c235ad0225dbc40e017044a2d6259ad60e2df8f3"
+    },
+    "energy.panel.previousDay": {
+      "source": "e2b6b0a1d0bcc56a045b2a74b159ffd40172003c",
+      "translation": "dede7b4ef6da608b98200f3c31a4ccb612d86a43"
+    },
+    "energy.panel.nextDay": {
+      "source": "38f859dde041a79ba8933ac0a80271471c73c47d",
+      "translation": "a416165e7f9d158c07dc6ef9599d35b9a8479122"
+    },
+    "energy.panel.today": {
+      "source": "24345a14377fd821d3932f4e82f6431640955b0b",
+      "translation": "17e83cc25e229b05c4c91b60fba8d5cc7c0ef931"
+    },
+    "energy.panel.invalidDate": {
+      "source": "61238384e584bd55de158ccfb190870beba6a849",
+      "translation": "99624293fb7b096aa06c20ef5cf40529db8efdfa"
+    },
+    "energy.panel.drainsPlaceholder": {
+      "source": "7655abdfade3fb7a53f42a6bd6343793172f3672",
+      "translation": "a02c78db480f1de0f7bdbd3aac5e83fa4c55efc7"
+    },
+    "energy.panel.sparkPlaceholder": {
+      "source": "c2ae0b26c843763bcc4d31023fde8d7d80d4b564",
+      "translation": "2e9bc9dbf8bae216d1f6914c2d7be205ad493936"
+    },
+    "energy.panel.noDrains": {
+      "source": "8698a47f0b4f8a8bfdc58f9e8b93ff954224c2a2",
+      "translation": "db2b28b7369efb4c190ddb74718494485ac9f24f"
+    },
+    "energy.panel.noSparks": {
+      "source": "bcd81a13d821ea8b0b4a2fcfb90b98ef5196dc78",
+      "translation": "eddf8c9233c09eae33f5726a68bd8708b8f97ae5"
+    },
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "d0bf21c62dca9e612481363ab24acdcf3ada2526"

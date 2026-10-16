@@ -133,6 +133,7 @@ The Calendar View provides several display options that control what types of ev
 - **Create daily notes from date links**: Let date header links create a missing daily note before opening it. Turn this off if date links should only open existing daily notes.
 - **Drag/drop resolution**: Set `snapDuration` when you want events to drag or resize in smaller increments than the visible `slotDuration`, such as 5-minute dragging on a 30-minute grid.
 - **Span tasks between scheduled and due dates**: Display tasks as multi-day bars spanning from their scheduled date to their due date (see below)
+- **Show energy levels** (`showEnergy`): Show each day's battery glyph (see [Energy levels](#energy-levels) below). On by default.
 Multiple saved calendar views can store different option sets (for example planning vs focus), avoiding repeated manual toggles.
 
 The **All-day slot** option is particularly useful when you have many all-day tasks on a single date, as hiding it can resolve scrolling issues and make the hourly time slots more accessible. When disabled, all-day events will not be displayed in time grid views, but they will still appear in month view.
@@ -142,6 +143,10 @@ The **All-day slot** option is particularly useful when you have many all-day ta
 Completed tasks collapse into a thin, faded marker showing a checkmark, the time the task was completed, and its title. The marker replaces the task's scheduled, due, and span events; tracked time entries still appear. TaskNotes records the completion time in `completedAt` when you complete a task, and in `complete_instance_times` for each completed recurring instance, so each instance appears at its own completion time.
 
 Tasks completed before completion times were recorded, or completed on a past date chosen from the context menu, have no completion time; their marker stays at the scheduled time (or the due date when there is no scheduled date). Markers cannot be dragged. Restyle them with the `fc-completion-marker` CSS class.
+
+#### Energy levels
+
+When [energy levels](../features/time-management.md#energy) are in use, each day in month, week, day and year views shows a small battery glyph. Its fill is the day's projected battery level, and its tooltip reads, for example, "Projected battery 60%. 2h drain, 1h spark, 0h steady." Days without any Spark or Drain time have no glyph. Click the glyph to open the energy panel for that day. Turn the glyphs off for one view with **Show energy levels**, or everywhere with **Show energy levels** in [Features settings](../settings/features.md#energy). Restyle them with the `tn-energy-glyph` CSS class.
 
 #### Multi-Day Task Spans
 

@@ -52,6 +52,20 @@ Planning settings control [estimate calibration](../features/time-management.md#
 - **Estimate calibration window (days)**: how far back completed tasks are used for calibration, from 7 to 365 days. The default is 90.
 - **Use calibrated estimates for planning**: adjusts estimates by the calibration factor when adding up planned time. Task estimates themselves are not changed. On by default.
 
+## Energy
+
+Energy settings control the daily battery described in [Energy](../features/time-management.md#energy). Mark contexts as Spark, Steady or Drain in [Context Groups](task-properties.md#context-groups).
+
+- **Show energy levels**: shows the battery in calendar views, the energy panel, `tasknotes-energy` blocks and the status bar. On by default; nothing is shown until a context is Spark or Drain.
+- **Morning charge (%)**: the level each day starts at. The default is 70.
+- **Spark: points gained per hour**: added for each hour of Spark time. The default is 10.
+- **Drain: points lost per hour**: removed for each hour of Drain time. The default is 10.
+- **Steady: points lost per hour**: removed for each hour of Steady time. The default is 0, so Steady time costs nothing.
+- **Low battery below (%)**: days projected to end below this level are marked as low and get suggestions in the energy panel. The default is 25.
+- **Size of an all-day event (minutes)**: how long an all-day Spark or Drain event counts for. The default is 240. All-day Steady events are not counted.
+
+Rates can be 0–50 points per hour, the all-day size 0–1440 minutes, and the percentages 0–100.
+
 ## Recurring Tasks
 
 Use **Maintain due date offset in recurring tasks** to keep due/scheduled spacing consistent when recurring tasks roll forward.

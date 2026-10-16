@@ -152,7 +152,9 @@ To reorder groups, drag a group by the handle on its card header. To reorder con
 
 On task cards, the **Contexts** property shows configured contexts with their emoji, tinted with their color. To see each task's context group in a task list or Kanban view, add the `contextGroup` formula to the view's properties. It shows the group's name, tinted with the task's context color. Views created by TaskNotes after this change include the formula. For an existing view, open the `.base` file's **Properties** menu, choose **Add formula**, name it `contextGroup`, use `contexts` as the formula, then turn it on.
 
-**Default context** sets the color for items that have no context. It only affects colors and is not written to any file. Leave it set to **None** to keep each item's own color.
+Each context also has an energy control with three buttons: **Spark** (restores energy), **Steady** (neutral, the default) and **Drain** (uses up energy). Hover a button to see its name. Marking at least one context as Spark or Drain turns on the daily battery in the calendar, the energy panel and the status bar. See [Energy](../features/time-management.md#energy).
+
+**Default context** sets the color, and the energy kind, for items that have no context. It is not written to any file. Leave it set to **None** to keep each item's own color.
 
 ### Projects
 

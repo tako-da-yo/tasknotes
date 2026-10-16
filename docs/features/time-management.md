@@ -70,6 +70,54 @@ On mobile, where there is no status bar, use the **Show today's capacity** comma
 
 When you schedule a task onto a day that is already full, TaskNotes shows a notice such as "Friday is now 1h over your available time." The notice appears when you change dates in the task modals, from a task's context menu or date pickers on a task card, by dragging a task into another date column in a Kanban board grouped by scheduled or due date, from the task action palette or the batch menu, by dragging or resizing a task in the calendar, or when you schedule tasks in triage. Dragging a task to span several days does not trigger it. It is not shown for days without work hours or for past days. It is shown at most once per day every 5 minutes, and never for changes made through the HTTP API, MCP or webhooks. Turn it off with **Warn when a day becomes overbooked**.
 
+## Energy
+
+Energy levels show a daily battery: how much energy a day's tasks, events and timeblocks are likely to leave you with. Each context in a [context group](../settings/task-properties.md#context-groups) has an energy kind:
+
+- **Spark**: time in this context restores energy, for example exercise or a hobby.
+- **Steady**: time in this context has no effect by default. This is the default for every context.
+- **Drain**: time in this context uses up energy, for example admin or long meetings.
+
+Set the kind with the Spark, Steady and Drain buttons on each context's row in **Settings → TaskNotes → Task properties → Context groups**. Energy appears once at least one enabled context is Spark or Drain and **Show energy levels** is on.
+
+### How the battery is worked out
+
+Each day starts at the morning charge (70% by default). Every item on that day adds or removes points for each hour it takes, and the result is kept between 0% and 100%:
+
+`battery = morning charge + Σ (rate × hours)`
+
+With the default rates, a Spark hour adds 10 points, a Drain hour removes 10 and a Steady hour removes nothing. For example, a day with 3 hours of Drain, 4 hours of Steady and 1 hour of Spark ends at 70 − 30 − 0 + 10 = **50%**. To make Steady time cost energy too, raise **Steady: points lost per hour** in the [energy settings](../settings/features.md#energy).
+
+How long each item counts for:
+
+- **Open tasks** use their remaining estimate: the time estimate minus time already tracked. When **Use calibrated estimates for planning** is on, the calibrated estimate is used. Tasks without an estimate count as **Default estimate for tasks without one**, or 30 minutes if that is empty, and the energy panel notes how many items were sized this way.
+- **Completed tasks** use their tracked time (for recurring tasks, the time tracked that day), or their estimate if nothing was tracked.
+- **Calendar events and timeblocks** use their duration, including time outside your work hours. Declined invitations never count.
+- **All-day events** only count when their context is Spark or Drain, as **Size of an all-day event (minutes)** (240 by default).
+
+Tasks are counted on the day they are scheduled, or on their due date if they have no scheduled date, as for [daily capacity](#daily-capacity).
+
+A timeblock with a context stands for the tasks attached to it: the timeblock's time is counted, and its attached tasks are skipped so they are not counted twice. A timeblock without a context is skipped, and its attached tasks count on their own.
+
+An item's energy kind comes from the same context as its calendar color: the first of its contexts that is in a context group, otherwise the **Default context**. Items with neither count as Steady.
+
+### Where the battery shows up
+
+- **Calendar view**: each day in month, week, day and year views shows a small battery whose fill is that day's projected level. Hover it to see the level and the hours of drain, spark and steady time, for example "Projected battery 60%. 2h drain, 1h spark, 0h steady." Days with no Spark or Drain time have no battery. Click it to open the energy panel for that day. Turn the batteries off for a view with its **Show energy levels** option.
+- **Energy panel**: run **Open energy panel** to open it in the right sidebar. Use the arrows to move between days and **Today** to come back. For today it shows the level now (from items already done) and tonight's projected level; for other days it shows the projected level. Below that are the Spark, Steady and Drain hours with how many are done, the items with the biggest effect (drains first, then sparks), and, for today, the [daily capacity](#daily-capacity) line. When the day is forecast to end below the low battery level, **Show drain tasks** lets you pick one of that day's open drain tasks to edit, and **Find a spark** lets you schedule an undated Spark task on that day.
+- **In notes**: a `tasknotes-energy` code block shows the same panel for one day. Without a `date:` line it shows the daily note's date, or today in other notes:
+
+    ````markdown
+    ```tasknotes-energy
+    date: 2026-10-16
+    ```
+    ````
+
+    An invalid date shows an error in place of the panel.
+- **Status bar**: on desktop, the daily capacity item starts with today's projected battery, for example `🔋60% · Today: 3h planned · 2h free`, or `🪫` when it is low. It is shown when the capacity text or energy is on. Clicking it shows today's energy panel above the capacity summary and task list.
+
+When no context is Spark or Drain yet, the panel says so and links to the context settings.
+
 ## Pomodoro Timer
 
 TaskNotes also includes a Pomodoro timer, which is a tool for time management that uses a timer to break down work into intervals, separated by short breaks. The Pomodoro timer in TaskNotes has a dedicated view with controls to start, stop, and reset the timer.
