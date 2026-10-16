@@ -822,6 +822,8 @@ export abstract class TaskModal extends Modal {
 		const f = svc.factorFor(task);
 		if (!f || !shouldShowHint(f.factor)) return null;
 		const minutes = svc.calibratedMinutes(task) ?? estimate;
+		// Rounding can bring the calibrated value back to the estimate; then there is nothing to say.
+		if (minutes === estimate) return null;
 		return {
 			text: this.plugin.i18n.translate("modals.task.estimateHint", {
 				duration: formatTime(minutes),

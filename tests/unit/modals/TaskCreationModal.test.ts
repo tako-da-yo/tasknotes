@@ -605,6 +605,15 @@ describe("TaskCreationModal - Fixed Implementation", () => {
 				duration: "1h",
 			});
 		});
+
+		it("shows no hint when the calibrated estimate rounds to the current one", () => {
+			mockPlugin.estimateCalibrationService = {
+				factorFor: jest.fn(() => ({ factor: 1.2, source: "size" })),
+				calibratedMinutes: jest.fn(() => 5),
+			};
+			modal = new TaskCreationModal(createMockApp(mockApp), mockPlugin);
+			expect((modal as any).getEstimateHint(5)).toBeNull();
+		});
 	});
 
 	describe("Task Conversion", () => {
