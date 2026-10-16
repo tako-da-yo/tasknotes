@@ -47,6 +47,14 @@ describe("collectDayItems: events", () => {
 		expect(collectDayItems(input({ events: [e] }))).toHaveLength(0);
 		expect(collectDayItems(input({ date: "2026-10-14", events: [e] }))).toHaveLength(1);
 	});
+	it("keeps a timed event with no end as zero-length", () => {
+		const [item] = collectDayItems(input({ events: [ev({ start: "2026-10-15T10:00:00Z" })] }));
+		expect(item.interval).toEqual({ start: Date.parse("2026-10-15T10:00:00Z"), end: Date.parse("2026-10-15T10:00:00Z") });
+	});
+	it("includes the middle day of a multi-day all-day event", () => {
+		const e = ev({ allDay: true, start: "2026-10-14", end: "2026-10-17" });
+		expect(collectDayItems(input({ events: [e] }))).toEqual([expect.objectContaining({ kind: "event", allDay: true })]);
+	});
 	it("marks past events done and carries source and external context", () => {
 		const [item] = collectDayItems(input({ events: [ev({ end: "2026-10-15T11:00:00Z" })], externalContextFor: () => "meetings" }));
 		expect(item).toMatchObject({ done: true, sourceId: "ics1", contexts: ["meetings"] });
@@ -65,5 +73,13 @@ describe("collectDayItems: timeblocks", () => {
 		const [item] = collectDayItems(input({ timeblocks: [{ id: "tb1", title: "Focus", startTime: "13:00", endTime: "15:00", context: "deep", attachments: ["[[Task A]]"] }] }));
 		expect(item).toMatchObject({ kind: "timeblock", contexts: ["deep"], attachments: ["Task A.md"], done: false });
 		expect((item.interval!.end - item.interval!.start) / 60000).toBe(120);
+	});
+	it("treats a 00:00 end as midnight at the end of the day", () => {
+		const tb = { id: "late", title: "Late", startTime: "22:00", endTime: "00:00" };
+		const [item] = collectDayItems(input({ now: Date.parse("2026-10-15T23:00:00Z"), timeblocks: [tb] }));
+		expect((item.interval!.end - item.interval!.start) / 60000).toBe(120);
+		expect(item.done).toBe(false);
+		const [after] = collectDayItems(input({ now: Date.parse("2026-10-16T00:00:00Z"), timeblocks: [tb] }));
+		expect(after.done).toBe(true);
 	});
 });

@@ -83,7 +83,11 @@ function eventItem(event: ICSEvent, input: DayPlanInput): DayItem | null {
 }
 
 function timeblockItem(tb: TimeBlock, input: DayPlanInput): DayItem {
-	const interval = { start: localTime(input.date, tb.startTime), end: localTime(input.date, tb.endTime) };
+	const start = localTime(input.date, tb.startTime);
+	// TaskNotes accepts an endTime of "00:00" (after a later start) as the end of the day.
+	const endsAtMidnight = tb.endTime === "00:00" && tb.startTime !== "00:00";
+	const end = endsAtMidnight ? localDayBounds(input.date).end : localTime(input.date, tb.endTime);
+	const interval = { start, end };
 	return {
 		kind: "timeblock", ref: tb.id, date: input.date, interval, allDay: false,
 		contexts: tb.context ? [tb.context] : [], done: interval.end <= input.now,
