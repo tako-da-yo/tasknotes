@@ -161,7 +161,7 @@ export async function initializeCoreServices(plugin: TaskNotesPlugin): Promise<v
 		updateTask: (task, updates) => plugin.taskService.updateTask(task, updates),
 		archiveTask: (task) => plugin.taskService.toggleArchive(task),
 		isCompleted: (s) => plugin.statusManager.isCompletedStatus(s),
-		firstCompletedStatus: () => plugin.statusManager.getCompletedStatuses()[0] ?? "done",
+		firstCompletedStatus: () => plugin.statusManager.getFirstCompletedStatus() ?? "done",
 		statusExists: (v) => !!plugin.statusManager.getStatusConfig(v),
 		getSettings: () => plugin.settings,
 		saveSettings: () => plugin.saveSettings(),

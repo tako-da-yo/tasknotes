@@ -115,6 +115,13 @@ export class StatusManager {
 	}
 
 	/**
+	 * Completed status with the lowest order (the one shown first in settings)
+	 */
+	getFirstCompletedStatus(): string | undefined {
+		return this.getStatusesByOrder().find((s) => s.isCompleted)?.value;
+	}
+
+	/**
 	 * Get all non-completed status values
 	 */
 	getOpenStatuses(): string[] {
