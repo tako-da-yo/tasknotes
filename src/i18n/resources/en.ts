@@ -743,6 +743,17 @@ export const en: TranslationTree = {
 				calibrationWindow: "Estimate calibration window (days)",
 				applyCalibration: "Use calibrated estimates for planning",
 			},
+			energy: {
+				heading: "Energy",
+				enabled: "Show energy levels",
+				enabledDesc: "Mark contexts as spark, steady or drain to see a daily battery level.",
+				baseline: "Morning charge (%)",
+				sparkPerHour: "Spark: points gained per hour",
+				drainPerHour: "Drain: points lost per hour",
+				steadyPerHour: "Steady: points lost per hour",
+				lowThreshold: "Low battery below (%)",
+				allDayMinutes: "Size of an all-day event (minutes)",
+			},
 			recurringSection: {
 				header: "Recurring tasks",
 				description: "Configure behavior for recurring task management.",
@@ -3727,6 +3738,14 @@ export const en: TranslationTree = {
 			enabled: "Enabled",
 			color: "Color",
 			emoji: "Emoji",
+			energy: "Energy",
+		},
+	},
+	energy: {
+		kinds: {
+			spark: "Spark",
+			steady: "Steady",
+			drain: "Drain",
 		},
 	},
 	capacity: {

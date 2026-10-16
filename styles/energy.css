@@ -1,0 +1,35 @@
+/* Energy (mental battery): context energy kind control and battery colours */
+body {
+	--tn-energy-low: var(--color-red);
+	--tn-energy-ok: var(--color-yellow);
+	--tn-energy-high: var(--color-green);
+	--tn-energy-spark: var(--color-green);
+	--tn-energy-drain: var(--color-red);
+}
+
+.tn-energy-kind {
+	display: inline-flex;
+	flex-shrink: 0;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-m);
+	overflow: hidden;
+}
+
+.tn-energy-kind__option {
+	display: inline-flex;
+	align-items: center;
+	padding: var(--size-2-1) var(--size-2-3);
+	border-radius: 0;
+	box-shadow: none;
+	background: transparent;
+}
+
+.tn-energy-kind__option.is-active {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+.tn-energy-kind__icon svg {
+	width: var(--icon-xs);
+	height: var(--icon-xs);
+}

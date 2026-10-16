@@ -43,6 +43,7 @@ const CSS_FILES = [
     'styles/webhook-settings.css',   // Webhook settings UI with proper BEM scoping
     'styles/status-bar.css',         // StatusBar component with proper BEM scoping
     'styles/capacity.css',           // Capacity status bar item and popover
+    'styles/energy.css',             // Energy kind control and battery
     'styles/bases-views.css',        // Bases integration views (list and kanban)
     'styles/static-style-utilities.css' // Static style utility classes migrated from inline styles
 ];

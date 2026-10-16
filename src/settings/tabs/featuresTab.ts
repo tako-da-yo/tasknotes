@@ -16,6 +16,7 @@ import { getAvailableProperties, getPropertyLabels } from "../../utils/propertyH
 import { colorValueToInputValue, normalizeThemeColor } from "../../utils/themeColors";
 import { configureThemeColorInput } from "../components/CardComponent";
 import { renderPlanningSettings } from "./features/planningSettings";
+import { renderEnergySettings } from "./features/energySettings";
 
 async function getInitializedPomodoroService(plugin: TaskNotesPlugin) {
 	if (!plugin.pomodoroService) {
@@ -849,6 +850,9 @@ export function renderFeaturesTab(
 
 	// Planning Section
 	renderPlanningSettings(container, plugin, save, translate);
+
+	// Energy Section
+	renderEnergySettings(container, plugin, save, translate);
 
 	// Recurring Tasks Section
 	createSettingGroup(

@@ -1,3 +1,4 @@
+import type { ContextDefinition } from "../../../src/types/settings";
 import { moveById, moveContext } from "../../../src/settings/tabs/taskProperties/contextGroupsCard";
 
 describe("moveById", () => {
@@ -43,6 +44,13 @@ describe("moveContext", () => {
 		expect(layout(groups)).toBe("c|bx|a");
 	});
 
+	it("keeps a moved context's energy", () => {
+		const groups = makeGroups();
+		groups[0].contexts[1] = { ...ctx("b"), energy: "drain" };
+		moveContext(groups, "b", "self", "x", false);
+		expect(groups[1].contexts.find((context) => context.id === "b")?.energy).toBe("drain");
+	});
+
 	it("ignores unknown contexts and drops onto itself", () => {
 		const groups = makeGroups();
 		moveContext(groups, "nope", "work", null, false);
@@ -51,6 +59,6 @@ describe("moveContext", () => {
 	});
 });
 
-function ctx(id: string) {
+function ctx(id: string): ContextDefinition {
 	return { id, name: id, color: "#000000", enabled: true };
 }

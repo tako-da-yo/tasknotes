@@ -1916,6 +1916,15 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "5fdec269a55c0903ea4f38f9f48e92fe5ca6eda6"
     },
+    "settings.features.energy.heading": null,
+    "settings.features.energy.enabled": null,
+    "settings.features.energy.enabledDesc": null,
+    "settings.features.energy.baseline": null,
+    "settings.features.energy.sparkPerHour": null,
+    "settings.features.energy.drainPerHour": null,
+    "settings.features.energy.steadyPerHour": null,
+    "settings.features.energy.lowThreshold": null,
+    "settings.features.energy.allDayMinutes": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "f8d65c41fbeffee5100a9a76ed32a87e19dc15b4"
@@ -9428,6 +9437,10 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     },
+    "contextGroups.settings.energy": null,
+    "energy.kinds.spark": null,
+    "energy.kinds.steady": null,
+    "energy.kinds.drain": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "b150630225f04f0591c9b0adf8a37b898e13660e"
@@ -11398,6 +11411,15 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "4c54cc214d0c07cc21f7cf0416c4e31de4f94d0a"
     },
+    "settings.features.energy.heading": null,
+    "settings.features.energy.enabled": null,
+    "settings.features.energy.enabledDesc": null,
+    "settings.features.energy.baseline": null,
+    "settings.features.energy.sparkPerHour": null,
+    "settings.features.energy.drainPerHour": null,
+    "settings.features.energy.steadyPerHour": null,
+    "settings.features.energy.lowThreshold": null,
+    "settings.features.energy.allDayMinutes": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "4c0ca3e381fd1cdee36c8fd640e48cb88a056469"
@@ -18910,6 +18932,10 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     },
+    "contextGroups.settings.energy": null,
+    "energy.kinds.spark": null,
+    "energy.kinds.steady": null,
+    "energy.kinds.drain": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "910b9ebed42ee2a4760c1c4e966692823860a70a"
@@ -20880,6 +20906,15 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "16058fa28f77028a10a5a0db94f829e0e4f88b1f"
     },
+    "settings.features.energy.heading": null,
+    "settings.features.energy.enabled": null,
+    "settings.features.energy.enabledDesc": null,
+    "settings.features.energy.baseline": null,
+    "settings.features.energy.sparkPerHour": null,
+    "settings.features.energy.drainPerHour": null,
+    "settings.features.energy.steadyPerHour": null,
+    "settings.features.energy.lowThreshold": null,
+    "settings.features.energy.allDayMinutes": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "a5f7f40f1cc5116d99e65b8b4bd8dcb32682b8a8"
@@ -28392,6 +28427,10 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "e582e53cb5f667d8b1755431b37ede223e92c9f0"
     },
+    "contextGroups.settings.energy": null,
+    "energy.kinds.spark": null,
+    "energy.kinds.steady": null,
+    "energy.kinds.drain": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "35b77098d76b8d1ee95044267700101ec88c1bb1"
@@ -30362,6 +30401,15 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "e035dbfdec3e36b36c87f9d05a160e75743e8f3b"
     },
+    "settings.features.energy.heading": null,
+    "settings.features.energy.enabled": null,
+    "settings.features.energy.enabledDesc": null,
+    "settings.features.energy.baseline": null,
+    "settings.features.energy.sparkPerHour": null,
+    "settings.features.energy.drainPerHour": null,
+    "settings.features.energy.steadyPerHour": null,
+    "settings.features.energy.lowThreshold": null,
+    "settings.features.energy.allDayMinutes": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "77c4460b544a9124d89441d892cbf8507bc65679"
@@ -37874,6 +37922,10 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "b46b7646a3de5c7fa376305d8f0e7b42d9c17514"
     },
+    "contextGroups.settings.energy": null,
+    "energy.kinds.spark": null,
+    "energy.kinds.steady": null,
+    "energy.kinds.drain": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "23719bfed0c991fb2aae79db4309ac01f28ffcbc"
@@ -39844,6 +39896,15 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "65d1fa35318a3fec3611a431ab250a8a671ef405"
     },
+    "settings.features.energy.heading": null,
+    "settings.features.energy.enabled": null,
+    "settings.features.energy.enabledDesc": null,
+    "settings.features.energy.baseline": null,
+    "settings.features.energy.sparkPerHour": null,
+    "settings.features.energy.drainPerHour": null,
+    "settings.features.energy.steadyPerHour": null,
+    "settings.features.energy.lowThreshold": null,
+    "settings.features.energy.allDayMinutes": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "bd0c59c5581b33718277f5170690b8224e7e0a48"
@@ -47356,6 +47417,10 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "3cf0a67476a9def32ffaa4b76dc45b80b730fce1"
     },
+    "contextGroups.settings.energy": null,
+    "energy.kinds.spark": null,
+    "energy.kinds.steady": null,
+    "energy.kinds.drain": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "7de25a1dcc4d3273de20362c8d2c224d5f1f6701"
@@ -49326,6 +49391,15 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "5d69b489ec363e25c8663527295e95deafe73857"
     },
+    "settings.features.energy.heading": null,
+    "settings.features.energy.enabled": null,
+    "settings.features.energy.enabledDesc": null,
+    "settings.features.energy.baseline": null,
+    "settings.features.energy.sparkPerHour": null,
+    "settings.features.energy.drainPerHour": null,
+    "settings.features.energy.steadyPerHour": null,
+    "settings.features.energy.lowThreshold": null,
+    "settings.features.energy.allDayMinutes": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "9120379848b593a73daa93fbc3a6c021cf2a7266"
@@ -56838,6 +56912,10 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
     },
+    "contextGroups.settings.energy": null,
+    "energy.kinds.spark": null,
+    "energy.kinds.steady": null,
+    "energy.kinds.drain": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "0d8edb4d1f9516570fd5b251e583da381550faab"
@@ -58808,6 +58886,15 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "8ee63fee6abdbb23722b833f3f58ab866147d4bc"
     },
+    "settings.features.energy.heading": null,
+    "settings.features.energy.enabled": null,
+    "settings.features.energy.enabledDesc": null,
+    "settings.features.energy.baseline": null,
+    "settings.features.energy.sparkPerHour": null,
+    "settings.features.energy.drainPerHour": null,
+    "settings.features.energy.steadyPerHour": null,
+    "settings.features.energy.lowThreshold": null,
+    "settings.features.energy.allDayMinutes": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "2790d0e72f91ee2a7b5a2e462de03080d55bfa58"
@@ -66320,6 +66407,10 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "8f9eec5d25d2633da4dd1d0c1a82a3310455a6e2"
     },
+    "contextGroups.settings.energy": null,
+    "energy.kinds.spark": null,
+    "energy.kinds.steady": null,
+    "energy.kinds.drain": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "dfb4e5d70cc1c58c27cda848580bcd3eb32c0ddc"
@@ -68290,6 +68381,15 @@
       "source": "ccf6d991423b9fbaa20a77117da93d73c002a77f",
       "translation": "d5aab9a5163463bca9c9a176e9bd191f56cea6b8"
     },
+    "settings.features.energy.heading": null,
+    "settings.features.energy.enabled": null,
+    "settings.features.energy.enabledDesc": null,
+    "settings.features.energy.baseline": null,
+    "settings.features.energy.sparkPerHour": null,
+    "settings.features.energy.drainPerHour": null,
+    "settings.features.energy.steadyPerHour": null,
+    "settings.features.energy.lowThreshold": null,
+    "settings.features.energy.allDayMinutes": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "a494fec9acc52ee5b25f67d1af09d93e12d7fc6b"
@@ -75802,6 +75902,10 @@
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "978b0408a02d3ed12151c714327f16eee7b72e8c"
     },
+    "contextGroups.settings.energy": null,
+    "energy.kinds.spark": null,
+    "energy.kinds.steady": null,
+    "energy.kinds.drain": null,
     "capacity.status": {
       "source": "bc9ef047800f82a7add63aa44cfbca437434255e",
       "translation": "d0bf21c62dca9e612481363ab24acdcf3ada2526"

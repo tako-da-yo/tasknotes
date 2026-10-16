@@ -11,6 +11,7 @@ import {
 } from "../../components/CardComponent";
 import { createPropertyDescription, TranslateFn } from "./helpers";
 import { ContextPicker } from "../../../components/ContextPicker";
+import { EnergyKindControl } from "../../../components/EnergyKindControl";
 
 const DEFAULT_CONTEXT_COLOR = "#6366f1";
 // Own drag type, so context drags don't trigger the group cards' drop handling.
@@ -392,6 +393,20 @@ function renderContextRow(
 		onNamesChanged();
 	});
 	row.appendChild(nameInput);
+
+	new EnergyKindControl(row, {
+		value: context.energy,
+		labels: {
+			spark: translate("energy.kinds.spark"),
+			steady: translate("energy.kinds.steady"),
+			drain: translate("energy.kinds.drain"),
+		},
+		groupLabel: translate("contextGroups.settings.energy"),
+		onChange: (energy) => {
+			context.energy = energy === "steady" ? undefined : energy;
+			save();
+		},
+	});
 
 	const toggle = createCardToggle(context.enabled, (value) => {
 		context.enabled = value;
