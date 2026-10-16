@@ -3589,7 +3589,7 @@ export const ja: TranslationTree = {
 			emptyBody: "コンテキストを充電または消耗に設定すると、1日のバッテリーが表示されます。",
 			openSettings: "コンテキスト設定を開く",
 			offTitle: "エネルギーレベルはオフになっています。",
-			offBody: "機能設定で「エネルギーレベルを表示」をオンにすると、1日のバッテリー残量が表示されます。",
+			offBody: "エネルギー設定でエネルギーレベルをオンにすると、1日のバッテリー残量が表示されます。",
 			openEnergySettings: "エネルギー設定を開く",
 			previousDay: "前の日",
 			nextDay: "次の日",

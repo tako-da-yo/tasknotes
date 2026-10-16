@@ -3588,7 +3588,7 @@ export const zh: TranslationTree = {
 			emptyBody: "将情境标记为充能或消耗，即可查看每日电量。",
 			openSettings: "打开情境设置",
 			offTitle: "能量水平已关闭。",
-			offBody: "在功能设置中开启“显示能量水平”即可查看每日电量。",
+			offBody: "在能量设置中开启能量水平即可查看每日电量。",
 			openEnergySettings: "打开能量设置",
 			previousDay: "前一天",
 			nextDay: "后一天",

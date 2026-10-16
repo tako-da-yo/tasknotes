@@ -3573,7 +3573,7 @@ export const ko: TranslationTree = {
 			emptyBody: "컨텍스트를 충전 또는 소모로 표시하면 하루 배터리를 볼 수 있습니다.",
 			openSettings: "컨텍스트 설정 열기",
 			offTitle: "에너지 수준이 꺼져 있습니다.",
-			offBody: "기능 설정에서 '에너지 수준 표시'를 켜면 하루 배터리 수준을 볼 수 있습니다.",
+			offBody: "에너지 설정에서 에너지 수준을 켜면 하루 배터리 수준을 볼 수 있습니다.",
 			openEnergySettings: "에너지 설정 열기",
 			previousDay: "이전 날",
 			nextDay: "다음 날",

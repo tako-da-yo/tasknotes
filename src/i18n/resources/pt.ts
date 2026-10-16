@@ -3594,7 +3594,7 @@ export const pt: TranslationTree = {
 			emptyBody: "Marque contextos como faísca ou desgaste para ver sua bateria diária.",
 			openSettings: "Abrir configurações de contextos",
 			offTitle: "Os níveis de energia estão desativados.",
-			offBody: "Ative Mostrar níveis de energia nas configurações de Recursos para ver sua bateria diária.",
+			offBody: "Ative os níveis de energia nas configurações de energia para ver sua bateria diária.",
 			openEnergySettings: "Abrir configurações de energia",
 			previousDay: "Dia anterior",
 			nextDay: "Próximo dia",

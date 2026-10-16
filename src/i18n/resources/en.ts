@@ -3772,7 +3772,7 @@ export const en: TranslationTree = {
 			emptyBody: "Mark contexts as spark or drain to see your daily battery.",
 			openSettings: "Open context settings",
 			offTitle: "Energy levels are turned off.",
-			offBody: "Turn on Show energy levels in the Features settings to see your daily battery.",
+			offBody: "Turn energy levels on in the energy settings to see your daily battery.",
 			openEnergySettings: "Open energy settings",
 			previousDay: "Previous day",
 			nextDay: "Next day",

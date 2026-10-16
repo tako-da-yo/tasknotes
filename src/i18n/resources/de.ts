@@ -3589,7 +3589,7 @@ export const de: TranslationTree = {
 			emptyBody: "Markiere Kontexte als Energiequelle oder Energieräuber, um deinen täglichen Akkustand zu sehen.",
 			openSettings: "Kontexteinstellungen öffnen",
 			offTitle: "Energielevel sind ausgeschaltet.",
-			offBody: "Schalte „Energielevel anzeigen“ in den Funktionen-Einstellungen ein, um deinen täglichen Akkustand zu sehen.",
+			offBody: "Schalte die Energielevel in den Energieeinstellungen ein, um deinen täglichen Akkustand zu sehen.",
 			openEnergySettings: "Energieeinstellungen öffnen",
 			previousDay: "Vorheriger Tag",
 			nextDay: "Nächster Tag",

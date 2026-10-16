@@ -3589,7 +3589,7 @@ export const fr: TranslationTree = {
 			emptyBody: "Marquez des contextes comme étincelle ou usure pour voir votre batterie quotidienne.",
 			openSettings: "Ouvrir les paramètres des contextes",
 			offTitle: "Les niveaux d'énergie sont désactivés.",
-			offBody: "Activez Afficher les niveaux d'énergie dans les paramètres Fonctionnalités pour voir votre batterie quotidienne.",
+			offBody: "Activez les niveaux d'énergie dans les paramètres d'énergie pour voir votre batterie quotidienne.",
 			openEnergySettings: "Ouvrir les paramètres d'énergie",
 			previousDay: "Jour précédent",
 			nextDay: "Jour suivant",
