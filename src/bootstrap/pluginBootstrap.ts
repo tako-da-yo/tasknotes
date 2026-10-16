@@ -1,8 +1,10 @@
-import { MarkdownView, Platform, addIcon } from "obsidian";
+import { MarkdownView, Platform, TFile, addIcon } from "obsidian";
 import { EditorView } from "@codemirror/view";
 import type TaskNotesPlugin from "../main";
 import {
 	EVENT_DATA_CHANGED,
+	EVENT_DATE_CHANGED,
+	EVENT_TASK_DELETED,
 	EVENT_TASK_UPDATED,
 	POMODORO_STATS_VIEW_TYPE,
 	POMODORO_VIEW_TYPE,
@@ -21,6 +23,8 @@ import { FilterService } from "../services/FilterService";
 import { TaskStatsService } from "../services/TaskStatsService";
 import { TriageService } from "../services/TriageService";
 import { EstimateCalibrationService } from "../services/EstimateCalibrationService";
+import { DayPlanService } from "../services/DayPlanService";
+import { createDayPlanSources } from "./dayPlanSources";
 import { getTodayString } from "../utils/dateUtils";
 import { ViewStateManager } from "../services/ViewStateManager";
 import { ProjectSubtasksService } from "../services/ProjectSubtasksService";
@@ -201,7 +205,43 @@ export async function initializeCoreServices(plugin: TaskNotesPlugin): Promise<v
 
 	plugin.icsSubscriptionService = new ICSSubscriptionService(plugin);
 	plugin.icsNoteService = new ICSNoteService(plugin);
+	initializeDayPlanService(plugin);
 	plugin.taskService.setAutoArchiveService(plugin.autoArchiveService);
+}
+
+function initializeDayPlanService(plugin: TaskNotesPlugin): void {
+	const { sources, affectsTimeblocks } = createDayPlanSources(plugin);
+	plugin.dayPlanService = new DayPlanService(sources);
+	const invalidateDayPlan = () => plugin.dayPlanService.invalidate();
+
+	// EVENT_DATE_CHANGED fires at midnight and on window focus after sleep.
+	for (const event of [
+		EVENT_TASK_UPDATED,
+		EVENT_TASK_DELETED,
+		EVENT_DATA_CHANGED,
+		EVENT_DATE_CHANGED,
+		"settings-changed",
+	]) {
+		plugin.registerEvent(plugin.emitter.on(event, invalidateDayPlan));
+	}
+	plugin.register(plugin.icsSubscriptionService.on("data-changed", invalidateDayPlan));
+
+	// Timeblocks are read from the metadata cache, so react once it has re-parsed.
+	plugin.registerEvent(
+		plugin.app.metadataCache.on("changed", (file, _data, cache) => {
+			if (affectsTimeblocks(file.path, cache.frontmatter)) invalidateDayPlan();
+		})
+	);
+	plugin.registerEvent(
+		plugin.app.vault.on("delete", (file) => {
+			if (file instanceof TFile && affectsTimeblocks(file.path)) invalidateDayPlan();
+		})
+	);
+	plugin.registerEvent(
+		plugin.app.vault.on("rename", (file, oldPath) => {
+			if (file instanceof TFile && affectsTimeblocks(oldPath)) invalidateDayPlan();
+		})
+	);
 }
 
 export function registerRibbonIcons(plugin: TaskNotesPlugin): void {
@@ -269,6 +309,9 @@ export function initializeCalendarProviders(plugin: TaskNotesPlugin): void {
 	plugin.calendarProviderRegistry = new CalendarProviderRegistry();
 	plugin.calendarProviderRegistry.register(plugin.googleCalendarService);
 	plugin.calendarProviderRegistry.register(plugin.microsoftCalendarService);
+	for (const provider of [plugin.googleCalendarService, plugin.microsoftCalendarService]) {
+		plugin.register(provider.on("data-changed", () => plugin.dayPlanService?.invalidate()));
+	}
 }
 
 export async function registerBasesIntegration(plugin: TaskNotesPlugin): Promise<void> {
