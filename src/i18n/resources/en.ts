@@ -2516,6 +2516,7 @@ export const en: TranslationTree = {
 		triageInbox: "Triage inbox",
 		freshStart: "Fresh start: reset overdue tasks",
 		undoFreshStart: "Undo last fresh start",
+		showTodayCapacity: "Show today's capacity",
 	},
 	modals: {
 		freshStart: {
@@ -3726,6 +3727,17 @@ export const en: TranslationTree = {
 			color: "Color",
 			emoji: "Emoji",
 		},
+	},
+	capacity: {
+		status: "Today: {planned} planned · {free} free",
+		over: " · {over} over",
+		noWorkHours: "Today: {planned} planned",
+		unestimated: "{count} tasks without an estimate",
+		calibrated: "calibrated",
+		openToday: "Open today view",
+		moveToInbox: "Move some to inbox…",
+		moveToInboxHint: "Select tasks, then use fresh start selected or set their status to inbox.",
+		ariaLabel: "Today's capacity",
 	},
 };
 

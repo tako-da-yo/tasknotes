@@ -5,6 +5,8 @@ import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { showConfirmationModal } from "../modals/ConfirmationModal";
 import { InboxTriageModal } from "../modals/InboxTriageModal";
 import { runFreshStartFlow, runUndoFreshStart } from "./freshStartFlow";
+import { openCapacityPopover } from "../ui/CapacityPopover";
+import { getTodayString } from "../utils/dateUtils";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Commands/TaskNotesCommands" });
 
@@ -253,6 +255,11 @@ export function createTaskNotesCommandDefinitions(
 				if (!checking) void runUndoFreshStart(plugin);
 				return true;
 			},
+		},
+		{
+			id: "show-today-capacity",
+			nameKey: "commands.showTodayCapacity",
+			callback: (ctx) => openCapacityPopover(ctx, null, getTodayString()),
 		},
 		{
 			id: "refresh-cache",

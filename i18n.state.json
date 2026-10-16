@@ -5807,6 +5807,7 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "b51a6998fc65f470988ce718e711cf29ef304251"
     },
+    "commands.showTodayCapacity": null,
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "18f280a11c64b8a8dc89ae2d6d0c44c70e450126"
@@ -9356,7 +9357,16 @@
     "contextGroups.settings.emoji": {
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
-    }
+    },
+    "capacity.status": null,
+    "capacity.over": null,
+    "capacity.noWorkHours": null,
+    "capacity.unestimated": null,
+    "capacity.calibrated": null,
+    "capacity.openToday": null,
+    "capacity.moveToInbox": null,
+    "capacity.moveToInboxHint": null,
+    "capacity.ariaLabel": null
   },
   "es": {
     "common.appName": {
@@ -15166,6 +15176,7 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "bc65218936e17175941d2a06e4ff34d18a7d1da7"
     },
+    "commands.showTodayCapacity": null,
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "1e3dfca4721b5a527de500afbda1fa0d2992e3c8"
@@ -18715,7 +18726,16 @@
     "contextGroups.settings.emoji": {
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
-    }
+    },
+    "capacity.status": null,
+    "capacity.over": null,
+    "capacity.noWorkHours": null,
+    "capacity.unestimated": null,
+    "capacity.calibrated": null,
+    "capacity.openToday": null,
+    "capacity.moveToInbox": null,
+    "capacity.moveToInboxHint": null,
+    "capacity.ariaLabel": null
   },
   "fr": {
     "common.appName": {
@@ -24525,6 +24545,7 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "66cb392de38f44c2986bc5d71d57c62c2f9e534a"
     },
+    "commands.showTodayCapacity": null,
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "da0564618387e99d32978e8012ee241b430f493a"
@@ -28074,7 +28095,16 @@
     "contextGroups.settings.emoji": {
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "e582e53cb5f667d8b1755431b37ede223e92c9f0"
-    }
+    },
+    "capacity.status": null,
+    "capacity.over": null,
+    "capacity.noWorkHours": null,
+    "capacity.unestimated": null,
+    "capacity.calibrated": null,
+    "capacity.openToday": null,
+    "capacity.moveToInbox": null,
+    "capacity.moveToInboxHint": null,
+    "capacity.ariaLabel": null
   },
   "ja": {
     "common.appName": {
@@ -33884,6 +33914,7 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "78d1ea7ebc78e5e2ba116f50a37eba708c10069d"
     },
+    "commands.showTodayCapacity": null,
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "fc5b2ca043e23fd1524c8a007b6116444ea9c239"
@@ -37433,7 +37464,16 @@
     "contextGroups.settings.emoji": {
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "b46b7646a3de5c7fa376305d8f0e7b42d9c17514"
-    }
+    },
+    "capacity.status": null,
+    "capacity.over": null,
+    "capacity.noWorkHours": null,
+    "capacity.unestimated": null,
+    "capacity.calibrated": null,
+    "capacity.openToday": null,
+    "capacity.moveToInbox": null,
+    "capacity.moveToInboxHint": null,
+    "capacity.ariaLabel": null
   },
   "ko": {
     "common.appName": {
@@ -43243,6 +43283,7 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "f918ed2eafbeaab4fb6c5e8fc076a77e001a1e9f"
     },
+    "commands.showTodayCapacity": null,
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "5afaa1821a1ddb502ba70fa10b60708e4d9b3113"
@@ -46792,7 +46833,16 @@
     "contextGroups.settings.emoji": {
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "3cf0a67476a9def32ffaa4b76dc45b80b730fce1"
-    }
+    },
+    "capacity.status": null,
+    "capacity.over": null,
+    "capacity.noWorkHours": null,
+    "capacity.unestimated": null,
+    "capacity.calibrated": null,
+    "capacity.openToday": null,
+    "capacity.moveToInbox": null,
+    "capacity.moveToInboxHint": null,
+    "capacity.ariaLabel": null
   },
   "pt": {
     "common.appName": {
@@ -52602,6 +52652,7 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "769e9d0db2ca28de5917069b59a0d99e64004cef"
     },
+    "commands.showTodayCapacity": null,
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "835d5deafbe6951c341d22cbea09489aad6c87ed"
@@ -56151,7 +56202,16 @@
     "contextGroups.settings.emoji": {
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "5090a9e78c899272a10648b39e7689bc40072825"
-    }
+    },
+    "capacity.status": null,
+    "capacity.over": null,
+    "capacity.noWorkHours": null,
+    "capacity.unestimated": null,
+    "capacity.calibrated": null,
+    "capacity.openToday": null,
+    "capacity.moveToInbox": null,
+    "capacity.moveToInboxHint": null,
+    "capacity.ariaLabel": null
   },
   "ru": {
     "common.appName": {
@@ -61961,6 +62021,7 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "f27bf07674199d91ae546c84419e978a3e162c32"
     },
+    "commands.showTodayCapacity": null,
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "155d77f8989026d850cb9eae638d1f3aa35a7c20"
@@ -65510,7 +65571,16 @@
     "contextGroups.settings.emoji": {
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "8f9eec5d25d2633da4dd1d0c1a82a3310455a6e2"
-    }
+    },
+    "capacity.status": null,
+    "capacity.over": null,
+    "capacity.noWorkHours": null,
+    "capacity.unestimated": null,
+    "capacity.calibrated": null,
+    "capacity.openToday": null,
+    "capacity.moveToInbox": null,
+    "capacity.moveToInboxHint": null,
+    "capacity.ariaLabel": null
   },
   "zh": {
     "common.appName": {
@@ -71320,6 +71390,7 @@
       "source": "b0ff108054af4366591fe705ccec189b7e126eb4",
       "translation": "b2266ef1f34a57c1335ad30c6106fa9db15e0236"
     },
+    "commands.showTodayCapacity": null,
     "modals.freshStart.title": {
       "source": "a503c5b794357918ee549959eeccb5af0d432063",
       "translation": "f17fc9b7f685759a454f1bb94659b367044402c1"
@@ -74869,6 +74940,15 @@
     "contextGroups.settings.emoji": {
       "source": "5090a9e78c899272a10648b39e7689bc40072825",
       "translation": "978b0408a02d3ed12151c714327f16eee7b72e8c"
-    }
+    },
+    "capacity.status": null,
+    "capacity.over": null,
+    "capacity.noWorkHours": null,
+    "capacity.unestimated": null,
+    "capacity.calibrated": null,
+    "capacity.openToday": null,
+    "capacity.moveToInbox": null,
+    "capacity.moveToInboxHint": null,
+    "capacity.ariaLabel": null
   }
 }

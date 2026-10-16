@@ -1465,6 +1465,7 @@
   "commands.triageInbox": "74dc4f29be4a1d3d34a27f75cf746b1538479486",
   "commands.freshStart": "d0d6697a8e6470983c2fd3f591309f87612b7287",
   "commands.undoFreshStart": "b0ff108054af4366591fe705ccec189b7e126eb4",
+  "commands.showTodayCapacity": "42bb2d702635030d332cf146fea8d7a480c72460",
   "modals.freshStart.title": "a503c5b794357918ee549959eeccb5af0d432063",
   "modals.freshStart.summary": "424cce674d72ae6f8eb3c945f3cb7d63e00bd75d",
   "modals.freshStart.scheduledLine": "3b8b29a2aed08e1f0e723a6b5d6457541e94afeb",
@@ -2353,5 +2354,14 @@
   "contextGroups.settings.deleteContext": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
   "contextGroups.settings.enabled": "df174a3f2faa31814e06540acda7af8825403fac",
   "contextGroups.settings.color": "1d0c8304baedcf8e3a78982c2e7c0b04622bf2a0",
-  "contextGroups.settings.emoji": "5090a9e78c899272a10648b39e7689bc40072825"
+  "contextGroups.settings.emoji": "5090a9e78c899272a10648b39e7689bc40072825",
+  "capacity.status": "bc9ef047800f82a7add63aa44cfbca437434255e",
+  "capacity.over": "3e690886b91fe86658f3e7b0b15a9b7b30c2d4b8",
+  "capacity.noWorkHours": "6bd3fb35c9bd60a1aa9acd6343ef371f953cc5a5",
+  "capacity.unestimated": "7803476af1625807163702c80cab03afcf466159",
+  "capacity.calibrated": "2daa92af282cb5e9fdce94771567c334b5a496c2",
+  "capacity.openToday": "9704fb9f977beb2ddc9bac9902ffbe07c2b354db",
+  "capacity.moveToInbox": "ab9daad363231ec10994f93387d4fe30c0eda1f9",
+  "capacity.moveToInboxHint": "1cfe983c0cde7e942f364790efe1b4350927968c",
+  "capacity.ariaLabel": "2d53633aff86224e207cb19d42fa8f507056c3fc"
 }

@@ -12,8 +12,14 @@ import { EventRef, setIcon, setTooltip, TFile } from "obsidian";
 import { openTaskSelector } from "../modals/TaskSelectorWithCreateModal";
 import { formatPomodoroTime } from "../utils/pomodoroTime";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
+import { getTodayString } from "../utils/dateUtils";
+import { formatTime } from "../utils/helpers";
+import { capacityStatusText } from "./capacityText";
+import { openCapacityPopover } from "./CapacityPopover";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Services/StatusBarService" });
+
+const CAPACITY_REFRESH_INTERVAL_MS = 5 * 60 * 1000;
 
 export class StatusBarService {
 	private plugin: import("../main").default;
@@ -26,6 +32,10 @@ export class StatusBarService {
 	private currentTrackedTasks: TaskInfo[] = [];
 	private stopTrackingPending = false;
 	private pomodoroEventRefs: EventRef[] = [];
+	private capacityStatusBarElement: HTMLElement | null = null;
+	private capacityUnsubscribe: (() => void) | null = null;
+	private capacityIntervalRegistered = false;
+	private capacityUpdateSeq = 0;
 
 	constructor(plugin: import("../main").default) {
 		this.plugin = plugin;
@@ -39,10 +49,12 @@ export class StatusBarService {
 		this.ensureTrackedStatusBarElement();
 		this.ensurePomodoroStatusBarElement();
 		this.registerPomodoroEvents();
+		this.ensureCapacityStatusBarElement();
 
 		// Initial update
 		void this.updateStatusBar();
 		this.updatePomodoroStatusBar();
+		void this.updateCapacityStatusBar();
 	}
 
 	private ensureTrackedStatusBarElement(): void {
@@ -80,6 +92,91 @@ export class StatusBarService {
 		this.pomodoroStatusBarElement.addEventListener("click", () => {
 			void this.plugin.activatePomodoroView();
 		});
+	}
+
+	private ensureCapacityStatusBarElement(): void {
+		if (this.capacityStatusBarElement || !this.plugin.settings.planning?.showInStatusBar) {
+			return;
+		}
+
+		const el = this.plugin.addStatusBarItem();
+		el.addClass("tasknotes-status-bar");
+		el.addClass("tn-capacity-status");
+		el.setAttribute("aria-label", this.plugin.i18n.translate("capacity.ariaLabel"));
+		el.setAttribute("role", "button");
+		el.tabIndex = 0;
+		el.addEventListener("click", () => {
+			openCapacityPopover(this.plugin, el, getTodayString());
+		});
+		el.addEventListener("keydown", (event) => {
+			if (event.key === "Enter" || event.key === " ") {
+				event.preventDefault();
+				openCapacityPopover(this.plugin, el, getTodayString());
+			}
+		});
+		this.hideElement(el);
+		this.capacityStatusBarElement = el;
+	}
+
+	private registerCapacityRefresh(): void {
+		if (!this.capacityUnsubscribe && this.plugin.dayPlanService) {
+			this.capacityUnsubscribe = this.plugin.dayPlanService.onChange(() => {
+				void this.updateCapacityStatusBar();
+			});
+		}
+
+		if (!this.capacityIntervalRegistered) {
+			this.capacityIntervalRegistered = true;
+			// Available time shrinks as the day passes, even when nothing changes.
+			this.plugin.registerInterval(
+				window.setInterval(() => {
+					void this.updateCapacityStatusBar();
+				}, CAPACITY_REFRESH_INTERVAL_MS)
+			);
+		}
+	}
+
+	private async updateCapacityStatusBar(): Promise<void> {
+		const seq = ++this.capacityUpdateSeq;
+
+		if (!this.plugin.settings.planning?.showInStatusBar) {
+			if (this.capacityStatusBarElement) this.hideElement(this.capacityStatusBarElement);
+			return;
+		}
+
+		this.ensureCapacityStatusBarElement();
+		// Subscribe lazily so nothing runs while the item is turned off.
+		this.registerCapacityRefresh();
+		const el = this.capacityStatusBarElement;
+		if (!el || !this.plugin.capacityService) {
+			return;
+		}
+
+		try {
+			const capacity = await this.plugin.capacityService.getDayCapacity(getTodayString());
+			// A newer refresh started while this one was waiting; let it win.
+			if (seq !== this.capacityUpdateSeq || !this.capacityStatusBarElement) return;
+
+			const text = capacityStatusText(
+				capacity,
+				(key, params) => this.plugin.i18n.translate(key, params),
+				formatTime
+			);
+			if (text === null) {
+				this.hideElement(el);
+				return;
+			}
+
+			el.setText(text);
+			el.toggleClass("is-over", capacity.overByMinutes > 0);
+			this.showElement(el);
+		} catch (error) {
+			tasknotesLogger.error("Error updating capacity status bar:", {
+				category: "internal",
+				operation: "updating-capacity-status-bar",
+				error,
+			});
+		}
 	}
 
 	private registerPomodoroEvents(): void {
@@ -487,6 +584,8 @@ export class StatusBarService {
 		} else {
 			this.hidePomodoroStatusBar();
 		}
+
+		void this.updateCapacityStatusBar();
 	}
 
 	/**
@@ -507,6 +606,20 @@ export class StatusBarService {
 			);
 			this.statusBarElement.classList.add("tn-static-display-none-6b99de8b");
 		}
+	}
+
+	private hideElement(element: HTMLElement): void {
+		element.classList.remove(
+			"tn-static-display-block-2a1b75c9",
+			"tn-static-display-flex-4d51fc62",
+			"tn-static-display-flex-75816cae",
+			"tn-static-display-flex-8bb39979",
+			"tn-static-display-inline-block-60e32dcb",
+			"tn-static-display-inline-cccfa456",
+			"tn-static-display-inline-flex-f984c520",
+			"tn-static-min-height-800px-997b4c8c"
+		);
+		element.classList.add("tn-static-display-none-6b99de8b");
 	}
 
 	private hidePomodoroStatusBar(): void {
@@ -542,6 +655,10 @@ export class StatusBarService {
 			this.pomodoroEventRefs.forEach((ref) => this.plugin.emitter.offref(ref));
 		}
 		this.pomodoroEventRefs = [];
+		this.capacityUnsubscribe?.();
+		this.capacityUnsubscribe = null;
+		// Invalidate any in-flight capacity refresh.
+		this.capacityUpdateSeq++;
 
 		if (this.requestDeduplicator) {
 			this.requestDeduplicator.cancelAll();
@@ -550,5 +667,6 @@ export class StatusBarService {
 		// Status bar element is automatically cleaned up by Obsidian when plugin unloads
 		this.statusBarElement = null;
 		this.pomodoroStatusBarElement = null;
+		this.capacityStatusBarElement = null;
 	}
 }

@@ -1,0 +1,70 @@
+/* =====================================================================
+   CAPACITY STATUS BAR ITEM AND POPOVER
+   ===================================================================== */
+
+.tn-capacity-status {
+    cursor: pointer;
+}
+
+.tn-capacity-status.is-over,
+.tn-capacity-popover .tn-capacity-popover__summary.is-over {
+    color: var(--text-warning);
+}
+
+.tn-capacity-popover .tn-capacity-popover__summary {
+    margin-bottom: var(--size-4-2);
+}
+
+.tn-capacity-popover .tn-capacity-popover__list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--size-4-2);
+}
+
+.tn-capacity-popover .tn-capacity-popover__row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--size-4-2);
+    padding: var(--size-2-2) 0;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    box-shadow: none;
+    text-align: start;
+    cursor: pointer;
+}
+
+.tn-capacity-popover .tn-capacity-popover__row:hover {
+    background: var(--background-modifier-hover);
+}
+
+.tn-capacity-popover .tn-capacity-popover__title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tn-capacity-popover .tn-capacity-popover__meta {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--size-4-2);
+    color: var(--text-muted);
+}
+
+.tn-capacity-popover .tn-capacity-popover__tag {
+    color: var(--text-faint);
+    font-size: var(--font-ui-smaller);
+}
+
+.tn-capacity-popover .tn-capacity-popover__unestimated {
+    color: var(--text-muted);
+    margin-bottom: var(--size-4-2);
+}
+
+.tn-capacity-popover .tn-capacity-popover__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--size-4-2);
+}
