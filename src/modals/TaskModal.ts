@@ -49,6 +49,7 @@ import {
 	type TaskModalContextsControl,
 	type TaskModalEstimateHint,
 	type TaskModalMetadataFieldContext,
+	type TaskModalTimeEstimateControl,
 } from "./taskModalMetadataFields";
 import {
 	createTaskModalConfiguredUserField,
@@ -364,6 +365,7 @@ export abstract class TaskModal extends Modal {
 	protected projectsInput: HTMLInputElement = undefined as unknown as HTMLInputElement;
 	protected tagsInput: HTMLInputElement = undefined as unknown as HTMLInputElement;
 	protected timeEstimateInput: HTMLInputElement = undefined as unknown as HTMLInputElement;
+	protected timeEstimateField: TaskModalTimeEstimateControl | null = null;
 	protected projectsList: HTMLElement = undefined as unknown as HTMLElement;
 	protected subtasksList: HTMLElement = undefined as unknown as HTMLElement;
 	protected actionBar: HTMLElement = undefined as unknown as HTMLElement;
@@ -777,6 +779,7 @@ export abstract class TaskModal extends Modal {
 			value: this.contexts,
 			onChange: (value) => {
 				this.contexts = value;
+				this.refreshEstimateHint();
 			},
 		});
 	}
@@ -792,7 +795,7 @@ export abstract class TaskModal extends Modal {
 	}
 
 	protected createTimeEstimateField(container: HTMLElement): void {
-		this.timeEstimateInput = createTaskModalTimeEstimateField(this.getMetadataFieldContext(), {
+		this.timeEstimateField = createTaskModalTimeEstimateField(this.getMetadataFieldContext(), {
 			container,
 			value: this.timeEstimate,
 			onChange: (value) => {
@@ -800,6 +803,12 @@ export abstract class TaskModal extends Modal {
 			},
 			hint: (estimate) => this.getEstimateHint(estimate),
 		});
+		this.timeEstimateInput = this.timeEstimateField.inputEl;
+	}
+
+	/** Recompute the estimate hint from the current estimate and contexts. */
+	protected refreshEstimateHint(): void {
+		this.timeEstimateField?.refreshHint(this.timeEstimate);
 	}
 
 	private getEstimateHint(estimate: number): TaskModalEstimateHint | null {

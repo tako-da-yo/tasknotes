@@ -29,6 +29,13 @@ export interface TaskModalEstimateHint {
 	minutes: number;
 }
 
+/** The time estimate control: its input, plus a way to recompute the hint. */
+export interface TaskModalTimeEstimateControl {
+	inputEl: HTMLInputElement;
+	/** Recompute the hint, e.g. after the estimate or contexts were set programmatically. */
+	refreshHint(estimate: number): void;
+}
+
 export interface CreateTaskModalTimeEstimateFieldOptions {
 	container: HTMLElement;
 	value: number;
@@ -105,7 +112,7 @@ export function createTaskModalTagsField(
 export function createTaskModalTimeEstimateField(
 	context: TaskModalMetadataFieldContext,
 	options: CreateTaskModalTimeEstimateFieldOptions
-): HTMLInputElement {
+): TaskModalTimeEstimateControl {
 	let inputEl: HTMLInputElement | null = null;
 	new Setting(options.container)
 		.setName(context.translate("modals.task.timeEstimateLabel"))
@@ -149,5 +156,5 @@ export function createTaskModalTimeEstimateField(
 	}
 
 	refresh(options.value);
-	return input;
+	return { inputEl: input, refreshHint: refresh };
 }

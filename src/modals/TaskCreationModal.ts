@@ -559,6 +559,8 @@ export class TaskCreationModal extends TaskModal {
 		setTaskModalDetailsEditorValue(this.detailsMarkdownEditor, this.details);
 		if (this.contextsInput) this.contextsInput.value = this.contexts;
 		if (this.tagsInput) this.tagsInput.value = this.tags;
+		// Programmatic input writes don't fire onChange, so refresh the hint here.
+		this.refreshEstimateHint();
 
 		// Handle projects differently - they use file selection, not text input
 		if (parsed.projects && parsed.projects.length > 0) {

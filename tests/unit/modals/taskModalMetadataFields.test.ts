@@ -144,7 +144,7 @@ describe("taskModalMetadataFields", () => {
 		const container = document.createElement("div");
 		const onChange = jest.fn();
 
-		const input = createTaskModalTimeEstimateField(context, {
+		const { inputEl: input } = createTaskModalTimeEstimateField(context, {
 			container,
 			value: 25,
 			onChange,
@@ -166,7 +166,7 @@ describe("taskModalMetadataFields", () => {
 		const context = createContext();
 		const container = document.createElement("div");
 		const onChange = jest.fn();
-		const input = createTaskModalTimeEstimateField(context, {
+		const { inputEl: input } = createTaskModalTimeEstimateField(context, {
 			container,
 			value: 30,
 			onChange,
@@ -177,6 +177,46 @@ describe("taskModalMetadataFields", () => {
 		expect(onChange).toHaveBeenCalledWith(45);
 		expect(input.value).toBe("45");
 		expect(container.querySelector(".tn-estimate-hint__use")).toBeNull();
+	});
+
+	it("refreshes the hint for a programmatically set estimate", () => {
+		const context = createContext();
+		const container = document.createElement("div");
+		const onChange = jest.fn();
+		const hint = jest.fn((estimate: number) =>
+			estimate > 0
+				? { text: `likely ~${estimate * 1.5}m`, minutes: estimate * 1.5 }
+				: null
+		);
+		const control = createTaskModalTimeEstimateField(context, {
+			container,
+			value: 30,
+			onChange,
+			hint,
+		});
+		expect(container.querySelector(".tn-estimate-hint")?.textContent).toContain("~45m");
+
+		// e.g. NLP parsing writes the input directly, which does not fire onChange
+		control.inputEl.value = "60";
+		control.refreshHint(60);
+		expect(container.querySelector(".tn-estimate-hint")?.textContent).toContain("~90m");
+		(container.querySelector(".tn-estimate-hint__use") as HTMLElement).click();
+		expect(onChange).toHaveBeenCalledWith(90);
+		expect(control.inputEl.value).toBe("90");
+	});
+
+	it("shows a hint after refreshing from an empty estimate", () => {
+		const context = createContext();
+		const container = document.createElement("div");
+		const control = createTaskModalTimeEstimateField(context, {
+			container,
+			value: 0,
+			onChange: jest.fn(),
+			hint: (estimate) => (estimate ? { text: "likely ~1h 30m", minutes: 90 } : null),
+		});
+		expect(container.querySelector(".tn-estimate-hint__use")).toBeNull();
+		control.refreshHint(60);
+		expect(container.querySelector(".tn-estimate-hint")?.textContent).toContain("~1h 30m");
 	});
 
 	it("clears the estimate hint when the hint function returns null", () => {

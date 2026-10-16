@@ -10,6 +10,7 @@ import { TaskConversionOptions } from "../../../src/types/taskConversion";
 import { TaskInfo } from "../../../src/types";
 import { ParsedTaskData } from "../../../src/utils/TasksPluginParser";
 import { MockObsidian, Notice, TFile } from "../../helpers/obsidian-runtime";
+import * as metadataFields from "../../../src/modals/taskModalMetadataFields";
 import type { App } from "obsidian";
 
 // Type helper to safely cast mock App to real App type
@@ -48,6 +49,12 @@ jest.mock("../../../src/utils/helpers", () => ({
 		}
 		if (!date || time === "none" || !time) return date;
 		return `${date}T${time}`;
+	}),
+	formatTime: jest.fn((minutes: number) => {
+		const hours = Math.floor(minutes / 60);
+		const mins = minutes % 60;
+		if (hours === 0) return `${mins}m`;
+		return mins === 0 ? `${hours}h` : `${hours}h ${mins}m`;
 	}),
 	sanitizeTags: jest.fn((tags) => {
 		if (!tags || typeof tags !== "string") return "";
@@ -526,6 +533,77 @@ describe("TaskCreationModal - Fixed Implementation", () => {
 			await modal.handleSave();
 
 			expect(sentStatus()).toBe("open");
+		});
+	});
+
+	describe("Estimate hint", () => {
+		it("refreshes the hint after natural language parsing sets an estimate or contexts", async () => {
+			modal = new TaskCreationModal(createMockApp(mockApp), mockPlugin);
+			await (modal as any).initializeFormData();
+			const refreshHint = jest.fn();
+			(modal as any).timeEstimateField = {
+				inputEl: document.createElement("input"),
+				refreshHint,
+			};
+			(modal as any).timeEstimateInput = (modal as any).timeEstimateField.inputEl;
+
+			(modal as any).applyParsedData({ title: "Write report", estimate: 60 });
+			expect(refreshHint).toHaveBeenLastCalledWith(60);
+			expect((modal as any).timeEstimateInput.value).toBe("60");
+
+			(modal as any).applyParsedData({ title: "Write report", contexts: ["home"] });
+			expect(refreshHint).toHaveBeenCalledTimes(2);
+		});
+
+		it("refreshes the hint when the contexts field changes", async () => {
+			modal = new TaskCreationModal(createMockApp(mockApp), mockPlugin);
+			await (modal as any).initializeFormData();
+			const refreshHint = jest.fn();
+			(modal as any).timeEstimate = 30;
+			(modal as any).timeEstimateField = {
+				inputEl: document.createElement("input"),
+				refreshHint,
+			};
+			const fieldSpy = jest
+				.spyOn(metadataFields, "createTaskModalContextsField")
+				.mockReturnValue({ value: "", focus: jest.fn() });
+			(modal as any).createContextsField(document.createElement("div"));
+			const { onChange } = fieldSpy.mock.calls[0][1];
+			onChange("home");
+
+			expect((modal as any).contexts).toBe("home");
+			expect(refreshHint).toHaveBeenCalledWith(30);
+		});
+
+		it("computes the hint from the current contexts", () => {
+			const factorFor = jest.fn((task: { contexts?: string[] }) =>
+				task.contexts?.[0] === "home" ? { factor: 2, source: "context" } : null
+			);
+			const calibratedMinutes = jest.fn((task: { contexts?: string[] }) =>
+				task.contexts?.[0] === "home" ? 60 : null
+			);
+			mockPlugin.estimateCalibrationService = { factorFor, calibratedMinutes };
+			modal = new TaskCreationModal(createMockApp(mockApp), mockPlugin);
+
+			(modal as any).contexts = "";
+			expect((modal as any).getEstimateHint(30)).toBeNull();
+
+			(modal as any).contexts = "home, work";
+			expect((modal as any).getEstimateHint(30)).toEqual({
+				text: "modals.task.estimateHint",
+				minutes: 60,
+			});
+			expect(factorFor).toHaveBeenLastCalledWith({
+				timeEstimate: 30,
+				contexts: ["home", "work"],
+			});
+			expect(calibratedMinutes).toHaveBeenLastCalledWith({
+				timeEstimate: 30,
+				contexts: ["home", "work"],
+			});
+			expect(mockPlugin.i18n.translate).toHaveBeenCalledWith("modals.task.estimateHint", {
+				duration: "1h",
+			});
 		});
 	});
 
