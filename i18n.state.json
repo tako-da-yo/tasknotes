@@ -5684,6 +5684,27 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "641022fdb5e4fe9391c040c2c9683738ec18ec56"
     },
+    "commands.triageInbox": null,
+    "modals.inboxTriage.title": null,
+    "modals.inboxTriage.progress": null,
+    "modals.inboxTriage.captured": null,
+    "modals.inboxTriage.actions.today": null,
+    "modals.inboxTriage.actions.schedule": null,
+    "modals.inboxTriage.actions.someday": null,
+    "modals.inboxTriage.actions.done": null,
+    "modals.inboxTriage.actions.drop": null,
+    "modals.inboxTriage.actions.edit": null,
+    "modals.inboxTriage.actions.skip": null,
+    "modals.inboxTriage.actions.undo": null,
+    "modals.inboxTriage.schedule.tomorrow": null,
+    "modals.inboxTriage.schedule.weekend": null,
+    "modals.inboxTriage.schedule.nextWeek": null,
+    "modals.inboxTriage.schedule.pick": null,
+    "modals.inboxTriage.empty": null,
+    "modals.inboxTriage.capture": null,
+    "modals.inboxTriage.finished": null,
+    "modals.inboxTriage.notReady": null,
+    "modals.inboxTriage.failed": null,
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "4ae489e473a5a1d2bf9aaf0efed4a3aed66c8526"
@@ -9091,6 +9112,10 @@
     "contextGroups.settings.deleteGroup": {
       "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
       "translation": "2fcba4f2ee7c161a165ca4ca5549aa69c389743a"
+    },
+    "contextGroups.settings.dragContext": {
+      "source": "9b37766a822a72b8b1a609849fffe4b96e374bd5",
+      "translation": "c33382a8227f9badb17f8c9742f04d2bfa279084"
     },
     "contextGroups.settings.deleteContext": {
       "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
@@ -14794,6 +14819,27 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "dfb197d44003b01e388d18d203804b109ffb52e3"
     },
+    "commands.triageInbox": null,
+    "modals.inboxTriage.title": null,
+    "modals.inboxTriage.progress": null,
+    "modals.inboxTriage.captured": null,
+    "modals.inboxTriage.actions.today": null,
+    "modals.inboxTriage.actions.schedule": null,
+    "modals.inboxTriage.actions.someday": null,
+    "modals.inboxTriage.actions.done": null,
+    "modals.inboxTriage.actions.drop": null,
+    "modals.inboxTriage.actions.edit": null,
+    "modals.inboxTriage.actions.skip": null,
+    "modals.inboxTriage.actions.undo": null,
+    "modals.inboxTriage.schedule.tomorrow": null,
+    "modals.inboxTriage.schedule.weekend": null,
+    "modals.inboxTriage.schedule.nextWeek": null,
+    "modals.inboxTriage.schedule.pick": null,
+    "modals.inboxTriage.empty": null,
+    "modals.inboxTriage.capture": null,
+    "modals.inboxTriage.finished": null,
+    "modals.inboxTriage.notReady": null,
+    "modals.inboxTriage.failed": null,
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "b751828a1280ee6986bb981e927b7233e89f770f"
@@ -18201,6 +18247,10 @@
     "contextGroups.settings.deleteGroup": {
       "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
       "translation": "88363196686124bd014373d65a73cf3916fcf4f7"
+    },
+    "contextGroups.settings.dragContext": {
+      "source": "9b37766a822a72b8b1a609849fffe4b96e374bd5",
+      "translation": "4ba9ca13231e443d5637f986aec9fdacfcc900f3"
     },
     "contextGroups.settings.deleteContext": {
       "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
@@ -23904,6 +23954,27 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "2a6f9d87e5ea5c98a846f17d561a5558aee14a55"
     },
+    "commands.triageInbox": null,
+    "modals.inboxTriage.title": null,
+    "modals.inboxTriage.progress": null,
+    "modals.inboxTriage.captured": null,
+    "modals.inboxTriage.actions.today": null,
+    "modals.inboxTriage.actions.schedule": null,
+    "modals.inboxTriage.actions.someday": null,
+    "modals.inboxTriage.actions.done": null,
+    "modals.inboxTriage.actions.drop": null,
+    "modals.inboxTriage.actions.edit": null,
+    "modals.inboxTriage.actions.skip": null,
+    "modals.inboxTriage.actions.undo": null,
+    "modals.inboxTriage.schedule.tomorrow": null,
+    "modals.inboxTriage.schedule.weekend": null,
+    "modals.inboxTriage.schedule.nextWeek": null,
+    "modals.inboxTriage.schedule.pick": null,
+    "modals.inboxTriage.empty": null,
+    "modals.inboxTriage.capture": null,
+    "modals.inboxTriage.finished": null,
+    "modals.inboxTriage.notReady": null,
+    "modals.inboxTriage.failed": null,
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "3fd7f1097ffdd1ec563ab5714dcdee521c89ec5f"
@@ -27311,6 +27382,10 @@
     "contextGroups.settings.deleteGroup": {
       "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
       "translation": "64ba04798494b141ccb2971451811c1da77f53e1"
+    },
+    "contextGroups.settings.dragContext": {
+      "source": "9b37766a822a72b8b1a609849fffe4b96e374bd5",
+      "translation": "8c6d71766760ad870318389fd0b12a0dee9307a6"
     },
     "contextGroups.settings.deleteContext": {
       "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
@@ -33014,6 +33089,27 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "885709e454f1004cac119f0a31c2f5f5d2e73d21"
     },
+    "commands.triageInbox": null,
+    "modals.inboxTriage.title": null,
+    "modals.inboxTriage.progress": null,
+    "modals.inboxTriage.captured": null,
+    "modals.inboxTriage.actions.today": null,
+    "modals.inboxTriage.actions.schedule": null,
+    "modals.inboxTriage.actions.someday": null,
+    "modals.inboxTriage.actions.done": null,
+    "modals.inboxTriage.actions.drop": null,
+    "modals.inboxTriage.actions.edit": null,
+    "modals.inboxTriage.actions.skip": null,
+    "modals.inboxTriage.actions.undo": null,
+    "modals.inboxTriage.schedule.tomorrow": null,
+    "modals.inboxTriage.schedule.weekend": null,
+    "modals.inboxTriage.schedule.nextWeek": null,
+    "modals.inboxTriage.schedule.pick": null,
+    "modals.inboxTriage.empty": null,
+    "modals.inboxTriage.capture": null,
+    "modals.inboxTriage.finished": null,
+    "modals.inboxTriage.notReady": null,
+    "modals.inboxTriage.failed": null,
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "ece297f69ffd13b505e878cc8ccb5ee9c37cae9c"
@@ -36421,6 +36517,10 @@
     "contextGroups.settings.deleteGroup": {
       "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
       "translation": "aa414a7991ff7e84f21832eafa76966daea787bd"
+    },
+    "contextGroups.settings.dragContext": {
+      "source": "9b37766a822a72b8b1a609849fffe4b96e374bd5",
+      "translation": "ef06245a54edbe2b6f94ed818549355cbd6e80f8"
     },
     "contextGroups.settings.deleteContext": {
       "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
@@ -42124,6 +42224,27 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "a398bc3fee1e815294881cb86084db6efffa1703"
     },
+    "commands.triageInbox": null,
+    "modals.inboxTriage.title": null,
+    "modals.inboxTriage.progress": null,
+    "modals.inboxTriage.captured": null,
+    "modals.inboxTriage.actions.today": null,
+    "modals.inboxTriage.actions.schedule": null,
+    "modals.inboxTriage.actions.someday": null,
+    "modals.inboxTriage.actions.done": null,
+    "modals.inboxTriage.actions.drop": null,
+    "modals.inboxTriage.actions.edit": null,
+    "modals.inboxTriage.actions.skip": null,
+    "modals.inboxTriage.actions.undo": null,
+    "modals.inboxTriage.schedule.tomorrow": null,
+    "modals.inboxTriage.schedule.weekend": null,
+    "modals.inboxTriage.schedule.nextWeek": null,
+    "modals.inboxTriage.schedule.pick": null,
+    "modals.inboxTriage.empty": null,
+    "modals.inboxTriage.capture": null,
+    "modals.inboxTriage.finished": null,
+    "modals.inboxTriage.notReady": null,
+    "modals.inboxTriage.failed": null,
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "ec82f0165b75226c3dbdce229bcefd772703dbb3"
@@ -45531,6 +45652,10 @@
     "contextGroups.settings.deleteGroup": {
       "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
       "translation": "a3900e2c942f79855d6e67bfb4b5722d80160e5d"
+    },
+    "contextGroups.settings.dragContext": {
+      "source": "9b37766a822a72b8b1a609849fffe4b96e374bd5",
+      "translation": "ccd8b6797084479fc61d77b8351c5158c1c45f25"
     },
     "contextGroups.settings.deleteContext": {
       "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
@@ -51234,6 +51359,27 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "854b064c78143187ceda78369040021eeed6f3c2"
     },
+    "commands.triageInbox": null,
+    "modals.inboxTriage.title": null,
+    "modals.inboxTriage.progress": null,
+    "modals.inboxTriage.captured": null,
+    "modals.inboxTriage.actions.today": null,
+    "modals.inboxTriage.actions.schedule": null,
+    "modals.inboxTriage.actions.someday": null,
+    "modals.inboxTriage.actions.done": null,
+    "modals.inboxTriage.actions.drop": null,
+    "modals.inboxTriage.actions.edit": null,
+    "modals.inboxTriage.actions.skip": null,
+    "modals.inboxTriage.actions.undo": null,
+    "modals.inboxTriage.schedule.tomorrow": null,
+    "modals.inboxTriage.schedule.weekend": null,
+    "modals.inboxTriage.schedule.nextWeek": null,
+    "modals.inboxTriage.schedule.pick": null,
+    "modals.inboxTriage.empty": null,
+    "modals.inboxTriage.capture": null,
+    "modals.inboxTriage.finished": null,
+    "modals.inboxTriage.notReady": null,
+    "modals.inboxTriage.failed": null,
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "593a2468a8efaddbd38aadc53f01098d23309cd8"
@@ -54641,6 +54787,10 @@
     "contextGroups.settings.deleteGroup": {
       "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
       "translation": "1b53e1b79cf2a4210cb830432754337eb3a4ff08"
+    },
+    "contextGroups.settings.dragContext": {
+      "source": "9b37766a822a72b8b1a609849fffe4b96e374bd5",
+      "translation": "69bfdfa1686c743dd57aeb9c8106829167389446"
     },
     "contextGroups.settings.deleteContext": {
       "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
@@ -60344,6 +60494,27 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "b75667f91c66134ba3fb5a45fcb4c210d8778648"
     },
+    "commands.triageInbox": null,
+    "modals.inboxTriage.title": null,
+    "modals.inboxTriage.progress": null,
+    "modals.inboxTriage.captured": null,
+    "modals.inboxTriage.actions.today": null,
+    "modals.inboxTriage.actions.schedule": null,
+    "modals.inboxTriage.actions.someday": null,
+    "modals.inboxTriage.actions.done": null,
+    "modals.inboxTriage.actions.drop": null,
+    "modals.inboxTriage.actions.edit": null,
+    "modals.inboxTriage.actions.skip": null,
+    "modals.inboxTriage.actions.undo": null,
+    "modals.inboxTriage.schedule.tomorrow": null,
+    "modals.inboxTriage.schedule.weekend": null,
+    "modals.inboxTriage.schedule.nextWeek": null,
+    "modals.inboxTriage.schedule.pick": null,
+    "modals.inboxTriage.empty": null,
+    "modals.inboxTriage.capture": null,
+    "modals.inboxTriage.finished": null,
+    "modals.inboxTriage.notReady": null,
+    "modals.inboxTriage.failed": null,
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "e803dccd7dc588f274c09f49489687d8725f9f82"
@@ -63751,6 +63922,10 @@
     "contextGroups.settings.deleteGroup": {
       "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
       "translation": "05b970e68bb424dbc78e035610e84b9bba7eaec1"
+    },
+    "contextGroups.settings.dragContext": {
+      "source": "9b37766a822a72b8b1a609849fffe4b96e374bd5",
+      "translation": "77cc1db7ef70a27e659019d173d8adc007fe9187"
     },
     "contextGroups.settings.deleteContext": {
       "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",
@@ -69454,6 +69629,27 @@
       "source": "371dd90ae93e5e2bd3270bc26af3e491de9844b4",
       "translation": "1b0fee896b2122eaf22be533e1183db56e0ffd88"
     },
+    "commands.triageInbox": null,
+    "modals.inboxTriage.title": null,
+    "modals.inboxTriage.progress": null,
+    "modals.inboxTriage.captured": null,
+    "modals.inboxTriage.actions.today": null,
+    "modals.inboxTriage.actions.schedule": null,
+    "modals.inboxTriage.actions.someday": null,
+    "modals.inboxTriage.actions.done": null,
+    "modals.inboxTriage.actions.drop": null,
+    "modals.inboxTriage.actions.edit": null,
+    "modals.inboxTriage.actions.skip": null,
+    "modals.inboxTriage.actions.undo": null,
+    "modals.inboxTriage.schedule.tomorrow": null,
+    "modals.inboxTriage.schedule.weekend": null,
+    "modals.inboxTriage.schedule.nextWeek": null,
+    "modals.inboxTriage.schedule.pick": null,
+    "modals.inboxTriage.empty": null,
+    "modals.inboxTriage.capture": null,
+    "modals.inboxTriage.finished": null,
+    "modals.inboxTriage.notReady": null,
+    "modals.inboxTriage.failed": null,
     "modals.deviceCode.title": {
       "source": "1b248f8b8aea742005866f499359b67ada70b86e",
       "translation": "93ded0de3e847f73c0023e4206ccd3aa03cdd0bf"
@@ -72861,6 +73057,10 @@
     "contextGroups.settings.deleteGroup": {
       "source": "b6f15b2f40a093d6920368a98483c94f1ae50aa1",
       "translation": "777f53cc71b15608e1f8e41ad3f4da434a713da2"
+    },
+    "contextGroups.settings.dragContext": {
+      "source": "9b37766a822a72b8b1a609849fffe4b96e374bd5",
+      "translation": "76772764409373602f3936b83e09203b238039a6"
     },
     "contextGroups.settings.deleteContext": {
       "source": "470a48119e5ca1648c4db2ffe8c1fd9096e96fc1",

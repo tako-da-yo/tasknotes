@@ -3,6 +3,7 @@ import type TaskNotesPlugin from "../main";
 import type { TranslatedCommandDefinition } from "./types";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { showConfirmationModal } from "../modals/ConfirmationModal";
+import { InboxTriageModal } from "../modals/InboxTriageModal";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Commands/TaskNotesCommands" });
 
@@ -224,6 +225,17 @@ export function createTaskNotesCommandDefinitions(
 				} else if (state.currentSession) {
 					await ctx.pomodoroService.resumePomodoro();
 				}
+			},
+		},
+		{
+			id: "triage-inbox",
+			nameKey: "commands.triageInbox",
+			callback: (ctx) => {
+				if (!ctx.triageService.isInboxReady()) {
+					new Notice(ctx.i18n.translate("modals.inboxTriage.notReady"));
+					return;
+				}
+				new InboxTriageModal(ctx.app, ctx).open();
 			},
 		},
 		{

@@ -2461,8 +2461,36 @@ export const en: TranslationTree = {
 		createOrOpenTask: "Create or open task",
 		createOrOpenTaskWithTracking: "Create or open task and start time tracking",
 		rolloverOverdueScheduledTasks: "Postpone overdue scheduled tasks to today",
+		triageInbox: "Triage inbox",
 	},
 	modals: {
+		inboxTriage: {
+			title: "Triage inbox",
+			progress: "{current} of {total}",
+			captured: "Captured {age}",
+			actions: {
+				today: "Today",
+				schedule: "Schedule…",
+				someday: "Someday",
+				done: "Done already",
+				drop: "Drop",
+				edit: "Edit",
+				skip: "Skip",
+				undo: "Undo",
+			},
+			schedule: {
+				tomorrow: "Tomorrow",
+				weekend: "This weekend",
+				nextWeek: "Next week",
+				pick: "Pick date…",
+			},
+			empty: "Your inbox is empty.",
+			capture: "Capture a task",
+			finished: "Inbox clear. {sorted} sorted, {skipped} skipped.",
+			notReady:
+				"Inbox is not set up. Choose an inbox status in settings → task properties → statuses.",
+			failed: "Could not update the task.",
+		},
 		deviceCode: {
 			title: "Google Calendar authorization",
 			instructions: {

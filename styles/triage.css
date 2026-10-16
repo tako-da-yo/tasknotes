@@ -1,0 +1,61 @@
+/* =====================================================================
+   INBOX TRIAGE MODAL
+   ===================================================================== */
+
+.tn-triage-modal .tn-triage__progress {
+    color: var(--text-muted);
+    font-size: var(--font-ui-small);
+    margin-bottom: var(--size-4-2);
+}
+
+.tn-triage-modal .tn-triage__card {
+    padding: var(--size-4-4);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-m);
+    margin-bottom: var(--size-4-4);
+}
+
+.tn-triage-modal .tn-triage__title {
+    font-size: var(--font-ui-large);
+    font-weight: var(--font-semibold);
+}
+
+.tn-triage-modal .tn-triage__details {
+    white-space: pre-wrap;
+    color: var(--text-muted);
+    margin-top: var(--size-4-2);
+}
+
+.tn-triage-modal .tn-triage__meta {
+    color: var(--text-faint);
+    margin-top: var(--size-4-2);
+    font-size: var(--font-ui-small);
+}
+
+.tn-triage-modal .tn-triage__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-4-2);
+}
+
+.tn-triage-modal .tn-triage__action {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--size-4-2);
+}
+
+.tn-triage-modal .tn-triage__kbd {
+    font-family: var(--font-monospace);
+    font-size: var(--font-ui-smaller);
+    color: var(--text-faint);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+    padding: 0 var(--size-2-2);
+}
+
+.tn-triage-modal .tn-triage__finished {
+    padding: var(--size-4-6) 0;
+    text-align: center;
+    font-size: var(--font-ui-medium);
+}
