@@ -143,7 +143,8 @@ export function createTaskModalTimeEstimateField(
 			event.preventDefault();
 			input.value = hint.minutes.toString();
 			options.onChange(hint.minutes);
-			refresh(hint.minutes);
+			// The applied value is already calibrated; re-hinting it would compound.
+			hintEl.empty();
 		});
 	}
 

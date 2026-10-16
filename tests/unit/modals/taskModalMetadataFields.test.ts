@@ -176,6 +176,7 @@ describe("taskModalMetadataFields", () => {
 		(container.querySelector(".tn-estimate-hint__use") as HTMLElement).click();
 		expect(onChange).toHaveBeenCalledWith(45);
 		expect(input.value).toBe("45");
+		expect(container.querySelector(".tn-estimate-hint__use")).toBeNull();
 	});
 
 	it("clears the estimate hint when the hint function returns null", () => {
