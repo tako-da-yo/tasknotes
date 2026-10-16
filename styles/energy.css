@@ -41,14 +41,18 @@ body {
 }
 
 /* Battery glyph on calendar days */
+/* A battery lying on its side: cap on the left, charging from the right edge towards the cap */
 .tn-energy-glyph {
 	position: relative;
-	display: inline-block;
-	width: 8px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	width: 30px;
 	height: 14px;
-	margin-inline: var(--size-2-1);
+	margin-inline: var(--size-2-2) var(--size-2-1);
 	border: 1px solid var(--text-muted);
-	border-radius: 2px;
+	border-radius: 3px;
 	vertical-align: middle;
 	cursor: pointer;
 }
@@ -57,28 +61,40 @@ body {
 .tn-energy-glyph::before {
 	content: "";
 	position: absolute;
-	top: -3px;
-	left: 2px;
+	top: 3px;
+	left: -3px;
 	width: 2px;
-	height: 2px;
+	height: 6px;
+	border-radius: 1px 0 0 1px;
 	background: var(--text-muted);
 }
 
-/* Larger hit area (about 26x26 px) without changing the drawn size */
+/* Larger hit area (about 34x26 px) without changing the drawn size */
 .tn-energy-glyph::after {
 	content: "";
 	position: absolute;
-	inset: -6px -9px;
+	inset: -6px -2px;
 }
 
 .tn-energy-glyph__fill {
 	position: absolute;
-	bottom: 0;
-	left: 0;
+	top: 0;
 	right: 0;
-	height: var(--tn-energy-level, 0%);
+	bottom: 0;
+	width: var(--tn-energy-level, 0%);
 	background: var(--tn-energy-ok);
-	border-radius: 0 0 1px 1px;
+	border-radius: 0 2px 2px 0;
+	opacity: 0.55;
+}
+
+.tn-energy-glyph__label {
+	position: relative;
+	font-size: 9px;
+	font-weight: var(--font-semibold);
+	font-variant-numeric: tabular-nums;
+	line-height: 1;
+	color: var(--text-normal);
+	pointer-events: none;
 }
 
 .tn-energy-glyph.is-low .tn-energy-glyph__fill {

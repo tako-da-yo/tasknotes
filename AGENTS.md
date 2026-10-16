@@ -8,7 +8,7 @@ Test using Playwright/CDP against an isolated Obsidian instance: a separate `--u
 
 ```bash
 npm run e2e:setup # One-time setup
-OBSIDIAN_PLUGIN_PATH="$PWD/tasknotes-e2e-vault/.obsidian/plugins/tasknotes" npm run build:test
+OBSIDIAN_PLUGIN_PATH="" npm run build:test
 TASKNOTES_E2E_REUSE_OBSIDIAN=0 npm run e2e -- e2e/tasknotes.spec.ts
 ```
 

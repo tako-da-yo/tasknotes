@@ -146,7 +146,7 @@ Tasks completed before completion times were recorded, or completed on a past da
 
 #### Energy levels
 
-When [energy levels](../features/time-management.md#energy) are in use, each day in month, week, day and year views shows a small battery glyph. Its fill is the day's projected battery level, and its tooltip reads, for example, "Projected battery 60%. 2h drain, 1h spark, 0h steady." Days without any Spark or Drain time have no glyph. Click the glyph to open the energy panel for that day. Turn the glyphs off for one view with **Show energy levels**, or everywhere with **Show energy levels** in [Features settings](../settings/features.md#energy). Restyle them with the `tn-energy-glyph` CSS class.
+When [energy levels](../features/time-management.md#energy) are in use, each day in month, week, day and year views shows a small battery lying on its side. It fills from the right towards the cap on the left to show the day's projected battery level, with the percentage written inside, and its tooltip reads, for example, "Projected battery 60%. 2h drain, 1h spark, 0h steady." Days without any Spark or Drain time have no glyph. Click the glyph to open the energy panel for that day. Turn the glyphs off for one view with **Show energy levels**, or everywhere with **Show energy levels** in [Features settings](../settings/features.md#energy). Restyle them with the `tn-energy-glyph` CSS class.
 
 #### Multi-Day Task Spans
 

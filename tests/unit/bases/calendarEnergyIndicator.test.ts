@@ -46,6 +46,13 @@ describe("renderEnergyGlyph", () => {
 		expect(mouse.defaultPrevented).toBe(true);
 		expect(onClick).not.toHaveBeenCalled();
 	});
+	it("writes the projected percentage inside the battery, hidden from screen readers", () => {
+		const host = document.createElement("div");
+		renderEnergyGlyph(host, energy(45), t);
+		const label = host.querySelector(".tn-energy-glyph__label");
+		expect(label?.textContent).toBe("45%");
+		expect(label?.getAttribute("aria-hidden")).toBe("true");
+	});
 	it("clamps the level for display", () => {
 		const host = document.createElement("div");
 		renderEnergyGlyph(host, energy(0), t);

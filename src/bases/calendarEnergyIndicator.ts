@@ -30,6 +30,12 @@ export function renderEnergyGlyph(host: HTMLElement, energy: DayEnergy | undefin
 	});
 	glyph.setAttr("title", glyph.getAttr("aria-label") ?? "");
 	glyph.createDiv({ cls: "tn-energy-glyph__fill" });
+	// The aria-label already states the level, so the visible percentage is hidden from screen readers.
+	glyph.createSpan({
+		cls: "tn-energy-glyph__label",
+		text: `${Math.max(0, Math.min(100, energy.projected))}%`,
+		attr: { "aria-hidden": "true" },
+	});
 	setLevel(glyph, energy.projected);
 	if (onClick) {
 		const open = (e: Event) => { e.preventDefault(); e.stopPropagation(); onClick(energy.date); };
