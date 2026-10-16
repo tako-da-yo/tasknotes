@@ -202,6 +202,20 @@ test('battery glyph, energy panel and code block error', async () => {
     timeout: 15000,
   });
 
+  // 4b. In month view the glyph sits inside a selectable day cell: clicking it opens the
+  //     panel without FullCalendar starting a selection that opens the create menu.
+  await p.evaluate(() => (window as any).app.workspace.detachLeavesOfType('tasknotes-energy'));
+  await expect(panel).toHaveCount(0, { timeout: 15000 });
+  const calendarLeaf = p.locator('.workspace-leaf:has(button.fc-dayGridMonth-button)').first();
+  await calendarLeaf.locator('button.fc-dayGridMonth-button').click();
+  const monthGlyph = calendarLeaf.locator('.fc-daygrid-day.fc-day-today .tn-energy-glyph');
+  await expect(monthGlyph).toBeVisible({ timeout: 15000 });
+  await monthGlyph.click();
+  await expect(panel).toBeVisible({ timeout: 15000 });
+  // The create menu would open on mouseup; give it time to (not) appear.
+  await p.waitForTimeout(500);
+  await expect(p.locator('.menu')).toHaveCount(0);
+
   // 5. A tasknotes-energy block with an invalid date shows an inline error.
   await p.evaluate(async (path) => {
     const obsidian = (window as any).app;
