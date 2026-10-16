@@ -31,6 +31,21 @@ describe("renderEnergyGlyph", () => {
 		renderEnergyGlyph(host, energy(70, false), t);
 		expect(host.querySelector(".tn-energy-glyph")).toBeNull();
 	});
+	it("keeps pointer, mouse and touch starts on the glyph from reaching the host", () => {
+		const host = document.createElement("div");
+		const onClick = jest.fn();
+		renderEnergyGlyph(host, energy(40), t, onClick);
+		const seen: string[] = [];
+		for (const type of ["pointerdown", "mousedown", "touchstart"]) host.addEventListener(type, () => seen.push(type));
+		const glyph = host.querySelector(".tn-energy-glyph")!;
+		glyph.dispatchEvent(new Event("pointerdown", { bubbles: true, cancelable: true }));
+		const mouse = new Event("mousedown", { bubbles: true, cancelable: true });
+		glyph.dispatchEvent(mouse);
+		glyph.dispatchEvent(new Event("touchstart", { bubbles: true, cancelable: true }));
+		expect(seen).toEqual([]);
+		expect(mouse.defaultPrevented).toBe(true);
+		expect(onClick).not.toHaveBeenCalled();
+	});
 	it("clamps the level for display", () => {
 		const host = document.createElement("div");
 		renderEnergyGlyph(host, energy(0), t);
@@ -50,6 +65,16 @@ describe("CalendarEnergyIndicators", () => {
 		expect(getEnergyInRange).toHaveBeenCalledTimes(1);
 		expect(a.querySelector(".is-ok")).not.toBeNull();
 		expect(b.querySelector(".is-high")).not.toBeNull();
+	});
+	it("makes no range call when no hosts are registered", async () => {
+		const getEnergyInRange = jest.fn(async () => new Map());
+		const ind = new CalendarEnergyIndicators({ energy: { getEnergyInRange, isActive: () => true } as never, t, onClick: jest.fn() });
+		await ind.refresh("2026-10-01", "2026-10-31");
+		const gone = document.createElement("div");
+		ind.register("2026-10-15", gone);
+		ind.prune();
+		await ind.refresh("2026-10-01", "2026-10-31");
+		expect(getEnergyInRange).not.toHaveBeenCalled();
 	});
 	it("renders nothing when energy is inactive", async () => {
 		const getEnergyInRange = jest.fn();

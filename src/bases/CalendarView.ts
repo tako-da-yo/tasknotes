@@ -666,8 +666,10 @@ export class CalendarView extends BasesViewBase {
 
 	private refreshEnergyIndicators(): void {
 		const indicators = this.energyIndicators;
+		// A detached view (closed or not yet mounted) draws nothing; skip the range work.
+		if (!indicators || !this.containerEl.isConnected) return;
 		const range = this.getEnergyRange();
-		if (!indicators || !range) return;
+		if (!range) return;
 		indicators.refresh(range.start, range.end).catch((error: unknown) => {
 			tasknotesLogger.warn("Failed to refresh calendar energy indicators", {
 				category: "internal",
@@ -679,7 +681,7 @@ export class CalendarView extends BasesViewBase {
 
 	/** Refresh after FullCalendar's mount pass has registered the day cells. */
 	private scheduleEnergyRefresh(): void {
-		if (!this.energyIndicators) return;
+		if (!this.energyIndicators || !this.containerEl.isConnected) return;
 		const win = this.containerEl.ownerDocument.defaultView || window;
 		if (this.energyRefreshTimer !== null) win.clearTimeout(this.energyRefreshTimer);
 		this.energyRefreshTimer = win.setTimeout(() => {

@@ -35,6 +35,12 @@ export function renderEnergyGlyph(host: HTMLElement, energy: DayEnergy | undefin
 		const open = (e: Event) => { e.preventDefault(); e.stopPropagation(); onClick(energy.date); };
 		glyph.addEventListener("click", open);
 		glyph.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") open(e); });
+		// FullCalendar starts a date selection on mousedown/touchstart inside a day cell,
+		// which would open the create menu on top of the panel. Keep those to the glyph.
+		// Only mousedown's default is prevented: on touch it would suppress the click.
+		glyph.addEventListener("pointerdown", (e) => e.stopPropagation());
+		glyph.addEventListener("mousedown", (e) => { e.preventDefault(); e.stopPropagation(); });
+		glyph.addEventListener("touchstart", (e) => e.stopPropagation(), { passive: true });
 	}
 }
 
@@ -52,6 +58,8 @@ export class CalendarEnergyIndicators {
 	}
 
 	async refresh(start: string, end: string): Promise<void> {
+		// Nothing on screen to draw into (e.g. a hidden or detached calendar).
+		if (this.hosts.size === 0) return;
 		if (!this.deps.energy.isActive()) {
 			for (const hosts of this.hosts.values()) {
 				for (const host of hosts) renderEnergyGlyph(host, undefined, this.deps.t);
