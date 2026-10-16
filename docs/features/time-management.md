@@ -41,7 +41,7 @@ The feature integrates with the custom status system, so completion detection re
 
 TaskNotes compares your time estimates with the time you actually tracked, so you can see how far off your estimates usually are.
 
-Calibration uses completed tasks from the last 90 days that have both a time estimate and tracked time. For each task it divides the tracked time by the estimate, then takes the median of those ratios. A ratio of 1.5 means a task estimated at 60 minutes usually takes about 90. Ratios below 0.2 or above 10 are dropped as outliers, for example a timer left running overnight. At least 5 tasks are needed before any factor is shown.
+Calibration uses completed tasks from, by default, the last 90 days (configurable) that have both a time estimate and tracked time. For each task it divides the tracked time by the estimate, then takes the median of those ratios. A ratio of 1.5 means a task estimated at 60 minutes usually takes about 90. Ratios below 0.2 or above 10 are dropped as outliers, for example a timer left running overnight. At least 5 tasks are needed before any factor is shown.
 
 Factors are worked out overall, for each estimate size (up to 30 minutes, 30–120 minutes and over 2 hours), and for each context that has at least 5 tasks. A task's factor comes from its first context if that context has enough tasks, otherwise from its size, otherwise from the overall factor.
 
@@ -54,19 +54,21 @@ Estimates are never changed automatically. The hint only fills in the field when
 
 Daily capacity compares the time you have planned for a day with the free time you have that day.
 
-**Free time** is your work hours for the day minus time taken by busy calendar events. For today, it counts from now until the end of your work hours. Work hours are set per weekday in **Settings → TaskNotes → Features → Planning** (Monday to Friday, 09:00–17:00 by default). Overlapping events are merged, so they are not counted twice. Events from Google Calendar, Microsoft Outlook and ICS subscriptions count as busy, and you can choose which calendars count. Declined invitations are ignored. Invitations you haven't answered, or answered with "maybe", count as busy. All-day events only count when **Count all-day events as busy** is on. Timeblocks do not reduce free time.
+**Free time** is your work hours for the day minus time taken by busy calendar events. For today, it counts from now until the end of your work hours. Work hours are set per weekday in **Settings → TaskNotes → Features → Planning** (Monday to Friday, 09:00–17:00 by default). Overlapping events are merged, so they are not counted twice. Events from Google Calendar, Microsoft Outlook and ICS subscriptions count as busy. You can untick calendars that shouldn't count; calendars you connect later count as busy until you untick them. Declined invitations are ignored. Invitations you haven't answered, or answered with "maybe", count as busy. All-day events only count when **Count all-day events as busy** is on. Timeblocks do not reduce free time.
 
 **Planned time** is the remaining estimate of each task scheduled for that day, or due that day if it has no scheduled date, including recurring task instances on that day. The remaining estimate is the time estimate minus time already tracked. For recurring tasks, only time tracked on that day is subtracted. When calibration is applied, the estimate is adjusted first. Tasks without an estimate use **Default estimate for tasks without one** if you set it, and are otherwise listed as unestimated. Overdue tasks from earlier days are not counted.
 
 ### Status bar
 
-On desktop, the status bar shows `Today: 3h planned · 2h free`, with `· 1h over` added when planned time exceeds free time. It is hidden when nothing is planned for today. Click it to see today's tasks with their planned time, open the Tasks base on its Today view with **Open today view**, or, when the [inbox](task-management.md#inbox-and-triage) is enabled, use **Move some to inbox…**. Turn the status bar item off with **Show today's capacity in the status bar**.
+On desktop, the status bar shows `Today: 3h planned · 2h free`, with `· 1h over` added when planned time exceeds free time. On a day with no work hours it shows only `Today: 3h planned`. It is hidden when nothing is planned for today. Turn it off with **Show today's capacity in the status bar**.
 
-On mobile, where there is no status bar, use the **Show today's capacity** command to open the same popover.
+Click it to see today's tasks with their planned time, or open the Tasks base on its Today view with **Open today view**. When the [inbox](task-management.md#inbox-and-triage) is enabled, each task has a **Move to inbox** button. It sets the task's status to the inbox status and clears its scheduled date, and the popover updates with the new totals. The button is disabled for recurring tasks and for tasks whose due date is today, because those would still count today.
+
+On mobile, where there is no status bar, use the **Show today's capacity** command to open the same popover. If nothing is planned, it says "Nothing planned for today."
 
 ### Overbook notice
 
-When you schedule a task onto a day that is already full, TaskNotes shows a notice such as "Friday is now 1h over your available time." The notice appears when you change dates in the task modals, drag or resize a task in the calendar, set dates from the batch menu, or schedule tasks in triage. Dragging a task to span several days does not trigger it. It is shown at most once per day every 5 minutes, and never for changes made through the HTTP API, MCP or webhooks. Turn it off with **Warn when a day becomes overbooked**.
+When you schedule a task onto a day that is already full, TaskNotes shows a notice such as "Friday is now 1h over your available time." The notice appears when you change dates in the task modals, from a task's context menu or date pickers on a task card, by dragging a task into another date column in a Kanban board grouped by scheduled or due date, from the task action palette or the batch menu, by dragging or resizing a task in the calendar, or when you schedule tasks in triage. Dragging a task to span several days does not trigger it. It is not shown for days without work hours or for past days. It is shown at most once per day every 5 minutes, and never for changes made through the HTTP API, MCP or webhooks. Turn it off with **Warn when a day becomes overbooked**.
 
 ## Pomodoro Timer
 

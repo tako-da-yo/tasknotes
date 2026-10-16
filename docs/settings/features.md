@@ -44,11 +44,11 @@ Time tracking options handle completion behavior. You can automatically stop run
 Planning settings control [estimate calibration](../features/time-management.md#estimate-calibration) and [daily capacity](../features/time-management.md#daily-capacity).
 
 - **Work hours**: a start and end time for each weekday, used to work out how much time is free each day. The default is Monday to Friday, 09:00–17:00, with weekends off. Turn a day's toggle off to mark it as **Off**, with no free time. An end time of `00:00` means midnight at the end of the day.
-- **Calendars that make you busy**: which ICS subscriptions and enabled Google Calendar and Microsoft Outlook calendars reduce free time. All calendars count by default. This list only appears when at least one calendar is connected.
+- **Calendars that make you busy**: which ICS subscriptions and enabled Google Calendar and Microsoft Outlook calendars reduce free time. All calendars count by default; untick the ones that shouldn't. Calendars you connect later count as busy until you untick them. This list only appears when at least one calendar is connected.
 - **Count all-day events as busy**: off by default, so all-day events don't reduce free time.
 - **Default estimate for tasks without one (minutes)**: the planned time used for tasks with no time estimate. Leave it empty to show those tasks as unestimated instead.
-- **Show today's capacity in the status bar**: shows `Today: … planned · … free` in the desktop status bar. On by default.
-- **Warn when a day becomes overbooked**: shows a notice when you schedule a task onto a day that is already full. On by default.
+- **Show today's capacity in the status bar**: shows `Today: … planned · … free` in the desktop status bar, or `Today: … planned` on a day with no work hours. On by default.
+- **Warn when a day becomes overbooked**: shows a notice when you schedule a task onto a day that is already full. Days without work hours and past days are skipped. On by default.
 - **Estimate calibration window (days)**: how far back completed tasks are used for calibration, from 7 to 365 days. The default is 90.
 - **Use calibrated estimates for planning**: adjusts estimates by the calibration factor when adding up planned time. Task estimates themselves are not changed. On by default.
 
