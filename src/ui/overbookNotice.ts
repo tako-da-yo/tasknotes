@@ -15,6 +15,15 @@ export function datesTouched(before: Partial<TaskInfo>, after: Partial<TaskInfo>
 	return next && next !== pick(before) ? [next] : [];
 }
 
+/** datesTouched for a single-property change; only scheduled and due changes move a task. */
+export function datesTouchedByProperty(
+	property: string,
+	before: Partial<TaskInfo>,
+	after: Partial<TaskInfo>
+): string[] {
+	return property === "scheduled" || property === "due" ? datesTouched(before, after) : [];
+}
+
 export interface OverbookNotifierDeps {
 	getCapacity(date: string): Promise<DayCapacity>;
 	enabled(): boolean;

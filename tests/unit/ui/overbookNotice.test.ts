@@ -1,4 +1,4 @@
-import { OverbookNotifier, datesTouched } from "../../../src/ui/overbookNotice";
+import { OverbookNotifier, datesTouched, datesTouchedByProperty } from "../../../src/ui/overbookNotice";
 
 const cap = (over: number, hasWorkHours = true) => ({
 	date: "2026-10-16",
@@ -123,5 +123,13 @@ describe("datesTouched", () => {
 		).toEqual(["2026-10-16"]);
 		expect(datesTouched({}, { due: "2026-10-17" })).toEqual(["2026-10-17"]);
 		expect(datesTouched({ scheduled: "2026-10-15" }, { scheduled: "2026-10-15" })).toEqual([]);
+	});
+});
+
+describe("datesTouchedByProperty", () => {
+	it("only reports dates for scheduled and due changes", () => {
+		expect(datesTouchedByProperty("scheduled", {}, { scheduled: "2026-10-16" })).toEqual(["2026-10-16"]);
+		expect(datesTouchedByProperty("due", {}, { due: "2026-10-17" })).toEqual(["2026-10-17"]);
+		expect(datesTouchedByProperty("status", {}, { scheduled: "2026-10-16" })).toEqual([]);
 	});
 });

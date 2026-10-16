@@ -82,6 +82,7 @@ import {
 	shouldRenderKanbanColumn,
 } from "./kanbanGrouping";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
+import { datesTouchedByProperty } from "../ui/overbookNotice";
 import { processVaultFrontMatter } from "../services/VaultMutationService";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Bases/KanbanView" });
@@ -3831,6 +3832,14 @@ export class KanbanView extends BasesViewBase {
 									sideEffectPlan.newPropValue
 								);
 								sideEffectUpdatedTask = sideEffectPlan.updatedTask;
+								// Dropping into a date column reschedules the task.
+								void this.plugin.overbookNotifier?.check(
+									datesTouchedByProperty(
+										sideEffectPlan.changedTaskProp,
+										originalTask as TaskInfo,
+										sideEffectPlan.updatedTask
+									)
+								);
 							}
 						} catch (sideEffectError) {
 							sideEffectFailed = true;

@@ -49,7 +49,7 @@ import type { TriageService } from "./services/TriageService";
 import type { EstimateCalibrationService } from "./services/EstimateCalibrationService";
 import type { DayPlanService } from "./services/DayPlanService";
 import type { CapacityService } from "./services/CapacityService";
-import { datesTouched, type OverbookNotifier } from "./ui/overbookNotice";
+import { datesTouchedByProperty, type OverbookNotifier } from "./ui/overbookNotice";
 import type { ViewPerformanceService } from "./services/ViewPerformanceService";
 import { AutoArchiveService } from "./services/AutoArchiveService";
 import { ViewStateManager } from "./services/ViewStateManager";
@@ -1193,10 +1193,9 @@ export default class TaskNotesPlugin extends Plugin {
 				confirmClearInstances,
 			});
 
-			if ((property === "scheduled" || property === "due") && !cancelledByUser) {
-				// UI scheduling paths share this method; API, MCP and webhooks call TaskService directly.
-				void this.overbookNotifier?.check(datesTouched(task, updatedTask));
-			}
+			// UI scheduling paths share this method; API, MCP and webhooks call TaskService directly.
+			const touched = cancelledByUser ? [] : datesTouchedByProperty(property, task, updatedTask);
+			if (touched.length > 0) void this.overbookNotifier?.check(touched);
 
 			if (!options.silent && !cancelledByUser) {
 				if (property === "status") {
