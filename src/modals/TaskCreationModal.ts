@@ -26,6 +26,7 @@ import { shouldShowFilenameShortenedNotice } from "../utils/filenameGenerator";
 import { setTaskModalDetailsEditorValue } from "./taskModalDetailsEditor";
 import { collapseTaskModalDetailsLayout } from "./taskModalLayout";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
+import { datesTouched } from "../ui/overbookNotice";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Modals/TaskCreationModal" });
 export type { StatusSuggestion } from "./taskCreationSuggest";
@@ -657,6 +658,7 @@ export class TaskCreationModal extends TaskModal {
 				applyDefaults: false,
 			});
 			let createdTask = result.taskInfo;
+			void this.plugin.overbookNotifier?.check(datesTouched({}, createdTask));
 
 			if (
 				shouldShowFilenameShortenedNotice(

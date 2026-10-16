@@ -1,4 +1,4 @@
-import { MarkdownView, Platform, TFile, addIcon } from "obsidian";
+import { MarkdownView, Platform, TFile, addIcon, moment as obsidianMoment } from "obsidian";
 import { EditorView } from "@codemirror/view";
 import type TaskNotesPlugin from "../main";
 import {
@@ -64,6 +64,8 @@ import { isCalendarIntegrationDisabledOnMobile } from "../utils/calendarIntegrat
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { TASKNOTES_RUNTIME_LIFECYCLE_RAW_EVENTS } from "../api/runtime-api";
 import { showNotice } from "../ui/notifications";
+import { OverbookNotifier } from "../ui/overbookNotice";
+import { formatTime } from "../utils/helpers";
 import { EVENT_USER_NOTICE, type UserNoticePayload } from "../core/userNotices";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Bootstrap/PluginBootstrap" });
@@ -213,7 +215,25 @@ export async function initializeCoreServices(plugin: TaskNotesPlugin): Promise<v
 		calibratedMinutes: (t) => plugin.estimateCalibrationService.calibratedMinutes(t),
 		now: () => Date.now(),
 	});
+	plugin.overbookNotifier = new OverbookNotifier({
+		getCapacity: (date) => plugin.capacityService.getDayCapacity(date),
+		enabled: () => plugin.settings.planning.warnOnOverbook,
+		notify: (message) => showNotice(message),
+		now: () => Date.now(),
+		formatDay: (date) => weekdayName(date),
+		t: (key, params) => plugin.i18n.translate(key, params),
+		fmt: formatTime,
+	});
 	plugin.taskService.setAutoArchiveService(plugin.autoArchiveService);
+}
+
+/** Localized weekday name, e.g. "Friday", for a YYYY-MM-DD date. */
+function weekdayName(date: string): string {
+	const parse = obsidianMoment as unknown as (
+		input: string,
+		format: string
+	) => { format(pattern: string): string };
+	return parse(date, "YYYY-MM-DD").format("dddd");
 }
 
 function initializeDayPlanService(plugin: TaskNotesPlugin): void {

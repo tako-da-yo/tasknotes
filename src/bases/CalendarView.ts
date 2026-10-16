@@ -100,6 +100,7 @@ import { CALENDAR_END_TIME_MAX_HOUR, normalizeCalendarTimeValue } from "../utils
 import { filterEmptyProjects, sanitizeForCssClass } from "../utils/helpers";
 import { processVaultFrontMatter } from "../services/VaultMutationService";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
+import { datesTouched } from "../ui/overbookNotice";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Bases/CalendarView" });
 
@@ -2474,6 +2475,7 @@ export class CalendarView extends BasesViewBase {
 						plan.property,
 						plan.value
 					);
+					void this.plugin.overbookNotifier?.check(datesTouched(taskInfo, updatedTask));
 					await this.refreshAfterDirectCalendarTaskWrite(updatedTask);
 				} else if (plan.kind === "update-scheduled-due-span") {
 					const spanFile = this.plugin.app.vault.getAbstractFileByPath(taskInfo.path);
@@ -2651,6 +2653,8 @@ export class CalendarView extends BasesViewBase {
 				"timeEstimate",
 				plan.value
 			);
+			// A resize keeps the date but changes the load, so check the task's current day.
+			void this.plugin.overbookNotifier?.check(datesTouched({}, updatedTask));
 			await this.refreshAfterDirectCalendarTaskWrite(updatedTask);
 		} catch (error) {
 			tasknotesLogger.error("[TaskNotes][CalendarView] Error updating task duration:", {

@@ -9366,7 +9366,8 @@
     "capacity.openToday": null,
     "capacity.moveToInbox": null,
     "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null
+    "capacity.ariaLabel": null,
+    "capacity.overbooked": null
   },
   "es": {
     "common.appName": {
@@ -18735,7 +18736,8 @@
     "capacity.openToday": null,
     "capacity.moveToInbox": null,
     "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null
+    "capacity.ariaLabel": null,
+    "capacity.overbooked": null
   },
   "fr": {
     "common.appName": {
@@ -28104,7 +28106,8 @@
     "capacity.openToday": null,
     "capacity.moveToInbox": null,
     "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null
+    "capacity.ariaLabel": null,
+    "capacity.overbooked": null
   },
   "ja": {
     "common.appName": {
@@ -37473,7 +37476,8 @@
     "capacity.openToday": null,
     "capacity.moveToInbox": null,
     "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null
+    "capacity.ariaLabel": null,
+    "capacity.overbooked": null
   },
   "ko": {
     "common.appName": {
@@ -46842,7 +46846,8 @@
     "capacity.openToday": null,
     "capacity.moveToInbox": null,
     "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null
+    "capacity.ariaLabel": null,
+    "capacity.overbooked": null
   },
   "pt": {
     "common.appName": {
@@ -56211,7 +56216,8 @@
     "capacity.openToday": null,
     "capacity.moveToInbox": null,
     "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null
+    "capacity.ariaLabel": null,
+    "capacity.overbooked": null
   },
   "ru": {
     "common.appName": {
@@ -65580,7 +65586,8 @@
     "capacity.openToday": null,
     "capacity.moveToInbox": null,
     "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null
+    "capacity.ariaLabel": null,
+    "capacity.overbooked": null
   },
   "zh": {
     "common.appName": {
@@ -74949,6 +74956,7 @@
     "capacity.openToday": null,
     "capacity.moveToInbox": null,
     "capacity.moveToInboxHint": null,
-    "capacity.ariaLabel": null
+    "capacity.ariaLabel": null,
+    "capacity.overbooked": null
   }
 }

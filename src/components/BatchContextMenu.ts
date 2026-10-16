@@ -22,6 +22,7 @@ import {
 	removeTagsFromList,
 } from "../utils/taskTagList";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
+import { datesTouched } from "../ui/overbookNotice";
 import { runFreshStartFlow } from "../commands/freshStartFlow";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Components/BatchContextMenu" });
@@ -456,12 +457,14 @@ export class BatchContextMenu {
 
 			let successCount = 0;
 			let failCount = 0;
+			const touchedDates: string[] = [];
 
 			for (const path of selectedPaths) {
 				try {
 					const task = await plugin.cacheManager.getTaskInfo(path);
 					if (task) {
-						await plugin.taskService.updateProperty(task, property, value);
+						const updated = await plugin.taskService.updateProperty(task, property, value);
+						touchedDates.push(...datesTouched(task, updated));
 						successCount++;
 					} else {
 						failCount++;
@@ -481,6 +484,7 @@ export class BatchContextMenu {
 			} else {
 				new Notice(`Updated ${successCount} tasks, ${failCount} failed`);
 			}
+			void plugin.overbookNotifier?.check(touchedDates);
 
 			// Clear selection after successful batch operation
 			plugin.taskSelectionService?.clearSelection();

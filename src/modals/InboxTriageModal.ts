@@ -7,6 +7,7 @@ import type { TriageRevert } from "../services/TriageService";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { getTodayLocal } from "../utils/dateUtils";
 import { DateTimePickerModal } from "./DateTimePickerModal";
+import { datesTouched } from "../ui/overbookNotice";
 
 const logger = createTaskNotesLogger({ tag: "Modals/InboxTriage" });
 
@@ -207,6 +208,9 @@ export class InboxTriageModal extends Modal {
 			const revert = await this.plugin.triageService.applyAction(this.resolve(task), action);
 			this.undoStack.push({ task, revert });
 			this.session.record(task, action);
+			if (revert?.kind === "updates" && (action.kind === "today" || action.kind === "schedule")) {
+				void this.checkOverbook(task, revert.previous);
+			}
 		} catch (error) {
 			logger.error("Inbox triage action failed", {
 				category: "persistence",
@@ -219,6 +223,12 @@ export class InboxTriageModal extends Modal {
 			this.busy = false;
 			this.render();
 		}
+	}
+
+	private async checkOverbook(task: TaskInfo, previous: Partial<TaskInfo>): Promise<void> {
+		const updated = await this.plugin.cacheManager.getTaskInfo(task.path);
+		if (!updated) return;
+		await this.plugin.overbookNotifier?.check(datesTouched({ ...task, ...previous }, updated));
 	}
 
 	private async undoLast(): Promise<void> {

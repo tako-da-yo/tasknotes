@@ -19,6 +19,7 @@ import { buildTaskEditChangesFromModalState } from "./taskEditChangeState";
 import { buildTaskEditFormStateFromTask } from "./taskEditFormState";
 import { applyTaskEditSubtaskChanges, hasTaskEditSubtaskChanges } from "./taskEditSubtasks";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
+import { datesTouched } from "../ui/overbookNotice";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Modals/TaskEditModal" });
 
@@ -475,8 +476,10 @@ export class TaskEditModal extends TaskModal {
 			let updatedTask = this.task;
 
 			if (hasTaskChanges) {
-				updatedTask = await this.plugin.taskService.updateTask(this.task, changes);
+				const originalTask = this.task;
+				updatedTask = await this.plugin.taskService.updateTask(originalTask, changes);
 				this.task = updatedTask;
+				void this.plugin.overbookNotifier?.check(datesTouched(originalTask, updatedTask));
 				if (Object.prototype.hasOwnProperty.call(changes, "details")) {
 					const updatedDetails = stringifyUnknown(
 						(changes as Record<string, unknown>).details

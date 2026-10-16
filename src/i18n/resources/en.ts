@@ -3738,6 +3738,7 @@ export const en: TranslationTree = {
 		moveToInbox: "Move some to inbox…",
 		moveToInboxHint: "Select tasks, then use fresh start selected or set their status to inbox.",
 		ariaLabel: "Today's capacity",
+		overbooked: "{day} is now {over} over your available time.",
 	},
 };
 
