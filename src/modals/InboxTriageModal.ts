@@ -134,6 +134,10 @@ export class InboxTriageModal extends Modal {
 	/** Latest saved version of queued tasks edited during this session, keyed by the queued object. */
 	private readonly edited = new Map<TaskInfo, TaskInfo>();
 	private busy = false;
+	/** Announces progress and the summary; created once so screen readers keep tracking it. */
+	private liveRegion!: HTMLElement;
+	/** Re-rendered part of the modal, below the heading and the live region. */
+	private bodyEl!: HTMLElement;
 
 	constructor(
 		app: App,
@@ -147,6 +151,11 @@ export class InboxTriageModal extends Modal {
 		this.modalEl.addClass("tn-triage-modal");
 		// null modifiers: also receive Shift+digit (AZERTY); keyToAction rejects Ctrl/Meta/Alt.
 		this.scope.register(null, null, (evt) => this.onKey(evt));
+		const { contentEl } = this;
+		contentEl.empty();
+		new Setting(contentEl).setName(this.t("modals.inboxTriage.title")).setHeading();
+		this.liveRegion = contentEl.createDiv({ attr: { "aria-live": "polite" } });
+		this.bodyEl = contentEl.createDiv();
 		this.render();
 	}
 
@@ -251,21 +260,24 @@ export class InboxTriageModal extends Modal {
 		});
 	}
 
+	private setLiveText(cls: "tn-triage__progress" | "tn-triage__finished", text: string): void {
+		this.liveRegion.className = cls;
+		this.liveRegion.setText(text);
+	}
+
 	private render(): void {
-		const { contentEl } = this;
+		const contentEl = this.bodyEl;
 		contentEl.empty();
-		new Setting(contentEl).setName(this.t("modals.inboxTriage.title")).setHeading();
 
 		const queued = this.session.current();
 		if (!queued) return this.renderFinished();
 		const task = this.resolve(queued);
 
 		const { index, total } = this.session.position();
-		contentEl.createDiv({
-			cls: "tn-triage__progress",
-			text: this.t("modals.inboxTriage.progress", { current: index + 1, total }),
-			attr: { "aria-live": "polite" },
-		});
+		this.setLiveText(
+			"tn-triage__progress",
+			this.t("modals.inboxTriage.progress", { current: index + 1, total })
+		);
 		const card = contentEl.createDiv({ cls: "tn-triage__card" });
 		card.createDiv({ cls: "tn-triage__title", text: task.title });
 		if (task.details) {
@@ -321,7 +333,7 @@ export class InboxTriageModal extends Modal {
 	}
 
 	private renderSchedulePresets(task: TaskInfo): void {
-		const actions = this.contentEl.querySelector<HTMLElement>(".tn-triage__actions");
+		const actions = this.bodyEl.querySelector<HTMLElement>(".tn-triage__actions");
 		if (!actions) return;
 		actions.empty();
 		// Local calendar dates (formatDateForStorage would use the UTC calendar day).
@@ -357,15 +369,14 @@ export class InboxTriageModal extends Modal {
 	private renderFinished(): void {
 		const { sorted, skipped } = this.session.summary();
 		const total = this.session.position().total;
-		this.contentEl.createDiv({
-			cls: "tn-triage__finished",
-			text:
-				total === 0
-					? this.t("modals.inboxTriage.empty")
-					: this.t("modals.inboxTriage.finished", { sorted, skipped }),
-		});
+		this.setLiveText(
+			"tn-triage__finished",
+			total === 0
+				? this.t("modals.inboxTriage.empty")
+				: this.t("modals.inboxTriage.finished", { sorted, skipped })
+		);
 		if (total === 0) {
-			const btn = this.contentEl.createEl("button", {
+			const btn = this.bodyEl.createEl("button", {
 				cls: "mod-cta",
 				text: this.t("modals.inboxTriage.capture"),
 			});
@@ -374,7 +385,7 @@ export class InboxTriageModal extends Modal {
 				this.plugin.openTaskCreationModal();
 			});
 		} else if (this.undoStack.length) {
-			this.addUndoButton(this.contentEl.createDiv({ cls: "tn-triage__actions" }));
+			this.addUndoButton(this.bodyEl.createDiv({ cls: "tn-triage__actions" }));
 		}
 	}
 }
