@@ -53,6 +53,7 @@ import {
 	type CalendarTaskEventContext,
 } from "./calendarTaskEvents";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
+import { datesTouched } from "../ui/overbookNotice";
 import { collapseCompletedTaskEvents } from "./calendarCompletionMarkers";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Bases/CalendarCore" });
@@ -443,10 +444,16 @@ export async function handleRecurringTaskDrop(
 		}
 
 		// Update the scheduled field directly (manual reschedule of next occurrence)
-		await plugin.taskService.updateProperty(taskInfo, "scheduled", newDateString);
+		const updated = await plugin.taskService.updateProperty(
+			taskInfo,
+			"scheduled",
+			newDateString
+		);
 		new Notice("Rescheduled next occurrence. This does not change the recurrence pattern.");
+		void plugin.overbookNotifier?.check(datesTouched(taskInfo, updated));
 	} else if (isPatternInstance) {
-		// Dragging Pattern Instances: Updates DTSTART in RRULE and recalculates task.scheduled
+		// Dragging Pattern Instances: Updates DTSTART in RRULE and recalculates task.scheduled.
+		// Only the time of day changes, so no day gains an instance and no overbook check runs.
 		await handlePatternInstanceDrop(taskInfo, newStart, allDay, plugin);
 	} else if (isRecurringInstance) {
 		// Legacy support: Handle old-style recurring instances (time changes only)
@@ -464,6 +471,7 @@ export async function handleRecurringTaskDrop(
 			);
 		}
 
+		// Only the time changes (the date is kept), so no overbook check is needed.
 		await plugin.taskService.updateProperty(taskInfo, "scheduled", updatedScheduled);
 	}
 }
