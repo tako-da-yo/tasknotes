@@ -14,11 +14,11 @@ const opts = (o: Partial<CapacityOptions> = {}): CapacityOptions => ({
 	...o,
 });
 const taskItem = (est: number | undefined, tracked = 0, done = false): DayItem => ({
-	kind: "task", ref: `t${est}-${tracked}`, date: "2026-10-15", allDay: true, contexts: [], done,
+	kind: "task", ref: `t${est}-${tracked}`, date: "2026-10-15", allDay: true, contexts: [], done, trackedMinutes: tracked,
 	task: TaskFactory.createTask({ path: `t${est}-${tracked}`, timeEstimate: est, totalTrackedTime: tracked }),
 });
 const event = (start: string, end: string, extra: Partial<DayItem> = {}): DayItem => ({
-	kind: "event", ref: start, date: "2026-10-15", allDay: false, contexts: [], done: false, sourceId: "ics1",
+	kind: "event", ref: start, date: "2026-10-15", allDay: false, contexts: [], done: false, trackedMinutes: 0, sourceId: "ics1",
 	interval: { start: t(start), end: t(end) }, ...extra,
 });
 
@@ -66,6 +66,14 @@ describe("computeDayCapacity", () => {
 		const c = computeDayCapacity([taskItem(60, 20), taskItem(30, 90), taskItem(45, 0, true), taskItem(undefined)], opts());
 		expect(c.plannedMinutes).toBe(40);
 		expect(c.unestimatedCount).toBe(1);
+	});
+	it("subtracts only the instance's tracked time for a recurring task", () => {
+		const recurring: DayItem = {
+			...taskItem(30),
+			task: TaskFactory.createTask({ path: "r", recurrence: "FREQ=DAILY", timeEstimate: 30, totalTrackedTime: 300 }),
+			trackedMinutes: 0,
+		};
+		expect(computeDayCapacity([recurring], opts()).plannedMinutes).toBe(30);
 	});
 	it("uses defaultEstimate for unestimated tasks", () => {
 		const c = computeDayCapacity([taskItem(undefined)], opts({ planning: { ...planning, defaultEstimate: 25 } }));

@@ -1,4 +1,4 @@
-import type { CalendarResponseStatus, ICSEvent, TaskInfo, TimeBlock } from "../types";
+import type { CalendarResponseStatus, ICSEvent, TaskInfo, TimeBlock, TimeEntry } from "../types";
 import { clip, Interval, localDayBounds, localTime } from "./timeIntervals";
 
 export interface DayItem {
@@ -9,6 +9,9 @@ export interface DayItem {
 	allDay: boolean;
 	contexts: string[];
 	done: boolean;
+	// Minutes already tracked against this item: the date's time entries for a
+	// recurring instance, the task's lifetime total otherwise, 0 for non-tasks.
+	trackedMinutes: number;
 	task?: TaskInfo;
 	sourceId?: string;
 	responseStatus?: CalendarResponseStatus;
@@ -35,6 +38,26 @@ function nextDate(date: string): string {
 	return d.toISOString().slice(0, 10);
 }
 
+function entryMinutes(entry: TimeEntry, now: number): number {
+	const start = Date.parse(entry.startTime);
+	if (entry.endTime) {
+		const end = Date.parse(entry.endTime);
+		return Number.isNaN(start) || Number.isNaN(end) ? 0 : Math.max(0, end - start) / 60_000;
+	}
+	if (typeof entry.duration === "number") return Math.max(0, entry.duration);
+	return Number.isNaN(start) ? 0 : Math.max(0, now - start) / 60_000;
+}
+
+function trackedOnDate(task: TaskInfo, date: string, now: number): number {
+	const day = localDayBounds(date);
+	let minutes = 0;
+	for (const entry of task.timeEntries ?? []) {
+		const start = Date.parse(entry.startTime);
+		if (start >= day.start && start < day.end) minutes += entryMinutes(entry, now);
+	}
+	return Math.round(minutes);
+}
+
 function taskItem(task: TaskInfo, input: DayPlanInput): DayItem | null {
 	if (task.archived) return null;
 	const { date } = input;
@@ -57,7 +80,11 @@ function taskItem(task: TaskInfo, input: DayPlanInput): DayItem | null {
 		const start = localTime(date, time);
 		interval = { start, end: start + (task.timeEstimate || 30) * 60_000 };
 	}
-	return { kind: "task", ref: task.path, date, interval, allDay: !interval, contexts: task.contexts ?? [], done, task };
+	const trackedMinutes = task.recurrence ? trackedOnDate(task, date, input.now) : (task.totalTrackedTime ?? 0);
+	return {
+		kind: "task", ref: task.path, date, interval, allDay: !interval, contexts: task.contexts ?? [], done,
+		trackedMinutes, task,
+	};
 }
 
 function eventItem(event: ICSEvent, input: DayPlanInput): DayItem | null {
@@ -65,7 +92,7 @@ function eventItem(event: ICSEvent, input: DayPlanInput): DayItem | null {
 	const { date } = input;
 	const external = input.externalContextFor(event);
 	const base = {
-		kind: "event" as const, ref: event.id, date, contexts: external ? [external] : [],
+		kind: "event" as const, ref: event.id, date, contexts: external ? [external] : [], trackedMinutes: 0,
 		sourceId: event.subscriptionId, responseStatus: event.responseStatus,
 	};
 	if (event.allDay) {
@@ -89,7 +116,7 @@ function timeblockItem(tb: TimeBlock, input: DayPlanInput): DayItem {
 	const end = endsAtMidnight ? localDayBounds(input.date).end : localTime(input.date, tb.endTime);
 	const interval = { start, end };
 	return {
-		kind: "timeblock", ref: tb.id, date: input.date, interval, allDay: false,
+		kind: "timeblock", ref: tb.id, date: input.date, interval, allDay: false, trackedMinutes: 0,
 		contexts: tb.context ? [tb.context] : [], done: interval.end <= input.now,
 		attachments: (tb.attachments ?? []).map((l) => input.resolveAttachment(l)).filter((p): p is string => !!p),
 	};

@@ -59,7 +59,7 @@ export function computeDayCapacity(items: DayItem[], opts: CapacityOptions): Day
 			unestimatedCount++;
 			continue;
 		}
-		const minutes = Math.max(0, size.minutes - (item.task.totalTrackedTime ?? 0));
+		const minutes = Math.max(0, size.minutes - item.trackedMinutes);
 		plannedMinutes += minutes;
 		tasks.push({ path: item.task.path, minutes, calibrated: size.calibrated });
 	}
