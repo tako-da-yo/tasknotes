@@ -122,4 +122,15 @@ describe("TriageService", () => {
 		expect(await svc.runFreshStartFor([deps.store.get("a.md")!], false)).toBe(1);
 		expect(deps.store.get("b.md")!.scheduled).toBe("2026-10-01");
 	});
+	it("a run that changes nothing returns 0 and leaves the previous snapshot alone", async () => {
+		const deps = makeDeps([
+			TaskFactory.createTask({ path: "a.md", status: "open", due: "2026-10-01", scheduled: undefined }),
+		]);
+		const previous = { runAt: "2026-10-01T09:00:00.000Z", entries: [{ path: "old.md", before: {}, after: {} }] };
+		deps.settings.triageLastFreshStart = previous;
+		const svc = new TriageService(deps);
+		expect(await svc.runFreshStartFor([deps.store.get("a.md")!], false)).toBe(0);
+		expect(deps.settings.triageLastFreshStart).toBe(previous);
+		expect(deps.store.get("a.md")!.due).toBe("2026-10-01");
+	});
 });

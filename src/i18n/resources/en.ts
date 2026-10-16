@@ -2416,6 +2416,7 @@ export const en: TranslationTree = {
 		statsLoadingFailed: "Error loading project details.",
 		freshStart: {
 			done: "Fresh start: {count} tasks reset.",
+			nothingChanged: "Fresh start: no tasks needed resetting.",
 			undo: "Undo",
 			undone: "Fresh start undone: {restored} restored, {skipped} skipped because they changed.",
 			progress: "Resetting {done} of {total}…",

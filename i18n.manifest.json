@@ -1378,6 +1378,7 @@
   "notices.agendaLoadingFailed": "9e866955c967d91bcb00b272cd9ef2f4425fc9c8",
   "notices.statsLoadingFailed": "93b6f19b5b4d3aa2bc361e005ce439c3da3d8cfc",
   "notices.freshStart.done": "d7b386fb063e048918bc7a83164fd5e5dd4ba1ed",
+  "notices.freshStart.nothingChanged": "9bfee1277289fa500704dbf248c4f3fa7168af08",
   "notices.freshStart.undo": "39fc72124884d6573e4f9f89585f071ed0782696",
   "notices.freshStart.undone": "636c8ac2672a15bf61f040a51c9bc1892c358d6c",
   "notices.freshStart.progress": "02e0a01e81eb69baf92ca3361a3057dc4c47ad45",

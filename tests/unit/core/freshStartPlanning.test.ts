@@ -1,4 +1,5 @@
 import {
+	canConfirmFreshStart,
 	planFreshStart,
 	planFreshStartUndo,
 	previewFreshStart,
@@ -140,6 +141,22 @@ describe("planFreshStartUndo", () => {
 				{ path: "d.md", updates: { scheduled: "2026-10-10", due: "2026-10-12T15:00" } },
 			],
 			skipped: 0,
+		});
+	});
+
+	describe("canConfirmFreshStart", () => {
+		it("allows confirm when past scheduled dates will be cleared", () => {
+			expect(canConfirmFreshStart({ scheduledCount: 1, dueCount: 0, total: 1 }, false)).toBe(true);
+		});
+
+		it("blocks confirm for due-only overdue tasks until clearing due dates is on", () => {
+			const dueOnly = { scheduledCount: 0, dueCount: 2, total: 2 };
+			expect(canConfirmFreshStart(dueOnly, false)).toBe(false);
+			expect(canConfirmFreshStart(dueOnly, true)).toBe(true);
+		});
+
+		it("blocks confirm when nothing is overdue", () => {
+			expect(canConfirmFreshStart({ scheduledCount: 0, dueCount: 0, total: 0 }, true)).toBe(false);
 		});
 	});
 });

@@ -91,6 +91,12 @@ async function freshStart(plugin: TaskNotesPlugin, tasks?: TaskInfo[]): Promise<
 		progress?.hide();
 	}
 
+	// Nothing changed and no snapshot was written: an Undo link here would revert an older run.
+	if (count === 0) {
+		new Notice(t("notices.freshStart.nothingChanged"));
+		return;
+	}
+
 	const notice = new Notice("", DONE_NOTICE_MS);
 	notice.messageEl.empty();
 	notice.messageEl.createSpan({ text: `${t("notices.freshStart.done", { count })} ` });

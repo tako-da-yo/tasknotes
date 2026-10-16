@@ -43,6 +43,11 @@ export function previewFreshStart(
 	return { scheduledCount, dueCount, total };
 }
 
+/** True when confirming would change at least one task (due-only tasks need clearDue). */
+export function canConfirmFreshStart(preview: FreshStartPreview, clearDue: boolean): boolean {
+	return preview.scheduledCount > 0 || (clearDue && preview.dueCount > 0);
+}
+
 export function planFreshStart(
 	tasks: TaskInfo[],
 	opts: FreshStartOptions

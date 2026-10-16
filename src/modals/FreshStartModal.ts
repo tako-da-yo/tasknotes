@@ -1,5 +1,5 @@
-import { App, Modal, Setting } from "obsidian";
-import type { FreshStartPreview } from "../core/freshStartPlanning";
+import { App, Modal, Setting, type ButtonComponent } from "obsidian";
+import { canConfirmFreshStart, type FreshStartPreview } from "../core/freshStartPlanning";
 
 export interface FreshStartModalResult {
 	confirmed: boolean;
@@ -13,6 +13,7 @@ export class FreshStartModal extends Modal {
 	private resolve: ((result: FreshStartModalResult) => void) | null = null;
 	private clearDue = false;
 	private settled = false;
+	private confirmButton: ButtonComponent | null = null;
 
 	constructor(
 		app: App,
@@ -58,6 +59,7 @@ export class FreshStartModal extends Modal {
 				.addToggle((toggle) =>
 					toggle.setValue(false).onChange((value) => {
 						this.clearDue = value;
+						this.updateConfirm();
 					})
 				);
 		}
@@ -66,12 +68,20 @@ export class FreshStartModal extends Modal {
 			.addButton((button) =>
 				button.setButtonText(this.t("common.cancel")).onClick(() => this.finish(false))
 			)
-			.addButton((button) =>
-				button
+			.addButton((button) => {
+				this.confirmButton = button
 					.setCta()
 					.setButtonText(this.t("modals.freshStart.confirm"))
-					.onClick(() => this.finish(true))
-			);
+					.onClick(() => {
+						if (canConfirmFreshStart(this.preview, this.clearDue)) this.finish(true);
+					});
+			});
+		this.updateConfirm();
+	}
+
+	/** Due-only selections change nothing unless "clear due" is on, so confirm stays disabled. */
+	private updateConfirm(): void {
+		this.confirmButton?.setDisabled(!canConfirmFreshStart(this.preview, this.clearDue));
 	}
 
 	private finish(confirmed: boolean): void {
