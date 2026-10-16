@@ -104,8 +104,11 @@ export function createEnergyPanelDeps(plugin: TaskNotesPlugin): EnergyPanelDeps 
 	};
 
 	if (plugin.capacityService) {
+		// The capacity text reads "Today: …", so it is only shown on today's panel.
 		deps.getCapacityLine = async (date) =>
-			capacityStatusText(await plugin.capacityService.getDayCapacity(date), t, formatTime);
+			date === getTodayString()
+				? capacityStatusText(await plugin.capacityService.getDayCapacity(date), t, formatTime)
+				: null;
 	}
 	return deps;
 }

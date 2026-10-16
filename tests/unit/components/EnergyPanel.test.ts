@@ -84,6 +84,16 @@ describe("EnergyPanel", () => {
 		expect(getDayEnergy).toHaveBeenLastCalledWith("2026-10-16");
 		expect(el.querySelector(".tn-energy-panel__date")?.textContent).toBe("2026-10-16");
 	});
+	it("lists drains first (most negative first), then sparks (largest first)", async () => {
+		const el = document.createElement("div");
+		const d = deps({
+			titleOf: (item) => item.ref,
+			getDayEnergy: async () => dayEnergy(40, 62, [contribution(20, "spark"), contribution(-15), contribution(5, "spark"), contribution(-30)]),
+		});
+		await new EnergyPanel(el, d, { date: "2026-10-15", navigable: false }).render();
+		const titles = [...el.querySelectorAll(".tn-energy-panel__effect-title")].map((b) => b.textContent);
+		expect(titles).toEqual(["e-30", "e-15", "e20", "e5"]);
+	});
 	it("opens an item when its title is clicked", async () => {
 		const el = document.createElement("div");
 		const d = deps();

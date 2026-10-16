@@ -140,8 +140,11 @@ export class EnergyPanel {
 			});
 		}
 
-		// 3. Biggest effects. `!== 0` also drops -0, so no "−0" is shown.
-		const effects = e.contributions.filter((c) => c.points !== 0).slice(0, MAX_EFFECTS);
+		// 3. Biggest effects: drains first (most negative first), then sparks (largest first).
+		// Zero-point items (including -0) are left out, so no "−0" is shown.
+		const drains = e.contributions.filter((c) => c.points < 0).sort((a, b) => a.points - b.points);
+		const sparks = e.contributions.filter((c) => c.points > 0).sort((a, b) => b.points - a.points);
+		const effects = [...drains, ...sparks].slice(0, MAX_EFFECTS);
 		if (effects.length) {
 			el.createDiv({ cls: "tn-energy-panel__heading", text: t("energy.panel.biggest") });
 			const list = el.createEl("ul", { cls: "tn-energy-panel__effects" });
