@@ -79,4 +79,9 @@ describe("computeDayCapacity", () => {
 		const c = computeDayCapacity([taskItem(undefined)], opts({ planning: { ...planning, defaultEstimate: 25 } }));
 		expect(c).toMatchObject({ plannedMinutes: 25, unestimatedCount: 0 });
 	});
+	it("treats a work end of 00:00 as the end of the day", () => {
+		const evening = (start: string) => ({ ...planning, workHours: planning.workHours.map((h, i) => (i === 4 ? { start, end: "00:00" } : h)) });
+		expect(computeDayCapacity([], opts({ planning: evening("18:00") })).availableMinutes).toBe(360);
+		expect(computeDayCapacity([], opts({ planning: evening("00:00") })).availableMinutes).toBe(0);
+	});
 });

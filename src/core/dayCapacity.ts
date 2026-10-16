@@ -1,7 +1,7 @@
 import type { TaskInfo } from "../types";
 import type { PlanningSettings } from "../types/settings";
 import type { DayItem } from "./dayPlan";
-import { clip, Interval, localTime, mergeIntervals, totalMinutes } from "./timeIntervals";
+import { clip, Interval, localDayBounds, localTime, mergeIntervals, totalMinutes } from "./timeIntervals";
 
 export interface DayCapacity {
 	date: string;
@@ -29,7 +29,11 @@ export function computeDayCapacity(items: DayItem[], opts: CapacityOptions): Day
 	const hours = opts.planning.workHours[weekday(opts.date)] ?? null;
 	let availableMinutes = 0;
 	if (hours) {
-		const window: Interval = { start: localTime(opts.date, hours.start), end: localTime(opts.date, hours.end) };
+		// An end of "00:00" means midnight at the end of the day, as for timeblocks.
+		const end = hours.end === "00:00" && hours.start !== "00:00"
+			? localDayBounds(opts.date).end
+			: localTime(opts.date, hours.end);
+		const window: Interval = { start: localTime(opts.date, hours.start), end };
 		window.start = Math.max(window.start, Math.min(opts.now, window.end));
 		if (window.end > window.start) {
 			const busySet = opts.planning.busyCalendars ? new Set(opts.planning.busyCalendars) : null;

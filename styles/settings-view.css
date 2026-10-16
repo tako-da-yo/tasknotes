@@ -1348,3 +1348,11 @@ body.is-mobile .tasknotes-plugin .tasknotes-settings__card-action-btn {
     padding: 4px;
     text-align: center;
 }
+
+.tasknotes-plugin .tn-planning-time {
+    width: 5rem;
+}
+
+.tasknotes-plugin .settings-view__input.is-invalid {
+    border-color: var(--text-error);
+}

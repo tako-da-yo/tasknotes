@@ -1843,6 +1843,18 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "d74f4732b69cfdb3869fd894f5e12377e4cb213d"
     },
+    "settings.features.planning.heading": null,
+    "settings.features.planning.workHours": null,
+    "settings.features.planning.workHoursDesc": null,
+    "settings.features.planning.dayOff": null,
+    "settings.features.planning.busyCalendars": null,
+    "settings.features.planning.allDayBusy": null,
+    "settings.features.planning.defaultEstimate": null,
+    "settings.features.planning.defaultEstimateDesc": null,
+    "settings.features.planning.showInStatusBar": null,
+    "settings.features.planning.warnOnOverbook": null,
+    "settings.features.planning.calibrationWindow": null,
+    "settings.features.planning.applyCalibration": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "f8d65c41fbeffee5100a9a76ed32a87e19dc15b4"
@@ -11190,6 +11202,18 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "c3e64df413e32592ecc7675f324c00b1d6509fb8"
     },
+    "settings.features.planning.heading": null,
+    "settings.features.planning.workHours": null,
+    "settings.features.planning.workHoursDesc": null,
+    "settings.features.planning.dayOff": null,
+    "settings.features.planning.busyCalendars": null,
+    "settings.features.planning.allDayBusy": null,
+    "settings.features.planning.defaultEstimate": null,
+    "settings.features.planning.defaultEstimateDesc": null,
+    "settings.features.planning.showInStatusBar": null,
+    "settings.features.planning.warnOnOverbook": null,
+    "settings.features.planning.calibrationWindow": null,
+    "settings.features.planning.applyCalibration": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "4c0ca3e381fd1cdee36c8fd640e48cb88a056469"
@@ -20537,6 +20561,18 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "7d2b7f718376114c2b29cb6daaf1f2f85aa29755"
     },
+    "settings.features.planning.heading": null,
+    "settings.features.planning.workHours": null,
+    "settings.features.planning.workHoursDesc": null,
+    "settings.features.planning.dayOff": null,
+    "settings.features.planning.busyCalendars": null,
+    "settings.features.planning.allDayBusy": null,
+    "settings.features.planning.defaultEstimate": null,
+    "settings.features.planning.defaultEstimateDesc": null,
+    "settings.features.planning.showInStatusBar": null,
+    "settings.features.planning.warnOnOverbook": null,
+    "settings.features.planning.calibrationWindow": null,
+    "settings.features.planning.applyCalibration": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "a5f7f40f1cc5116d99e65b8b4bd8dcb32682b8a8"
@@ -29884,6 +29920,18 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "f48211e0aa0a5d7652d1dc780018948bd188ed84"
     },
+    "settings.features.planning.heading": null,
+    "settings.features.planning.workHours": null,
+    "settings.features.planning.workHoursDesc": null,
+    "settings.features.planning.dayOff": null,
+    "settings.features.planning.busyCalendars": null,
+    "settings.features.planning.allDayBusy": null,
+    "settings.features.planning.defaultEstimate": null,
+    "settings.features.planning.defaultEstimateDesc": null,
+    "settings.features.planning.showInStatusBar": null,
+    "settings.features.planning.warnOnOverbook": null,
+    "settings.features.planning.calibrationWindow": null,
+    "settings.features.planning.applyCalibration": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "77c4460b544a9124d89441d892cbf8507bc65679"
@@ -39231,6 +39279,18 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "7fd20158cb9e082d5d2e7c5614e8580d69bebd89"
     },
+    "settings.features.planning.heading": null,
+    "settings.features.planning.workHours": null,
+    "settings.features.planning.workHoursDesc": null,
+    "settings.features.planning.dayOff": null,
+    "settings.features.planning.busyCalendars": null,
+    "settings.features.planning.allDayBusy": null,
+    "settings.features.planning.defaultEstimate": null,
+    "settings.features.planning.defaultEstimateDesc": null,
+    "settings.features.planning.showInStatusBar": null,
+    "settings.features.planning.warnOnOverbook": null,
+    "settings.features.planning.calibrationWindow": null,
+    "settings.features.planning.applyCalibration": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "bd0c59c5581b33718277f5170690b8224e7e0a48"
@@ -48578,6 +48638,18 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "3cc62a416bad4bfd6cee3a60d033d329281de4a5"
     },
+    "settings.features.planning.heading": null,
+    "settings.features.planning.workHours": null,
+    "settings.features.planning.workHoursDesc": null,
+    "settings.features.planning.dayOff": null,
+    "settings.features.planning.busyCalendars": null,
+    "settings.features.planning.allDayBusy": null,
+    "settings.features.planning.defaultEstimate": null,
+    "settings.features.planning.defaultEstimateDesc": null,
+    "settings.features.planning.showInStatusBar": null,
+    "settings.features.planning.warnOnOverbook": null,
+    "settings.features.planning.calibrationWindow": null,
+    "settings.features.planning.applyCalibration": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "9120379848b593a73daa93fbc3a6c021cf2a7266"
@@ -57925,6 +57997,18 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "8c277df3397f9bf062109245e1295363b772c0a6"
     },
+    "settings.features.planning.heading": null,
+    "settings.features.planning.workHours": null,
+    "settings.features.planning.workHoursDesc": null,
+    "settings.features.planning.dayOff": null,
+    "settings.features.planning.busyCalendars": null,
+    "settings.features.planning.allDayBusy": null,
+    "settings.features.planning.defaultEstimate": null,
+    "settings.features.planning.defaultEstimateDesc": null,
+    "settings.features.planning.showInStatusBar": null,
+    "settings.features.planning.warnOnOverbook": null,
+    "settings.features.planning.calibrationWindow": null,
+    "settings.features.planning.applyCalibration": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "2790d0e72f91ee2a7b5a2e462de03080d55bfa58"
@@ -67272,6 +67356,18 @@
       "source": "63187a98d5058a4f35fceb7272fdc082d047be7a",
       "translation": "0b3a4ad6acefa7ae6b1a8f38172727546f7b89f8"
     },
+    "settings.features.planning.heading": null,
+    "settings.features.planning.workHours": null,
+    "settings.features.planning.workHoursDesc": null,
+    "settings.features.planning.dayOff": null,
+    "settings.features.planning.busyCalendars": null,
+    "settings.features.planning.allDayBusy": null,
+    "settings.features.planning.defaultEstimate": null,
+    "settings.features.planning.defaultEstimateDesc": null,
+    "settings.features.planning.showInStatusBar": null,
+    "settings.features.planning.warnOnOverbook": null,
+    "settings.features.planning.calibrationWindow": null,
+    "settings.features.planning.applyCalibration": null,
     "settings.features.recurringSection.header": {
       "source": "55fca782e4e70a77c4ea8e0cde12fa8e34a66fd5",
       "translation": "a494fec9acc52ee5b25f67d1af09d93e12d7fc6b"
