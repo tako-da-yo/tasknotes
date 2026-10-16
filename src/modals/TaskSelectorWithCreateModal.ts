@@ -555,9 +555,12 @@ export class TaskSelectorWithCreateModal extends SuggestModal<TaskInfo> {
 		const defaults = this.options.creationDefaults;
 		if (!defaults) return taskData;
 
+		// An unset status is left to the capture rule; it must not wipe a default status.
+		const { status, ...parsedData } = taskData;
 		return {
 			...defaults,
-			...taskData,
+			...parsedData,
+			...(status !== undefined ? { status } : {}),
 			priority: parsed.priority || defaults.priority || taskData.priority,
 			projects: [...new Set([...(defaults.projects || []), ...(taskData.projects || [])])],
 			tags: [...new Set([...(defaults.tags || []), ...(taskData.tags || [])])],

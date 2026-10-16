@@ -7,7 +7,7 @@ jest.mock("../../../src/modals/taskCreationSuggest", () => ({
 }));
 
 describe("TaskSelectorWithCreateModal quick-create capture to inbox", () => {
-	function createModal(triage: Record<string, unknown>) {
+	function createModal(triage: Record<string, unknown>, creationDefaults?: Record<string, unknown>) {
 		MockObsidian.reset();
 		const mockApp = MockObsidian.createMockApp() as unknown as App;
 		const mockPlugin = {
@@ -33,7 +33,8 @@ describe("TaskSelectorWithCreateModal quick-create capture to inbox", () => {
 		};
 		return new TaskSelectorWithCreateModal(mockApp, mockPlugin as never, [], {
 			onResult: jest.fn(),
-		});
+			creationDefaults,
+		} as never);
 	}
 
 	it("leaves the status to the capture rule when the inbox is on", () => {
@@ -46,5 +47,14 @@ describe("TaskSelectorWithCreateModal quick-create capture to inbox", () => {
 		const modal = createModal({ inboxStatus: "", somedayStatus: "", captureToInbox: true });
 		const data = (modal as any).buildTaskDataFromParsed({ title: "Buy milk" });
 		expect(data.status).toBe("open");
+	});
+
+	it("keeps a status from the creation defaults when the inbox is on", () => {
+		const modal = createModal(
+			{ inboxStatus: "inbox", somedayStatus: "", captureToInbox: true },
+			{ status: "in-progress" }
+		);
+		const data = (modal as any).buildTaskDataFromParsed({ title: "Buy milk" });
+		expect(data.status).toBe("in-progress");
 	});
 });
