@@ -22,7 +22,7 @@ import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 import { sanitizeGeneratedLinkAlias, sanitizeLinkAliasText } from "../utils/linkAliasUtils";
 import { publishUserNotice } from "../core/userNotices";
 import { modifyVaultFile } from "./VaultMutationService";
-import { resolveCaptureStatus, TRIAGE_DISABLED } from "../core/captureStatus";
+import { isCaptureToInboxEnabled, TRIAGE_DISABLED } from "../core/captureStatus";
 
 const tasknotesLogger = createTaskNotesLogger({ tag: "Services/InstantTaskConvertService" });
 
@@ -627,7 +627,7 @@ export class InstantTaskConvertService {
 		// Apply task creation defaults if setting is enabled
 		let priority: string | undefined;
 		let status: string | undefined;
-		// Used when no status was parsed and the capture rule does not route the task to the inbox
+		// Status used when none was parsed and inbox capture is off
 		let fallbackStatus: string;
 		let dueDate: string | undefined;
 		let scheduledDate: string | undefined;
@@ -853,13 +853,13 @@ export class InstantTaskConvertService {
 			}
 		}
 
-		status = resolveCaptureStatus({
-			explicitStatus: status,
-			due: dueDate,
-			scheduled: scheduledDate,
-			defaultStatus: fallbackStatus,
-			triage: this.plugin.settings.triage ?? TRIAGE_DISABLED,
-		});
+		// With inbox capture on, leave an unparsed status unset so task creation applies the
+		// capture rule after creation-default dates are filled in.
+		if (!status) {
+			status = isCaptureToInboxEnabled(this.plugin.settings.triage ?? TRIAGE_DISABLED)
+				? undefined
+				: fallbackStatus;
+		}
 
 		// Create TaskCreationData object with all the data
 		const taskData: TaskCreationData = {
