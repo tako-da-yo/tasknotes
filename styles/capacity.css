@@ -45,6 +45,11 @@
     background: var(--background-modifier-hover);
 }
 
+.tn-capacity-popover .tn-capacity-popover__move-wrapper {
+    display: inline-flex;
+    flex-shrink: 0;
+}
+
 .tn-capacity-popover .tn-capacity-popover__move {
     flex-shrink: 0;
     font-size: var(--font-ui-smaller);

@@ -126,19 +126,27 @@ class CapacityModal extends Modal {
 
 	private renderMoveButton(rowEl: HTMLElement, task: TaskInfo): void {
 		const block = inboxMoveBlock(task, this.capacity.date);
+		if (block) {
+			const reason = this.t(
+				block === "due" ? "capacity.moveBlockedDue" : "capacity.moveBlockedRecurring"
+			);
+			// Disabled buttons get no hover events, so the tooltip sits on a wrapper. The
+			// button keeps its own name and carries the reason as its description.
+			const wrapper = rowEl.createSpan({ cls: "tn-capacity-popover__move-wrapper" });
+			setTooltip(wrapper, reason);
+			const disabled = wrapper.createEl("button", {
+				cls: "tn-capacity-popover__move",
+				text: this.t("capacity.moveRowToInbox"),
+				attr: { type: "button", "aria-description": reason },
+			});
+			disabled.disabled = true;
+			return;
+		}
 		const button = rowEl.createEl("button", {
 			cls: "tn-capacity-popover__move",
 			text: this.t("capacity.moveRowToInbox"),
 			attr: { type: "button" },
 		});
-		if (block) {
-			button.disabled = true;
-			setTooltip(
-				button,
-				this.t(block === "due" ? "capacity.moveBlockedDue" : "capacity.moveBlockedRecurring")
-			);
-			return;
-		}
 		button.addEventListener("click", () => {
 			button.disabled = true;
 			void this.moveToInbox(task);

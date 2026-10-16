@@ -15,6 +15,8 @@ const ROOT = 'E2E-Capacity';
 const ICS_PATH = `${ROOT}/capacity.ics`;
 const COMPLETED = [1, 2, 3, 4, 5].map((i) => `e2e-capacity-done-${i}`);
 const PLANNED = 'e2e-capacity-planned';
+const DUE_ONLY = 'e2e-capacity-due-only';
+const MOVABLE = 'e2e-capacity-movable';
 
 // The work window runs from now for up to 3 hours, with a 1-hour event inside it.
 const WINDOW_MINUTES = 180;
@@ -302,4 +304,80 @@ test('calibrated planned time and free time in the status bar and Stats view', a
   await expect(card.locator('.stats-view__estimate-headline')).toContainText('1.5×');
   await expect(card).toContainText('Estimate accuracy');
   await expect(card).toContainText('Median of 5 tasks, last 90 days');
+});
+
+test('move a task to the inbox from the capacity popover', async () => {
+  test.setTimeout(60000);
+  const p = page();
+  if (!originalSettings) {
+    originalSettings = await p.evaluate(() =>
+      JSON.stringify((window as any).app.plugins.plugins['tasknotes'].settings)
+    );
+  }
+  const today = await p.evaluate(() => {
+    const d = new Date();
+    const pad = (n: number) => String(n).padStart(2, '0');
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  });
+
+  // With the inbox set up, the popover offers Move to inbox per task. A task due today
+  // with no scheduled date can't leave today that way, so its button is disabled.
+  await p.evaluate(
+    async ({ root, dueOnly, movable, date }) => {
+      const obsidian = (window as any).app;
+      const plugin = obsidian.plugins.plugins['tasknotes'];
+      if (!plugin.statusManager.getStatusConfig('inbox')) {
+        plugin.settings.customStatuses = [
+          ...plugin.settings.customStatuses,
+          {
+            id: 'inbox', value: 'inbox', label: 'Inbox', color: '#8b5cf6', isCompleted: false,
+            excludeFromCycle: true, order: plugin.settings.customStatuses.length,
+            autoArchive: false, autoArchiveDelay: 5,
+          },
+        ];
+        plugin.statusManager.updateStatuses(plugin.settings.customStatuses);
+      }
+      plugin.settings.triage = { ...plugin.settings.triage, inboxStatus: 'inbox' };
+      plugin.settings.planning = { ...plugin.settings.planning, showInStatusBar: true };
+      await plugin.saveSettings();
+      if (!obsidian.vault.getAbstractFileByPath(root)) await obsidian.vault.createFolder(root);
+      const note = (name: string, dateLine: string) =>
+        ['---', `title: ${name}`, 'status: open', 'priority: normal', dateLine,
+          'timeEstimate: 30', 'tags:', '  - task', '---', ''].join('\n');
+      await obsidian.vault.create(`${root}/${movable}.md`, note(movable, `scheduled: ${date}`));
+      await obsidian.vault.create(`${root}/${dueOnly}.md`, note(dueOnly, `due: ${date}`));
+    },
+    { root: ROOT, dueOnly: DUE_ONLY, movable: MOVABLE, date: today }
+  );
+  await expect
+    .poll(() =>
+      p.evaluate(async ({ date, paths }) => {
+        const plugin = (window as any).app.plugins.plugins['tasknotes'];
+        plugin.dayPlanService.invalidate();
+        const c = await plugin.capacityService.getDayCapacity(date);
+        return paths.filter((path: string) => c.tasks.some((t: any) => t.path === path)).length;
+      }, { date: today, paths: [`${ROOT}/${MOVABLE}.md`, `${ROOT}/${DUE_ONLY}.md`] })
+    )
+    .toBe(2);
+
+  const status = p.locator('.tn-capacity-status');
+  await expect(status).toBeVisible({ timeout: 15000 });
+  await status.click();
+  const popover = p.locator('.tn-capacity-popover');
+  await expect(popover).toBeVisible({ timeout: 10000 });
+  const movableRow = popover.locator('.tn-capacity-popover__row', { hasText: MOVABLE });
+  const dueRow = popover.locator('.tn-capacity-popover__row', { hasText: DUE_ONLY });
+  await expect(movableRow.getByRole('button', { name: 'Move to inbox' })).toBeEnabled();
+  await expect(dueRow.getByRole('button', { name: 'Move to inbox' })).toBeDisabled();
+
+  await movableRow.getByRole('button', { name: 'Move to inbox' }).click();
+  await expect(movableRow).toHaveCount(0, { timeout: 10000 });
+  await expect(dueRow).toHaveCount(1);
+  const moved = await p.evaluate((path) => {
+    const plugin = (window as any).app.plugins.plugins['tasknotes'];
+    const task = plugin.cacheManager.getCachedTaskInfoSync(path);
+    return { status: task?.status, scheduled: task?.scheduled ?? null };
+  }, `${ROOT}/${MOVABLE}.md`);
+  expect(moved).toEqual({ status: 'inbox', scheduled: null });
+  await p.keyboard.press('Escape');
 });
