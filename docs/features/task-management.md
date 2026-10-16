@@ -167,13 +167,15 @@ The inbox is an optional status for tasks you have captured but not yet decided 
 
 Open **Settings → Task properties**, expand the **Status** card and find the **Inbox** card under the status values. Select **Enable inbox**. TaskNotes adds an `inbox` status and a `someday` status if they don't exist yet, and selects them as the **Inbox status** and **Someday status**. You can also pick any existing status in either dropdown. Leaving **Someday status** set to **None** hides the Someday action.
 
+If you delete a status that is selected as the inbox or someday status, the setting is kept but the dropdown shows it as missing. A missing inbox status turns the inbox off, so new tasks get the **Default status**, and a missing someday status hides the Someday action. Select another status, or add the status back, to fix it.
+
 To add the Inbox and Someday views to your task base, use **Update default files** in **Settings → General** afterwards.
 
 ### Capture to inbox
 
-With **Capture to inbox** on (the default once an inbox status is set), a new task goes to the inbox when it has no status and no due or scheduled date. This applies to tasks created from the task creation modal, quick-create in the task selector and inline checkbox conversion. A task you give a status or a date keeps it. Tasks created through the HTTP API, MCP or the CLI are not affected.
+With **Capture to inbox** on (the default once an inbox status is set), a new task goes to the inbox when it has no status and no due or scheduled date. This applies to tasks created from the task creation modal, quick-create in the task selector and inline checkbox conversion. It also applies to tasks created with `POST /api/tasks` or `TaskNotesAPI.createTask` when the request has no status. A task you give a status or a date keeps it. `POST /api/nlp/create`, MCP and the CLI fill in the **Default status**, so their tasks do not go to the inbox.
 
-The **Default scheduled date** and **Default due date** settings count as real dates. If either is set to anything other than **None**, new tasks get that date and skip the inbox. In that case the Inbox card shows a note and a **Set to none** button that sets those defaults to **None**.
+The **Default scheduled date** and **Default due date** settings count as real dates. If either is set to anything other than **None**, new tasks get that date and skip the inbox. While **Capture to inbox** is on, the Inbox card then shows a note and a **Set to none** button that sets those defaults to **None**.
 
 ### Triage inbox
 

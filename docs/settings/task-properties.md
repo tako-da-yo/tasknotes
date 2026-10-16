@@ -64,12 +64,12 @@ Use the **Value** field as the stable stored identifier and the **Label** field 
 
 The **Inbox** card under the status values turns on the optional inbox used by the **Triage inbox** and **Fresh start** commands. See [Inbox and triage](../features/task-management.md#inbox-and-triage).
 
-- **Enable inbox**: Adds `inbox` and `someday` statuses if they are missing and selects them below. Shown until an inbox status is set.
-- **Inbox status**: The status that marks a task as being in the inbox. **None** turns the inbox off.
-- **Someday status**: The status used by the triage **Someday** action. **None** hides that action.
+- **Enable inbox**: Adds `inbox` and `someday` statuses if they are missing and selects them below. Shown until an existing inbox status is set.
+- **Inbox status**: The status that marks a task as being in the inbox. **None** turns the inbox off. A selected status that has since been deleted is shown as missing and also turns the inbox off.
+- **Someday status**: The status used by the triage **Someday** action. **None**, or a deleted status shown as missing, hides that action.
 - **Capture to inbox**: When on, new tasks with no status and no due or scheduled date get the inbox status. On by default.
 
-If **Default scheduled date** or **Default due date** is not **None**, new tasks always get a date and skip the inbox. The card then shows a note and a **Set to none** button that sets those defaults to **None**.
+If **Default scheduled date** or **Default due date** is not **None**, new tasks always get a date and skip the inbox. While **Capture to inbox** is on, the card then shows a note and a **Set to none** button that sets those defaults to **None**.
 
 #### Boolean Status Values
 
