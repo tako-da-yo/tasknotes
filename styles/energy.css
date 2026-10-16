@@ -199,3 +199,8 @@ body {
 	color: var(--text-error);
 	font-size: var(--font-ui-small);
 }
+
+.tn-energy-suggest-modal__date {
+	display: block;
+	color: var(--text-muted);
+}

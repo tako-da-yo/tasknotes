@@ -4,11 +4,12 @@ import type TaskNotesPlugin from "../main";
 import type { EnergyPanelDeps } from "../components/EnergyPanel";
 import type { DayItem } from "../core/dayPlan";
 import type { TaskInfo } from "../types";
-import { EnergyTaskSuggestModal } from "../modals/EnergyTaskSuggestModal";
+import { DateTimePickerModal } from "../modals/DateTimePickerModal";
+import { EnergyRescheduleModal, EnergyTaskSuggestModal, drainRescheduleOptions } from "../modals/EnergyTaskSuggestModal";
 import { capacityStatusText } from "../ui/capacityText";
 import { showNotice } from "../ui/notifications";
 import { resolveContext } from "../utils/contextColors";
-import { getTodayString } from "../utils/dateUtils";
+import { getTodayLocal, getTodayString } from "../utils/dateUtils";
 import { formatTime } from "../utils/helpers";
 import { createTaskNotesLogger } from "../utils/tasknotesLogger";
 
@@ -34,6 +35,34 @@ function logActionError(op: string, error: unknown): void {
 	tasknotesLogger.error("Energy panel action failed", { category: "internal", operation: op, error });
 }
 
+function scheduleDrain(plugin: TaskNotesPlugin, task: TaskInfo, date: string): void {
+	// updateTaskProperty shows the overbook notice; the panel re-renders on the change.
+	plugin
+		.updateTaskProperty(task, "scheduled", date)
+		.catch((error) => logActionError("energy-panel-move-drain", error));
+}
+
+/** After a drain task is picked: move it with a Schedule preset or a picked date. */
+function chooseDrainDate(plugin: TaskNotesPlugin, task: TaskInfo, fromDate: string, t: (key: string, params?: Record<string, string | number>) => string): void {
+	// Local calendar dates, as in triage.
+	const options = drainRescheduleOptions(getTodayLocal(), fromDate, t);
+	new EnergyRescheduleModal(plugin.app, options, t("energy.panel.moveTo", { title: task.title }), (option) => {
+		if (option.date) {
+			scheduleDrain(plugin, task, option.date);
+			return;
+		}
+		new DateTimePickerModal(plugin.app, {
+			currentDate: null,
+			dateRole: "scheduled",
+			showTime: false,
+			plugin,
+			onSelect: (date) => {
+				if (date) scheduleDrain(plugin, task, date);
+			},
+		}).open();
+	}).open();
+}
+
 export function createEnergyPanelDeps(plugin: TaskNotesPlugin): EnergyPanelDeps {
 	const t = (key: string, params?: Record<string, string | number>) =>
 		plugin.i18n.translate(key, params);
@@ -49,7 +78,7 @@ export function createEnergyPanelDeps(plugin: TaskNotesPlugin): EnergyPanelDeps 
 					: plugin.openBasesFileForCommand("open-advanced-calendar-view");
 			open.catch((error) => logActionError("energy-panel-open-item", error));
 		},
-		showDrainTasks: (_date, contributions) => {
+		showDrainTasks: (date, contributions) => {
 			const seen = new Set<string>();
 			const tasks: TaskInfo[] = [];
 			for (const c of contributions) {
@@ -63,11 +92,9 @@ export function createEnergyPanelDeps(plugin: TaskNotesPlugin): EnergyPanelDeps 
 				showNotice(t("energy.panel.noDrains"));
 				return;
 			}
-			new EnergyTaskSuggestModal(plugin.app, tasks, t("energy.panel.drainsPlaceholder"), (task) => {
-				plugin.openTaskEditModal(task).catch((error) =>
-					logActionError("energy-panel-open-drain", error)
-				);
-			}).open();
+			new EnergyTaskSuggestModal(plugin.app, tasks, t("energy.panel.drainsPlaceholder"), (task) =>
+				chooseDrainDate(plugin, task, date, t)
+			).open();
 		},
 		findSpark: (date) => {
 			const tasks = plugin.cacheManager
