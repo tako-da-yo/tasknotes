@@ -307,8 +307,8 @@ Size is the multiplier: an item's impact is its energy weight times its duration
 
 | Item | Size |
 |---|---|
-| Open task | Remaining estimate as in B4, using calibrated minutes when `calibration.applyToPlanning` is on. With no estimate, use `planning.defaultEstimate`, else 30 min. Assumed sizes are counted and shown ("2 items sized by default"). |
-| Completed task | Tracked time if there is any, otherwise its estimate |
+| Open task | Two parts. Time tracked on that date counts as already spent: it is included in "now" and in "projected". The remaining estimate, as in B4 (calibrated when `calibration.applyToPlanning` is on), counts as still planned, in "projected" only. With no estimate, use `planning.defaultEstimate`, else 30 min, less any time tracked; these are counted and shown as sized by default. |
+| Completed task | Time tracked on that date. If the task was never tracked at all, its estimate (or the default size). If it was tracked only on other days, it adds nothing that day. |
 | Timed event or timeblock | Its duration. It is **not** clipped to work hours: an evening event drains or sparks too. |
 | All-day event | Counted only if its context is Spark or Drain, as `energy.allDayMinutes` (default 240). Otherwise ignored. |
 
@@ -400,7 +400,7 @@ date: 2026-10-15
 
 The code block is cheap because it reuses the panel component, so it is in scope for v1.
 
-**Status bar:** when capacity is shown (B5), a battery glyph and the projected level are added to the same item, e.g. `🔋40% · 4h 10m planned · 3h 20m free`. The popover shows the gauge from item 1.
+**Status bar:** the item is controlled by the one setting "Show today's capacity and battery in the status bar" (B5). When energy is active, a battery glyph and the projected level are added to it, e.g. `🔋40% · 4h 10m planned · 3h 20m free`. If there is no capacity text, the battery shows alone. The popover shows the gauge from item 1. Events and timeblocks count as done by the current time, not by when the day was last collected.
 
 ### C7. Out of scope for v1
 
