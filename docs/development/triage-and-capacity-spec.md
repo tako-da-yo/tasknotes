@@ -193,7 +193,7 @@ There is no availability concept today. `slotMinTime` and `slotMaxTime` only con
 | Setting | Default |
 |---|---|
 | `planning.workHours` | Mon–Fri 09:00–17:00, Sat/Sun off. One editable start/end pair per weekday, or "off". |
-| `planning.busyCalendars` | all enabled Google, Microsoft and ICS calendars. A per-calendar checklist. |
+| `planning.nonBusyCalendars` | `[]`. A per-calendar checklist; an unticked calendar is added here. Every other calendar counts as busy, including ones connected later. |
 | `planning.allDayEventsBusy` | `false`. All-day events are often holidays or reminders, so they are not counted by default. |
 | `planning.defaultEstimate` | `null`. If set, tasks without an estimate count as this many minutes. |
 | `planning.showInStatusBar` | `true` |
@@ -265,9 +265,9 @@ Tasks with no estimate use `defaultEstimate`, or are counted in `unestimatedCoun
 
 1. **Status bar item:** `Today: 4h 10m planned · 3h 20m free`. It is added in [StatusBarService.ts](../../src/ui/StatusBarService.ts) after the existing tracked-task and Pomodoro items.
    - When over capacity, the text gains "· 50m over". Accent colour is used as well as text, never colour alone.
-   - Clicking opens a popover listing the day's tasks with their minutes, marked "calibrated" where relevant, plus "Open Today view" and, if the inbox is enabled, "Move some to inbox…".
+   - Clicking opens a popover listing the day's tasks with their minutes, marked "calibrated" where relevant, plus "Open today view" (opens the Tasks base on its Today view). If the inbox is enabled, each task row also has a "Move to inbox" button: it clears the task's scheduled date and sets the inbox status, then the popover updates. The button is disabled for recurring tasks and for tasks due today, because moving them would not take them off the day.
    - When there is no data (no work hours today, or nothing planned), the item is hidden rather than showing zeros.
-2. **Warning on overbook:** when an action sets `scheduled` to a date that becomes over capacity (task modal save, calendar drag, batch menu, triage "Schedule…"), show one non-blocking notice: "Thursday is now 1h 30m over your available time." Notices are rate-limited to one per date every 5 minutes. The hook belongs in `TaskService` after a successful update of `scheduled` (or `due` with no `scheduled`). It must not fire for API, MCP or webhook-originated updates.
+2. **Warning on overbook:** when an action sets `scheduled` to a date that becomes over capacity (task modals, calendar drag and resize, Kanban date-column drops, context-menu and card date pickers via `plugin.updateTaskProperty`, the batch menu, triage "Schedule…"), show one non-blocking notice: "Thursday is now 1h 30m over your available time." Notices are rate-limited to one per date every 5 minutes. They are skipped for past days and days without work hours. The check is called from these UI entry points, not from `TaskService`, so it never fires for API, MCP or webhook-originated updates. Dragging a scheduled-to-due span in the calendar is a known gap.
 3. **Phase 2:** a load indicator on each day header in the calendar week view, and a `GET /api/capacity?date=` endpoint plus an MCP tool.
 
 ---
@@ -319,7 +319,7 @@ Size is the multiplier: an item's impact is its energy weight times its duration
 **Which items appear on a day:**
 - **Tasks:** the B4 rules (scheduled that day, due that day with no scheduled date, or a recurring instance that day). Overdue tasks are excluded.
 - **Completed tasks:** counted on their `completedDate`.
-- **External events:** come from all enabled calendars, not just the `planning.busyCalendars` used for capacity. Declined invitations never count.
+- **External events:** come from all enabled calendars, including those listed in `planning.nonBusyCalendars` for capacity. Declined invitations never count.
 
 ### C4. Battery model
 
