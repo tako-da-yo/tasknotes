@@ -891,6 +891,10 @@ export default class TaskNotesPlugin extends Plugin {
 		return this.workspaceNavigationService.activatePomodoroView();
 	}
 
+	async openEnergyView(date?: string) {
+		return this.workspaceNavigationService.activateEnergyView(date);
+	}
+
 	async activatePomodoroStatsView() {
 		return this.workspaceNavigationService.activatePomodoroStatsView();
 	}

@@ -652,8 +652,7 @@ export class CalendarView extends BasesViewBase {
 		this.energyIndicators = new CalendarEnergyIndicators({
 			energy,
 			t: (key, params) => this.plugin.i18n.translate(key, params),
-			// Task 6 adds the energy view; until then the glyph has no click action.
-			onClick: () => undefined,
+			onClick: (date) => void this.plugin.openEnergyView(date),
 		});
 		this.energyUnsubscribe = energy.onChange(() => this.refreshEnergyIndicators());
 	}

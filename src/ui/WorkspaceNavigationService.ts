@@ -8,6 +8,7 @@ import {
 import type TaskNotesPlugin from "../main";
 import {
 	AGENDA_VIEW_TYPE,
+	ENERGY_VIEW_TYPE,
 	POMODORO_STATS_VIEW_TYPE,
 	POMODORO_VIEW_TYPE,
 	STATS_VIEW_TYPE,
@@ -95,6 +96,32 @@ export class WorkspaceNavigationService {
 		}
 
 		return this.activateView(POMODORO_VIEW_TYPE);
+	}
+
+	/** Reveal (or create) the energy view in the right sidebar, optionally showing `date`. */
+	async activateEnergyView(date?: string): Promise<WorkspaceLeaf> {
+		let leaf = this.getLeafOfType(ENERGY_VIEW_TYPE);
+		if (!leaf) {
+			const sidebarLeaf = this.plugin.app.workspace.getRightLeaf(false);
+			if (!sidebarLeaf) return this.activateEnergyViewInTab(date);
+			leaf = sidebarLeaf;
+			await leaf.setViewState({ type: ENERGY_VIEW_TYPE, active: true });
+		}
+		await this.revealLeafReady(leaf);
+		await this.setEnergyViewDate(leaf, date);
+		return leaf as WorkspaceLeaf;
+	}
+
+	private async activateEnergyViewInTab(date?: string): Promise<WorkspaceLeaf> {
+		const leaf = await this.activateView(ENERGY_VIEW_TYPE);
+		await this.setEnergyViewDate(leaf, date);
+		return leaf;
+	}
+
+	private async setEnergyViewDate(leaf: WorkspaceLeafLike, date?: string): Promise<void> {
+		if (!date) return;
+		const view = leaf.view as { setDate?: (date: string) => Promise<void> } | undefined;
+		await view?.setDate?.(date);
 	}
 
 	async activatePomodoroStatsView(): Promise<WorkspaceLeaf> {

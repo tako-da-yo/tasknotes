@@ -2,6 +2,7 @@ import { MarkdownView, Platform, TFile, addIcon, moment as obsidianMoment } from
 import { EditorView } from "@codemirror/view";
 import type TaskNotesPlugin from "../main";
 import {
+	ENERGY_VIEW_TYPE,
 	EVENT_DATA_CHANGED,
 	EVENT_DATE_CHANGED,
 	EVENT_TASK_DELETED,
@@ -39,6 +40,9 @@ import { ViewPerformanceService } from "../services/ViewPerformanceService";
 import { PomodoroView } from "../views/PomodoroView";
 import { PomodoroStatsView } from "../views/PomodoroStatsView";
 import { StatsView } from "../views/StatsView";
+import { EnergyView } from "../views/EnergyView";
+import { renderEnergyCodeBlock } from "../ui/energyCodeBlock";
+import { createEnergyPanelDeps, dailyNoteDateFor } from "./energyPanelDeps";
 import { ReleaseNotesView, RELEASE_NOTES_VIEW_TYPE } from "../views/ReleaseNotesView";
 import { RELEASE_NOTES_BUNDLE, CURRENT_VERSION } from "../releaseNotes";
 import { createTaskLinkOverlay, dispatchTaskUpdate } from "../editor/TaskLinkOverlay";
@@ -501,6 +505,7 @@ function registerActiveViews(plugin: TaskNotesPlugin): void {
 	plugin.registerView(POMODORO_VIEW_TYPE, (leaf) => new PomodoroView(leaf, plugin));
 	plugin.registerView(POMODORO_STATS_VIEW_TYPE, (leaf) => new PomodoroStatsView(leaf, plugin));
 	plugin.registerView(STATS_VIEW_TYPE, (leaf) => new StatsView(leaf, plugin));
+	plugin.registerView(ENERGY_VIEW_TYPE, (leaf) => new EnergyView(leaf, plugin));
 	plugin.registerView(
 		RELEASE_NOTES_VIEW_TYPE,
 		(leaf) => new ReleaseNotesView(leaf, plugin, RELEASE_NOTES_BUNDLE, CURRENT_VERSION)
@@ -514,6 +519,13 @@ function registerEditorIntegrations(plugin: TaskNotesPlugin): void {
 	plugin.registerEditorExtension(createRelationshipsDecorations(plugin));
 	plugin.relationshipsReadingModeCleanup = setupRelationshipsReadingMode(plugin);
 	plugin.registerMarkdownPostProcessor(createReadingModeTaskLinkProcessor(plugin));
+	plugin.registerMarkdownCodeBlockProcessor("tasknotes-energy", (source, el, ctx) =>
+		renderEnergyCodeBlock(source, el, ctx, {
+			fallbackDate: dailyNoteDateFor(plugin, ctx.sourcePath) ?? getTodayString(),
+			deps: createEnergyPanelDeps(plugin),
+			onChange: (listener) => plugin.energyService.onChange(listener),
+		})
+	);
 }
 
 function startCalendarInitialization(source: string, initialize: () => Promise<void>): void {

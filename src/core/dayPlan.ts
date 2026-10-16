@@ -5,6 +5,7 @@ export interface DayItem {
 	kind: "task" | "event" | "timeblock";
 	ref: string;
 	date: string;
+	title?: string;
 	interval?: Interval;
 	allDay: boolean;
 	contexts: string[];
@@ -82,7 +83,7 @@ function taskItem(task: TaskInfo, input: DayPlanInput): DayItem | null {
 	}
 	const trackedMinutes = task.recurrence ? trackedOnDate(task, date, input.now) : (task.totalTrackedTime ?? 0);
 	return {
-		kind: "task", ref: task.path, date, interval, allDay: !interval, contexts: task.contexts ?? [], done,
+		kind: "task", ref: task.path, date, title: task.title, interval, allDay: !interval, contexts: task.contexts ?? [], done,
 		trackedMinutes, task,
 	};
 }
@@ -92,7 +93,7 @@ function eventItem(event: ICSEvent, input: DayPlanInput): DayItem | null {
 	const { date } = input;
 	const external = input.externalContextFor(event);
 	const base = {
-		kind: "event" as const, ref: event.id, date, contexts: external ? [external] : [], trackedMinutes: 0,
+		kind: "event" as const, ref: event.id, date, title: event.title, contexts: external ? [external] : [], trackedMinutes: 0,
 		sourceId: event.subscriptionId, responseStatus: event.responseStatus,
 	};
 	if (event.allDay) {
@@ -118,7 +119,7 @@ function timeblockItem(tb: TimeBlock, input: DayPlanInput): DayItem {
 	const end = endsAtMidnight ? localDayBounds(input.date).end : localTime(input.date, tb.endTime);
 	const interval = { start, end };
 	return {
-		kind: "timeblock", ref: tb.id, date: input.date, interval, allDay: false, trackedMinutes: 0,
+		kind: "timeblock", ref: tb.id, date: input.date, title: tb.title, interval, allDay: false, trackedMinutes: 0,
 		contexts: tb.context ? [tb.context] : [], done: interval.end <= input.now,
 		attachments: (tb.attachments ?? []).map((l) => input.resolveAttachment(l)).filter((p): p is string => !!p),
 	};

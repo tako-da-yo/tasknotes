@@ -57,6 +57,14 @@ describe("collectDayItems: tasks", () => {
 		}));
 		expect(items.map((i) => [i.kind, i.trackedMinutes])).toEqual([["task", 42], ["event", 0], ["timeblock", 0]]);
 	});
+	it("carries the task, event and timeblock title", () => {
+		const items = collectDayItems(input({
+			tasks: [TaskFactory.createTask({ path: "n.md", title: "Write report", scheduled: "2026-10-15" })],
+			events: [ev({ title: "Standup" })],
+			timeblocks: [{ id: "tb", title: "Focus", startTime: "09:00", endTime: "10:00" }],
+		}));
+		expect(items.map((i) => i.title)).toEqual(["Write report", "Standup", "Focus"]);
+	});
 });
 
 describe("collectDayItems: events", () => {

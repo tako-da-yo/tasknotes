@@ -80,3 +80,122 @@ body {
 	outline: 2px solid var(--interactive-accent);
 	outline-offset: 1px;
 }
+
+/* Energy panel (sidebar view and tasknotes-energy code block) */
+.tn-energy-panel {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-4-3);
+	padding: var(--size-4-2);
+}
+
+.tn-energy-panel__nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.tn-energy-gauge__bar {
+	position: relative;
+	height: 12px;
+	border-radius: var(--radius-s);
+	background: var(--background-modifier-border);
+	overflow: visible;
+}
+
+.tn-energy-gauge__fill {
+	height: 100%;
+	width: var(--tn-energy-level, 0%);
+	border-radius: var(--radius-s);
+	background: var(--tn-energy-ok);
+}
+
+.tn-energy-gauge.is-low .tn-energy-gauge__fill {
+	background: var(--tn-energy-low);
+}
+
+.tn-energy-gauge.is-high .tn-energy-gauge__fill {
+	background: var(--tn-energy-high);
+}
+
+.tn-energy-gauge__marker {
+	position: absolute;
+	top: -3px;
+	bottom: -3px;
+	width: 0;
+	left: clamp(0%, var(--tn-energy-level, 0%), 100%);
+	border-left: 2px dashed var(--text-normal);
+}
+
+.tn-energy-gauge__labels {
+	display: flex;
+	gap: var(--size-4-2);
+	margin-top: var(--size-2-3);
+	font-size: var(--font-ui-small);
+	color: var(--text-muted);
+}
+
+.tn-energy-panel__heading {
+	font-weight: var(--font-semibold);
+}
+
+.tn-energy-panel__effects {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tn-energy-panel__effect {
+	display: flex;
+	justify-content: space-between;
+	gap: var(--size-4-2);
+	padding: var(--size-2-2) 0;
+}
+
+.tn-energy-panel__effect-title {
+	all: unset;
+	cursor: pointer;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.tn-energy-panel__effect-title:focus-visible {
+	outline: 2px solid var(--interactive-accent);
+}
+
+.tn-energy-panel__effect--drain .tn-energy-panel__points {
+	color: var(--tn-energy-drain);
+}
+
+.tn-energy-panel__effect--spark .tn-energy-panel__points {
+	color: var(--tn-energy-spark);
+}
+
+.tn-energy-panel__note,
+.tn-energy-panel__capacity {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+
+.tn-energy-panel__low {
+	padding: var(--size-4-3);
+	border-radius: var(--radius-m);
+	background: var(--background-secondary);
+}
+
+.tn-energy-panel__low-title {
+	font-weight: var(--font-semibold);
+}
+
+.tn-energy-panel__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-4-2);
+	margin-top: var(--size-4-2);
+}
+
+.tn-energy-panel__error {
+	color: var(--text-error);
+	font-size: var(--font-ui-small);
+}

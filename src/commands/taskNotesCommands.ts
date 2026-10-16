@@ -88,6 +88,13 @@ export function createTaskNotesCommandDefinitions(
 			},
 		},
 		{
+			id: "open-energy-panel",
+			nameKey: "commands.openEnergyPanel",
+			callback: async (ctx) => {
+				await ctx.openEnergyView();
+			},
+		},
+		{
 			id: "open-statistics",
 			nameKey: "commands.openStatisticsView",
 			callback: async (ctx) => {
