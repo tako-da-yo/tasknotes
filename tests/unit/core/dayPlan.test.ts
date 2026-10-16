@@ -69,6 +69,11 @@ describe("collectDayItems: events", () => {
 		expect(collectDayItems(input({ events: [e] }))).toHaveLength(0);
 		expect(collectDayItems(input({ date: "2026-10-14", events: [e] }))).toHaveLength(1);
 	});
+	it("keeps an all-day event whose end equals its start on its start day", () => {
+		const e = ev({ allDay: true, start: "2026-10-15", end: "2026-10-15" });
+		expect(collectDayItems(input({ events: [e] }))).toEqual([expect.objectContaining({ kind: "event", allDay: true })]);
+		expect(collectDayItems(input({ date: "2026-10-16", events: [e] }))).toHaveLength(0);
+	});
 	it("keeps a timed event with no end as zero-length", () => {
 		const [item] = collectDayItems(input({ events: [ev({ start: "2026-10-15T10:00:00Z" })] }));
 		expect(item.interval).toEqual({ start: Date.parse("2026-10-15T10:00:00Z"), end: Date.parse("2026-10-15T10:00:00Z") });

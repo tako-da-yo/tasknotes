@@ -97,7 +97,9 @@ function eventItem(event: ICSEvent, input: DayPlanInput): DayItem | null {
 	};
 	if (event.allDay) {
 		const start = event.start.slice(0, 10);
-		const end = datePart(event.end) ?? nextDate(start);
+		// The end is exclusive; an end on (or before) the start still covers the start day.
+		const rawEnd = datePart(event.end);
+		const end = rawEnd && rawEnd > start ? rawEnd : nextDate(start);
 		if (!(start <= date && date < end)) return null;
 		return { ...base, allDay: true, done: localDayBounds(date).end <= input.now };
 	}
