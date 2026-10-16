@@ -39,6 +39,8 @@ There is no inbox concept today. The default statuses are `none`, `open`, `in-pr
 
 Existing vaults are left alone until the user presses the button. For new installs, the bootstrap starter could offer the button, but that is not required for v1.
 
+**Default dates block capture.** A date filled in by Task properties → **Default scheduled date** or **Default due date** counts as a real date, so the task does not go to the inbox. New installs default to no scheduled date. Existing vaults may still default to Today, which would stop every capture reaching the inbox. So when the inbox is enabled and either default is not None, the settings card shows a short note with a "Set to None" button. TaskNotes never changes that setting on its own.
+
 **Capture rule:** `captureToInbox` only changes the default status. It applies in `TaskCreationModal` and NLP quick capture, and to inline conversion when no status is given. A status typed in NLP text or chosen in the modal always wins. The HTTP API, MCP and CLI are unaffected unless they omit `status`; see open question Q1.
 
 ### A2. Default Bases views
@@ -241,7 +243,8 @@ interface DayCapacity {
    - Clip each event to the window.
    - **Merge overlapping intervals** before subtracting, so double-booked meetings are not counted twice.
    - Exclude all-day events unless `allDayEventsBusy` is on.
-   - Exclude events whose ICS/Google transparency is "free", if the event model exposes it (Q4).
+   - Exclude **declined** invitations (`ICSEvent.responseStatus === "declined"`, reported by Google and Microsoft). Unanswered (`needsAction`) and "maybe" (`tentative`) invitations count as busy, because it is safer to under-promise. ICS feeds report no response, so all their events count.
+   - Exclude events whose transparency is "free", if the event model exposes it (Q4).
 3. **Timeblocks do not reduce availability.** They are time set aside *for* tasks, so subtracting them would count the same work twice. See Q3.
 
 **Planned time:** incomplete, non-archived tasks that are either:
@@ -316,7 +319,7 @@ Size is the multiplier: an item's impact is its energy weight times its duration
 **Which items appear on a day:**
 - **Tasks:** the B4 rules (scheduled that day, due that day with no scheduled date, or a recurring instance that day). Overdue tasks are excluded.
 - **Completed tasks:** counted on their `completedDate`.
-- **External events:** come from all enabled calendars, not just the `planning.busyCalendars` used for capacity.
+- **External events:** come from all enabled calendars, not just the `planning.busyCalendars` used for capacity. Declined invitations never count.
 
 ### C4. Battery model
 
@@ -416,6 +419,7 @@ The code block is cheap because it reuses the panel component, so it is in scope
   - `docs/features/time-management.md`: calibration and capacity
   - `docs/settings/*`: the new settings
   - `docs/releases/unreleased.md`
+- **Date rollover:** TaskNotes fires `EVENT_DATE_CHANGED` at midnight, and also when the window regains focus after sleep. The day-plan cache invalidates on it, so the status bar, energy panel and calendar glyphs follow the new day. The calendar view already rebuilds itself on date change.
 - **Settings migration:** new keys get defaults through `settingsPersistence` merging. The feature stays off until `inboxStatus` is set or work hours are saved, which work hours default to.
 - **Accessibility:** the triage modal is fully keyboard-operable, with visible focus, buttons labelled with their shortcut key, and an aria-live progress line.
 - **Mobile:** the triage modal uses large tap targets, and shortcuts are optional. The status bar does not exist on mobile, so capacity there is reached through the command "Show today's capacity", which opens the same popover as a modal.
@@ -459,7 +463,7 @@ The code block is cheap because it reuses the panel component, so it is in scope
 - **Q1.** Should `captureToInbox` also apply to tasks created through the HTTP API, MCP or CLI without a status? Proposal: yes. Those are mostly quick-capture integrations too.
 - **Q2.** "Drop" archives the task. Should there also be an optional `droppedStatus`, so dropped and finished tasks can be told apart in stats? Proposal: no for v1, because archive is enough and can be undone.
 - **Q3.** Some users put non-task timeblocks (lunch, gym) in daily notes. Should a timeblock with no attachments count as busy? Proposal: add a per-timeblock "busy" flag later rather than guessing.
-- **Q4.** Does `ICSEvent` carry transparency/free-busy information from Google, Microsoft and ICS? If not, should we add it in the calendar services? This needs checking against `types.ts:833` and each provider's mapping.
+- **Q4.** `ICSEvent` now carries the user's own RSVP (`responseStatus`) from Google and Microsoft, which is used to drop declined invitations. It still carries no free/busy transparency: Google `transparency` and Microsoft `showAs` are not mapped. Should we map them so that "free" events stop counting as busy? Proposal: phase 2, as a small addition to the two provider mappers.
 - **Q5.** Should calibration only count time from tracked sessions, or also Pomodoro sessions that were not linked to time entries? Check whether Pomodoro sessions always produce `timeEntries`.
 - **Q6.** With Steady at 0, a 10-hour day of Steady work shows the battery at its baseline. Should Steady cost a little by default (e.g. 2 points per hour) so long days register? Proposal: keep 0 as designed, but expose the setting and mention it in the docs.
 - **Q7.** Should a single task be able to override its context's energy? For example, a "Work" task that is actually fun. Proposal: phase 2, as an optional `energy` frontmatter property that takes precedence over the context.
