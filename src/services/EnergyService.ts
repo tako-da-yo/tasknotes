@@ -10,6 +10,7 @@ export class EnergyService {
 		dayPlan: DayPlanService;
 		getSettings(): TaskNotesSettings;
 		calibratedMinutes(t: TaskInfo): number | null;
+		now(): number;
 	}) {}
 
 	isActive(): boolean {
@@ -33,8 +34,13 @@ export class EnergyService {
 		return this.deps.dayPlan.onChange(listener);
 	}
 
-	private compute(date: string, items: DayItem[]): DayEnergy {
+	private compute(date: string, collected: DayItem[]): DayEnergy {
 		const s = this.deps.getSettings();
+		// Day items can be cached; whether an event or timeblock is over depends on now.
+		const now = this.deps.now();
+		const items = collected.map((item) =>
+			item.kind !== "task" && item.interval ? { ...item, done: item.interval.end <= now } : item
+		);
 		return computeDayEnergy(items, {
 			date,
 			energy: s.energy,
@@ -42,7 +48,8 @@ export class EnergyService {
 			sizeOpenTask: (task) => {
 				if (!task.timeEstimate) return null;
 				const calibrated = s.calibration?.applyToPlanning ? this.deps.calibratedMinutes(task) : null;
-				return calibrated ?? task.timeEstimate;
+				// A calibrated 0 means no usable calibration, as for capacity.
+				return calibrated || task.timeEstimate;
 			},
 			defaultEstimate: s.planning?.defaultEstimate ?? null,
 		});

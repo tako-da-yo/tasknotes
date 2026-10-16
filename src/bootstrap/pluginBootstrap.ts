@@ -224,6 +224,7 @@ export async function initializeCoreServices(plugin: TaskNotesPlugin): Promise<v
 		dayPlan: plugin.dayPlanService,
 		getSettings: () => plugin.settings,
 		calibratedMinutes: (t) => plugin.estimateCalibrationService.calibratedMinutes(t),
+		now: () => Date.now(),
 	});
 	plugin.overbookNotifier = new OverbookNotifier({
 		getCapacity: (date) => plugin.capacityService.getDayCapacity(date),
